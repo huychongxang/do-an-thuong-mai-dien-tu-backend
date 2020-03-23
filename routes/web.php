@@ -12,15 +12,18 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route('admin.dashboard');
+    return redirect()->route('cms.dashboard');
 });
 
 Auth::routes();
 
 Route::group([
-    'prefix' => 'admin',
-    'as' => 'admin.',
+    'prefix' => 'cms',
+    'as' => 'cms.',
     'middleware' => ['auth']
 ], function () {
+    Route::get('/', function () {
+        return redirect()->route('cms.dashboard');
+    });
     Route::get('dashboard', 'Admin\DashboardController@index')->name('dashboard');
 });
