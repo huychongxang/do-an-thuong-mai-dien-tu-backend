@@ -19,9 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::name('admin.')->prefix('admin')->group(function () {
-    // Dashboard
-    Route::get('dashboard', [
-        'uses' => 'Admin\DashboardController@index'
-    ])->name('dashboard');
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('dashboard', 'Admin\DashboardController@index')->name('dashboard');
 });
