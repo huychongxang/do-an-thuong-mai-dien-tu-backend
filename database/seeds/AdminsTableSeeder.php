@@ -11,10 +11,13 @@ class AdminsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Admin::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('adminadmin')
-        ]);
+        $admin = \App\Models\Admin::where('email', 'admin@admin.com')->first();
+        if (!$admin) {
+            \App\Models\Admin::create([
+                'name' => 'admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('adminadmin')
+            ]);
+        }
     }
 }
