@@ -1,4 +1,5 @@
 <!-- REQUIRED SCRIPTS -->
-<script src="{{asset('admin/js/app.js')}}"></script>
+</div>
 </body>
+<script src="{{asset('admin/js/app.js')}}"></script>
 </html>
