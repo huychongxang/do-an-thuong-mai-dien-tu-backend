@@ -9,7 +9,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <form action="{{ route('login') }}" method="post">
+                <form action="{{ route('cms.login.post') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
@@ -58,15 +58,6 @@
                         <!-- /.col -->
                     </div>
                 </form>
-                @if (Route::has('password.request'))
-                    <p class="mb-1">
-                        <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
-                    </p>
-                @endif
-
-                <p class="mb-0">
-                    <a href="{{route('register')}}" class="text-center">{{ __('Register') }}</a>
-                </p>
             </div>
             <!-- /.login-card-body -->
         </div>
