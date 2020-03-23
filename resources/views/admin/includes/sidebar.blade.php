@@ -16,6 +16,11 @@
             </div>
             <div class="info">
                 <a href="#" class="d-block">Admin</a>
+
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
             </div>
         </div>
 
