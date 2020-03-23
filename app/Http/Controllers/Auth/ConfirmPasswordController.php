@@ -35,7 +35,6 @@ class ConfirmPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->redirectTo = route('admin.dashboard');
         $this->middleware('auth');
     }
 }
