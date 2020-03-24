@@ -5,6 +5,10 @@
  * Date: 23-Mar-20
  * Time: 2:21 PM
  */
+
+use App\Models\ProductCategory;
+use Yajra\DataTables\Facades\DataTables;
+
 Route::group([
     'prefix' => 'cms',
     'as' => 'cms.',
@@ -28,4 +32,8 @@ Route::group([
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::resource('product-categories','ProductCategoryController');
+});
+
+Route::get('/datatables',function(){
+    return Datatables::collection(ProductCategory::all())->make(true)->name('datatables');
 });

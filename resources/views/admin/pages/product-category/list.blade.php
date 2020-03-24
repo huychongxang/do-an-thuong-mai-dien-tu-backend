@@ -3,12 +3,18 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <table>
+            <table class="table table-bordered" id="users-table">
+                <thead>
                 <tr>
                     <th>Id</th>
+                    <th>Name</th>
                 </tr>
+                </thead>
             </table>
         </div>
     </div>
     <!-- /.row -->
+@endsection
+@section('scripts')
+
 @endsection
