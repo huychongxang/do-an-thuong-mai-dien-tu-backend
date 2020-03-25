@@ -17,8 +17,8 @@ class Authenticate extends Middleware
     {
         // Nếu chưa login mà truy cập vào route được bảo vệ bởi middleware 'auth'
         if (!$request->expectsJson()) {
-            if (Route::is('cms.*')) {
-                return route('cms.login');
+            if (Route::is(env('ADMIN_PATH') . '.*') || \Request::is(env('ADMIN_PATH') . '/*')) {
+                return route(env('ADMIN_PATH') . '.login');
             }
             return route('login');
         }
