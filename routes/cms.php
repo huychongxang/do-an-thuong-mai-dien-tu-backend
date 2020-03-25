@@ -10,12 +10,12 @@ use App\Models\ProductCategory;
 use Yajra\DataTables\Facades\DataTables;
 
 Route::group([
-    'prefix' => 'cms',
-    'as' => 'cms.',
+    'prefix' => env('ADMIN_PATH'),
+    'as' => env('ADMIN_PATH') . '.',
     'namespace' => 'Cms'
 ], function () {
     Route::get('/', function () {
-        return redirect()->route('cms.dashboard');
+        return redirect()->route(env('ADMIN_PATH') . '.dashboard');
     });
     Route::get('login', 'LoginController@showLoginForm')->name('login');
     Route::post('login', 'LoginController@login')->name('login.post');
@@ -24,16 +24,12 @@ Route::group([
 
 
 Route::group([
-    'prefix' => 'cms',
-    'as' => 'cms.',
+    'prefix' => env('ADMIN_PATH'),
+    'as' => env('ADMIN_PATH') . '.',
     'namespace' => 'Cms',
     'middleware' => ['auth:admin']
 ], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-    Route::resource('product-categories','ProductCategoryController');
-});
-
-Route::get('/datatables',function(){
-    return Datatables::collection(ProductCategory::all())->make(true)->name('datatables');
+    Route::resource('product-categories', 'ProductCategoryController');
 });

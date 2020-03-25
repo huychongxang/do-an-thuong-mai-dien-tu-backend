@@ -9,7 +9,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <form action="{{ route('cms.login.post') }}" method="post">
+                <form action="{{ route(env('ADMIN_PATH').'.login.post') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
