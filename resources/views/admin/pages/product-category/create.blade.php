@@ -11,7 +11,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter name">
+                    <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name"
+                           placeholder="Enter name">
+                    @if($errors->has('name'))
+                        <span class="error invalid-feedback">{{$errors->first('name')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="">Description</label>

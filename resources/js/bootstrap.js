@@ -13,6 +13,7 @@ try {
     require('bootstrap');
     require('admin-lte');
     require('bootstrap-toggle');
+    window.Swal = require('sweetalert2');
 } catch (e) {
 }
 

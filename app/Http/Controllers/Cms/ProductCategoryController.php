@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cms\ProductCategory\StoreRequest;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductCategoryController extends Controller
 {
@@ -35,9 +37,14 @@ class ProductCategoryController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $newProductCategory = ProductCategory::create($request->all());
+        if ($newProductCategory) {
+            alert()->success('Post Created', 'Successfully');
+        } else {
+            alert()->error('Post Created Fail', 'Something went wrong!');
+        }
         return redirect()->back();
     }
 
