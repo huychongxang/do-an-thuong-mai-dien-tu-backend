@@ -35,8 +35,8 @@ class ProductCategoryController extends Controller
                 return $html;
             })
             ->addColumn('action', function ($user) {
-                return '<a class="btn btn-success"><i class="fa fa-pen"></i> Edit</a> 
-                <a class="btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
+                return '<a class="btn btn-outline-success"><i class="fa fa-pen"></i> Edit</a> 
+                <a class="btn btn-outline-danger"><i class="fa fa-times"></i> Delete</a>';
             })
             ->rawColumns(['status', 'image', 'action'])
             ->make(true);
