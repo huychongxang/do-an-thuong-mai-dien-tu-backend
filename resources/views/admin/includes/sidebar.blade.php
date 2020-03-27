@@ -88,9 +88,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route(env('ADMIN_PATH').'.product-categories.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
+                                <p>Create Product Category</p>
                             </a>
                         </li>
                     </ul>

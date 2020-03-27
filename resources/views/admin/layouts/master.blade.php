@@ -1,7 +1,6 @@
 @include('admin.includes.header')
 @include('admin.includes.navbar')
 @include('admin.includes.sidebar')
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

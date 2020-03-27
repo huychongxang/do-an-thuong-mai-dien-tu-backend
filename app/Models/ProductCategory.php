@@ -75,4 +75,13 @@ class ProductCategory extends BaseModel
         $destination_path = 'product-category';
         $this->uploadFile($attribute_name, $disk, $destination_path, $value);
     }
+
+    public function setStatusAttribute($value)
+    {
+        if (strtolower($value) == 'on') {
+            $this->attributes['status'] = 1;
+        } else {
+            $this->attributes['status'] = 0;
+        }
+    }
 }

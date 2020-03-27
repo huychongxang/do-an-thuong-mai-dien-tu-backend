@@ -6,6 +6,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
+            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.product-categories.create')}}">Create</a>
+        </div>
+        <div class="col-lg-12">
             <table class="table table-bordered" id="users-table">
                 <thead>
                 <tr>

@@ -8,7 +8,9 @@
 
 namespace App\Models;
 
+use http\Env\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Image;
 
@@ -20,7 +22,7 @@ class BaseModel extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    protected function uploadFile($_attributeName, $_disk = 'store', $_destinationPath, $_value, $_saveWithFullPath = true)
+    protected function uploadImageBase64($_attributeName, $_disk = 'store', $_destinationPath, $_value, $_saveWithFullPath = true)
     {
         $attributeName = $_attributeName;
         $disk = $_disk;
@@ -45,6 +47,31 @@ class BaseModel extends Model
                 $this->attributes[$attributeName] = $destinationPath . '/' . $filename;
             } else {
                 $this->attributes[$attributeName] = $filename;
+            }
+        }
+    }
+
+    public function uploadFile($_attributeName, $_disk = 'store', $_destinationPath, $_value, $_saveWithFullPath = true)
+    {
+        // if the file input is empty
+        if (is_null($_value) && $this->{$attribute_name} != null) {
+            $this->attributes[$attribute_name] = null;
+            return;
+        }
+        $request = \Request::instance();
+        // if a new file is uploaded, store it on disk and its filename in the database
+        if ($request->hasFile($_attributeName) && $request->file($_attributeName)->isValid()) {
+            // 1. Generate a new file name
+            $file = $request->file($_attributeName);
+            $new_file_name = md5($file->getClientOriginalName() . time()) . '.' . $file->getClientOriginalExtension();
+
+            // 2. Move the new file to the correct path
+            Storage::disk($_disk)->putFileAs($_destinationPath, $file, $new_file_name);
+            // 3. Save the complete path to the database
+            if ($_saveWithFullPath) {
+                $this->attributes[$_attributeName] = $_destinationPath . '/' . $new_file_name;
+            } else {
+                $this->attributes[$_attributeName] = $new_file_name;
             }
         }
     }
