@@ -17,11 +17,11 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block">{{auth()->user()->name}}</a>
 
                 <form id="logout-form" action="{{ route(env('ADMIN_PATH').'.logout') }}" method="POST">
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-danger">Logout</button>
+                    <button type="submit" class="btn btn-danger">Đăng xuất</button>
                 </form>
             </div>
         </div>
@@ -32,8 +32,8 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Starter Pages
@@ -72,25 +72,38 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                @php
+                    $active = Route::is(env('ADMIN_PATH').'.product-categories*') ? 'active': null;
+                    $open = ($active) ? 'menu-open' : null;
+                @endphp
+                <li class="nav-item has-treeview {{$open}}">
+                    <a href="#"
+                       class="nav-link {{$active}}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Product Manange
+                            Danh mục sản phẩm
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}" class="nav-link">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                               class="nav-link {{$active}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Product Category</p>
+                                <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.create')}}" class="nav-link">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.create') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH').'.product-categories.create')}}"
+                               class="nav-link {{$active}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Create Product Category</p>
+                                <p>Thêm mới</p>
                             </a>
                         </li>
                     </ul>

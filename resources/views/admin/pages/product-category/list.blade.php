@@ -1,12 +1,12 @@
 @extends('admin.layouts.master')
-@section('title_page','Danh sách Product Category')
+@section('title_page','Danh sách danh mục sản phẩm')
 @push('styles')
 
 @endpush
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.product-categories.create')}}">Create</a>
+            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.product-categories.create')}}">Thêm mới</a>
         </div>
     </div>
     <br>
@@ -18,12 +18,12 @@
                     <tr>
                         <th>Id</th>
                         <th>Action</th>
-                        <th>Name</th>
+                        <th>Tên</th>
                         <th>Slug</th>
-                        <th>Description</th>
+                        <th>Mô tả</th>
                         <th>Parent</th>
-                        <th>Status</th>
-                        <th>Image</th>
+                        <th>Trạng thái</th>
+                        <th>Ảnh</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -37,11 +37,11 @@
                             <td>
                                 @if(!$productCategory->isRoot())
                                     <a href="{{$editUrl}}" class="btn btn-outline-success"><i class="fa fa-pen"></i>
-                                        Edit</a>
+                                        Sửa</a>
                                     <form action='{{$deleteUrl}}' method='post'>
                                         @csrf
                                         @method('DELETE')
-                                        <button type='submit' class='btn btn-outline-danger delete-confirm'>Delete
+                                        <button type='submit' class='btn btn-outline-danger delete-confirm'>Xóa
                                         </button>
                                     </form>
                                 @endif

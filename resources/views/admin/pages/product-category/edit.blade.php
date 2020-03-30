@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title_page','Edit Product Category')
+@section('title_page','Sửa danh mục sản phẩm')
 @push('styles')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
 @endpush
@@ -11,7 +11,7 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="">Name</label>
+                    <label for="">Tên</label>
                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name"
                            value="{{$productCategory->name}}"
                            placeholder="Enter name">
@@ -20,7 +20,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="">Description</label>
+                    <label for="">Mô tả</label>
                     <textarea type="text" class="form-control"
                               name="description">{{$productCategory->description}}</textarea>
                 </div>
@@ -36,7 +36,7 @@
                     </select>
                 </div>
                 <div class="form-check">
-                    <label>Status</label>
+                    <label>Trạng thái</label>
                     <?php
                     $idOn = $productCategory->status == 1 ? 'checked' : '';
                     ?>
@@ -44,15 +44,17 @@
                            data-offstyle="outline-danger">
                 </div>
                 <div class="form-group">
-                    <label for="">Image</label>
+                    <label for="">Ảnh</label>
                     <input type="file" class="form-control-file" name="image"
                            accept="image/*"
                     >
-                    <div class="col-sm-6" style="margin-bottom: 20px;">
-                        <img height="50%" width="50%" name="mainImage" src="{{ $productCategory->image }}">
-                    </div>
+                    @if($productCategory->image)
+                        <div class="col-sm-6" style="margin-bottom: 20px;">
+                            <img height="50%" width="50%" name="mainImage" src="{{ $productCategory->image }}">
+                        </div>
+                    @endif
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
             </form>
         </div>
     </div>

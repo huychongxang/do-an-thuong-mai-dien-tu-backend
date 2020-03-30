@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title_page','Create Product Category')
+@section('title_page','Thêm mới danh mục sản phẩm')
 @push('styles')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
 @endpush
@@ -10,7 +10,7 @@
                   enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="">Name</label>
+                    <label for="">Tên</label>
                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name"
                            placeholder="Enter name">
                     @if($errors->has('name'))
@@ -18,7 +18,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="">Description</label>
+                    <label for="">Mô tả</label>
                     <textarea type="text" class="form-control" name="description"></textarea>
                 </div>
                 <div class="form-group">
@@ -30,17 +30,17 @@
                     </select>
                 </div>
                 <div class="form-check">
-                    <label>Status</label>
+                    <label>Trạng thái</label>
                     <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
                            data-offstyle="outline-danger">
                 </div>
                 <div class="form-group">
-                    <label for="">Image</label>
+                    <label for="">Ảnh</label>
                     <input type="file" class="form-control-file" name="image"
                            accept="image/*"
                     >
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
             </form>
         </div>
     </div>
