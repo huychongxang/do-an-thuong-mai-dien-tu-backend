@@ -5,5 +5,5 @@ Route::group([
     'as' => env('ADMIN_PATH') . '-api.',
     'middleware' => ['auth:admin']
 ], function () {
-    Route::get('get', 'ProductCategoryController@list')->name('product-category.list');
+
 });

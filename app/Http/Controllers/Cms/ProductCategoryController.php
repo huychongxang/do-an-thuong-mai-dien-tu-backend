@@ -7,6 +7,7 @@ use App\Http\Requests\Cms\ProductCategory\EditRequest;
 use App\Http\Requests\Cms\ProductCategory\StoreRequest;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductCategoryController extends Controller
@@ -18,7 +19,8 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.product-category.list');
+        $productCategories = ProductCategory::with(['parent'])->paginate(10);
+        return view('admin.pages.product-category.list', compact('productCategories'));
     }
 
     /**
@@ -99,6 +101,28 @@ class ProductCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $productCategory = ProductCategory::find($id);
+            $rootCategory = ProductCategory::where('slug', 'root')->first();
+
+            // Đổi parent của children category về 'Root'
+            ProductCategory::where('parent_id', $productCategory->id)->update([
+                'parent_id' => $rootCategory->id
+            ]);
+
+            $delete = $productCategory->delete();
+            DB::commit();
+            if ($delete) {
+                alert()->success('Post Deleted', 'Successfully');
+            } else {
+                alert()->error('Post Deleted Fail', 'Something went wrong!');
+            }
+            return redirect()->back();
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+
     }
 }

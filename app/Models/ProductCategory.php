@@ -34,6 +34,17 @@ class ProductCategory extends BaseModel
         return $this->slug == 'root';
     }
 
+    public function getStatusHtml()
+    {
+        $status = $this->getOriginal('status');
+        if ($status == 1) {
+            $html = '<div class="alert alert-success" role="alert">On</div>';
+        } else {
+            $html = '<div class="alert alert-danger" role="alert">Off</div>';
+        }
+        return $html;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONSHIPsS
