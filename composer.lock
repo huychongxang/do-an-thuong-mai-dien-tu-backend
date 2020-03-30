@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3fee3933b170c0046f80f798ebe56b7",
+    "content-hash": "3e1d4967e4804161c9fd21b514a54116",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -1239,6 +1239,83 @@
                 }
             ],
             "time": "2020-02-28T18:53:50+00:00"
+        },
+        {
+            "name": "league/csv",
+            "version": "9.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "7351a74625601914409b42b32cabb91a93773b7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/7351a74625601914409b42b32cabb91a93773b7b",
+                "reference": "7351a74625601914409b42b32cabb91a93773b7b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpstan/phpstan": "^0.12.0",
+                "phpstan/phpstan-phpunit": "^0.12.0",
+                "phpstan/phpstan-strict-rules": "^0.12.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "suggest": {
+                "ext-dom": "Required to use the XMLConverter and or the HTMLConverter classes",
+                "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSV data manipulation made easy in PHP",
+            "homepage": "http://csv.thephpleague.com",
+            "keywords": [
+                "convert",
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "transform",
+                "write"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nyamsprod",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-03-17T15:15:35+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2561,6 +2638,98 @@
                 "toast"
             ],
             "time": "2020-02-22T16:58:20+00:00"
+        },
+        {
+            "name": "sunel/eav",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunel/eav.git",
+                "reference": "02bd89f50d925799e7a6ac0b8abb75e3687fa09c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunel/eav/zipball/02bd89f50d925799e7a6ac0b8abb75e3687fa09c",
+                "reference": "02bd89f50d925799e7a6ac0b8abb75e3687fa09c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.5|^6.0|^7.0",
+                "league/csv": "^9.0",
+                "php": ">=7.0.0",
+                "sunel/json-api-resources": ">=0.0.1"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "mockery/mockery": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Eav\\Providers\\LaravelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Eav\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sunel TR",
+                    "email": "sunelbe@gmail.com"
+                }
+            ],
+            "description": "Eav For Artisan.",
+            "keywords": [
+                "eav",
+                "laravel"
+            ],
+            "time": "2020-03-29T16:38:59+00:00"
+        },
+        {
+            "name": "sunel/json-api-resources",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunel/json-api-resources.git",
+                "reference": "a5ac368a26823ba663e77610826fe50b010f8d3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunel/json-api-resources/zipball/a5ac368a26823ba663e77610826fe50b010f8d3f",
+                "reference": "a5ac368a26823ba663e77610826fe50b010f8d3f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^5.5|^6.0",
+                "illuminate/http": "^5.5|^6.0",
+                "illuminate/pagination": "^5.5|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ApiHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sunel Tr",
+                    "email": "sunelbe@gmail.com"
+                }
+            ],
+            "description": "Create {JSON:API} formatted API Response",
+            "time": "2019-10-12T14:18:30+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
