@@ -4,7 +4,7 @@ namespace App\Http\Requests\Cms\ProductCategory;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class EditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:product_categories'
+            'name' => 'required|unique:product_categories,name,' . $this->route('product_category')
         ];
     }
 }

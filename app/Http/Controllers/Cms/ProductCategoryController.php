@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cms\ProductCategory\EditRequest;
 use App\Http\Requests\Cms\ProductCategory\StoreRequest;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -67,7 +68,9 @@ class ProductCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productCategory = ProductCategory::whereId($id)->first();
+        $parentCategories = ProductCategory::where('id', '!=', $id)->pluck('name', 'id');
+        return view('admin.pages.product-category.edit', compact('productCategory', 'parentCategories'));
     }
 
     /**
@@ -77,9 +80,15 @@ class ProductCategoryController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditRequest $request, $id)
     {
-        //
+        $newProductCategory = ProductCategory::find($id)->update($request->all());
+        if ($newProductCategory) {
+            alert()->success('Post Updated', 'Successfully');
+        } else {
+            alert()->error('Post Updated Fail', 'Something went wrong!');
+        }
+        return redirect()->back();
     }
 
     /**

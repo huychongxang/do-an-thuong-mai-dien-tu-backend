@@ -34,8 +34,9 @@ class ProductCategoryController extends Controller
                 }
                 return $html;
             })
-            ->addColumn('action', function ($user) {
-                return '<a class="btn btn-outline-success"><i class="fa fa-pen"></i> Edit</a> 
+            ->addColumn('action', function ($productCategory) {
+                $editUrl = route(env('ADMIN_PATH') . '.product-categories.edit', $productCategory->id);
+                return '<a href="' . $editUrl . '" class="btn btn-outline-success"><i class="fa fa-pen"></i> Edit</a> 
                 <a class="btn btn-outline-danger"><i class="fa fa-times"></i> Delete</a>';
             })
             ->rawColumns(['status', 'image', 'action'])
