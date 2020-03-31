@@ -81,7 +81,7 @@
                        class="nav-link {{$active}}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Danh mục sản phẩm
+                            Quản lý sản phẩm
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -93,17 +93,17 @@
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách</p>
+                                <p>Quản lý danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             @php
                                 $active = Route::is(env('ADMIN_PATH').'.product-categories.create') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.create')}}"
+                            <a href=""
                                class="nav-link {{$active}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm mới</p>
+                                <p>Quản lý sản phẩm</p>
                             </a>
                         </li>
                     </ul>
