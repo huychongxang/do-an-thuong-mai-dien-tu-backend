@@ -41,7 +41,6 @@
                             <td>{!! $productCategory->getStatusHtml() !!}</td>
                             <td>
                                 @if(!$productCategory->isRoot())
-                                    {{--<span class="badge bg-danger">55%</span>--}}
                                     <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                         Sửa</a>
                                     <form action='{{$deleteUrl}}' method='post'>

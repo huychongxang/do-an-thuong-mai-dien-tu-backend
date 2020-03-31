@@ -98,14 +98,15 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.create') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.product.index') ? 'active': null;
                             @endphp
-                            <a href=""
+                            <a href="{{route(env('ADMIN_PATH').'.product.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Quản lý sản phẩm</p>
                             </a>
                         </li>
+
                     </ul>
                 </li>
             </ul>
