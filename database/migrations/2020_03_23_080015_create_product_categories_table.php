@@ -21,7 +21,6 @@ class CreateProductCategoriesTable extends Migration
             $table->unsignedBigInteger('parent_id')->default(1)->nullable();
             $table->boolean('featured')->default(0);
             $table->boolean('status')->default(1);
-            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
