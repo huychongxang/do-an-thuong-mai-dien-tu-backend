@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +17,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.pages.product.create');
+        $categories = ProductCategory::where('slug', '!=', 'root')->get();
+        return view('admin.pages.product.create', compact('categories'));
     }
 
     public function store()

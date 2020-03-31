@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('title_page','Thêm mới sản phẩm')
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+
 @endpush
 @section('content')
     <div class="row">
@@ -21,7 +21,7 @@
                     <label for="">Sku - Mã hàng</label>
                     <input type="text" class="form-control {{ $errors->has('sku') ? 'is-invalid' : '' }}" name="sku"
                            placeholder="Enter Sku">
-                    @if($errors->has('name'))
+                    @if($errors->has('sku'))
                         <span class="error invalid-feedback">{{$errors->first('sku')}}</span>
                     @endif
                 </div>
@@ -31,12 +31,15 @@
                 </div>
                 <div class="form-group">
                     <label for="">Nội dung</label>
-                    <textarea type="text" class="form-control" name="description"></textarea>
+                    <textarea type="text" id="mytextarea" class="form-control" name="content"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">Parent</label>
-                    <select class="form-control" name="parent_id">
-
+                    <label for="">Danh mục</label>
+                    <select class="form-control select2" multiple="multiple" name="categories"
+                            style="width: 100%;">
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-check">
@@ -57,5 +60,43 @@
     <!-- /.row -->
 @endsection
 @push('scripts')
+    <script>
+        $('.select2').select2({
+            theme: "classic",
+        });
 
+        tinymce.init({
+
+            editor_selector : "mceEditor",
+
+            selector: '#mytextarea',
+
+            plugins: [
+
+                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+
+                'emoticons template paste textcolor colorpicker textpattern imagetools responsivefilemanager'
+
+            ],
+
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | responsivefilemanager',
+
+            toolbar2: 'print preview media | forecolor backcolor emoticons',
+
+            image_advtab: true,
+
+            templates: [
+
+                { title: 'Test template 1', content: 'Test 1' },
+
+                { title: 'Test template 2', content: 'Test 2' }
+
+            ],
+
+        });
+    </script>
 @endpush

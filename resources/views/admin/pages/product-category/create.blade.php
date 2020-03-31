@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('title_page','Thêm mới danh mục sản phẩm')
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+
 @endpush
 @section('content')
     <div class="row">

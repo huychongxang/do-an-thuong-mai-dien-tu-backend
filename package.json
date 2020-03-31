@@ -27,6 +27,7 @@
         "@fortawesome/fontawesome-free": "^5.12.1",
         "admin-lte": "^3.0.2",
         "bootstrap-toggle": "^2.2.2",
+        "select2": "^4.0.13",
         "sweetalert2": "^9.10.6"
     }
 }

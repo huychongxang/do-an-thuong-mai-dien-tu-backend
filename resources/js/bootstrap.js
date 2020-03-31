@@ -14,6 +14,7 @@ try {
     require('admin-lte');
     require('bootstrap-toggle');
     window.Swal = require('sweetalert2');
+    window.select2 = require('select2/dist/js/select2.full.min');
 } catch (e) {
 }
 
