@@ -12,7 +12,7 @@
     <br>
     <div class="row">
         <div class="col-lg-12">
-            <div class="table-responsive">
+            <div class="table-responsive no-padding">
                 <table class="table table-hover text-nowrap">
                     <thead>
                     <tr>
@@ -25,7 +25,7 @@
                         <th>Action</th>
                     </tr>
                     </thead>
-                        {{$productCategories->links()}}
+                    {{$productCategories->links()}}
                     <tbody>
                     @foreach($productCategories as $key=>$productCategory)
                         @php
@@ -42,7 +42,7 @@
                             <td>
                                 @if(!$productCategory->isRoot())
                                     {{--<span class="badge bg-danger">55%</span>--}}
-                                    <a href="{{$editUrl}}" class="badge bg-success"><i class="fa fa-pen"></i>
+                                    <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                         Sửa</a>
                                     <form action='{{$deleteUrl}}' method='post'>
                                         @csrf
@@ -58,10 +58,11 @@
                     </tbody>
                 </table>
                 <div>
-                    {{$productCategories->links()}}
+                    <small>{{$productCategories->total()}} {{Str::plural('category',$productCategories->total())}}</small>
+                    {{$productCategories->appends(request()->input())->links()}}
+
                 </div>
             </div>
-
         </div>
     </div>
     <!-- /.row -->

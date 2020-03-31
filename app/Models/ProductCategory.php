@@ -38,9 +38,9 @@ class ProductCategory extends BaseModel
     {
         $status = $this->getOriginal('status');
         if ($status == 1) {
-            $html = '<div class="alert alert-success" role="alert">On</div>';
+            $html = '<span class="badge bg-success">ON</span>';
         } else {
-            $html = '<div class="alert alert-danger" role="alert">Off</div>';
+            $html = '<span class="badge bg-danger">OFF</span>';
         }
         return $html;
     }
