@@ -14,5 +14,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('admin/css/app.css')}}">
     @stack('styles')
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="sidebar-mini wysihtml5-supported skin-black-light sidebar-collapse" data-gr-c-s-loaded="true"
+      style="height: auto; min-height: 100%;">
 <div class="wrapper">

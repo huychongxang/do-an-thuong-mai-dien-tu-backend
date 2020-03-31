@@ -48,7 +48,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapCmsRoutes();
 
-        $this->mapCmsApiRoutes();
     }
 
     /**
@@ -85,13 +84,5 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/cms.php'));
-    }
-
-    protected function mapCmsApiRoutes()
-    {
-        Route::middleware('web')
-            ->prefix('cms-api')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/cms-api.php'));
     }
 }
