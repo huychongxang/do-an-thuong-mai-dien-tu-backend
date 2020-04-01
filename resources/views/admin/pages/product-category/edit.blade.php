@@ -32,7 +32,7 @@
                         <option value="0">Select a parent category</option>
                         @foreach($parentCategories as $key => $category)
                             @if ($productCategory->parent_id == $key)
-                                <option value="{{ $key }}" selected>-{{ $category }} </option>
+                                <option value="{{ $key }}" selected>{{ $category }} </option>
                             @else
                                 <option value="{{ $key }}">-{{ $category }} </option>
                             @endif

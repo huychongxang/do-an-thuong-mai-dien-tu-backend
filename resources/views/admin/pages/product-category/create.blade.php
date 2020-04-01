@@ -28,7 +28,7 @@
                             name="parent_id">
                         <option value="0">Select a parent category</option>
                         @foreach($parentCategories as $key => $category)
-                            <option value="{{ $key }}">-{{ $category }} </option>
+                            <option value="{{ $key }}">{{ $category }} </option>
                         @endforeach
                     </select>
                     @if($errors->has('parent_id'))

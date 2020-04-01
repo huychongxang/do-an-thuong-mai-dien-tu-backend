@@ -15,6 +15,7 @@ try {
     require('bootstrap-toggle');
     window.Swal = require('sweetalert2');
     window.select2 = require('select2/dist/js/select2.full.min');
+    window.datepicker = require('bootstrap-datepicker');
 } catch (e) {
 }
 

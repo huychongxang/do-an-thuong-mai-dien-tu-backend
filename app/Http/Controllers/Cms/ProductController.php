@@ -17,8 +17,13 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = ProductCategory::where('slug', '!=', 'root')->get();
+        $categories = $this->treeList();
         return view('admin.pages.product.create', compact('categories'));
+    }
+
+    private function treeList()
+    {
+        return ProductCategory::orderBy('name', 'DESC')->get()->nest()->setIndent('--')->listsFlattened('name');
     }
 
     public function store()

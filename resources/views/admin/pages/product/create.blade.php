@@ -35,23 +35,83 @@
                 </div>
                 <div class="form-group">
                     <label for="">Danh mục</label>
-                    <select class="form-control select2" multiple="multiple" name="categories"
+                    <select class="form-control select2 {{ $errors->has('categories') ? 'is-invalid' : '' }}"
+                            multiple="multiple" name="categories"
                             style="width: 100%;">
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @foreach($categories as $key=>$category)
+                            <option value="{{$key}}">{{ $category }}</option>
                         @endforeach
                     </select>
-                </div>
-                <div class="form-check">
-                    <label>Trạng thái</label>
-                    <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
-                           data-offstyle="outline-danger">
+                    @if($errors->has('categories'))
+                        <span class="error invalid-feedback">{{$errors->first('categories')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh</label>
                     <input type="file" class="form-control-file" name="image"
                            accept="image/*"
                     >
+                </div>
+                <div class="form-group">
+                    <label for="">Giá nhập</label>
+                    <input type="number" class="form-control {{ $errors->has('cost') ? 'is-invalid' : '' }}" name="cost"
+                           placeholder="" value="0">
+                    @if($errors->has('cost'))
+                        <span class="error invalid-feedback">{{$errors->first('cost')}}</span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="">Giá bán</label>
+                    <input type="number" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
+                           name="price"
+                           placeholder="" value="0">
+                    @if($errors->has('price'))
+                        <span class="error invalid-feedback">{{$errors->first('price')}}</span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="">Stock</label>
+                    <input type="number" class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}"
+                           name="stock"
+                           placeholder="" value="0">
+                    @if($errors->has('stock'))
+                        <span class="error invalid-feedback">{{$errors->first('stock')}}</span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="">Loại</label>
+                    <input type="radio" class="{{ $errors->has('type') ? 'is-invalid' : '' }}"
+                           name="type" value="0" checked> Normal
+                    <input type="radio" class="{{ $errors->has('type') ? 'is-invalid' : '' }}"
+                           name="type" value="1"> New
+                    <input type="radio" class="{{ $errors->has('type') ? 'is-invalid' : '' }}"
+                           name="type" value="2"> Hot
+                    @if($errors->has('type'))
+                        <span class="error invalid-feedback">{{$errors->first('type')}}</span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="">Date available</label>
+                    <input type="text" style="width: 200px;" id="date_available" name="date_available"
+                           value=""
+                           class="form-control input-sm date_available date_time" placeholder=""/>
+                    @if($errors->has('date_available'))
+                        <span class="error invalid-feedback">{{$errors->first('date_available')}}</span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="">Sort</label>
+                    <input type="number" class="form-control {{ $errors->has('sort') ? 'is-invalid' : '' }}"
+                           name="sort"
+                           placeholder="" value="0" min="0">
+                    @if($errors->has('sort'))
+                        <span class="error invalid-feedback">{{$errors->first('sort')}}</span>
+                    @endif
+                </div>
+                <div class="form-check">
+                    <label>Trạng thái</label>
+                    <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
+                           data-offstyle="outline-danger">
                 </div>
                 <button type="submit" class="btn btn-primary">Thêm mới</button>
             </form>
@@ -64,5 +124,9 @@
         $('.select2').select2({
             theme: "classic",
         });
+        $('.date_time').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd'
+        })
     </script>
 @endpush
