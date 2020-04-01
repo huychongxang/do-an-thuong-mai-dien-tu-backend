@@ -71,9 +71,13 @@
                 </div>
                 <div class="form-group">
                     <label for="">Stock</label>
-                    <input type="number" class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}"
-                           name="stock"
-                           placeholder="" value="0">
+                    <div class="input-group">
+                        <input type="number"
+                               class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}"
+                               name="stock"
+                               placeholder=""
+                               value="0">
+                    </div>
                     @if($errors->has('stock'))
                         <span class="error invalid-feedback">{{$errors->first('stock')}}</span>
                     @endif
@@ -92,9 +96,16 @@
                 </div>
                 <div class="form-group">
                     <label for="">Date available</label>
-                    <input type="text" style="width: 200px;" id="date_available" name="date_available"
-                           value=""
-                           class="form-control input-sm date_available date_time" placeholder=""/>
+                    <div class="input-group">
+                        <input type="text"
+                               style="width: 200px;"
+                               id="date_available"
+                               name="date_available"
+                               value=""
+                               class="form-control input-sm date_available date_time"
+                               placeholder=""/>
+
+                    </div>
                     @if($errors->has('date_available'))
                         <span class="error invalid-feedback">{{$errors->first('date_available')}}</span>
                     @endif
