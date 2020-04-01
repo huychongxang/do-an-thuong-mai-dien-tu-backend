@@ -23,22 +23,22 @@
                 </div>
                 <div class="form-group">
                     <label for="">Parent</label>
-                    <select class="form-control" name="parent_id">
-                        @foreach($parentCategories as $id=>$name)
-                            <option value="{{$id}}">{{$name}}</option>
+                    <select id=parent
+                            class="form-control custom-select mt-15 {{ $errors->has('parent_id') ? 'is-invalid' : '' }}"
+                            name="parent_id">
+                        <option value="0">Select a parent category</option>
+                        @foreach($parentCategories as $key => $category)
+                            <option value="{{ $key }}">-{{ $category }} </option>
                         @endforeach
                     </select>
+                    @if($errors->has('parent_id'))
+                        <span class="error invalid-feedback">{{$errors->first('parent_id')}}</span>
+                    @endif
                 </div>
                 <div class="form-check">
                     <label>Trạng thái</label>
                     <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
                            data-offstyle="outline-danger">
-                </div>
-                <div class="form-group">
-                    <label for="">Ảnh</label>
-                    <input type="file" class="form-control-file" name="image"
-                           accept="image/*"
-                    >
                 </div>
                 <button type="submit" class="btn btn-primary">Thêm mới</button>
             </form>

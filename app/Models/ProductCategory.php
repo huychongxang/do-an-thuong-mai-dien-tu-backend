@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use TypiCMS\NestableTrait;
 
 class ProductCategory extends BaseModel
 {
     use Sluggable;
+    use NestableTrait;
 
     protected $table = 'product_categories';
     protected $disk = 'store';

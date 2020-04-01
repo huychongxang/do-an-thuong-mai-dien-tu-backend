@@ -26,14 +26,21 @@
                 </div>
                 <div class="form-group">
                     <label for="">Parent</label>
-                    <select class="form-control" name="parent_id">
-                        @foreach($parentCategories as $id=>$name)
-                            <?php
-                            $isCurrentParent = $productCategory->parent_id == $id ? 'selected' : '';
-                            ?>
-                            <option {{$isCurrentParent}} value="{{$id}}">{{$name}}</option>
+                    <select id=parent
+                            class="form-control custom-select mt-15 {{ $errors->has('parent_id') ? 'is-invalid' : '' }}"
+                            name="parent_id">
+                        <option value="0">Select a parent category</option>
+                        @foreach($parentCategories as $key => $category)
+                            @if ($productCategory->parent_id == $key)
+                                <option value="{{ $key }}" selected>-{{ $category }} </option>
+                            @else
+                                <option value="{{ $key }}">-{{ $category }} </option>
+                            @endif
                         @endforeach
                     </select>
+                    @if($errors->has('parent_id'))
+                        <span class="error invalid-feedback">{{$errors->first('parent_id')}}</span>
+                    @endif
                 </div>
                 <div class="form-check">
                     <label>Trạng thái</label>
@@ -42,17 +49,6 @@
                     ?>
                     <input name="status" type="checkbox" {{$idOn}} data-toggle="toggle" data-onstyle="outline-success"
                            data-offstyle="outline-danger">
-                </div>
-                <div class="form-group">
-                    <label for="">Ảnh</label>
-                    <input type="file" class="form-control-file" name="image"
-                           accept="image/*"
-                    >
-                    @if($productCategory->image)
-                        <div class="col-sm-6" style="margin-bottom: 20px;">
-                            <img height="50%" width="50%" name="mainImage" src="{{ $productCategory->image }}">
-                        </div>
-                    @endif
                 </div>
                 <button type="submit" class="btn btn-primary">Cập nhật</button>
             </form>

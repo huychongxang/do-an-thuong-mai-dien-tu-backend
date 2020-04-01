@@ -30,8 +30,18 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        $parentCategories = ProductCategory::pluck('name', 'id');
+        $parentCategories = $this->treeList();
         return view('admin.pages.product-category.create', compact('parentCategories'));
+    }
+
+    private function treeList($id = null)
+    {
+        if ($id) {
+            return ProductCategory::where('id', '!=', $id)->orderBy('name', 'DESC')->get()->nest()->setIndent('-')->listsFlattened('name');
+        } else {
+            return ProductCategory::orderBy('name', 'DESC')->get()->nest()->setIndent('-')->listsFlattened('name');
+        }
+
     }
 
     /**
@@ -71,7 +81,7 @@ class ProductCategoryController extends Controller
     public function edit($id)
     {
         $productCategory = ProductCategory::whereId($id)->first();
-        $parentCategories = ProductCategory::where('id', '!=', $id)->pluck('name', 'id');
+        $parentCategories = $this->treeList($productCategory->id);
         return view('admin.pages.product-category.edit', compact('productCategory', 'parentCategories'));
     }
 
