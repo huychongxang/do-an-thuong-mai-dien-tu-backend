@@ -26,9 +26,15 @@ class ProductController extends Controller
         return ProductCategory::orderBy('name', 'DESC')->get()->nest()->setIndent('--')->listsFlattened('name');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $newProduct = Product::create($request->all());
 
+        // Sync categories for product
+        if ($newProduct) {
+            $categories = $request->categories ?: [];
+            $newProduct->categories()->sync($categories);
+        }
     }
 
     public function edit()

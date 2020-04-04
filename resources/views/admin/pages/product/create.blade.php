@@ -27,16 +27,22 @@
                 </div>
                 <div class="form-group">
                     <label for="">Mô tả</label>
-                    <textarea type="text" class="form-control" name="description"></textarea>
+                    <textarea type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description"></textarea>
+                    @if($errors->has('description'))
+                        <span class="error invalid-feedback">{{$errors->first('description')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="">Nội dung</label>
-                    <textarea type="text" id="mytextarea" class="form-control" name="content"></textarea>
+                    <textarea type="text" id="mytextarea" class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" name="content"></textarea>
+                    @if($errors->has('content'))
+                        <span class="error invalid-feedback">{{$errors->first('content')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="">Danh mục</label>
                     <select class="form-control select2 {{ $errors->has('categories') ? 'is-invalid' : '' }}"
-                            multiple="multiple" name="categories"
+                            multiple="multiple" name="categories[]"
                             style="width: 100%;">
                         @foreach($categories as $key=>$category)
                             <option value="{{$key}}">{{ $category }}</option>
@@ -48,10 +54,20 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh</label>
-                    <input type="file" class="form-control-file" name="image"
-                           accept="image/*"
-                    >
+
+                    <div class="input-group">
+                   <span class="input-group-btn">
+                     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                       <i class="fa fa-picture-o"></i> Choose
+                     </a>
+                   </span>
+                        <input id="thumbnail" class="form-control" type="text" name="image">
+                        <img id="holder" style="margin-top:15px;max-height:100px;">
+                    </div>
+
                 </div>
+
+
                 <div class="form-group">
                     <label for="">Giá nhập</label>
                     <input type="number" class="form-control {{ $errors->has('cost') ? 'is-invalid' : '' }}" name="cost"
@@ -132,6 +148,7 @@
 @endsection
 @push('scripts')
     <script src="{{asset('admin/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('.select2').select2({
             theme: "classic",
@@ -140,9 +157,10 @@
             autoclose: true,
             format: 'yyyy-mm-dd'
         })
+
         tinymce.init({
 
-            editor_selector : "mceEditor",
+            editor_selector: "mceEditor",
 
             selector: '#mytextarea',
 
@@ -154,7 +172,7 @@
 
                 'insertdatetime media nonbreaking save table contextmenu directionality',
 
-                'emoticons template paste textcolor colorpicker textpattern imagetools responsivefilemanager'
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
 
             ],
 
@@ -166,15 +184,15 @@
 
             templates: [
 
-                { title: 'Test template 1', content: 'Test 1' },
+                {title: 'Test template 1', content: 'Test 1'},
 
-                { title: 'Test template 2', content: 'Test 2' }
+                {title: 'Test template 2', content: 'Test 2'}
 
             ],
             image_title: true,
             automatic_uploads: true,
             file_picker_types: 'image',
-            file_picker_callback: function(cb, value, meta) {
+            file_picker_callback: function (cb, value, meta) {
                 var input = document.createElement('input');
                 input.setAttribute('type', 'file');
                 input.setAttribute('accept', 'image/*');
@@ -196,5 +214,47 @@
             }
 
         });
+
+
+        var lfm = function (id, type, options) {
+            let button = document.getElementById(id);
+
+            button.addEventListener('click', function () {
+                var route_prefix = (options && options.prefix) ? options.prefix : '/laravel-filemanager';
+                var target_input = document.getElementById(button.getAttribute('data-input'));
+                var target_preview = document.getElementById(button.getAttribute('data-preview'));
+
+                window.open(window.location.protocol + "//" + window.location.host + '/' + route_prefix + '?type=' + type || 'file', 'FileManager', 'width=900,height=600');
+                window.SetUrl = function (items) {
+                    var file_path = items.map(function (item) {
+                        return item.url;
+                    }).join(',');
+
+                    var index = file_path.indexOf('uploads');
+                    var length = "uploads".length;
+                    var newFilePath = file_path.slice(index + length);
+                    // set the value of the desired input to image url
+                    target_input.value = newFilePath;
+                    target_input.dispatchEvent(new Event('change'));
+
+                    // clear previous preview
+                    target_preview.innerHtml = '';
+
+                    // set or change the preview image src
+                    items.forEach(function (item) {
+                        let img = document.createElement('img')
+                        img.setAttribute('style', 'height: 5rem')
+                        img.setAttribute('src', item.thumb_url)
+                        target_preview.appendChild(img);
+                    });
+
+                    // trigger change event
+                    target_preview.dispatchEvent(new Event('change'));
+                };
+            });
+        };
+
+        var route_prefix = "cms/laravel-filemanager";
+        lfm('lfm', 'image', {prefix: route_prefix});
     </script>
 @endpush
