@@ -27,14 +27,17 @@
                 </div>
                 <div class="form-group">
                     <label for="">Mô tả</label>
-                    <textarea type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description"></textarea>
+                    <textarea type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
+                              name="description"></textarea>
                     @if($errors->has('description'))
                         <span class="error invalid-feedback">{{$errors->first('description')}}</span>
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="">Nội dung</label>
-                    <textarea type="text" id="mytextarea" class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" name="content"></textarea>
+                    <textarea type="text" id="mytextarea"
+                              class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}"
+                              name="content"></textarea>
                     @if($errors->has('content'))
                         <span class="error invalid-feedback">{{$errors->first('content')}}</span>
                     @endif
@@ -71,7 +74,7 @@
                 <div class="form-group">
                     <label for="">Giá nhập</label>
                     <input type="number" class="form-control {{ $errors->has('cost') ? 'is-invalid' : '' }}" name="cost"
-                           placeholder="" value="0">
+                           placeholder="" value="0" min="0">
                     @if($errors->has('cost'))
                         <span class="error invalid-feedback">{{$errors->first('cost')}}</span>
                     @endif
@@ -80,7 +83,7 @@
                     <label for="">Giá bán</label>
                     <input type="number" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
                            name="price"
-                           placeholder="" value="0">
+                           placeholder="" value="0" min="0">
                     @if($errors->has('price'))
                         <span class="error invalid-feedback">{{$errors->first('price')}}</span>
                     @endif
@@ -92,7 +95,8 @@
                                class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}"
                                name="stock"
                                placeholder=""
-                               value="0">
+                               value="0"
+                               min="0">
                     </div>
                     @if($errors->has('stock'))
                         <span class="error invalid-feedback">{{$errors->first('stock')}}</span>
