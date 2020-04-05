@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('title_page','Thêm mới sản phẩm')
 @push('styles')
-
+    <link rel="stylesheet" href="{{asset('admin/css/upload-image.css')}}">
 @endpush
 @section('content')
     <div class="row">
@@ -55,19 +55,24 @@
                         <span class="error invalid-feedback">{{$errors->first('categories')}}</span>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group up-anh">
                     <label for="">Ảnh</label>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-2 imgUp">
+                                <div class="imagePreview"></div>
+                                <label class="btn btn-primary">
+                                    Upload<input type="file" class="uploadFile img" accept="image/*"
+                                                 style="width: 0px;height: 0px;overflow: hidden;">
+                                    <input type="hidden" class="upfile" name="image">
+                                </label>
+                            </div><!-- col-2 -->
 
-                    <div class="input-group">
-                   <span class="input-group-btn">
-                     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                       <i class="fa fa-picture-o"></i> Choose
-                     </a>
-                   </span>
-                        <input id="thumbnail" class="form-control" type="text" name="image">
-                        <img id="holder" style="margin-top:15px;max-height:100px;">
-                    </div>
-
+                        </div><!-- row -->
+                        <div class="row">
+                            <i class="fa fa-plus imgAdd"></i>
+                        </div>
+                    </div><!-- container -->
                 </div>
 
 
@@ -152,7 +157,6 @@
 @endsection
 @push('scripts')
     <script src="{{asset('admin/tinymce/js/tinymce/tinymce.min.js')}}"></script>
-    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('.select2').select2({
             theme: "classic",
@@ -220,45 +224,36 @@
         });
 
 
-        var lfm = function (id, type, options) {
-            let button = document.getElementById(id);
+        $(".imgAdd").click(function () {
+            $(this).closest(".row").find('.imgAdd').before('' +
+                '<div class="col-sm-2 imgUp">' +
+                '<div class="imagePreview"></div>' +
+                '<label class="btn btn-primary">Upload' +
+                '<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;">' +
+                '<input type="hidden" class="upfile" name="sub_image[]">' +
+                '</label><i class="fa fa-times del"></i>' +
+                '</div>');
+        });
+        $(document).on("click", "i.del", function () {
+            $(this).parent().remove();
+        });
+        $(function () {
+            $(document).on("change", ".uploadFile", function () {
+                var uploadFile = $(this);
+                var files = !!this.files ? this.files : [];
+                if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
-            button.addEventListener('click', function () {
-                var route_prefix = (options && options.prefix) ? options.prefix : '/laravel-filemanager';
-                var target_input = document.getElementById(button.getAttribute('data-input'));
-                var target_preview = document.getElementById(button.getAttribute('data-preview'));
+                if (/^image/.test(files[0].type)) { // only image file
+                    var reader = new FileReader(); // instance of the FileReader
+                    reader.readAsDataURL(files[0]); // read the local file
 
-                window.open(window.location.protocol + "//" + window.location.host + '/' + route_prefix + '?type=' + type || 'file', 'FileManager', 'width=900,height=600');
-                window.SetUrl = function (items) {
-                    var file_path = items.map(function (item) {
-                        return item.url;
-                    }).join(',');
-
-                    var index = file_path.indexOf('uploads');
-                    var length = "uploads".length;
-                    var newFilePath = file_path.slice(index + length);
-                    // set the value of the desired input to image url
-                    target_input.value = newFilePath;
-                    target_input.dispatchEvent(new Event('change'));
-
-                    // clear previous preview
-                    target_preview.innerHtml = '';
-
-                    // set or change the preview image src
-                    items.forEach(function (item) {
-                        let img = document.createElement('img')
-                        img.setAttribute('style', 'height: 5rem')
-                        img.setAttribute('src', item.thumb_url)
-                        target_preview.appendChild(img);
-                    });
-
-                    // trigger change event
-                    target_preview.dispatchEvent(new Event('change'));
-                };
+                    reader.onloadend = function () { // set image data as background of div
+                        //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
+                        uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url(" + this.result + ")");
+                        uploadFile.siblings(".upfile").val(this.result);
+                    }
+                }
             });
-        };
-
-        var route_prefix = "cms/laravel-filemanager";
-        lfm('lfm', 'image', {prefix: route_prefix});
+        });
     </script>
 @endpush

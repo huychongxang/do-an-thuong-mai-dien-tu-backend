@@ -33,8 +33,4 @@ Route::group([
 
     Route::resource('product-categories', 'ProductCategoryController');
     Route::resource('product', 'ProductController');
-
-});
-Route::group(['prefix' => env('ADMIN_PATH') . '/laravel-filemanager', 'middleware' => ['auth:admin']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
 });
