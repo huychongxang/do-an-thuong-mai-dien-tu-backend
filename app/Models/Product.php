@@ -98,6 +98,10 @@ class Product extends BaseModel
    | MUTATORS
    |--------------------------------------------------------------------------
    */
+    public function setImageAttribute($value)
+    {
+        $this->uploadImageBase64('image', 'store', 'product', $value);
+    }
 
     public function setStatusAttribute($value)
     {
