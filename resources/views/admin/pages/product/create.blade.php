@@ -144,12 +144,17 @@
                         <span class="error invalid-feedback">{{$errors->first('sort')}}</span>
                     @endif
                 </div>
-                <div class="form-check">
-                    <label>Trạng thái</label>
-                    <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
-                           data-offstyle="outline-danger">
+                <div class="form-group">
+                    <div class="form-check">
+                        <label>Trạng thái</label>
+                        <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
+                               data-offstyle="outline-danger">
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Thêm mới</button>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                </div>
             </form>
         </div>
     </div>
