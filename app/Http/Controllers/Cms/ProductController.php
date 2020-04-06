@@ -84,9 +84,17 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function edit()
+    public function edit($id)
     {
+        $product = Product::whereId($id)->first();
+        $categories = $this->treeList();
+        $attributeGroups = ProductAttributeGroup::getList();
 
+        // html select attribute
+        $htmlProductAtrribute = '<tr><td><br><input type="text" name="attribute[attribute_group][]" value="attribute_value" class="form-control input-sm" placeholder="Nhập giá trị" /></td><td><br><span title="Remove" class="btn btn-flat btn-sm btn-danger removeAttribute"><i class="fa fa-times"></i></span></td></tr>';
+        //end select attribute
+        return view('admin.pages.product.edit', compact('product'
+            , 'categories', 'attributeGroups', 'htmlProductAtrribute'));
     }
 
     public function update(UpdateRequest $request)
