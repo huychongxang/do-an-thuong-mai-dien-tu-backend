@@ -23,18 +23,24 @@ class Product extends BaseModel
         return $this->hasMany(ProductImage::class);
     }
 
+    public function attributes()
+    {
+        return $this->hasMany(ProductAttribute::class, 'product_id', 'id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Functions
     |--------------------------------------------------------------------------
     */
+
     protected static function boot()
     {
         parent::boot();
-        // before delete() method call this
-        static::deleting(function ($product) {
+        static::deleting(function (Product $product) {
             $product->images()->delete();
             $product->categories()->detach();
+            $product->attributes()->delete();
         });
     }
 

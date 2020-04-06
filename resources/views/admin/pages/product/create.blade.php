@@ -12,7 +12,9 @@
                 <div class="form-group">
                     <label for="">Tên</label>
                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name"
-                           placeholder="Enter name">
+                           placeholder="Enter name"
+                           value="{{old('name')}}"
+                    >
                     @if($errors->has('name'))
                         <span class="error invalid-feedback">{{$errors->first('name')}}</span>
                     @endif
@@ -20,7 +22,9 @@
                 <div class="form-group">
                     <label for="">Sku - Mã hàng</label>
                     <input type="text" class="form-control {{ $errors->has('sku') ? 'is-invalid' : '' }}" name="sku"
-                           placeholder="Enter Sku">
+                           placeholder="Enter Sku"
+                           value="{{old('sku')}}"
+                    >
                     @if($errors->has('sku'))
                         <span class="error invalid-feedback">{{$errors->first('sku')}}</span>
                     @endif
@@ -48,6 +52,9 @@
                             multiple="multiple" name="categories[]"
                             style="width: 100%;">
                         @foreach($categories as $key=>$category)
+                            @if($category == 'Root')
+                                @continue
+                            @endif
                             <option value="{{$key}}">{{ $category }}</option>
                         @endforeach
                     </select>
@@ -151,7 +158,50 @@
                                data-offstyle="outline-danger">
                     </div>
                 </div>
-
+                <hr>
+                @if (!empty($attributeGroups))
+                    <div class="row">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <label>Thuộc tính</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-9">
+                            @foreach ($attributeGroups as $attGroupId => $attName)
+                                <table width="100%">
+                                    <tr>
+                                        <td colspan="2"><b>{{ $attName }}:</b><br></td>
+                                    </tr>
+                                    @if (!empty(old('attribute')[$attGroupId]))
+                                        @foreach (old('attribute')[$attGroupId] as $attValue)
+                                            @if ($attValue)
+                                                @php
+                                                    $newHtml = str_replace('attribute_group', $attGroupId, $htmlProductAtrribute);
+                                                    $newHtml = str_replace('attribute_value', $attValue, $newHtml);
+                                                @endphp
+                                                {!! $newHtml !!}
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                    <tr>
+                                        <td colspan="2"><br>
+                                            <button type="button"
+                                                    class="btn btn-flat btn-success add-attribute"
+                                                    data-id="{{ $attGroupId }}">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                                Thêm thuộc tính
+                                            </button>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                </table>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Thêm mới</button>
                 </div>
@@ -260,5 +310,22 @@
                 }
             });
         });
+
+
+        // Select product attributes
+        $('.add-attribute').click(function (event) {
+            var htmlProductAtrribute = '{!! $htmlProductAtrribute??'' !!}';
+            var attGroup = $(this).attr("data-id");
+            htmlProductAtrribute = htmlProductAtrribute.replace("attribute_group", attGroup);
+            htmlProductAtrribute = htmlProductAtrribute.replace("attribute_value", "");
+            $(this).closest('tr').before(htmlProductAtrribute);
+            $('.removeAttribute').click(function (event) {
+                $(this).closest('tr').remove();
+            });
+        });
+        $('.removeAttribute').click(function (event) {
+            $(this).closest('tr').remove();
+        });
+        //end select attributes
     </script>
 @endpush
