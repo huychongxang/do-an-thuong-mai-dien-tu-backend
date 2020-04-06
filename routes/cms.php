@@ -33,4 +33,6 @@ Route::group([
 
     Route::resource('product-categories', 'ProductCategoryController');
     Route::resource('product', 'ProductController');
+    Route::resource('product', 'ProductController');
+    Route::resource('product-attribute-group', 'ProductAttributeGroupController');
 });

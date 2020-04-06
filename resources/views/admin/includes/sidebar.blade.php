@@ -106,6 +106,16 @@
                                 <p>Quản lý sản phẩm</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH').'.product-attribute-group.index') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH').'.product-attribute-group.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý thuộc tính</p>
+                            </a>
+                        </li>
 
                     </ul>
                 </li>

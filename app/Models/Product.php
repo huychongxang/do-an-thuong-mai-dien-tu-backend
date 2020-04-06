@@ -28,6 +28,15 @@ class Product extends BaseModel
     | Functions
     |--------------------------------------------------------------------------
     */
+    protected static function boot()
+    {
+        parent::boot();
+        // before delete() method call this
+        static::deleting(function ($product) {
+            $product->images()->delete();
+            $product->categories()->detach();
+        });
+    }
 
     public function getCategoriesList()
     {
