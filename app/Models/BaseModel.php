@@ -28,6 +28,9 @@ class BaseModel extends Model
         $disk = $_disk;
         $destinationPath = $_destinationPath;
 
+        // If the upload is old file, keep old file name
+        $this->attributes[$attributeName] = $_value;
+
         // if the image was erased
         if ($_value == null) {
             // set null in the database column

@@ -39,46 +39,26 @@ class ProductController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $newProduct = Product::create($request->all());
+        $data = $request->all();
+        if (isset($data['status']) && strtolower($data['status']) == 'on') {
+            $data['status'] = 1;
+        } else {
+            $data['status'] = 0;
+        }
+        $newProduct = Product::create($data);
         if (!$newProduct) {
             alert()->error('Product Created Fail', 'Something went wrong!');
             return redirect()->back();
         }
 
         // Sync categories for product
-        $categories = $request->categories ?: [];
-        $newProduct->categories()->sync($categories);
+        $this->syncCategories($request, $newProduct);
 
         // Sync sub images for product
-        $subImages = $request->get('sub_image');
-        if (!empty($subImages)) {
-            $subImagesToSave = [];
-            foreach ($subImages as $subImage) {
-                if ($subImage) {
-                    $image = new ProductImage([
-                        'image' => $subImage,
-                    ]);
-                    $subImagesToSave[] = $image;
-                }
-            }
-            $newProduct->images()->saveMany($subImagesToSave);
-        }
+        $this->syncSubImages($request, $newProduct);
 
         //Insert attribute
-        $attribute = (array)$request->attribute;
-        if (!empty($attribute)) {
-            $arrDataAtt = [];
-            foreach ($attribute as $group => $rowGroup) {
-                if (count($rowGroup)) {
-                    foreach ($rowGroup as $key => $nameAtt) {
-                        if ($nameAtt) {
-                            $arrDataAtt[] = new ProductAttribute(['value' => $nameAtt, 'attribute_group_id' => $group]);
-                        }
-                    }
-                }
-            }
-            $newProduct->attributes()->saveMany($arrDataAtt);
-        }
+        $this->insertAttributes($request, $newProduct);
 
         alert()->success('Post Created', 'Successfully');
         return redirect()->back();
@@ -97,9 +77,34 @@ class ProductController extends Controller
             , 'categories', 'attributeGroups', 'htmlProductAtrribute'));
     }
 
-    public function update(UpdateRequest $request)
+    public function update(UpdateRequest $request, $id)
     {
+        $product = Product::find($id);
+        $data = request()->all();
+        if (isset($data['status']) && strtolower($data['status']) == 'on') {
+            $data['status'] = 1;
+        } else {
+            $data['status'] = 0;
+        }
 
+        if (!$product) {
+            alert()->error('Product Created Fail', 'Something went wrong!');
+            return redirect()->back();
+        }
+        $product->update($data);
+        // Sync categories for product
+        $this->syncCategories($request, $product);
+
+        //Insert new attribute
+        $product->attributes()->delete();
+        $this->insertAttributes($request, $product);
+
+        // Sync sub images for product
+        $product->images()->delete();
+        $this->syncSubImages($request, $product);
+
+        alert()->success('Post Updated', 'Successfully');
+        return redirect()->back();
     }
 
     public function destroy($id)
@@ -111,5 +116,56 @@ class ProductController extends Controller
             alert()->error('Product Deleted Fail', 'Something went wrong!');
         }
         return redirect()->back();
+    }
+
+    /**
+     * @param UpdateRequest $request
+     * @param $product
+     */
+    private function syncCategories($request, $product): void
+    {
+        $categories = $request->categories ?: [];
+        $product->categories()->sync($categories);
+    }
+
+    /**
+     * @param $newProduct
+     */
+    private function syncSubImages($request, $newProduct): void
+    {
+        $subImages = $request->get('sub_image');
+        if (!empty($subImages)) {
+            $subImagesToSave = [];
+            foreach ($subImages as $subImage) {
+                if ($subImage) {
+                    $image = new ProductImage([
+                        'image' => $subImage,
+                    ]);
+                    $subImagesToSave[] = $image;
+                }
+            }
+            $newProduct->images()->saveMany($subImagesToSave);
+        }
+    }
+
+    /**
+     * @param $newProduct
+     */
+    private function insertAttributes($request, $newProduct): void
+    {
+        $attribute = (array)$request->attribute;
+        if (!empty($attribute)) {
+            $arrDataAtt = [];
+            foreach ($attribute as $group => $rowGroup) {
+                if (count($rowGroup)) {
+                    foreach ($rowGroup as $key => $nameAtt) {
+                        if ($nameAtt) {
+                            $arrDataAtt[] = new ProductAttribute(['value' => $nameAtt, 'attribute_group_id' => $group]);
+                        }
+                    }
+                }
+            }
+            $newProduct->attributes()->saveMany($arrDataAtt);
+        }
     }
 }

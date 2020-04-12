@@ -9,6 +9,7 @@
             <form method="post" action="{{route(env('ADMIN_PATH').'.product.update',$product->id)}}"
                   enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="">Tên</label>
                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name"
@@ -80,25 +81,26 @@
                                 <label class="btn btn-primary">
                                     Upload<input type="file" class="uploadFile img" accept="image/*"
                                                  style="width: 0px;height: 0px;overflow: hidden;">
-                                    <input type="hidden" class="upfile" name="image" value="{{$product->image}}">
+                                    <input type="hidden" class="upfile" name="image"
+                                           value="{{$product->getOriginal('image')}}">
                                 </label>
                             </div><!-- col-2 -->
 
                         </div><!-- row -->
                         <div class="row">
                             @php
-                                $listsubImages = old('sub_image',$product->images->pluck('image')->all());
+                                $listsubImages = old('sub_image',$product->images->all());
                             @endphp
                             @if(!empty($listsubImages))
                                 @foreach($listsubImages as $key=>$subImage)
                                     <div class="col-sm-2 imgUp">
                                         <div class="imagePreview"
-                                             style="background-image: url({{$subImage}})"></div>
+                                             style="background-image: url({{$subImage->image}})"></div>
                                         <label class="btn btn-primary">Upload<input type="file" class="uploadFile img"
                                                                                     value="Upload Photo"
                                                                                     style="width:0px;height:0px;overflow:hidden;"><input
                                                     type="hidden" class="upfile" name="sub_image[]"
-                                                    value="{{$subImage}}"></label><i
+                                                    value="{{$subImage->getOriginal('image')}}"></label><i
                                                 class="fa fa-times del"></i></div>
                                 @endforeach
                             @endif

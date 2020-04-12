@@ -6,7 +6,7 @@ namespace App\Models;
 class Product extends BaseModel
 {
     protected $table = 'products';
-    protected $fillable = ['sku', 'name', 'description', 'content', 'image', 'price', 'cost', 'sold', 'stock', 'kind', 'virtual', 'status', 'sort', 'date_lastview', 'date_available'];
+    protected $fillable = ['sku', 'name', 'description', 'content', 'image', 'price', 'cost', 'sold', 'stock', 'kind', 'virtual', 'status', 'sort', 'date_lastview', 'date_available', 'status'];
 
     /*
     |--------------------------------------------------------------------------
@@ -121,14 +121,5 @@ class Product extends BaseModel
     public function setImageAttribute($value)
     {
         $this->uploadImageBase64('image', 'store', 'product', $value);
-    }
-
-    public function setStatusAttribute($value)
-    {
-        if (strtolower($value) == 'on') {
-            $this->attributes['status'] = 1;
-        } else {
-            $this->attributes['status'] = 0;
-        }
     }
 }
