@@ -28,6 +28,11 @@ class Product extends BaseModel
         return $this->hasMany(ProductAttribute::class, 'product_id', 'id');
     }
 
+    public function promotionPrice()
+    {
+        return $this->hasOne(ProductPromotion::class, 'product_id', 'id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Functions
@@ -95,6 +100,30 @@ class Product extends BaseModel
     {
         $value = $this->getOriginal('price');
         return number_format($value) . ' đ';
+    }
+
+    public function getFinalPrice()
+    {
+        $promotion = $this->processPromotionPrice();
+        if ($promotion) {
+            return $promotion;
+        } else {
+            return $this->price;
+        }
+    }
+
+    private function processPromotionPrice()
+    {
+        $promotion = $this->promotionPrice;
+        if ($promotion) {
+            if (($promotion['date_end'] >= date("Y-m-d") || $promotion['date_end'] == null)
+                && ($promotion['date_start'] <= date("Y-m-d") || $promotion['date_start'] == null)
+                && $promotion['status_promotion'] = 1) {
+                return $promotion['price_promotion'];
+            }
+        }
+
+        return false;
     }
 
     /*

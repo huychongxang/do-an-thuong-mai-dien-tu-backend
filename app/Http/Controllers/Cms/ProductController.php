@@ -10,6 +10,7 @@ use App\Models\ProductAttribute;
 use App\Models\ProductAttributeGroup;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
+use App\Models\ProductPromotion;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -50,6 +51,9 @@ class ProductController extends Controller
             alert()->error('Product Created Fail', 'Something went wrong!');
             return redirect()->back();
         }
+
+        // Insert promotion price
+        $this->insertPromotionPrice($request, $newProduct);
 
         // Sync categories for product
         $this->syncCategories($request, $newProduct);
@@ -92,6 +96,11 @@ class ProductController extends Controller
             return redirect()->back();
         }
         $product->update($data);
+
+        //Promoton price
+        $product->promotionPrice()->delete();
+        $this->insertPromotionPrice($request, $product);
+
         // Sync categories for product
         $this->syncCategories($request, $product);
 
@@ -109,7 +118,7 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        $product = Product::whereId($id)->delete();
+        $product = Product::whereId($id)->first()->delete();
         if ($product) {
             alert()->success('Product Deleted', 'Successfully');
         } else {
@@ -166,6 +175,21 @@ class ProductController extends Controller
                 }
             }
             $newProduct->attributes()->saveMany($arrDataAtt);
+        }
+    }
+
+    /**
+     * @param $product
+     */
+    private function insertPromotionPrice($request, $product)
+    {
+        if ($request->price_promotion) {
+            $promotion = new ProductPromotion([
+                'price_promotion' => $request->price_promotion,
+                'date_start' => ($request->price_promotion_start) ?? null,
+                'date_end' => ($request->price_promotion_end) ?? null
+            ]);
+            $product->promotionPrice()->save($promotion);
         }
     }
 }

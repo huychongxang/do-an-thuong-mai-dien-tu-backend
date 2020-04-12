@@ -101,6 +101,18 @@
                     @endif
                 </div>
                 <div class="form-group">
+                    <label for="">Giá khuyến mãi</label>
+                    <div class="col-sm-10">
+                        <button type="button" class="btn btn-flat btn-success" id="add_product_promotion">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Thêm giá khuyến mãi
+                        </button>
+                    </div>
+                    @if($errors->has('price'))
+                        <span class="error invalid-feedback">{{$errors->first('price')}}</span>
+                    @endif
+                </div>
+                <div class="form-group">
                     <label for="">Stock</label>
                     <div class="input-group">
                         <input type="number"
@@ -327,5 +339,25 @@
             $(this).closest('tr').remove();
         });
         //end select attributes
+
+        // Promotion
+        $('#add_product_promotion').click(function (event) {
+            $(this).before('<div class="price_promotion"><div class="input-group"><input type="number" style="width: 100px;"  id="price_promotion" name="price_promotion" value="0" class="form-control input-sm price" placeholder="" /><span title="Remove" class="btn btn-flat btn-sm btn-danger removePromotion"><i class="fa fa-times"></i></span></div><div class="form-inline"><div class="input-group">Ngày bắt đầu<br><div class="input-group"><span class="input-group-addon"></span><input type="text" style="width: 100px;"  id="price_promotion_start" name="price_promotion_start" value="" class="form-control input-sm price_promotion_start date_time" placeholder="" /></div></div>' +
+                '<div class="input-group">Ngày kết thúc<br><div class="input-group"><input type="text" style="width: 100px;"  id="price_promotion_end" name="price_promotion_end" value="" class="form-control input-sm price_promotion_end date_time" placeholder="" /></div></div></div></div>');
+            $(this).hide();
+            $('.removePromotion').click(function (event) {
+                $(this).closest('.price_promotion').remove();
+                $('#add_product_promotion').show();
+            });
+            $('.date_time').datepicker({
+                autoclose: true,
+                format: 'yyyy-mm-dd'
+            })
+        });
+        $('.removePromotion').click(function (event) {
+            $('#add_product_promotion').show();
+            $(this).closest('.price_promotion').remove();
+        });
+        //End promotion
     </script>
 @endpush
