@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cms\OrderStatus\StoreRequest;
+use App\Http\Requests\Cms\OrderStatus\UpdateRequest;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class OrderStatusController extends Controller
      */
     public function index()
     {
-        $orderStatuses = OrderStatus::paginate(2);
+        $orderStatuses = OrderStatus::paginate(10);
         return view('admin.pages.order-status.list', compact('orderStatuses'));
     }
 
@@ -26,7 +28,7 @@ class OrderStatusController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.order-status.create');
     }
 
     /**
@@ -35,9 +37,15 @@ class OrderStatusController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $newOrderStatus = OrderStatus::create($request->all());
+        if ($newOrderStatus) {
+            alert()->success('Order Status Created', 'Successfully');
+        } else {
+            alert()->error('Order Status Created Fail', 'Something went wrong!');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -59,7 +67,8 @@ class OrderStatusController extends Controller
      */
     public function edit($id)
     {
-        //
+        $orderStatus = OrderStatus::find($id);
+        return view('admin.pages.order-status.edit', compact('orderStatus'));
     }
 
     /**
@@ -69,9 +78,15 @@ class OrderStatusController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        $orderStatus = OrderStatus::find($id)->update($request->all());
+        if ($orderStatus) {
+            alert()->success('Order Status Updated', 'Successfully');
+        } else {
+            alert()->error('Order Status Updated Fail', 'Something went wrong!');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -82,6 +97,13 @@ class OrderStatusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $orderStatus = OrderStatus::findOrFail($id);
+        $delete = $orderStatus->delete();
+        if ($delete) {
+            alert()->success('Order Status Deleted', 'Successfully');
+        } else {
+            alert()->error('Order Status Deleted Fail', 'Something went wrong!');
+        }
+        return redirect()->back();
     }
 }
