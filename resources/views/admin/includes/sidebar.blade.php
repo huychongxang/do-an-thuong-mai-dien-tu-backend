@@ -79,7 +79,7 @@
                 <li class="nav-item has-treeview {{$open}}">
                     <a href="#"
                        class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-folder-open"></i>
                         <p>
                             Quản lý sản phẩm
                             <i class="right fas fa-angle-left"></i>
@@ -92,7 +92,7 @@
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-folder nav-icon"></i>
                                 <p>Quản lý danh mục</p>
                             </a>
                         </li>
@@ -102,7 +102,7 @@
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product.index')}}"
                                class="nav-link {{$active}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fab fa-product-hunt nav-icon"></i>
                                 <p>Quản lý sản phẩm</p>
                             </a>
                         </li>
@@ -112,7 +112,7 @@
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-attribute-group.index')}}"
                                class="nav-link {{$active}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-bars nav-icon"></i>
                                 <p>Quản lý thuộc tính</p>
                             </a>
                         </li>
@@ -124,7 +124,7 @@
                 <li class="nav-item has-treeview {{$open}}">
                     <a href="#"
                        class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
                             Quản lý đơn hàng
                             <i class="right fas fa-angle-left"></i>
@@ -137,7 +137,7 @@
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-cart-arrow-down nav-icon"></i>
                                 <p>Quản lý đơn hàng</p>
                             </a>
                         </li>
@@ -147,7 +147,7 @@
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-leaf nav-icon"></i>
                                 <p>Trạng thái đơn hàng</p>
                             </a>
                         </li>
@@ -157,7 +157,7 @@
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-recycle nav-icon"></i>
                                 <p>Trạng thái thanh toán</p>
                             </a>
                         </li>
@@ -167,7 +167,7 @@
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-truck nav-icon"></i>
                                 <p>Trạng thái vận chuyển</p>
                             </a>
                         </li>

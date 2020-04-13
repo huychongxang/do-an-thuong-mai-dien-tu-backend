@@ -11,13 +11,15 @@ class ProductCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\ProductCategory::create([
+        \App\Models\ProductCategory::firstOrCreate([
+            'name' => 'Root',
+        ], [
             'name' => 'Root',
             'description' => 'This is the root category, don\'t delete this one',
             'parent_id' => null,
             'status' => 0,
         ]);
 
-        factory(\App\Models\ProductCategory::class, 10)->create();
+//        factory(\App\Models\ProductCategory::class, 10)->create();
     }
 }
