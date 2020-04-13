@@ -1,12 +1,12 @@
 @extends('admin.layouts.master')
-@section('title_page','Danh sách sản phẩm')
+@section('title_page','Danh sách trạng thái')
 @push('styles')
 
 @endpush
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.product.create')}}">Thêm mới</a>
+            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.order-status.create')}}">Thêm mới</a>
         </div>
     </div>
     <br>
@@ -17,36 +17,22 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Hình ảnh</th>
-                        <th>Mã hàng</th>
+                        <th>Mã</th>
                         <th>Tên</th>
-                        <th>Danh mục</th>
-                        <th>Giá nhập</th>
-                        <th>Giá bán</th>
-                        <th>Loại</th>
-                        <th>Trạng thái</th>
                         <th>Hành động</th>
                     </tr>
                     </thead>
-                    {{$products->links()}}
+                    {{$orderStatuses->links()}}
                     <tbody>
-                    @foreach($products as $key=>$product)
+                    @foreach($orderStatuses as $key=>$orderStatus)
                         @php
-                            $editUrl = route(env('ADMIN_PATH') . '.product.edit', $product->id);
-                            $deleteUrl = route(env('ADMIN_PATH') . '.product.destroy', $product->id);
+                            $editUrl = route(env('ADMIN_PATH') . '.order-status.edit', $orderStatus->id);
+                            $deleteUrl = route(env('ADMIN_PATH') . '.order-status.destroy', $orderStatus->id);
                         @endphp
                         <tr>
-                            <td>{{$product->id}}</td>
-                            <td>
-                                <img alt="" title="" src="{{$product->image}}" style=" width:50px; height:50px;">
-                            </td>
-                            <td>{{$product->sku}}</td>
-                            <td>{{$product->name}}</td>
-                            <td>{{$product->getCategoriesList()}}</td>
-                            <td>{{$product->getCostHtml()}}</td>
-                            <td>{{$product->getPriceHtml()}}</td>
-                            <td>{{$product->getType()}}</td>
-                            <td>{!! $product->getStatusHtml() !!}</td>
+                            <td>{{$orderStatus->id}}</td>
+                            <td>{{$orderStatus->name}}</td>
+                            <td>{{$orderStatus->label}}</td>
                             <td>
                                 <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                     Sửa</a>
@@ -63,10 +49,9 @@
                     </tbody>
                 </table>
                 <div>
-                    <small>Showing {{$products->firstItem()}} to {{$products->lastItem()}}
-                        of {{$products->total()}} {{Str::plural('product',$products->total())}}</small>
-                    {{$products->appends(request()->input())->links()}}
-
+                    <small>Showing {{$orderStatuses->firstItem()}} to {{$orderStatuses->lastItem()}}
+                        of {{$orderStatuses->total()}} {{Str::plural('status',$orderStatuses->total())}}</small>
+                    {{$orderStatuses->appends(request()->input())->links()}}
                 </div>
             </div>
         </div>

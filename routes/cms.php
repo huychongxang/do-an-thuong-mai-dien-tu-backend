@@ -35,4 +35,6 @@ Route::group([
     Route::resource('product', 'ProductController');
     Route::resource('product', 'ProductController');
     Route::resource('product-attribute-group', 'ProductAttributeGroupController');
+
+    Route::resource('order-status', 'OrderStatusController');
 });

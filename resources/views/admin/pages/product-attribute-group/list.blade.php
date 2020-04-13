@@ -52,7 +52,8 @@
                     </tbody>
                 </table>
                 <div>
-                    <small>{{$attributes->total()}} {{Str::plural('attribute',$attributes->total())}}</small>
+                    <small>Showing {{$attributes->firstItem()}} to {{$attributes->lastItem()}}
+                        of {{$attributes->total()}} {{Str::plural('attribute',$attributes->total())}}</small>
                     {{$attributes->appends(request()->input())->links()}}
 
                 </div>

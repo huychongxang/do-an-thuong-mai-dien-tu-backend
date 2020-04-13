@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 @php
-                    $active = Route::is(env('ADMIN_PATH').'.product-categories*') ? 'active': null;
+                    $active = Route::is(env('ADMIN_PATH').'.product*') ? 'active': null;
                     $open = ($active) ? 'menu-open' : null;
                 @endphp
                 <li class="nav-item has-treeview {{$open}}">
@@ -88,7 +88,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
@@ -98,7 +98,7 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product.index') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.product.*') ? 'active': null;
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product.index')}}"
                                class="nav-link {{$active}}">
@@ -108,7 +108,7 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-attribute-group.index') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.product-attribute-group.*') ? 'active': null;
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-attribute-group.index')}}"
                                class="nav-link {{$active}}">
@@ -120,7 +120,10 @@
                     </ul>
                 </li>
 
-
+                @php
+                    $active = Route::is(env('ADMIN_PATH').'.order*') ? 'active': null;
+                    $open = ($active) ? 'menu-open' : null;
+                @endphp
                 <li class="nav-item has-treeview {{$open}}">
                     <a href="#"
                        class="nav-link {{$active}}">
@@ -133,7 +136,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
@@ -143,9 +146,9 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.order-status.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                            <a href="{{route(env('ADMIN_PATH').'.order-status.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-leaf nav-icon"></i>
                                 <p>Trạng thái đơn hàng</p>
@@ -153,7 +156,7 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
@@ -163,7 +166,7 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
                                class="nav-link {{$active}}">

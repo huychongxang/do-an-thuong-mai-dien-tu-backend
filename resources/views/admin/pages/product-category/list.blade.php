@@ -57,7 +57,8 @@
                     </tbody>
                 </table>
                 <div>
-                    <small>{{$productCategories->total()}} {{Str::plural('category',$productCategories->total())}}</small>
+                    <small>Showing {{$productCategories->firstItem()}} to {{$productCategories->lastItem()}}
+                        of {{$productCategories->total()}} {{Str::plural('category',$productCategories->total())}}</small>
                     {{$productCategories->appends(request()->input())->links()}}
 
                 </div>
