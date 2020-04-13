@@ -119,6 +119,60 @@
 
                     </ul>
                 </li>
+
+
+                <li class="nav-item has-treeview {{$open}}">
+                    <a href="#"
+                       class="nav-link {{$active}}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Quản lý đơn hàng
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý đơn hàng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Trạng thái đơn hàng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Trạng thái thanh toán</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH').'.product-categories.index') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Trạng thái vận chuyển</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
