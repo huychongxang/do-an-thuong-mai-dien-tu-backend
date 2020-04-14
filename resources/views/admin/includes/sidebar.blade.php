@@ -121,8 +121,12 @@
                 </li>
 
                 @php
-                    $active = Route::is(env('ADMIN_PATH').'.order*') ? 'active': null;
-                    $open = ($active) ? 'menu-open' : null;
+                    $routeNames = Route::currentRouteName();
+                    $name = explode('.',$routeNames)[1];
+                    $active = in_array($name,[
+                    'order-status','payment-status','shipping-status'
+                    ]) ? 'active': null;
+                        $open = ($active) ? 'menu-open' : null;
                 @endphp
                 <li class="nav-item has-treeview {{$open}}">
                     <a href="#"
@@ -156,7 +160,7 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.payment-status.*') ? 'active': null;
                             @endphp
                             <a href="{{route(env('ADMIN_PATH').'.payment-status.index')}}"
                                class="nav-link {{$active}}">
