@@ -166,9 +166,9 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.shipping-status.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                            <a href="{{route(env('ADMIN_PATH').'.shipping-status.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-truck nav-icon"></i>
                                 <p>Trạng thái vận chuyển</p>

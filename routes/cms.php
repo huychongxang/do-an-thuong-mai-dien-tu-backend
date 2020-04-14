@@ -38,4 +38,5 @@ Route::group([
 
     Route::resource('order-status', 'OrderStatusController');
     Route::resource('payment-status', 'PaymentStatusController');
+    Route::resource('shipping-status', 'ShippingStatusController');
 });
