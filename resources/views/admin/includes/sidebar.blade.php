@@ -158,7 +158,7 @@
                             @php
                                 $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                            <a href="{{route(env('ADMIN_PATH').'.payment-status.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-recycle nav-icon"></i>
                                 <p>Trạng thái thanh toán</p>

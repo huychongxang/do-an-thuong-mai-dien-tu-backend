@@ -37,4 +37,5 @@ Route::group([
     Route::resource('product-attribute-group', 'ProductAttributeGroupController');
 
     Route::resource('order-status', 'OrderStatusController');
+    Route::resource('payment-status', 'PaymentStatusController');
 });
