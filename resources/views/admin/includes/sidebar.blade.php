@@ -140,9 +140,9 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH').'.orders.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                            <a href="{{route(env('ADMIN_PATH').'.orders.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-cart-arrow-down nav-icon"></i>
                                 <p>Quản lý đơn hàng</p>
