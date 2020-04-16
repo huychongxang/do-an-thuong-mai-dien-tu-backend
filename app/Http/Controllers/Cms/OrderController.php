@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderStatus;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -15,8 +17,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::paginate(10);
-        return view('admin.pages.orders.list',compact('orders'));
+        $orders = Order::with(['orderStatus'])->paginate(10);
+        return view('admin.pages.orders.list', compact('orders'));
     }
 
     /**
@@ -26,24 +28,51 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $orderStatues = OrderStatus::all();
+        return view('admin.pages.orders.create', compact('users', 'orderStatues'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $user = null;
+        if ($request->user_id) {
+            $user = User::find($request->user_id);
+        }
+        $dataInsert = [
+            'user_id' => $request->user_id,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'status' => $request->status,
+            'address1' => $request->address1,
+            'address2' => $request->address2,
+            'phone' => $request->phone,
+            'payment_method' => $request->payment_method,
+            'shipping_method' => $request->shipping_method,
+            'email' => ($user) ? $user->email : $request->email,
+            'comment' => $request->comment
+        ];
+
+        $order = Order::create($dataInsert);
+        if (!$order) {
+            alert()->error('Create Order Fail', 'Something went wrong!');
+            return redirect()->back();
+        }
+
+        alert()->success('Order Created', 'Successfully');
+        return redirect()->route(env('ADMIN_PATH') . '.orders.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -54,7 +83,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -65,8 +94,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -77,7 +106,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -38,12 +38,12 @@
                         <tr>
                             <td>{{$order->id}}</td>
                             <td>{{$order->email}}</td>
-                            <td>{{$order->sub_total}}</td>
+                            <td>{{$order->subtotal}}</td>
                             <td>{{$order->shipping}}</td>
                             <td>{{$order->discount}}</td>
                             <td>{{$order->total}}</td>
                             <td>{{$order->payment_method}}</td>
-                            <td>{{$order->status}}</td>
+                            <td>{{$order->orderStatus->label}}</td>
                             <td>{{$order->created_at}}</td>
                             <td>
                                 <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
