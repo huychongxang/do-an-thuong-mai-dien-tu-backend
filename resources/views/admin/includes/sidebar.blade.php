@@ -124,7 +124,7 @@
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];
                     $active = in_array($name,[
-                    'order-status','payment-status','shipping-status'
+                    'orders','order-status','payment-status','shipping-status'
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp

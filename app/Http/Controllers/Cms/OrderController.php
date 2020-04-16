@@ -88,7 +88,13 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::find($id);
+        if (!$order) {
+            alert()->error('Order not found', 'Something went wrong!');
+            return redirect()->back();
+        }
+
+        return view('admin.pages.orders.edit', compact('order'));
     }
 
     /**
