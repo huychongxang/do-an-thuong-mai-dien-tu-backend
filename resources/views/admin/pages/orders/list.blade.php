@@ -43,7 +43,9 @@
                             <td>{{$order->discount}}</td>
                             <td>{{$order->total}}</td>
                             <td>{{$order->payment_method}}</td>
-                            <td><span class="badge bg-primary">{{$order->orderStatus->label}}</span></td>
+                            <td>
+                                <span class="badge bg-{{$order->orderStatus->type}}">{{$order->orderStatus->label}}</span>
+                            </td>
                             <td>{{$order->created_at}}</td>
                             <td>
                                 <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>

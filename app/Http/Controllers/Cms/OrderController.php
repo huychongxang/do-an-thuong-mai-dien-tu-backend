@@ -17,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['orderStatus'])->paginate(10);
+        $orders = Order::with(['orderStatus'])->latest()->paginate(10);
         return view('admin.pages.orders.list', compact('orders'));
     }
 
@@ -111,6 +111,13 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $delete = $order->delete();
+        if ($delete) {
+            alert()->success('Order Deleted', 'Successfully');
+        } else {
+            alert()->error('Order Delete Fail', 'Something went wrong!');
+        }
+        return redirect()->back();
     }
 }
