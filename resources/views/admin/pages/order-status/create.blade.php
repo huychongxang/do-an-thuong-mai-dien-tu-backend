@@ -23,6 +23,25 @@
                         <span class="error invalid-feedback">{{$errors->first('label')}}</span>
                     @endif
                 </div>
+                <div class="form-group">
+                    <label for="">Type</label>
+                    @php
+                        $types = [
+                            'primary','secondary','success','danger','warning','info','dark'
+                        ];
+                    @endphp
+                    @foreach($types as $key=>$type)
+                        <input {{($key ==0) ? 'checked': null}} type="radio"
+                               class="{{ $errors->has('type') ? 'is-invalid' : '' }}" value="{{$type}}"
+                               name="type"><span class="badge bg-{{$type}}"
+                                                 style="width: 20px;height: 20px;display: inline-block"></span>
+                    @endforeach
+
+                    @if($errors->has('type'))
+                        <span class="error invalid-feedback">{{$errors->first('type')}}</span>
+                    @endif
+                </div>
+
                 <button type="submit" class="btn btn-primary">Thêm mới</button>
             </form>
         </div>

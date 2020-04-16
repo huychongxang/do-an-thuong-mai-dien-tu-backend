@@ -19,6 +19,7 @@
                         <th>Id</th>
                         <th>Mã</th>
                         <th>Tên</th>
+                        <th>Type</th>
                         <th>Hành động</th>
                     </tr>
                     </thead>
@@ -33,6 +34,8 @@
                             <td>{{$orderStatus->id}}</td>
                             <td>{{$orderStatus->name}}</td>
                             <td>{{$orderStatus->label}}</td>
+                            <td><span class="badge bg-{{$orderStatus->type}}"
+                                      style="width: 20px;height: 20px;display: inline-block"></span></td>
                             <td>
                                 <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                     Sửa</a>
