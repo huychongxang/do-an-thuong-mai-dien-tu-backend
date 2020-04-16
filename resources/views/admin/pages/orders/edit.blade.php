@@ -125,15 +125,15 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <td>Tiền hàng:</td>
-                                            <td>{{$order->subtotal}}</td>
+                                            <td style="text-align:right">{{$order->subtotal}}</td>
                                         </tr>
                                         <tr>
                                             <td>Phí ship:</td>
-                                            <td>{{$order->shipping}}</td>
+                                            <td style="text-align:right">{{$order->shipping}}</td>
                                         </tr>
                                         <tr>
                                             <td>Discount:</td>
-                                            <td>{{$order->discount}}</td>
+                                            <td style="text-align:right">{{$order->discount}}</td>
                                         </tr>
                                         <tr style="background:#f5f3f3;font-weight: bold;">
                                             <td>Total:</td>
@@ -141,11 +141,11 @@
                                         </tr>
                                         <tr>
                                             <td>Đã nhận: </td>
-                                            <td>{{$order->received}}</td>
+                                            <td style="text-align:right">{{$order->received}}</td>
                                         </tr>
                                         <tr>
                                             <td>Còn lại:</td>
-                                            <td>{{$order->balance}}</td>
+                                            <td style="text-align:right">{{$order->balance}}</td>
                                         </tr>
                                     </table>
                                 </div>
