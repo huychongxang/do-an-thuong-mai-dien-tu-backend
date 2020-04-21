@@ -1,7 +1,7 @@
 <!-- REQUIRED SCRIPTS -->
 </div>
 </body>
-<script src="{{asset('admin/js/app.js')}}"></script>
+<script src="{{mix('admin/js/app.js')}}"></script>
 @include('sweetalert::alert')
 @stack('scripts')
 </html>

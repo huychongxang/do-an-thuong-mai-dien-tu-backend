@@ -8,18 +8,18 @@
 
 namespace App\Helpers;
 
-
 class ApiHelper
 {
-    public static function api_status_handle($code, $data)
+    public static function api_status_handle($code, $data, $success = true)
     {
         $data = [
             'code' => $code,
+            'success' => $success,
             'status' => static::status_code($code),
             'data' => $data
         ];
 
-        return json_encode($data, JSON_UNESCAPED_UNICODE);
+        return response()->json($data, $code);
     }
 
     public static function api_resource_handle($resource, $code, $metaData = [])

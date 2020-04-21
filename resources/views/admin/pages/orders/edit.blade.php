@@ -1,7 +1,8 @@
 @extends('admin.layouts.master')
 @section('title_page','Chi tiết đơn hàng')
 @push('styles')
-
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('admin/bootstrap3-editable/bootstrap3-editable/css/bootstrap-editable.css')}}" rel="stylesheet">
 @endpush
 @section('content')
     <div class="row">
@@ -20,15 +21,28 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <td>Tên:</td>
-                                            <td>{{$order->first_name}}</td>
+                                            <td>
+                                                <a href="#" class="updateInfoRequired" data-name="first_name"
+                                                   data-type="text" data-pk="{{ $order->id }}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title="  {{$order->first_name}}">  {{$order->first_name}}</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Họ:</td>
-                                            <td>{{$order->last_name}}</td>
+                                            <td><a href="#" class="updateInfoRequired" data-name="last_name"
+                                                   data-type="text" data-pk="{{ $order->id }}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title="  {{$order->last_name}}">  {{$order->last_name}}</a></td>
                                         </tr>
                                         <tr>
                                             <td>Số điện thoại:</td>
-                                            <td>{{$order->phone}}</td>
+                                            <td>
+                                                <a href="#" class="updateInfoRequired" data-name="phone"
+                                                   data-type="text" data-pk="{{ $order->id }}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title="{{$order->phone}}">  {{$order->phone}}</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Email:</td>
@@ -36,11 +50,21 @@
                                         </tr>
                                         <tr>
                                             <td>Tỉnh/Thành:</td>
-                                            <td>{{$order->address1}}</td>
+                                            <td>
+                                                <a href="#" class="updateInfoRequired" data-name="address1"
+                                                   data-type="text" data-pk="{{ $order->id }}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title="{{$order->address1}}">  {{$order->address1}}</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Quận/Huyện:</td>
-                                            <td>{{$order->address2}}</td>
+                                            <td>
+                                                <a href="#" class="updateInfoRequired" data-name="address2"
+                                                   data-type="text" data-pk="{{ $order->id }}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title="{{$order->address2}}">  {{$order->address2}}</a>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
@@ -48,11 +72,26 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <td>Trạng thái đơn hàng:</td>
-                                            <td>{{$order->orderStatus->label}}</td>
+                                            <td>
+                                                <a href="#" class="updateStatus" data-name="status" data-type="select"
+                                                   data-source="{{ json_encode($statusOrderMap) }}"
+                                                   data-pk="{{ $order->id }}" data-value="{!! $order->status !!}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title=" {{$order->orderStatus->label}}"> {{$order->orderStatus->label}}</a>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Trạng thái vận chuyển:</td>
-                                            <td>{{$order->shippingStatus->label}}</td>
+                                            <td>
+                                                <a href="#" class="updateStatus" data-name="shipping_status"
+                                                   data-type="select"
+                                                   data-source="{{ json_encode($statusShippingMap) }}"
+                                                   data-pk="{{ $order->id }}"
+                                                   data-value="{!! $order->shipping_status !!}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title="{{$order->shippingStatus->label}}">{{$order->shippingStatus->label}}</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Vận chuyển:</td>
@@ -129,37 +168,60 @@
                                         </tr>
                                         <tr>
                                             <td>Phí ship:</td>
-                                            <td style="text-align:right">{{$order->shipping}}</td>
+                                            <td style="text-align:right">
+                                                <a href="#" class="updatePrice data-shipping" data-name="shipping"
+                                                   data-type="text"
+                                                   data-pk="{{$order->id}}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title=" {{$order->shipping}}"> {{$order->shipping}}</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Discount:</td>
-                                            <td style="text-align:right">{{$order->discount}}</td>
+                                            <td style="text-align:right">
+                                                <a href="#" class="updatePrice data-discount" data-name="discount"
+                                                   data-type="text"
+                                                   data-pk="{{$order->id}}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title=" {{$order->discount}}"> {{$order->discount}}</a>
+                                            </td>
                                         </tr>
                                         <tr style="background:#f5f3f3;font-weight: bold;">
                                             <td>Total:</td>
                                             <td style="text-align:right">{{$order->total}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Đã nhận: </td>
-                                            <td style="text-align:right">{{$order->received}}</td>
+                                            <td>Đã nhận:</td>
+                                            <td style="text-align:right">
+                                                <a href="#" class="updatePrice data-received" data-name="received"
+                                                   data-type="text"
+                                                   data-pk="{{$order->id}}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-title=" {{$order->received}}"> {{$order->received}}</a>
+                                            </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="data-balance">
                                             <td>Còn lại:</td>
                                             <td style="text-align:right">{{$order->balance}}</td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="col-sm-6">
-                                   <div class="card collapsed-card">
-                                       <table class="table table-bordered">
-                                           <tbody>
-                                           <tr>
-                                               <td class="td-title">Ghi chú đơn hàng:</td>
-                                               <td>{{$order->comment}}</td>
-                                           </tr>
-                                           </tbody>
-                                       </table>
-                                   </div>
+                                    <div class="card collapsed-card">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                            <tr>
+                                                <td class="td-title">Ghi chú đơn hàng:</td>
+                                                <td>
+                                                    <a href="#" class="updatePrice" data-name="comment" data-type="text"
+                                                       data-pk="{{$order->id}}"
+                                                       data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                       data-title=" {{$order->comment}}"> {{$order->comment}}</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div class="card collapsed-card">
                                         <div class="card-header with-border">
                                             <h3 class="card-title">Lịch sử đơn hàng</h3>
@@ -194,5 +256,55 @@
     <!-- /.row -->
 @endsection
 @push('scripts')
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="{{asset('admin/bootstrap3-editable/bootstrap3-editable/js/bootstrap-editable.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            all_editable();
+        });
 
+        function all_editable() {
+            $.fn.editable.defaults.params = function (params) {
+                params._token = "{{ csrf_token() }}";
+                return params;
+            };
+            $.fn.editable.defaults.ajaxOptions = {type: "PUT"};
+
+            $('.updateInfoRequired,.updateStatus, .updatePrice').editable({
+                validate: function (value) {
+                    if (value == '') {
+                        return 'Không được để trống';
+                    }
+                },
+                success: function (response, newValue) {
+                    if (response.success == true) {
+                        return response.msg; //msg will be shown in editable form
+                    }
+                },
+                error: function (response) {
+                    var data = response.responseJSON;
+                    return 'Có lỗi xảy ra';
+                }
+            });
+
+            $('.updatePrice').editable({
+                validate: function (value) {
+                    if (value == '') {
+                        return 'Không được để trống';
+                    }
+                },
+                success: function (response, newValue) {
+                    if (response.success == true) {
+                        return response.msg; //msg will be shown in editable form
+                    }
+                },
+                error: function (response) {
+                    var data = response.responseJSON;
+                    return 'Có lỗi xảy ra';
+                }
+            });
+
+        }
+    </script>
 @endpush

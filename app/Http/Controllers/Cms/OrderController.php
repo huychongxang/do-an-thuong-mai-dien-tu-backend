@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Cms;
 
+use App\Helpers\ApiHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderStatus;
+use App\Models\ShippingStatus;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -89,12 +91,14 @@ class OrderController extends Controller
     public function edit($id)
     {
         $order = Order::find($id);
+        $statusOrderMap = OrderStatus::pluck('label', 'id')->all();
+        $statusShippingMap = ShippingStatus::pluck('label', 'id')->all();
         if (!$order) {
             alert()->error('Order not found', 'Something went wrong!');
             return redirect()->back();
         }
 
-        return view('admin.pages.orders.edit', compact('order'));
+        return view('admin.pages.orders.edit', compact('order', 'statusOrderMap', 'statusShippingMap'));
     }
 
     /**
@@ -106,7 +110,36 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $field = $request->name;
+            $value = $request->value;
+
+            if ($field == 'shipping' || $field == 'discount' || $field == 'received') {
+                $order = Order::find($id);
+                $arrayFields = [
+                    $field => $value,
+                ];
+                $order->update($arrayFields);
+
+                $order->total = $order->subtotal + $order->shipping - $order->discount;
+                $order->balance = $order->total - $order->received;
+                $order->save();
+            } else {
+                $arrayFields = [
+                    $field => $value,
+                ];
+
+                $order = Order::find($id);
+                $order->update($arrayFields);
+            }
+
+
+            return ApiHelper::api_status_handle(200, [
+
+            ]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, []);
+        }
     }
 
     /**
