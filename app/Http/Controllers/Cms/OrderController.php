@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Cms;
 use App\Helpers\ApiHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderHistory;
 use App\Models\OrderStatus;
 use App\Models\ShippingStatus;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -93,12 +95,13 @@ class OrderController extends Controller
         $order = Order::find($id);
         $statusOrderMap = OrderStatus::pluck('label', 'id')->all();
         $statusShippingMap = ShippingStatus::pluck('label', 'id')->all();
+        $histories = $order->histories()->latest()->get();
         if (!$order) {
             alert()->error('Order not found', 'Something went wrong!');
             return redirect()->back();
         }
 
-        return view('admin.pages.orders.edit', compact('order', 'statusOrderMap', 'statusShippingMap'));
+        return view('admin.pages.orders.edit', compact('order', 'statusOrderMap', 'statusShippingMap', 'histories'));
     }
 
     /**
@@ -116,6 +119,7 @@ class OrderController extends Controller
 
             if ($field == 'shipping' || $field == 'discount' || $field == 'received') {
                 $order = Order::find($id);
+                $oldValue = $order->{$field};
                 $arrayFields = [
                     $field => $value,
                 ];
@@ -130,8 +134,19 @@ class OrderController extends Controller
                 ];
 
                 $order = Order::find($id);
+                $oldValue = $order->{$field};
                 $order->update($arrayFields);
             }
+
+            //Add history
+            $content = "Thay đổi <b>{$field}</b> từ <span style=\"color:blue\">'{$oldValue}'</span> sang <span style=\"color:red\">'{$value}'</span>";
+            $history = new OrderHistory([
+                'content' => $content,
+                'admin_id' => Auth::guard('admin')->user()->id,
+                'order_status_id' => $order->status,
+            ]);
+
+            $order->histories()->save($history);
 
 
             return ApiHelper::api_status_handle(200, [
@@ -143,7 +158,9 @@ class OrderController extends Controller
                 'balance' => $order->balance,
             ]);
         } catch (\Exception $e) {
-            return ApiHelper::api_status_handle(500, []);
+            return ApiHelper::api_status_handle(500, [
+                'error' => $e->getMessage()
+            ]);
         }
     }
 

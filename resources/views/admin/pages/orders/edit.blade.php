@@ -239,6 +239,13 @@
                                                     <th>Nội dung</th>
                                                     <th>Thời gian</th>
                                                 </tr>
+                                                @foreach($histories as $history)
+                                                    <tr>
+                                                        <td>{{$history->admin->name ?? $history->user->name}}</td>
+                                                        <td>{!! $history->content !!}</td>
+                                                        <td>{{$history->created_at}}</td>
+                                                    </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

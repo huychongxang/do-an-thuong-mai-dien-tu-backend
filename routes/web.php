@@ -11,6 +11,8 @@
 |
 */
 
+use App\Models\OrderHistory;
+
 Route::get('/', function () {
     return redirect()->route('cms.dashboard');
 });

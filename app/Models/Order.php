@@ -42,6 +42,10 @@ class Order extends Model
         return $this->belongsTo(ShippingStatus::class, 'shipping_status', 'id');
     }
 
+    public function histories()
+    {
+        return $this->hasMany(OrderHistory::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | Mutators
