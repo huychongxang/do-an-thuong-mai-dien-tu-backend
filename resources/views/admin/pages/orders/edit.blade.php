@@ -1,9 +1,8 @@
 @extends('admin.layouts.master')
 @section('title_page','Chi tiết đơn hàng')
 @push('styles')
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{asset('admin/bootstrap3-editable/bootstrap3-editable/css/bootstrap-editable.css')}}" rel="stylesheet">
-@endpush
+    <link href="{{asset('admin/x-editable/dist/bootstrap4-editable/css/bootstrap-editable.css')}}" rel="stylesheet">
+@endpush    
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -263,9 +262,8 @@
     <!-- /.row -->
 @endsection
 @push('scripts')
-    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="{{asset('admin/bootstrap3-editable/bootstrap3-editable/js/bootstrap-editable.js')}}"></script>
+
+    <script src="{{asset('/admin/x-editable/dist/bootstrap4-editable/js/bootstrap-editable.js')}}"></script>
     <script>
         $(document).ready(function () {
             all_editable();
