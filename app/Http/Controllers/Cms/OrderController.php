@@ -135,7 +135,12 @@ class OrderController extends Controller
 
 
             return ApiHelper::api_status_handle(200, [
-
+                'total' => $order->total,
+                'subtotal' => $order->subtotal,
+                'shipping' => $order->shipping,
+                'discount' => $order->discount,
+                'received' => $order->received,
+                'balance' => $order->balance,
             ]);
         } catch (\Exception $e) {
             return ApiHelper::api_status_handle(500, []);

@@ -188,7 +188,7 @@
                                         </tr>
                                         <tr style="background:#f5f3f3;font-weight: bold;">
                                             <td>Total:</td>
-                                            <td style="text-align:right">{{$order->total}}</td>
+                                            <td style="text-align:right" class="data-total">{{$order->total}}</td>
                                         </tr>
                                         <tr>
                                             <td>Đã nhận:</td>
@@ -200,9 +200,9 @@
                                                    data-title=" {{$order->received}}"> {{$order->received}}</a>
                                             </td>
                                         </tr>
-                                        <tr class="data-balance">
+                                        <tr>
                                             <td>Còn lại:</td>
-                                            <td style="text-align:right">{{$order->balance}}</td>
+                                            <td style="text-align:right" class="data-balance">{{$order->balance}}</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -271,7 +271,7 @@
             };
             $.fn.editable.defaults.ajaxOptions = {type: "PUT"};
 
-            $('.updateInfoRequired,.updateStatus, .updatePrice').editable({
+            $('.updateInfoRequired,.updateStatus').editable({
                 validate: function (value) {
                     if (value == '') {
                         return 'Không được để trống';
@@ -295,9 +295,14 @@
                     }
                 },
                 success: function (response, newValue) {
-                    if (response.success == true) {
-                        return response.msg; //msg will be shown in editable form
-                    }
+                    $('.data-shipping').html(response.data.shipping);
+                    $('.data-received').html(response.datareceived);
+                    $('.data-subtotal').html(response.data.subtotal);
+                    $('.data-total').html(response.data.total);
+                    $('.data-discount').html(response.data.discount);
+                    $('.data-balance').html(response.data.balance);
+                    return response.msg; //msg will be shown in editable form
+
                 },
                 error: function (response) {
                     var data = response.responseJSON;
