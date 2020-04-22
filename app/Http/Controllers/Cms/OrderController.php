@@ -271,7 +271,6 @@ class OrderController extends Controller
 
     public function getProductInfo(Request $request)
     {
-        return $request->all();
         try {
             $product = Product::findOrFail($request->id);
             return ApiHelper::api_status_handle(200, [
