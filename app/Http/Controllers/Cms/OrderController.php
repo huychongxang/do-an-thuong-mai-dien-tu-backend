@@ -116,7 +116,7 @@ class OrderController extends Controller
         $products = Product::all();
         $html = "<tr>";
         $html .= "<td>";
-        $html .= "<select class=\"add_id form-control select2\" style=\"width:100% !important;\" name=\"add_ids[]\">";
+        $html .= "<select onChange=\"selectProduct($(this));\" class=\"add_id form-control select2\" style=\"width:100% !important;\" name=\"add_ids[]\">";
         $html .= " <option value=\"0\">Vui lòng chọn sản phẩm</option>";
         foreach ($products as $product) {
             $html .= "<option  value=\"{$product->id}\" >{$product->name}</option>";
@@ -238,7 +238,7 @@ class OrderController extends Controller
             //Add history
             $history = [
                 'order_id' => $orderId,
-                'content' => 'Sửa' . '#' . $itemId . ': ' . $field . ' từ ' . $oldValue . ' -> ' . $value,
+                'content' => 'Thay đổi' . '#' . $itemId . ': ' . $field . ' từ ' . $oldValue . ' -> ' . $value,
                 'admin_id' => Auth::guard('admin')->user()->id,
                 'order_status_id' => $order->status,
             ];
@@ -266,6 +266,18 @@ class OrderController extends Controller
             ]);
         } catch (\Exception $e) {
             return ApiHelper::api_status_handle(500, ['error' => $e->getMessage()]);
+        }
+    }
+
+    public function getProductInfo(Request $request)
+    {
+        return $request->all();
+        try {
+            $product = Product::findOrFail($request->id);
+            return ApiHelper::api_status_handle(200, [
+                'product' => $product]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(404, [], false);
         }
     }
 

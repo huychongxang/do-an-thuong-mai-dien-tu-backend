@@ -459,5 +459,40 @@
             })
         }
         {{--/ sweetalert2 --}}
+
+
+        //Add item
+        function selectProduct(element) {
+            node = element.closest('tr');
+            var id = parseInt(node.find('option:selected').eq(0).val());
+            if (id == 0) {
+                node.find('.add_sku').val('');
+                node.find('.add_qty').eq(0).val('');
+                node.find('.add_price').eq(0).val('');
+                node.find('.add_attr').html('');
+            } else {
+                $.ajax({
+                    url: '{{ route(env('ADMIN_PATH').'.orders.get-product-info') }}',
+                    type: "get",
+                    dateType: "application/json; charset=utf-8",
+                    data: {
+                        id: id
+                    },
+                    beforeSend: function () {
+                        $('#loading').show();
+                    },
+                    success: function (result) {
+                        // var returnedData = JSON.parse(result);
+                        console.log(result);
+                        // node.find('.add_sku').val(returnedData.sku);
+                        // node.find('.add_qty').eq(0).val(1);
+                        // node.find('.add_price').eq(0).val(returnedData.price_final);
+                        // node.find('.add_total').eq(0).val(returnedData.price_final);
+                        // node.find('.add_attr').eq(0).html(returnedData.renderAttDetails);
+                    }
+                });
+            }
+
+        }
     </script>
 @endpush
