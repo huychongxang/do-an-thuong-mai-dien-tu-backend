@@ -2,112 +2,116 @@
 @section('title_page','Chi tiết đơn hàng')
 @push('styles')
     <link href="{{asset('admin/x-editable/dist/bootstrap4-editable/css/bootstrap-editable.css')}}" rel="stylesheet">
+    <style>
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 1;
+        }
+    </style>
 @endpush
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}">
-                @csrf
-                @method('PUT')
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header with-border">
-                                <h3 class="card-title">Chi tiết đơn hàng #{{$order->id}}</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header with-border">
+                            <h3 class="card-title">Chi tiết đơn hàng #{{$order->id}}</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>Tên:</td>
+                                        <td>
+                                            <a href="#" class="updateInfoRequired" data-name="first_name"
+                                               data-type="text" data-pk="{{ $order->id }}"
+                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-title="  {{$order->first_name}}">  {{$order->first_name}}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Họ:</td>
+                                        <td><a href="#" class="updateInfoRequired" data-name="last_name"
+                                               data-type="text" data-pk="{{ $order->id }}"
+                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-title="  {{$order->last_name}}">  {{$order->last_name}}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Số điện thoại:</td>
+                                        <td>
+                                            <a href="#" class="updateInfoRequired" data-name="phone"
+                                               data-type="text" data-pk="{{ $order->id }}"
+                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-title="{{$order->phone}}">  {{$order->phone}}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>{{$order->email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tỉnh/Thành:</td>
+                                        <td>
+                                            <a href="#" class="updateInfoRequired" data-name="address1"
+                                               data-type="text" data-pk="{{ $order->id }}"
+                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-title="{{$order->address1}}">  {{$order->address1}}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quận/Huyện:</td>
+                                        <td>
+                                            <a href="#" class="updateInfoRequired" data-name="address2"
+                                               data-type="text" data-pk="{{ $order->id }}"
+                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-title="{{$order->address2}}">  {{$order->address2}}</a>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td>Tên:</td>
-                                            <td>
-                                                <a href="#" class="updateInfoRequired" data-name="first_name"
-                                                   data-type="text" data-pk="{{ $order->id }}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
-                                                   data-title="  {{$order->first_name}}">  {{$order->first_name}}</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Họ:</td>
-                                            <td><a href="#" class="updateInfoRequired" data-name="last_name"
-                                                   data-type="text" data-pk="{{ $order->id }}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
-                                                   data-title="  {{$order->last_name}}">  {{$order->last_name}}</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Số điện thoại:</td>
-                                            <td>
-                                                <a href="#" class="updateInfoRequired" data-name="phone"
-                                                   data-type="text" data-pk="{{ $order->id }}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
-                                                   data-title="{{$order->phone}}">  {{$order->phone}}</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email:</td>
-                                            <td>{{$order->email}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tỉnh/Thành:</td>
-                                            <td>
-                                                <a href="#" class="updateInfoRequired" data-name="address1"
-                                                   data-type="text" data-pk="{{ $order->id }}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
-                                                   data-title="{{$order->address1}}">  {{$order->address1}}</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quận/Huyện:</td>
-                                            <td>
-                                                <a href="#" class="updateInfoRequired" data-name="address2"
-                                                   data-type="text" data-pk="{{ $order->id }}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
-                                                   data-title="{{$order->address2}}">  {{$order->address2}}</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-sm-6">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td>Trạng thái đơn hàng:</td>
-                                            <td>
-                                                <a href="#" class="updateStatus" data-name="status" data-type="select"
-                                                   data-source="{{ json_encode($statusOrderMap) }}"
-                                                   data-pk="{{ $order->id }}" data-value="{!! $order->status !!}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
-                                                   data-title=" {{$order->orderStatus->label}}"> {{$order->orderStatus->label}}</a>
+                            <div class="col-sm-6">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>Trạng thái đơn hàng:</td>
+                                        <td>
+                                            <a href="#" class="updateStatus" data-name="status" data-type="select"
+                                               data-source="{{ json_encode($statusOrderMap) }}"
+                                               data-pk="{{ $order->id }}" data-value="{!! $order->status !!}"
+                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-title=" {{$order->orderStatus->label}}"> {{$order->orderStatus->label}}</a>
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trạng thái vận chuyển:</td>
-                                            <td>
-                                                <a href="#" class="updateStatus" data-name="shipping_status"
-                                                   data-type="select"
-                                                   data-source="{{ json_encode($statusShippingMap) }}"
-                                                   data-pk="{{ $order->id }}"
-                                                   data-value="{!! $order->shipping_status !!}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
-                                                   data-title="{{$order->shippingStatus->label}}">{{$order->shippingStatus->label}}</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vận chuyển:</td>
-                                            <td>{{$order->shipping_method}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thanh toán:</td>
-                                            <td>{{$order->payment_method}}</td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trạng thái vận chuyển:</td>
+                                        <td>
+                                            <a href="#" class="updateStatus" data-name="shipping_status"
+                                               data-type="select"
+                                               data-source="{{ json_encode($statusShippingMap) }}"
+                                               data-pk="{{ $order->id }}"
+                                               data-value="{!! $order->shipping_status !!}"
+                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-title="{{$order->shippingStatus->label}}">{{$order->shippingStatus->label}}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vận chuyển:</td>
+                                        <td>{{$order->shipping_method}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thanh toán:</td>
+                                        <td>{{$order->payment_method}}</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
+
+            </div>
+            <form id="form-add-item">
+                @csrf
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card collapsed-card">
@@ -125,20 +129,41 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td>Easy Polo Black Edition 1</td>
-                                        <td>ABC</td>
-                                        <td>5000</td>
-                                        <td>
-                                            X 1
-                                        </td>
-                                        <td>
-                                            5000 đ
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger btn-xs">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </td>
+                                        @foreach($order->details as $item)
+                                            <td>{{$item->name}}
+                                                @php
+                                                    $html = '';
+                                                      if($item->attribute && is_array(json_decode($item->attribute,true))){
+                                                        $array = json_decode($item->attribute,true);
+                                                            foreach ($array as $key => $element){
+                                                              $html .= '<br><b>'.$attributesGroup[$key].'</b> : <i>'.$element.'</i>';
+                                                            }
+                                                      }
+                                                @endphp
+                                                {!! $html !!}
+                                            </td>
+                                            <td>{{$item->sku}}</td>
+                                            <td class="product_price"><a href="#" class="edit-item-detail"
+                                                                         data-value="{{ $item->price }}"
+                                                                         data-name="price" data-type="number" min=0
+                                                                         data-pk="{{ $item->id }}"
+                                                                         data-url="{{route(env('ADMIN_PATH').'.orders.edit-item',['orderId'=>$order->id,'itemId'=>$item->id])}}"
+                                                                         data-title="Giá">{{ $item->price }}</a></td>
+                                            <td class="product_qty">x <a href="#" class="edit-item-detail"
+                                                                         data-value="{{ $item->quantity }}"
+                                                                         data-name="quantity" data-type="number" min=0
+                                                                         data-pk="{{ $item->id }}"
+                                                                         data-url="{{route(env('ADMIN_PATH').'.orders.edit-item',['orderId'=>$order->id,'itemId'=>$item->id])}}"
+                                                                         data-title="Số lượng"> {{ $item->quantity }}</a>
+                                            </td>
+                                            <td class="product_total item_id_{{ $item->id }}">{{ $item->total_price}}</td>
+                                            <td>
+                                                <button onclick="deleteItem({{ $item->id }});"
+                                                        class="btn btn-danger btn-xs" data-title="Delete"><i
+                                                            class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </td>
+                                        @endforeach
+
                                     </tr>
                                     <tr id="add-item" class="not-print">
                                         <td colspan="6">
@@ -146,6 +171,10 @@
                                                     id="add-item-button"
                                             >
                                                 <i class="fa fa-plus"></i>Thêm sản phẩm
+                                            </button>
+                                            <button style="display: none; margin-right: 50px" type="button"
+                                                    class="btn btn-sm btn-flat btn-primary" id="add-item-button-save"
+                                                    title="Save"><i class="fa fa-save"></i> Save
                                             </button>
                                         </td>
                                     </tr>
@@ -163,7 +192,7 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <td>Tiền hàng:</td>
-                                            <td style="text-align:right">{{$order->subtotal}}</td>
+                                            <td style="text-align:right" class="data-subtotal">{{$order->subtotal}}</td>
                                         </tr>
                                         <tr>
                                             <td>Phí ship:</td>
@@ -266,6 +295,35 @@
     <script>
         $(document).ready(function () {
             all_editable();
+
+            $('#add-item-button').click(function () {
+                var html = '{!! $rowProductTemplate !!}';
+                $('#add-item').before(html);
+                $('.select2').select2();
+                $('#add-item-button-save').show();
+            });
+
+            $('#add-item-button-save').click(function (event) {
+                $('#add-item-button').prop('disabled', true);
+                $('#add-item-button-save').button('loading');
+                $.ajax({
+                    url: '{{ route(env('ADMIN_PATH').".orders.add-item",$order->id) }}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: $('form#form-add-item').serialize(),
+                    beforeSend: function () {
+                        $('#loading').show();
+                    },
+                    success: function (result) {
+                        $('#loading').hide();
+                        if (parseInt(result.error) == 0) {
+                            location.reload();
+                        } else {
+                            alert(result.msg);
+                        }
+                    }
+                });
+            });
         });
 
         function all_editable() {
@@ -314,6 +372,92 @@
                 }
             });
 
+            $('.edit-item-detail').editable({
+                ajaxOptions: {
+                    type: 'post',
+                    dataType: 'json'
+                },
+                validate: function (value) {
+                    if (value == '') {
+                        return 'Không được để trống';
+                    }
+                    if (!$.isNumeric(value)) {
+                        return 'Phải là kiểu số';
+                    }
+                },
+                success: function (response, newValue) {
+                    $('.data-shipping').html(response.data.shipping);
+                    $('.data-received').html(response.datareceived);
+                    $('.data-subtotal').html(response.data.subtotal);
+                    $('.data-total').html(response.data.total);
+                    $('.data-discount').html(response.data.discount);
+                    $('.data-balance').html(response.data.balance);
+                    $('.item_id_' + response.data.item_id).html(response.data.total_price);
+                    return response.msg; //msg will be shown in editable form
+                },
+                error: function (response) {
+                    var data = response.responseJSON;
+                    return 'Có lỗi xảy ra';
+                }
+            });
+
         }
+
+        {{-- sweetalert2 --}}
+        function deleteItem(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: true,
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure to delete this item ?',
+                text: "",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                confirmButtonColor: "#DD6B55",
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+
+                preConfirm: function () {
+                    return new Promise(function (resolve) {
+                        $.ajax({
+                            method: 'post',
+                            url: '{{ route(env('ADMIN_PATH').".orders.delete-item",$order->id) }}',
+                            data: {
+                                'itemId': id,
+                                _token: '{{ csrf_token() }}',
+                            },
+                            success: function (data) {
+                                location.reload();
+                            }
+                        });
+                    });
+                }
+
+            }).then((result) => {
+                if (result.value) {
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Item has been deleted.',
+                        'success'
+                    )
+                } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    // swalWithBootstrapButtons.fire(
+                    //   'Cancelled',
+                    //   'Your imaginary file is safe :)',
+                    //   'error'
+                    // )
+                }
+            })
+        }
+        {{--/ sweetalert2 --}}
     </script>
 @endpush

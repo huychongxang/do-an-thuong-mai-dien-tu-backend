@@ -12,6 +12,11 @@ class Order extends Model
         'shipping_status', 'status', 'tax', 'total', 'received', 'first_name', 'last_name',
         'address1', 'address2', 'phone', 'email', 'comment', 'payment_method', 'shipping_method'];
 
+    const NOT_YET_PAY = 1;
+    const PART_PAY = 2;
+    const PAID = 3;
+    const NEED_REFUND = 4;
+
     /*
     |--------------------------------------------------------------------------
     | Functions
@@ -20,6 +25,27 @@ class Order extends Model
     public static function boot()
     {
         parent::boot();
+    }
+
+    public static function updateSubTotal($order_id, $subtotal_value)
+    {
+        $order = Order::find($order_id);
+        $order->subtotal = $subtotal_value;
+        $total = $subtotal_value + $order->discount + $order->shipping;
+        $balance = $total - $order->received;
+        if ($balance == $total) {
+            $payment_status = self::NOT_YET_PAY; //Not pay
+        } elseif ($balance < 0) {
+            $payment_status = self::NEED_REFUND; //Need refund
+        } elseif ($balance == 0) {
+            $payment_status = self::PAID; //Paid
+        } else {
+            $payment_status = self::PART_PAY; //Part pay
+        }
+        $order->payment_status = $payment_status;
+        $order->total = $total;
+        $order->balance = $balance;
+        $order->save();
     }
 
     /*

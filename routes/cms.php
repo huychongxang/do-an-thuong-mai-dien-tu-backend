@@ -38,6 +38,9 @@ Route::group([
 
     Route::resource('orders', 'OrderController');
     Route::put('orders/update-price/{id}', 'OrderController@updatePrice')->name('orders.update-price');
+    Route::post('orders/add-item/{orderId}', 'OrderController@addItem')->name('orders.add-item');
+    Route::post('orders/edit-item/{orderId}/{itemId}', 'OrderController@editItem')->name('orders.edit-item');
+    Route::post('orders/delete-item/{orderId}', 'OrderController@deleteItem')->name('orders.delete-item');
 
     Route::resource('order-status', 'OrderStatusController');
     Route::resource('payment-status', 'PaymentStatusController');
