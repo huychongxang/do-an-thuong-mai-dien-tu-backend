@@ -95,7 +95,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $statusOrderMap = OrderStatus::pluck('label', 'id')->all();
         $statusShippingMap = ShippingStatus::pluck('label', 'id')->all();
-        $histories = $order->histories()->latest()->get();
+        $histories = $order->histories()->with(['admin', 'user'])->latest()->get();
         if (!$order) {
             alert()->error('Order not found', 'Something went wrong!');
             return redirect()->back();
