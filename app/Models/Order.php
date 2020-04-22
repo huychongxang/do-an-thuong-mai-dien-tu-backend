@@ -46,6 +46,11 @@ class Order extends Model
     {
         return $this->hasMany(OrderHistory::class);
     }
+
+    public function details()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | Mutators
