@@ -117,26 +117,14 @@ class OrderController extends Controller
             $field = $request->name;
             $value = $request->value;
 
-            if ($field == 'shipping' || $field == 'discount' || $field == 'received') {
-                $order = Order::find($id);
-                $oldValue = $order->{$field};
-                $arrayFields = [
-                    $field => $value,
-                ];
-                $order->update($arrayFields);
 
-                $order->total = $order->subtotal + $order->shipping - $order->discount;
-                $order->balance = $order->total - $order->received;
-                $order->save();
-            } else {
-                $arrayFields = [
-                    $field => $value,
-                ];
+            $arrayFields = [
+                $field => $value,
+            ];
 
-                $order = Order::find($id);
-                $oldValue = $order->{$field};
-                $order->update($arrayFields);
-            }
+            $order = Order::find($id);
+            $oldValue = $order->{$field};
+            $order->update($arrayFields);
 
             //Add history
             $content = "Thay đổi <b>{$field}</b> từ <span style=\"color:blue\">'{$oldValue}'</span> sang <span style=\"color:red\">'{$value}'</span>";
@@ -164,13 +152,54 @@ class OrderController extends Controller
         }
     }
 
+    public function updatePrice(Request $request, $id)
+    {
+        try {
+            $field = $request->name;
+            $value = $request->value;
+
+            $order = Order::find($id);
+            $oldValue = $order->{$field};
+            $arrayFields = [
+                $field => $value,
+            ];
+            $order->update($arrayFields);
+
+            $order->total = $order->subtotal + $order->shipping - $order->discount;
+            $order->balance = $order->total - $order->received;
+            $order->save();
+
+            //Add history
+            $content = "Thay đổi <b>{$field}</b> từ <span style=\"color:blue\">'{$oldValue}'</span> sang <span style=\"color:red\">'{$value}'</span>";
+            $history = new OrderHistory([
+                'content' => $content,
+                'admin_id' => Auth::guard('admin')->user()->id,
+                'order_status_id' => $order->status,
+            ]);
+
+            $order->histories()->save($history);
+
+            return ApiHelper::api_status_handle(200, [
+                'total' => $order->total,
+                'subtotal' => $order->subtotal,
+                'shipping' => $order->shipping,
+                'discount' => $order->discount,
+                'received' => $order->received,
+                'balance' => $order->balance,
+            ]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, ['error' => $e->getMessage()]);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         $order = Order::findOrFail($id);
         $delete = $order->delete();

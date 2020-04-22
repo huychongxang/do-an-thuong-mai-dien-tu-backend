@@ -2,7 +2,7 @@
 @section('title_page','Chi tiết đơn hàng')
 @push('styles')
     <link href="{{asset('admin/x-editable/dist/bootstrap4-editable/css/bootstrap-editable.css')}}" rel="stylesheet">
-@endpush    
+@endpush
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -171,7 +171,7 @@
                                                 <a href="#" class="updatePrice data-shipping" data-name="shipping"
                                                    data-type="text"
                                                    data-pk="{{$order->id}}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update-price',$order->id)}}"
                                                    data-title=" {{$order->shipping}}"> {{$order->shipping}}</a>
                                             </td>
                                         </tr>
@@ -181,7 +181,7 @@
                                                 <a href="#" class="updatePrice data-discount" data-name="discount"
                                                    data-type="text"
                                                    data-pk="{{$order->id}}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update-price',$order->id)}}"
                                                    data-title=" {{$order->discount}}"> {{$order->discount}}</a>
                                             </td>
                                         </tr>
@@ -195,7 +195,7 @@
                                                 <a href="#" class="updatePrice data-received" data-name="received"
                                                    data-type="text"
                                                    data-pk="{{$order->id}}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update-price',$order->id)}}"
                                                    data-title=" {{$order->received}}"> {{$order->received}}</a>
                                             </td>
                                         </tr>
@@ -255,7 +255,6 @@
 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Cập nhật</button>
             </form>
         </div>
     </div>
