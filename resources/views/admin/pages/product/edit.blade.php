@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="{{route(env('ADMIN_PATH').'.product.update',$product->id)}}"
+            <form method="post" action="{{route(env('ADMIN_PATH','cms').'.product.update',$product->id)}}"
                   enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

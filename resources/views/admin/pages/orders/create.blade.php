@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="{{route(env('ADMIN_PATH').'.orders.store')}}">
+            <form method="post" action="{{route(env('ADMIN_PATH','cms').'.orders.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="">Vui lòng chọn khách hàng</label>

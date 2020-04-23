@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="{{route(env('ADMIN_PATH').'.product-attribute-group.update',$attribute->id)}}">
+            <form method="post" action="{{route(env('ADMIN_PATH','cms').'.product-attribute-group.update',$attribute->id)}}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">

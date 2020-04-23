@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar elevation-4 sidebar-light-olive">
     <!-- Brand Logo -->
-    <a href="{{route(env('ADMIN_PATH').'.dashboard')}}" class="brand-link">
+    <a href="{{route(env('ADMIN_PATH','cms').'.dashboard')}}" class="brand-link">
         <img src="{{asset('admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
@@ -19,7 +19,7 @@
             <div class="info">
                 <a href="#" class="d-block">{{auth()->user()->name}}</a>
 
-                <form id="logout-form" action="{{ route(env('ADMIN_PATH').'.logout') }}" method="POST">
+                <form id="logout-form" action="{{ route(env('ADMIN_PATH','cms').'.logout') }}" method="POST">
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger">Đăng xuất</button>
                 </form>
@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 @php
-                    $active = Route::is(env('ADMIN_PATH').'.product*') ? 'active': null;
+                    $active = Route::is(env('ADMIN_PATH','cms').'.product*') ? 'active': null;
                     $open = ($active) ? 'menu-open' : null;
                 @endphp
                 <li class="nav-item has-treeview {{$open}}">
@@ -88,9 +88,9 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-categories.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.product-categories.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product-categories.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.product-categories.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-folder nav-icon"></i>
                                 <p>Quản lý danh mục</p>
@@ -98,9 +98,9 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.product.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.product.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fab fa-product-hunt nav-icon"></i>
                                 <p>Quản lý sản phẩm</p>
@@ -108,9 +108,9 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.product-attribute-group.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.product-attribute-group.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.product-attribute-group.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.product-attribute-group.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-bars nav-icon"></i>
                                 <p>Quản lý thuộc tính</p>
@@ -140,9 +140,9 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.orders.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.orders.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.orders.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.orders.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-cart-arrow-down nav-icon"></i>
                                 <p>Quản lý đơn hàng</p>
@@ -150,9 +150,9 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.order-status.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.order-status.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.order-status.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.order-status.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-leaf nav-icon"></i>
                                 <p>Trạng thái đơn hàng</p>
@@ -160,9 +160,9 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.payment-status.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.payment-status.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.payment-status.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.payment-status.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-recycle nav-icon"></i>
                                 <p>Trạng thái thanh toán</p>
@@ -170,9 +170,9 @@
                         </li>
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH').'.shipping-status.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.shipping-status.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH').'.shipping-status.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.shipping-status.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-truck nav-icon"></i>
                                 <p>Trạng thái vận chuyển</p>

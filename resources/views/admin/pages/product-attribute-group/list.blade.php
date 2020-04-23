@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.product-attribute-group.create')}}">Thêm
+            <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.product-attribute-group.create')}}">Thêm
                 mới</a>
         </div>
     </div>
@@ -28,8 +28,8 @@
                     <tbody>
                     @foreach($attributes as $key=>$attribute)
                         @php
-                            $editUrl = route(env('ADMIN_PATH') . '.product-attribute-group.edit', $attribute->id);
-                            $deleteUrl = route(env('ADMIN_PATH') . '.product-attribute-group.destroy', $attribute->id);
+                            $editUrl = route(env('ADMIN_PATH','cms') . '.product-attribute-group.edit', $attribute->id);
+                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.product-attribute-group.destroy', $attribute->id);
                         @endphp
                         <tr>
                             <td>{{$attribute->id}}</td>

@@ -25,7 +25,7 @@
                                         <td>
                                             <a href="#" class="updateInfoRequired" data-name="first_name"
                                                data-type="text" data-pk="{{ $order->id }}"
-                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                data-title="  {{$order->first_name}}">  {{$order->first_name}}</a>
                                         </td>
                                     </tr>
@@ -33,7 +33,7 @@
                                         <td>Họ:</td>
                                         <td><a href="#" class="updateInfoRequired" data-name="last_name"
                                                data-type="text" data-pk="{{ $order->id }}"
-                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                data-title="  {{$order->last_name}}">  {{$order->last_name}}</a></td>
                                     </tr>
                                     <tr>
@@ -41,7 +41,7 @@
                                         <td>
                                             <a href="#" class="updateInfoRequired" data-name="phone"
                                                data-type="text" data-pk="{{ $order->id }}"
-                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                data-title="{{$order->phone}}">  {{$order->phone}}</a>
                                         </td>
                                     </tr>
@@ -54,7 +54,7 @@
                                         <td>
                                             <a href="#" class="updateInfoRequired" data-name="address1"
                                                data-type="text" data-pk="{{ $order->id }}"
-                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                data-title="{{$order->address1}}">  {{$order->address1}}</a>
                                         </td>
                                     </tr>
@@ -63,7 +63,7 @@
                                         <td>
                                             <a href="#" class="updateInfoRequired" data-name="address2"
                                                data-type="text" data-pk="{{ $order->id }}"
-                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                data-title="{{$order->address2}}">  {{$order->address2}}</a>
                                         </td>
                                     </tr>
@@ -77,7 +77,7 @@
                                             <a href="#" class="updateStatus" data-name="status" data-type="select"
                                                data-source="{{ json_encode($statusOrderMap) }}"
                                                data-pk="{{ $order->id }}" data-value="{!! $order->status !!}"
-                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                data-title=" {{$order->orderStatus->label}}"> {{$order->orderStatus->label}}</a>
 
                                         </td>
@@ -90,7 +90,7 @@
                                                data-source="{{ json_encode($statusShippingMap) }}"
                                                data-pk="{{ $order->id }}"
                                                data-value="{!! $order->shipping_status !!}"
-                                               data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                               data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                data-title="{{$order->shippingStatus->label}}">{{$order->shippingStatus->label}}</a>
                                         </td>
                                     </tr>
@@ -128,8 +128,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        @foreach($order->details as $item)
+
+                                    @foreach($order->details as $item)
+                                        <tr>
                                             <td>{{$item->name}}
                                                 @php
                                                     $html = '';
@@ -147,24 +148,23 @@
                                                                          data-value="{{ $item->price }}"
                                                                          data-name="price" data-type="number" min=0
                                                                          data-pk="{{ $item->id }}"
-                                                                         data-url="{{route(env('ADMIN_PATH').'.orders.edit-item',['orderId'=>$order->id,'itemId'=>$item->id])}}"
+                                                                         data-url="{{route(env('ADMIN_PATH','cms').'.orders.edit-item',['orderId'=>$order->id,'itemId'=>$item->id])}}"
                                                                          data-title="Giá">{{ $item->price }}</a></td>
                                             <td class="product_qty">x <a href="#" class="edit-item-detail"
                                                                          data-value="{{ $item->quantity }}"
                                                                          data-name="quantity" data-type="number" min=0
                                                                          data-pk="{{ $item->id }}"
-                                                                         data-url="{{route(env('ADMIN_PATH').'.orders.edit-item',['orderId'=>$order->id,'itemId'=>$item->id])}}"
+                                                                         data-url="{{route(env('ADMIN_PATH','cms').'.orders.edit-item',['orderId'=>$order->id,'itemId'=>$item->id])}}"
                                                                          data-title="Số lượng"> {{ $item->quantity }}</a>
                                             </td>
                                             <td class="product_total item_id_{{ $item->id }}">{{ $item->total_price}}</td>
                                             <td>
-                                                <button onclick="deleteItem({{ $item->id }});"
+                                                <button type="button" onclick="deleteItem({{ $item->id }});"
                                                         class="btn btn-danger btn-xs" data-title="Delete"><i
                                                             class="fa fa-trash" aria-hidden="true"></i></button>
                                             </td>
-                                        @endforeach
-
-                                    </tr>
+                                        </tr>
+                                    @endforeach
                                     <tr id="add-item" class="not-print">
                                         <td colspan="6">
                                             <button type="button" class="btn btn-sm btn-flat btn-success"
@@ -200,7 +200,7 @@
                                                 <a href="#" class="updatePrice data-shipping" data-name="shipping"
                                                    data-type="text"
                                                    data-pk="{{$order->id}}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update-price',$order->id)}}"
+                                                   data-url="{{route(env('ADMIN_PATH','cms').'.orders.update-price',$order->id)}}"
                                                    data-title=" {{$order->shipping}}"> {{$order->shipping}}</a>
                                             </td>
                                         </tr>
@@ -210,7 +210,7 @@
                                                 <a href="#" class="updatePrice data-discount" data-name="discount"
                                                    data-type="text"
                                                    data-pk="{{$order->id}}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update-price',$order->id)}}"
+                                                   data-url="{{route(env('ADMIN_PATH','cms').'.orders.update-price',$order->id)}}"
                                                    data-title=" {{$order->discount}}"> {{$order->discount}}</a>
                                             </td>
                                         </tr>
@@ -224,7 +224,7 @@
                                                 <a href="#" class="updatePrice data-received" data-name="received"
                                                    data-type="text"
                                                    data-pk="{{$order->id}}"
-                                                   data-url="{{route(env('ADMIN_PATH').'.orders.update-price',$order->id)}}"
+                                                   data-url="{{route(env('ADMIN_PATH','cms').'.orders.update-price',$order->id)}}"
                                                    data-title=" {{$order->received}}"> {{$order->received}}</a>
                                             </td>
                                         </tr>
@@ -243,7 +243,7 @@
                                                 <td>
                                                     <a href="#" class="updatePrice" data-name="comment" data-type="text"
                                                        data-pk="{{$order->id}}"
-                                                       data-url="{{route(env('ADMIN_PATH').'.orders.update',$order->id)}}"
+                                                       data-url="{{route(env('ADMIN_PATH','cms').'.orders.update',$order->id)}}"
                                                        data-title=" {{$order->comment}}"> {{$order->comment}}</a>
                                                 </td>
                                             </tr>
@@ -307,19 +307,19 @@
                 $('#add-item-button').prop('disabled', true);
                 $('#add-item-button-save').button('loading');
                 $.ajax({
-                    url: '{{ route(env('ADMIN_PATH').".orders.add-item",$order->id) }}',
+                    url: '{{ route(env('ADMIN_PATH','cms').".orders.add-item",$order->id) }}',
                     type: 'post',
                     dataType: 'json',
                     data: $('form#form-add-item').serialize(),
                     beforeSend: function () {
-                        $('#loading').show();
+
                     },
                     success: function (result) {
-                        $('#loading').hide();
-                        if (parseInt(result.error) == 0) {
+                        if (result.success == true) {
                             location.reload();
+                            return false;
                         } else {
-                            alert(result.msg);
+                            alert('Có lỗi xảy ra');
                         }
                     }
                 });
@@ -427,13 +427,14 @@
                     return new Promise(function (resolve) {
                         $.ajax({
                             method: 'post',
-                            url: '{{ route(env('ADMIN_PATH').".orders.delete-item",$order->id) }}',
+                            url: '{{ route(env('ADMIN_PATH','cms').".orders.delete-item",$order->id) }}',
                             data: {
                                 'itemId': id,
                                 _token: '{{ csrf_token() }}',
                             },
                             success: function (data) {
                                 location.reload();
+                                return false;
                             }
                         });
                     });
@@ -472,7 +473,7 @@
                 node.find('.add_attr').html('');
             } else {
                 $.ajax({
-                    url: '{{ route(env('ADMIN_PATH').'.orders.get-product') }}',
+                    url: '{{ route(env('ADMIN_PATH','cms').'.orders.get-product') }}',
                     type: "post",
                     data: {
                         id: id,
@@ -492,6 +493,14 @@
                 });
             }
 
+        }
+
+        // Update total
+        function update_total(e) {
+            node = e.closest('tr');
+            var qty = node.find('.add_qty').eq(0).val();
+            var price = node.find('.add_price').eq(0).val();
+            node.find('.add_total').eq(0).val(qty * price);
         }
     </script>
 @endpush

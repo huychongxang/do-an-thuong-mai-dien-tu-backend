@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="{{route(env('ADMIN_PATH').'.shipping-status.update',$shippingStatus->id)}}">
+            <form method="post" action="{{route(env('ADMIN_PATH','cms').'.shipping-status.update',$shippingStatus->id)}}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">

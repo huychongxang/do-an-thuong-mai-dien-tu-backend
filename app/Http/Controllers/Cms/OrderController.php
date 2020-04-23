@@ -74,7 +74,7 @@ class OrderController extends Controller
         }
 
         alert()->success('Order Created', 'Successfully');
-        return redirect()->route(env('ADMIN_PATH') . '.orders.index');
+        return redirect()->route(env('ADMIN_PATH','cms') . '.orders.index');
     }
 
     /**
@@ -329,7 +329,7 @@ class OrderController extends Controller
             }
 
             if ($items) {
-                $order->detail()->createMany($items);
+                $order->details()->createMany($items);
                 //Add history
                 $history = [
                     'order_id' => $order->id,
@@ -348,7 +348,9 @@ class OrderController extends Controller
             return ApiHelper::api_status_handle(200, []);
 
         } catch (\Exception $e) {
-            return ApiHelper::api_status_handle(200, [], false);
+            return ApiHelper::api_status_handle(200, [
+                'message' => $e->getMessage()
+            ], false);
         }
     }
 

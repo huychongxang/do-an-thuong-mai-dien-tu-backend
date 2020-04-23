@@ -51,7 +51,7 @@ return [
         'enabled' => true,
 
         'attributes' => [
-            'prefix' => env('ADMIN_PATH') . '/log-viewer',
+            'prefix' => env('ADMIN_PATH','cms') . '/log-viewer',
 
             'middleware' => env('ARCANEDEV_LOGVIEWER_MIDDLEWARE') ? explode(',', env('ARCANEDEV_LOGVIEWER_MIDDLEWARE')) : null,
         ],

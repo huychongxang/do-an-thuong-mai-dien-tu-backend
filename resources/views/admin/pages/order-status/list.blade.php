@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.order-status.create')}}">Thêm mới</a>
+            <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.order-status.create')}}">Thêm mới</a>
         </div>
     </div>
     <br>
@@ -27,8 +27,8 @@
                     <tbody>
                     @foreach($orderStatuses as $key=>$orderStatus)
                         @php
-                            $editUrl = route(env('ADMIN_PATH') . '.order-status.edit', $orderStatus->id);
-                            $deleteUrl = route(env('ADMIN_PATH') . '.order-status.destroy', $orderStatus->id);
+                            $editUrl = route(env('ADMIN_PATH','cms') . '.order-status.edit', $orderStatus->id);
+                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.order-status.destroy', $orderStatus->id);
                         @endphp
                         <tr>
                             <td>{{$orderStatus->id}}</td>

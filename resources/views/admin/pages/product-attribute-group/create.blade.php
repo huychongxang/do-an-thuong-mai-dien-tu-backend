@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="{{route(env('ADMIN_PATH').'.product-attribute-group.store')}}">
+            <form method="post" action="{{route(env('ADMIN_PATH','cms').'.product-attribute-group.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="">Tên</label>

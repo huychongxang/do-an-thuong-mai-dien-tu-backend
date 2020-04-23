@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH').'.product-categories.create')}}">Thêm mới</a>
+            <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.product-categories.create')}}">Thêm mới</a>
         </div>
     </div>
     <br>
@@ -29,8 +29,8 @@
                     <tbody>
                     @foreach($productCategories as $key=>$productCategory)
                         @php
-                            $editUrl = route(env('ADMIN_PATH') . '.product-categories.edit', $productCategory->id);
-                            $deleteUrl = route(env('ADMIN_PATH') . '.product-categories.destroy', $productCategory->id);
+                            $editUrl = route(env('ADMIN_PATH','cms') . '.product-categories.edit', $productCategory->id);
+                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.product-categories.destroy', $productCategory->id);
                         @endphp
                         <tr>
                             <td>{{$productCategory->id}}</td>
