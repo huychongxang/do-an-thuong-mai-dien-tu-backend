@@ -41,9 +41,9 @@ class PaymentStatusController extends Controller
     {
         $newPaymentStatus = PaymentStatus::create($request->all());
         if ($newPaymentStatus) {
-            alert()->success('Payment Status Created', 'Successfully');
+            alert()->success('Tạo trạng thái thanh toán', 'Thành công');
         } else {
-            alert()->error('Payment Status Created Fail', 'Something went wrong!');
+            alert()->error('Tạo trạng thái thanh toán', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -82,9 +82,9 @@ class PaymentStatusController extends Controller
     {
         $paymentStatus = PaymentStatus::find($id)->update($request->all());
         if ($paymentStatus) {
-            alert()->success('Payment Status Updated', 'Successfully');
+            alert()->success('Cập nhật trạng thái thanh toán', 'Thành công');
         } else {
-            alert()->error('Payment Status Updated Fail', 'Something went wrong!');
+            alert()->error('Cập nhật trạng thái thanh toán', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -100,9 +100,9 @@ class PaymentStatusController extends Controller
         $paymentStatus = PaymentStatus::findOrFail($id);
         $delete = $paymentStatus->delete();
         if ($delete) {
-            alert()->success('Payment Status Deleted', 'Successfully');
+            alert()->success('Xóa trạng thái thanh toán', 'Thành công');
         } else {
-            alert()->error('Payment Status Deleted Fail', 'Something went wrong!');
+            alert()->error('Xóa trạng thái thanh toán', 'Thất bại');
         }
         return redirect()->back();
     }

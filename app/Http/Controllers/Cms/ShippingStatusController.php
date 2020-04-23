@@ -41,9 +41,9 @@ class ShippingStatusController extends Controller
     {
         $newShippingStatus = ShippingStatus::create($request->all());
         if ($newShippingStatus) {
-            alert()->success('Shipping Status Created', 'Successfully');
+            alert()->success('Tạo mới trạng thái shipping', 'Thành công');
         } else {
-            alert()->error('Shipping Status Created Fail', 'Something went wrong!');
+            alert()->error('Tạo mới trạng thái shipping', 'Thất bại');
         }
         return redirect()->back();
     }
@@ -82,9 +82,9 @@ class ShippingStatusController extends Controller
     {
         $shippingStatus = ShippingStatus::find($id)->update($request->all());
         if ($shippingStatus) {
-            alert()->success('Shipping Status Updated', 'Successfully');
+            alert()->success('Cập nhật trạng thái shipping', 'Thành công');
         } else {
-            alert()->error('Shipping Status Updated Fail', 'Something went wrong!');
+            alert()->error('Cập nhật trạng thại shipping', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -100,9 +100,9 @@ class ShippingStatusController extends Controller
         $shippingStatus = ShippingStatus::findOrFail($id);
         $delete = $shippingStatus->delete();
         if ($delete) {
-            alert()->success('Shipping Status Deleted', 'Successfully');
+            alert()->success('Xóa trạng thái shipping', 'Thành công');
         } else {
-            alert()->error('Shipping Status Deleted Fail', 'Something went wrong!');
+            alert()->error('Xóa trạng thái shipping', 'Thất bại!');
         }
         return redirect()->back();
     }

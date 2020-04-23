@@ -41,9 +41,9 @@ class ProductAttributeGroupController extends Controller
     {
         $newAttribute = ProductAttributeGroup::create($request->all());
         if ($newAttribute) {
-            alert()->success('Attribute Created', 'Successfully');
+            alert()->success('Tạo thuộc tính', 'Thành công');
         } else {
-            alert()->error('Attribute Created Fail', 'Something went wrong!');
+            alert()->error('Tạo thuộc tính', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -83,9 +83,9 @@ class ProductAttributeGroupController extends Controller
         $attribute = ProductAttributeGroup::whereId($id)->first();
         $attribute->update($request->all());
         if ($attribute) {
-            alert()->success('Attribute Updated', 'Successfully');
+            alert()->success('Cập nhật thuộc tính', 'Thành công');
         } else {
-            alert()->error('Attribute Updated Fail', 'Something went wrong!');
+            alert()->error('Cập nhật thuộc tính', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -100,9 +100,9 @@ class ProductAttributeGroupController extends Controller
     {
         $destroy = ProductAttributeGroup::whereId($id)->first()->delete();
         if ($destroy) {
-            alert()->success('Attribute Destroyed', 'Successfully');
+            alert()->success('Xóa thuộc tính', 'Thành công');
         } else {
-            alert()->error('Attribute Destroyed Fail', 'Something went wrong!');
+            alert()->error('Xóa thuộc tính', 'Thất bại!');
         }
         return redirect()->back();
     }

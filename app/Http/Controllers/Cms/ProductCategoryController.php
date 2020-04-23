@@ -54,9 +54,9 @@ class ProductCategoryController extends Controller
     {
         $newProductCategory = ProductCategory::create($request->all());
         if ($newProductCategory) {
-            alert()->success('Post Created', 'Successfully');
+            alert()->success('Tạo danh mục', 'Thành công');
         } else {
-            alert()->error('Post Created Fail', 'Something went wrong!');
+            alert()->error('Tạo danh mục', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -96,9 +96,9 @@ class ProductCategoryController extends Controller
     {
         $newProductCategory = ProductCategory::find($id)->update($request->all());
         if ($newProductCategory) {
-            alert()->success('Post Updated', 'Successfully');
+            alert()->success('Cập nhật danh mục', 'Thành công');
         } else {
-            alert()->error('Post Updated Fail', 'Something went wrong!');
+            alert()->error('Cập nhật danh mục', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -124,9 +124,9 @@ class ProductCategoryController extends Controller
             $delete = $productCategory->delete();
             DB::commit();
             if ($delete) {
-                alert()->success('Post Deleted', 'Successfully');
+                alert()->success('Xóa danh mục', 'Thành công');
             } else {
-                alert()->error('Post Deleted Fail', 'Something went wrong!');
+                alert()->error('Xóa danh mục', 'Thất bại!');
             }
             return redirect()->back();
 

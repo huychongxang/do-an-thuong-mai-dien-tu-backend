@@ -35,7 +35,7 @@ class LoginController extends Controller
         ], $request->get('remember'))) {
             return redirect()->intended(route('cms.dashboard'));
         }
-        return back()->withErrors(['email' => 'Email or password are wrong'])->withInput($request->only('email', 'remember'));
+        return back()->withErrors(['email' => 'Email hoặc password không chính xác'])->withInput($request->only('email', 'remember'));
     }
 
     public function logout(Request $request)

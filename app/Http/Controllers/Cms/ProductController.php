@@ -48,7 +48,7 @@ class ProductController extends Controller
         }
         $newProduct = Product::create($data);
         if (!$newProduct) {
-            alert()->error('Product Created Fail', 'Something went wrong!');
+            alert()->error('Tạo sản phẩm', 'Thất bại!');
             return redirect()->back();
         }
 
@@ -64,7 +64,7 @@ class ProductController extends Controller
         //Insert attribute
         $this->insertAttributes($request, $newProduct);
 
-        alert()->success('Post Created', 'Successfully');
+        alert()->success('Tạo sản phẩm', 'Thành công');
         return redirect()->back();
     }
 
@@ -92,7 +92,7 @@ class ProductController extends Controller
         }
 
         if (!$product) {
-            alert()->error('Product Created Fail', 'Something went wrong!');
+            alert()->error('Cập nhật sản phẩm', 'Thất bại!');
             return redirect()->back();
         }
         $product->update($data);
@@ -112,7 +112,7 @@ class ProductController extends Controller
         $product->images()->delete();
         $this->syncSubImages($request, $product);
 
-        alert()->success('Post Updated', 'Successfully');
+        alert()->success('Cập nhật sản phẩm', 'Thành công');
         return redirect()->back();
     }
 
@@ -120,9 +120,9 @@ class ProductController extends Controller
     {
         $product = Product::whereId($id)->first()->delete();
         if ($product) {
-            alert()->success('Product Deleted', 'Successfully');
+            alert()->success('Xóa sản phẩm', 'Thành công');
         } else {
-            alert()->error('Product Deleted Fail', 'Something went wrong!');
+            alert()->error('Xóa sản phẩm', 'Thất bại!');
         }
         return redirect()->back();
     }

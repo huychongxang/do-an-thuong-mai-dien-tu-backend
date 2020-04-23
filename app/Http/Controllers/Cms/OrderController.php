@@ -69,11 +69,11 @@ class OrderController extends Controller
 
         $order = Order::create($dataInsert);
         if (!$order) {
-            alert()->error('Create Order Fail', 'Something went wrong!');
+            alert()->error('Tạo đơn hàng', 'Thất bại!');
             return redirect()->back();
         }
 
-        alert()->success('Order Created', 'Successfully');
+        alert()->success('Tạo đơn hàng', 'Thành công');
         return redirect()->route(env('ADMIN_PATH', 'cms') . '.orders.index');
     }
 
@@ -103,7 +103,7 @@ class OrderController extends Controller
         $rowProductTemplate = $this->getRowProductTemplate();
         $attributesGroup = ProductAttributeGroup::pluck('name', 'id')->all();
         if (!$order) {
-            alert()->error('Order not found', 'Something went wrong!');
+            alert()->error('Không tìm thấy đơn hàng', 'Thất bại!');
             return redirect()->back();
         }
 
@@ -298,9 +298,9 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $delete = $order->delete();
         if ($delete) {
-            alert()->success('Order Deleted', 'Successfully');
+            alert()->success('Xóa đơn hàng', 'Thành công');
         } else {
-            alert()->error('Order Delete Fail', 'Something went wrong!');
+            alert()->error('Xóa đơn hàng', 'Thất bại!');
         }
         return redirect()->back();
     }

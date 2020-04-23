@@ -41,9 +41,9 @@ class OrderStatusController extends Controller
     {
         $newOrderStatus = OrderStatus::create($request->all());
         if ($newOrderStatus) {
-            alert()->success('Order Status Created', 'Successfully');
+            alert()->success('Tạo trạng thái đơn hàng', 'Thành công');
         } else {
-            alert()->error('Order Status Created Fail', 'Something went wrong!');
+            alert()->error('Tạo trạng thái đơn hàng', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -82,9 +82,9 @@ class OrderStatusController extends Controller
     {
         $orderStatus = OrderStatus::find($id)->update($request->all());
         if ($orderStatus) {
-            alert()->success('Order Status Updated', 'Successfully');
+            alert()->success('Cập nhật trạng thái đơn hàng', 'Thành công');
         } else {
-            alert()->error('Order Status Updated Fail', 'Something went wrong!');
+            alert()->error('Cập nhật trạng thái đơn hàng', 'Thất bại!');
         }
         return redirect()->back();
     }
@@ -100,9 +100,9 @@ class OrderStatusController extends Controller
         $orderStatus = OrderStatus::findOrFail($id);
         $delete = $orderStatus->delete();
         if ($delete) {
-            alert()->success('Order Status Deleted', 'Successfully');
+            alert()->success('Xóa trạng thái đơn hàng', 'Thành công');
         } else {
-            alert()->error('Order Status Deleted Fail', 'Something went wrong!');
+            alert()->error('Xóa trạng thái đơn hàng', 'Thất bại!');
         }
         return redirect()->back();
     }
