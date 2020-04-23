@@ -41,15 +41,15 @@
                             <td>{{$user->address2}}</td>
                             <td>
 
-                                    <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
-                                        Sửa</a>
-                                    <form action='{{$deleteUrl}}' method='post'>
-                                        @csrf
-                                        @method('DELETE')
-                                        <a class='badge bg-danger delete-confirm'><i
-                                                    class="fa fa-times"></i> Xóa
-                                        </a>
-                                    </form>
+                                <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
+                                    Sửa</a>
+                                <form action='{{$deleteUrl}}' method='post'>
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class='badge bg-danger delete-confirm'><i
+                                                class="fa fa-times"></i> Xóa
+                                    </a>
+                                </form>
 
                             </td>
                         </tr>
@@ -73,13 +73,14 @@
             $('body').on('click', '.delete-confirm', function (e) {
                 event.preventDefault();
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Bạn chắc chắn muốn xóa chứ',
+                    text: "Không thể khôi phục lại được",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    cancelButtonText: 'Thoát',
+                    confirmButtonText: 'Đúng, tôi muốn xóa'
                 }).then((result) => {
                     if (result.value) {
                         this.closest('form').submit()
