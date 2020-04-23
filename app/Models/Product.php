@@ -126,6 +126,16 @@ class Product extends BaseModel
         return false;
     }
 
+    public static function updateStock($product_id, $qty_change)
+    {
+        $item = Product::find($product_id);
+        if ($item) {
+            $item->stock = $item->stock - $qty_change;
+            $item->sold = $item->sold + $qty_change;
+            $item->save();
+        }
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESORS

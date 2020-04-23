@@ -74,7 +74,7 @@ class OrderController extends Controller
         }
 
         alert()->success('Order Created', 'Successfully');
-        return redirect()->route(env('ADMIN_PATH','cms') . '.orders.index');
+        return redirect()->route(env('ADMIN_PATH', 'cms') . '.orders.index');
     }
 
     /**
@@ -245,6 +245,13 @@ class OrderController extends Controller
 
             $order->histories()->create($history);
 
+            //Update stock
+            if ($field == 'quantity') {
+                $checkQty = $value - $oldValue;
+                //Update stock, sold
+                Product::updateStock($item->product_id, $checkQty);
+            }
+
             //Update total price
             $subtotal = OrderDetail::select(DB::raw('sum(total_price) as subtotal'))
                 ->where('order_id', $order->id)
@@ -362,6 +369,8 @@ class OrderController extends Controller
             $item = OrderDetail::findOrFail($itemId);
             $order = Order::findOrFail($orderId);
 
+            $quantity = $item->quantity;
+            $product_id = $item->product_id;
             $item->delete();
 
             //Update total price
@@ -369,7 +378,8 @@ class OrderController extends Controller
                 ->where('order_id', $order->id)
                 ->first()->subtotal;
             Order::updateSubTotal($order->id, empty($subtotal) ? 0 : $subtotal);
-
+            //Update stock
+            Product::updateStock($product_id, -$quantity);
             //Add history
             $history = [
                 'order_id' => $order->id,
