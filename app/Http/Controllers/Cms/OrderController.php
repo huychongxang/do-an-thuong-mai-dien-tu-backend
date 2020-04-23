@@ -320,6 +320,7 @@ class OrderController extends Controller
                 //where exits id and qty > 0
                 if ($idProduct && $add_qty[$key]) {
                     $product = Product::find($idProduct);
+                    Product::updateStock($product->id, $add_qty[$key]);
                     $attDetails = $product->attributes->pluck('value', 'id')->all();
                     $pAttr = json_encode($add_att[$idProduct] ?? []);
                     $items[] = array(

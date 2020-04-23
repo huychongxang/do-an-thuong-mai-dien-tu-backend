@@ -22,9 +22,20 @@ class Order extends Model
     | Functions
     |--------------------------------------------------------------------------
     */
-    public static function boot()
+    protected static function boot()
     {
         parent::boot();
+        // before delete() method call this
+        static::deleting(function ($order) {
+            foreach ($order->details as $key => $orderDetail) {
+                $item = Product::find($orderDetail->product_id);
+                //Update stock, sold
+                Product::updateStock($orderDetail->product_id, -$orderDetail->quantity);
+
+            }
+            $order->details()->delete(); //delete order details
+            $order->histories()->delete(); //delete history
+        });
     }
 
     public static function updateSubTotal($order_id, $subtotal_value)
