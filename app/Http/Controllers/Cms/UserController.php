@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\User\StoreRequest;
+use App\Http\Requests\Cms\User\UpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -66,7 +67,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        if (!$user) {
+            alert()->error('Không tìm thấy khách hàng', 'Thất bại');
+        }
+
+        return view('admin.pages.user.edit', compact('user'));
     }
 
     /**
@@ -76,9 +82,16 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+        $update = $user->update($request->all());
+        if ($update) {
+            alert()->success('Cập nhật khách hàng', 'Thành công');
+        } else {
+            alert()->error('Cập nhật khách hàng', 'Thất bại!');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -89,6 +102,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $delete = $user->delete();
+        if ($delete) {
+            alert()->success('Xóa khách hàng', 'Thành công');
+        } else {
+            alert()->error('Xóa khách hàng', 'Thất bại!');
+        }
+        return redirect()->back();
     }
 }
