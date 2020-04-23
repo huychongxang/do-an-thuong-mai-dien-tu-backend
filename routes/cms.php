@@ -10,12 +10,12 @@ use App\Models\ProductCategory;
 use Yajra\DataTables\Facades\DataTables;
 
 Route::group([
-    'prefix' => env('ADMIN_PATH','cms'),
-    'as' => env('ADMIN_PATH','cms') . '.',
+    'prefix' => env('ADMIN_PATH', 'cms'),
+    'as' => env('ADMIN_PATH', 'cms') . '.',
     'namespace' => 'Cms'
 ], function () {
     Route::get('/', function () {
-        return redirect()->route(env('ADMIN_PATH','cms') . '.dashboard');
+        return redirect()->route(env('ADMIN_PATH', 'cms') . '.dashboard');
     });
     Route::get('login', 'LoginController@showLoginForm')->name('login');
     Route::post('login', 'LoginController@login')->name('login.post');
@@ -24,8 +24,8 @@ Route::group([
 
 
 Route::group([
-    'prefix' => env('ADMIN_PATH','cms'),
-    'as' => env('ADMIN_PATH','cms') . '.',
+    'prefix' => env('ADMIN_PATH', 'cms'),
+    'as' => env('ADMIN_PATH', 'cms') . '.',
     'namespace' => 'Cms',
     'middleware' => ['auth:admin']
 ], function () {
@@ -46,4 +46,7 @@ Route::group([
     Route::resource('order-status', 'OrderStatusController');
     Route::resource('payment-status', 'PaymentStatusController');
     Route::resource('shipping-status', 'ShippingStatusController');
+
+
+    Route::resource('users', 'UserController');
 });
