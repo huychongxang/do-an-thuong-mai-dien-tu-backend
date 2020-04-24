@@ -212,6 +212,47 @@
                         </li>
                     </ul>
                 </li>
+
+                @php
+                    $routeNames = Route::currentRouteName();
+                    $name = explode('.',$routeNames)[1];
+                    $active = in_array($name,[
+                    'users',
+                    ]) ? 'active': null;
+                        $open = ($active) ? 'menu-open' : null;
+                @endphp
+                <li class="nav-item has-treeview {{$open}}">
+                    <a href="#"
+                       class="nav-link {{$active}}">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>
+                            Quản lý tin tức
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH','cms').'.users.*') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH','cms').'.users.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="fas fa-book-open nav-icon"></i>
+                                <p>Quản lý tin tức</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH','cms').'.users.*') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH','cms').'.users.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="fas fa-book nav-icon"></i>
+                                <p>Quản lý danh mục</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
