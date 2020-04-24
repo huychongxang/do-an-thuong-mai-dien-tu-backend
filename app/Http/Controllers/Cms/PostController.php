@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\News;
 
 use App\Models\Post;
@@ -44,7 +45,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('name','id')->all();
+        return view('admin.pages.post.create',compact('categories'));
     }
 
     /**

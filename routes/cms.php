@@ -49,5 +49,6 @@ Route::group([
 
     Route::resource('posts', 'PostController');
     Route::resource('categories', 'CategoryController');
+    Route::get('tags', 'TagController@getTags')->name('tags.list');
     Route::resource('users', 'UserController');
 });
