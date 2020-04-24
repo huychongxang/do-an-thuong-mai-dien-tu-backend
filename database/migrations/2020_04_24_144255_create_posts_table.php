@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('admin_id');
+            $table->bigInteger('category_id');
             $table->string('title');
             $table->string('slug');
             $table->text('excerpt')->nullable();
@@ -24,6 +25,8 @@ class CreatePostsTable extends Migration
             $table->timestamp('published_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+
+            $table->index(['admin_id', 'category_id']);
         });
     }
 

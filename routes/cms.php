@@ -48,5 +48,6 @@ Route::group([
     Route::resource('shipping-status', 'ShippingStatusController');
 
     Route::resource('posts', 'PostController');
+    Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
 });
