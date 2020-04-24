@@ -47,7 +47,6 @@ Route::group([
     Route::resource('payment-status', 'PaymentStatusController');
     Route::resource('shipping-status', 'ShippingStatusController');
 
-    Route::resource('news', 'NewsController');
-
+    Route::resource('posts', 'PostController');
     Route::resource('users', 'UserController');
 });

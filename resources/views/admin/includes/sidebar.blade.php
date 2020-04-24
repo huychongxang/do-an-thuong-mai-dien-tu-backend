@@ -217,7 +217,7 @@
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];
                     $active = in_array($name,[
-                    'users',
+                    'posts',
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp
@@ -233,9 +233,9 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.users.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.posts.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.users.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.posts.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-book-open nav-icon"></i>
                                 <p>Quản lý tin tức</p>
