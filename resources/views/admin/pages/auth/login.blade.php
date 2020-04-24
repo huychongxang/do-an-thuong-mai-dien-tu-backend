@@ -4,7 +4,7 @@
     <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            {{ __('Login') }}
+            Đăng nhập
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -13,7 +13,7 @@
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                               placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required
+                               placeholder="Địa chỉ email" value="{{ old('email') }}" required
                                autocomplete="email" autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <input type="password" name="password"
-                               class="form-control @error('password') is-invalid @enderror" placeholder="Password"
+                               class="form-control @error('password') is-invalid @enderror" placeholder="Mật khẩu"
                                required autocomplete="current-password">
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -47,13 +47,13 @@
                                 <input type="checkbox" id="remember"
                                        name="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label for="remember">
-                                    {{ __('Remember Me') }}
+                                    Ghi nhớ tôi
                                 </label>
                             </div>
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
+                            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                         </div>
                         <!-- /.col -->
                     </div>
