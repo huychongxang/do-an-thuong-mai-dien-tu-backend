@@ -39,14 +39,26 @@
                     <tbody>
                     @foreach($newses as $key=>$new)
                         @php
-                            $editUrl = route(env('ADMIN_PATH','cms') . '.news.edit', $new->id);
-                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.news.destroy', $new->id);
+                            $editUrl = route(env('ADMIN_PATH','cms') . '.posts.edit', $new->id);
+                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.posts.destroy', $new->id);
                         @endphp
                         <tr>
                             <td>{{$new->id}}</td>
                             <td>{{$new->title}}</td>
                             <td>{{$new->author->name}}</td>
-                            <td>{{$new->author->name}}</td>
+                            <td>{{$new->category->name}}</td>
+                            <td>{{$new->created_at}}</td>
+                            <td>
+                                <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
+                                    Sửa</a>
+                                <form action='{{$deleteUrl}}' method='post'>
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class='badge bg-danger delete-confirm'><i
+                                                class="fa fa-times"></i> Xóa
+                                    </a>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

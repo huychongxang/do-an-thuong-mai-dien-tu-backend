@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title_page','Thêm mới bài viết')
+@section('title_page','Sửa bài viết')
 @push('styles')
     <link rel="stylesheet"
           href="{{asset('admin/Date-Time-Picker-Bootstrap-4/build/css/bootstrap-datetimepicker.css')}}">
@@ -28,15 +28,17 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">Tiêu đề</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="title" value="{{$post->title}}">
                         </div>
                         <div class="form-group">
                             <label for="">Giới thiệu ngắn</label>
-                            <textarea name="excerpt" class="form-control" cols="50" rows="10"></textarea>
+                            <textarea name="excerpt" class="form-control" cols="50"
+                                      rows="10">{{$post->excerpt}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Nội dung</label>
-                            <textarea id="mytextarea" name="body" class="form-control" cols="50" rows="100"></textarea>
+                            <textarea id="mytextarea" name="body" class="form-control" cols="50"
+                                      rows="100">{!! $post->body !!}</textarea>
                         </div>
                     </div>
                 </div>
@@ -49,7 +51,8 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">Ngày publish</label>
-                            <input class="form-control" name="published_at" type="text" id="published_at">
+                            <input value="{{$post->published_at}}" class="form-control" name="published_at" type="text"
+                                   id="published_at">
                         </div>
                     </div>
                     <div class="card-footer">
@@ -69,7 +72,10 @@
                         <div class="form-group">
                             <select name="category_id" class="form-control">
                                 @foreach($categories as $id=>$name)
-                                    <option value="{{$id}}">{{$name}}</option>
+                                    @php
+                                        $isChecked = ($id == $post->category_id) ? 'selected' : null;
+                                    @endphp
+                                    <option {{$isChecked}} value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -81,11 +87,12 @@
                     </div>
                     <div class="card-body text-center">
                         <div class="form-group imgUp">
-                            <div class="imagePreview"></div>
+                            <div class="imagePreview" style="background-image: url({{$post->image}})"></div>
                             <label class="btn btn-primary">
                                 Upload<input type="file" class="uploadFile img" accept="image/*"
                                              style="width: 0px;height: 0px;overflow: hidden;">
-                                <input type="hidden" class="upfile" name="image">
+                                <input type="hidden" class="upfile" name="image"
+                                       value="{{$post->getOriginal('image')}}">
                             </label>
                         </div>
                     </div>

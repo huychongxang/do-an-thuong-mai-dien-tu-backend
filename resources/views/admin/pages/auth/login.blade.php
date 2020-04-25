@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title_page','Đăng nhập')
 @section('content')
     <body class="hold-transition login-page">
     <div class="login-box">

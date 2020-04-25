@@ -45,8 +45,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name','id')->all();
-        return view('admin.pages.post.create',compact('categories'));
+        $categories = Category::pluck('name', 'id')->all();
+        return view('admin.pages.post.create', compact('categories'));
     }
 
     /**
@@ -57,7 +57,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['admin_id'] = $request->user()->id;
+        $post = Post::create($data);
+        if ($post) {
+            alert()->success('Tạo bài viết', 'Thành công');
+        } else {
+            alert()->error('Tạo bài viết', 'Thất bại!');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -79,7 +87,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        $categories = Category::pluck('name', 'id')->all();
+        return view('admin.pages.post.edit', compact('post', 'categories'));
     }
 
     /**
