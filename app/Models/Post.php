@@ -7,11 +7,11 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class Post extends BaseModel
 {
     protected $table = 'posts';
     protected $fillable = [
-        'admin_id', 'title', 'slug', 'excerpt', 'body', 'image', 'published_at', 'deleted_at'
+        'admin_id', 'title', 'slug', 'excerpt', 'body', 'image', 'published_at', 'deleted_at', 'category_id'
     ];
 
     use SoftDeletes;
@@ -39,7 +39,12 @@ class Post extends Model
     */
     public function author()
     {
-        return $this->belongsTo(Admin::class, 'admin_user', 'id');
+        return $this->belongsTo(Admin::class, 'admin_id', 'id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     /*
@@ -66,4 +71,30 @@ class Post extends Model
     {
         return $query->whereNull("published_at");
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Accessor
+    |--------------------------------------------------------------------------
+    */
+    public function getImageAttribute($value)
+    {
+        if (!$value) {
+            return '';
+        }
+        $destinationPath = "uploads";
+
+        return asset($destinationPath . '/' . $value);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Mutators
+    |--------------------------------------------------------------------------
+    */
+    public function setImageAttribute($value)
+    {
+        $this->uploadImageBase64('image', 'store', 'post', $value);
+    }
+
 }

@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title_page','Thêm mới bài viết')
+@section('title_page','Sửa bài viết')
 @push('styles')
     <link rel="stylesheet"
           href="{{asset('admin/Date-Time-Picker-Bootstrap-4/build/css/bootstrap-datetimepicker.css')}}">
@@ -18,7 +18,7 @@
 @endpush
 @section('content')
     <div class="row">
-        <form method="post" action="{{route(env('ADMIN_PATH','cms').'.posts.store')}}"
+        <form method="post" action="{{route(env('ADMIN_PATH','cms').'.posts.update',$post->id)}}"
               id="post-form"
               enctype="multipart/form-data"
         >
@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="">Tiêu đề</label>
                             <input type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
-                                   name="title">
+                                   name="title" value="{{$post->title}}">
                             @if($errors->has('title'))
                                 <span class="error invalid-feedback">{{$errors->first('title')}}</span>
                             @endif
@@ -38,7 +38,7 @@
                             <label for="">Giới thiệu ngắn</label>
                             <textarea name="excerpt"
                                       class="form-control {{ $errors->has('excerpt') ? 'is-invalid' : '' }}" cols="50"
-                                      rows="10"></textarea>
+                                      rows="10">{{$post->excerpt}}</textarea>
                             @if($errors->has('excerpt'))
                                 <span class="error invalid-feedback">{{$errors->first('excerpt')}}</span>
                             @endif
@@ -47,7 +47,7 @@
                             <label for="">Nội dung</label>
                             <textarea id="mytextarea" name="body"
                                       class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" cols="50"
-                                      rows="100"></textarea>
+                                      rows="100">{!! $post->body !!}</textarea>
                             @if($errors->has('body'))
                                 <span class="error invalid-feedback">{{$errors->first('body')}}</span>
                             @endif
@@ -63,8 +63,10 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">Ngày publish</label>
-                            <input class="form-control {{ $errors->has('published_at') ? 'is-invalid' : '' }}"
-                                   name="published_at" type="text" id="published_at">
+                            <input value="{{$post->published_at}}"
+                                   class="form-control {{ $errors->has('published_at') ? 'is-invalid' : '' }}"
+                                   name="published_at" type="text"
+                                   id="published_at">
                             @if($errors->has('published_at'))
                                 <span class="error invalid-feedback">{{$errors->first('published_at')}}</span>
                             @endif
@@ -87,7 +89,10 @@
                         <div class="form-group">
                             <select name="category_id" class="form-control">
                                 @foreach($categories as $id=>$name)
-                                    <option value="{{$id}}">{{$name}}</option>
+                                    @php
+                                        $isChecked = ($id == $post->category_id) ? 'selected' : null;
+                                    @endphp
+                                    <option {{$isChecked}} value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -99,7 +104,7 @@
                     </div>
                     <div class="card-body text-center">
                         <div class="form-group imgUp">
-                            <div class="imagePreview"></div>
+                            <div class="imagePreview" style="background-image: url({{$post->image}})"></div>
                             <label class="btn btn-primary">
                                 Upload<input type="file"
                                              class="uploadFile img {{ $errors->has('image') ? 'is-invalid' : '' }}"
@@ -108,7 +113,8 @@
                                 @if($errors->has('image'))
                                     <span class="error invalid-feedback">{{$errors->first('image')}}</span>
                                 @endif
-                                <input type="hidden" class="upfile" name="image">
+                                <input type="hidden" class="upfile" name="image"
+                                       value="{{$post->getOriginal('image')}}">
                             </label>
                         </div>
                     </div>

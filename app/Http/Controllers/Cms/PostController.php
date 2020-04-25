@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cms\Post\StoreRequest;
 use App\Models\Category;
 use App\Models\News;
 
@@ -20,7 +21,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $newses = Post::paginate(10);
+        $newses = Post::latest()->paginate(10);
         $statusList = $this->statusList($request);
         return view('admin.pages.post.list', compact('newses', 'statusList'));
     }
@@ -45,8 +46,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name','id')->all();
-        return view('admin.pages.post.create',compact('categories'));
+        $categories = Category::pluck('name', 'id')->all();
+        return view('admin.pages.post.create', compact('categories'));
     }
 
     /**
@@ -55,9 +56,17 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['admin_id'] = $request->user()->id;
+        $post = Post::create($data);
+        if ($post) {
+            alert()->success('Tạo bài viết', 'Thành công');
+        } else {
+            alert()->error('Tạo bài viết', 'Thất bại!');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -79,7 +88,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        $categories = Category::pluck('name', 'id')->all();
+        return view('admin.pages.post.edit', compact('post', 'categories'));
     }
 
     /**
