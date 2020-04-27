@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\Role\StoreRequest;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -30,7 +31,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.roles.create');
+        $permissions = Permission::all();
+        $permissions = $permissions->groupBy('group');
+        return view('admin.pages.roles.create', compact('permissions'));
     }
 
     /**
@@ -72,6 +75,8 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
+        $permissions = Permission::all();
+        return $permissions;
         return view('admin.pages.roles.edit', compact('role'));
     }
 

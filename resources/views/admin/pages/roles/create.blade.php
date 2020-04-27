@@ -16,6 +16,21 @@
                         <span class="error invalid-feedback">{{$errors->first('label')}}</span>
                     @endif
                 </div>
+                @foreach($permissions as $group=>$permission)
+                    <div class="form-group">
+                        <label for="">{{$group}}</label>
+                        <div class="row">
+                            @foreach($permission as $per)
+                                <div class="col-lg-3">
+                                    <input type="checkbox" name="permissions[]" value="{{$per->id}}"><label
+                                            for="">{{$per->label}}</label>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+                @endforeach
+
                 <button type="submit" class="btn btn-primary">Thêm mới</button>
             </form>
         </div>

@@ -14,6 +14,7 @@ class AddColumnsToPermissionsTable extends Migration
     public function up()
     {
         Schema::table('permissions', function (Blueprint $table) {
+            $table->string('group');
             $table->string('label');
         });
     }
