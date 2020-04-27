@@ -79,6 +79,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $permissions = Permission::all();
+        $permissions = $permissions->groupBy('group');
         $permissionsOfRole = $role->getAllPermissions();
         $permissionIds = array_column($permissionsOfRole->toArray(), 'id');
         return view('admin.pages.roles.edit', compact('role','permissions','permissionIds'));

@@ -26,7 +26,7 @@
                             @foreach($permission as $per)
                                 <div class="col-lg-3">
                                     @php
-                                    $isSelected = in_array($per->id,$permissionIds) ? 'selected' : null;
+                                        $isSelected = in_array($per->id,$permissionIds) ? 'checked' : null;
                                     @endphp
                                     <input {{$isSelected}} class="form-check-inline" type="checkbox" name="quyens[]"
                                            value="{{$per->id}}"><label
