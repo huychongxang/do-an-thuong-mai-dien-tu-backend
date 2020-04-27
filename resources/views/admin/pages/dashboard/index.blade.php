@@ -177,7 +177,7 @@
                         {
                             label: "Tổng giá trị",
                             backgroundColor: 'rgba(225,0,0,0.4)',
-                            borderColor: "rgb(231, 53, 253)",
+                            borderColor: "#dd4b39",
                             borderCapStyle: 'square',
                             pointHoverRadius: 8,
                             pointHoverBackgroundColor: "yellow",
@@ -191,7 +191,7 @@
                         },
                         {
                             label: "Tổng đơn hàng",
-                            backgroundColor: 'rgb(138, 199, 214)',
+                            backgroundColor: '#00b894',
                             borderColor: 'rgb(138, 199, 214)',
                             pointHoverRadius: 8,
                             pointHoverBackgroundColor: "brown",
