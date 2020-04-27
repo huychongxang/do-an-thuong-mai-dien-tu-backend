@@ -8,8 +8,8 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Thống kê đơn hàng</span>
-                    <span class="info-box-number">2</span>
-                    <a href="http://s-cart.personal.local/cms/order" class="small-box-footer">
+                    <span class="info-box-number">{{number_format($totalOrders)}}</span>
+                    <a href="{{route(env('ADMIN_PATH','cms').'.orders.index')}}" class="small-box-footer">
                         Nhiều hơn&nbsp;
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
@@ -24,8 +24,8 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Thống kê sản phẩm</span>
-                    <span class="info-box-number">17</span>
-                    <a href="http://s-cart.personal.local/cms/product" class="small-box-footer">
+                    <span class="info-box-number">{{number_format($totalProducts)}}</span>
+                    <a href="{{route(env('ADMIN_PATH','cms').'.product.index')}}" class="small-box-footer">
                         Nhiều hơn&nbsp;
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
@@ -41,8 +41,8 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Thống kê khách hàng</span>
-                    <span class="info-box-number">1</span>
-                    <a href="http://s-cart.personal.local/cms/customer" class="small-box-footer">
+                    <span class="info-box-number">{{number_format($totalUsers)}}</span>
+                    <a href="{{route(env('ADMIN_PATH','cms').'.users.index')}}" class="small-box-footer">
                         Nhiều hơn&nbsp;
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
@@ -56,9 +56,9 @@
                 <span class="info-box-icon bg-red"><i class="fa fa-map-signs"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Thống kê blog</span>
-                    <span class="info-box-number">1</span>
-                    <a href="http://s-cart.personal.local/cms/news" class="small-box-footer">
+                    <span class="info-box-text">Thống kê bài viết</span>
+                    <span class="info-box-number">{{number_format($totalPosts)}}</span>
+                    <a href="{{route(env('ADMIN_PATH','cms').'.posts.index')}}" class="small-box-footer">
                         Nhiều hơn&nbsp;
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
