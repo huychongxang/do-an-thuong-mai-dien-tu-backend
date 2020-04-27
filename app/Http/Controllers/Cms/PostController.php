@@ -21,9 +21,33 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $newses = Post::latest()->paginate(10);
+        $onlyTrashed = false;
+        $posts = Post::with('author', 'category')
+            ->latest()
+            ->paginate($this->limit);
+
+        if (($status = $request->get('status')) && $status == 'published') {
+            $posts = Post::published()->with('author', 'category')
+                ->latest()
+                ->paginate($this->limit);
+        }
+        if (($status = $request->get('status')) && $status == 'scheduled') {
+            $posts = Post::scheduled()->with('author', 'category')
+                ->latest()
+                ->paginate($this->limit);
+        }
+        if (($status = $request->get('status')) && $status == 'draft') {
+            $posts = Post::draft()->with('author', 'category')
+                ->latest()
+                ->paginate($this->limit);
+        }
+        if (($status = $request->get('status')) && $status == 'own') {
+            $posts = $request->user()->posts()->with('author', 'category')
+                ->latest()
+                ->paginate($this->limit);
+        }
         $statusList = $this->statusList($request);
-        return view('admin.pages.post.list', compact('newses', 'statusList'));
+        return view('admin.pages.post.list', compact('posts', 'statusList'));
     }
 
 

@@ -40,19 +40,19 @@
                         <th>Hành động</th>
                     </tr>
                     </thead>
-                    {{$newses->links()}}
+                    {{$posts->links()}}
                     <tbody>
-                    @foreach($newses as $key=>$new)
+                    @foreach($posts as $key=>$post)
                         @php
-                            $editUrl = route(env('ADMIN_PATH','cms') . '.posts.edit', $new->id);
-                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.posts.destroy', $new->id);
+                            $editUrl = route(env('ADMIN_PATH','cms') . '.posts.edit', $post->id);
+                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.posts.destroy', $post->id);
                         @endphp
                         <tr>
-                            <td>{{$new->id}}</td>
-                            <td>{{$new->title}}</td>
-                            <td>{{$new->author->name}}</td>
-                            <td>{{$new->category->name}}</td>
-                            <td>{{$new->created_at}}</td>
+                            <td>{{$post->id}}</td>
+                            <td>{{$post->title}}</td>
+                            <td>{{$post->author->name}}</td>
+                            <td>{{$post->category->name}}</td>
+                            <td>{{$post->created_at}}</td>
                             <td>
                                 <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                     Sửa</a>
@@ -69,9 +69,9 @@
                     </tbody>
                 </table>
                 <div>
-                    <small>Showing {{$newses->firstItem()}} to {{$newses->lastItem()}}
-                        of {{$newses->total()}} {{Str::plural('new',$newses->total())}}</small>
-                    {{$newses->appends(request()->input())->links()}}
+                    <small>Showing {{$posts->firstItem()}} to {{$posts->lastItem()}}
+                        of {{$posts->total()}} {{Str::plural('new',$posts->total())}}</small>
+                    {{$posts->appends(request()->input())->links()}}
 
                 </div>
             </div>
