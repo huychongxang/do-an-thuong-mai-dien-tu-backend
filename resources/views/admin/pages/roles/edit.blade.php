@@ -28,7 +28,7 @@
                                     @php
                                         $isSelected = in_array($per->id,$permissionIds) ? 'checked' : null;
                                     @endphp
-                                    <input {{$isSelected}} class="form-check-inline" type="checkbox" name="quyens[]"
+                                    <input {{$isSelected}} class="form-check-inline" type="checkbox" name="permissions[]"
                                            value="{{$per->id}}"><label
                                             class="form-check-label" for="">{{$per->label}}</label>
                                 </div>

@@ -50,7 +50,7 @@ class RoleController extends Controller
         ]);
         $role = Role::create($request->only(['label', 'name']));
         if ($role) {
-            $role->syncPermissions($request->quyens);
+            $role->syncPermissions($request->permissions);
             alert()->success('Tạo nhóm quyền', 'Thành công');
         } else {
             alert()->error('Tạo nhóm quyền', 'Thất bại!');
@@ -82,7 +82,7 @@ class RoleController extends Controller
         $permissions = $permissions->groupBy('group');
         $permissionsOfRole = $role->getAllPermissions();
         $permissionIds = array_column($permissionsOfRole->toArray(), 'id');
-        return view('admin.pages.roles.edit', compact('role','permissions','permissionIds'));
+        return view('admin.pages.roles.edit', compact('role', 'permissions', 'permissionIds'));
     }
 
     /**
@@ -94,7 +94,18 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->request->add([
+            'name' => $request->label
+        ]);
+        $role = Role::find($id);
+        $role->update($request->only(['label', 'name']));
+        if ($role) {
+            $role->syncPermissions($request->permissions);
+            alert()->success('Cập nhật nhóm quyền', 'Thành công');
+        } else {
+            alert()->error('Cập nhật nhóm quyền', 'Thất bại!');
+        }
+        return redirect()->back();
     }
 
     /**
