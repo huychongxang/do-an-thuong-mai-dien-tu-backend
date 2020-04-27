@@ -28,7 +28,7 @@
         "admin-lte": "^3.0.2",
         "bootstrap-datepicker": "^1.9.0",
         "bootstrap-toggle": "^2.2.2",
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.3.3",
         "select2": "^4.0.13",
         "sweetalert2": "^9.10.6"
     }
