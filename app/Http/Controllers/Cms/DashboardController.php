@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,11 +15,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // Phần Đầu Trang thống kê
         $totalOrders = Order::count();
         $totalProducts = Product::count();
         $totalUsers = User::count();
         $totalPosts = Post::count();
 
+        // Phần Giữa trang thống kê
         $totals = Order::select(
             DB::raw(
                 'DATE(created_at) as date,
@@ -60,7 +63,6 @@ class DashboardController extends Controller
         $arrTotalsAmount = '[' . implode(',', $arrTotalsAmount) . ']';
         $arrTotalsOrder = '[' . implode(',', $arrTotalsOrder) . ']';
 
-        //*************************** /
         //===================12 months  ==============================
         for ($i = 12; $i >= 0; $i--) {
             $months1[$i] = date("m/Y", strtotime(date('Y-m-01') . " -$i months"));
@@ -87,8 +89,13 @@ class DashboardController extends Controller
         $months1 = '["' . implode('","', $months1) . '"]';
         $arrTotalsAmount_year = '[' . implode(',', $arrTotalsAmount_year) . ']';
 
+
+        // Phần cuối trang thống kê
+        $newOrders = Order::new()->get();
+        $users = User::whereBetween('created_at', [Carbon::now()->addDays(-15), Carbon::now()])->get();
+
         return view('admin.pages.dashboard.index', compact('totalOrders', 'totalProducts', 'totalPosts', 'totalUsers',
-            'arrDays', 'arrTotalsAmount', 'arrTotalsOrder', 'max_order','months1','arrTotalsAmount_year'
+            'arrDays', 'arrTotalsAmount', 'arrTotalsOrder', 'max_order', 'months1', 'arrTotalsAmount_year', 'newOrders', 'users'
         ));
     }
 }

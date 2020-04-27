@@ -116,20 +116,23 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="">Order#1</a>
-                                    </td>
-                                    <td>
-                                        vuhuydung88@gmail.com
-                                    </td>
-                                    <td>
-                                        <span class="label label-info">Mới</span>
-                                    </td>
-                                    <td>
-                                        2020-03-31 15:39:26
-                                    </td>
-                                </tr>
+                                @foreach($newOrders as $order)
+                                    <tr>
+                                        <td>
+                                            <a target="_blank"
+                                               href="{{route(env('ADMIN_PATH','cmms').'.orders.edit',$order->id)}}">Order#{{$order->id}}</a>
+                                        </td>
+                                        <td>
+                                            {{$order->email}}
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-{{$order->orderStatus->type}}">{{$order->orderStatus->label}}</span>
+                                        </td>
+                                        <td>
+                                            {{$order->created_at}}
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -157,14 +160,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="">ID#1</a>
-                                    </td>
-                                    <td>test@test.com</td>
-                                    <td>Huy</td>
-                                    <td>2019-12-05 21:17:55</td>
-                                </tr>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td>
+                                            <a href="{{route(env('ADMIN_PATH','cms').'.users.edit',$user->id)}}">ID#{{$user->id}}</a>
+                                        </td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->full_name}}</td>
+                                        <td>{{$user->created_at}}</td>
+                                    </tr>
+                                @endforeach
+
                                 </tbody>
                             </table>
                         </div>

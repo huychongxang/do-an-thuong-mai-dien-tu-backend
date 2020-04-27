@@ -93,5 +93,15 @@ class Order extends Model
     | Mutators
     |--------------------------------------------------------------------------
     */
+    /*
+    |--------------------------------------------------------------------------
+    | Scopes
+    |--------------------------------------------------------------------------
+    */
+    public function scopeNew($query)
+    {
+        $idNewStatus = OrderStatus::where('name', 'new')->first()->id;
+        return $query->where('status', $idNewStatus);
+    }
 
 }
