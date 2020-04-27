@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\Role\StoreRequest;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -44,10 +45,12 @@ class RoleController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $data = $request->all();
-        $data['name'] = $slug = SlugService::createSlug(Role::class, 'name', $data['label'], ['unique' => false]);
-        $role = Role::create($data);
+        $request->request->add([
+            'name' => $request->label
+        ]);
+        $role = Role::create($request->only(['label', 'name']));
         if ($role) {
+            $role->syncPermissions($request->quyens);
             alert()->success('Tạo nhóm quyền', 'Thành công');
         } else {
             alert()->error('Tạo nhóm quyền', 'Thất bại!');
@@ -76,8 +79,9 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $permissions = Permission::all();
-        return $permissions;
-        return view('admin.pages.roles.edit', compact('role'));
+        $permissionsOfRole = $role->getAllPermissions();
+        $permissionIds = array_column($permissionsOfRole->toArray(), 'id');
+        return view('admin.pages.roles.edit', compact('role','permissions','permissionIds'));
     }
 
     /**

@@ -22,8 +22,8 @@
                         <div class="row">
                             @foreach($permission as $per)
                                 <div class="col-lg-3">
-                                    <input type="checkbox" name="permissions[]" value="{{$per->id}}"><label
-                                            for="">{{$per->label}}</label>
+                                    <input class="form-check-inline" type="checkbox" name="quyens[]" value="{{$per->id}}"><label
+                                           class="form-check-label" for="">{{$per->label}}</label>
                                 </div>
                             @endforeach
                         </div>

@@ -150,6 +150,7 @@ class RoleAndPermissionDefaultSeeder extends Seeder
 
         $permissions = array_merge($product, $categoryProduct, $order, $user, $post, $code);
         foreach ($permissions as $permission) {
+            $permission['guard_name'] = 'admin';
             \Spatie\Permission\Models\Permission::firstOrCreate([
                 'name' => $permission['name']
             ], $permission);
