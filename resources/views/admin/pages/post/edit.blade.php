@@ -23,6 +23,7 @@
               enctype="multipart/form-data"
         >
             @csrf
+            @method('PUT')
             <div class="col-lg-9">
                 <div class="card">
                     <div class="card-body">

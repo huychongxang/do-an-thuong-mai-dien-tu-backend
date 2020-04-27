@@ -102,7 +102,16 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['admin_id'] = $request->user()->id;
+        $post = Post::find($id);
+        $update = $post->update($data);
+        if ($update) {
+            alert()->success('Cập nhật bài viết', 'Thành công');
+        } else {
+            alert()->error('Cập nhật bài viết', 'Thất bại!');
+        }
+        return redirect()->back();
     }
 
     /**

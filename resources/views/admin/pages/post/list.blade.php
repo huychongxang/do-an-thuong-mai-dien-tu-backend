@@ -4,21 +4,26 @@
 
 @endpush
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.posts.create')}}">Thêm
-                mới</a>
+    <div class="card">
+        <div class="card-body">
+            <div class="float-left">
+                <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.posts.create')}}">Thêm
+                    mới</a>
+            </div>
+
+            <div class="float-right" style="padding:7px 0">
+                <?php $list = []; ?>
+                @foreach($statusList as $key=>$value)
+                    @if($value)
+                        <?php $selected = Request::get('status') == $key ? 'selected-status' : ''  ?>
+                        <?php $list[] = "<a class=\"{$selected}\" href=\"?status={$key}\">" . ucwords($key) . "({$value})" . "</a>"  ?>
+                    @endif
+                @endforeach
+                {!! implode(' | ',$list) !!}
+            </div>
         </div>
-        <div class="pull-right" style="padding:7px 0">
-            <?php $list = []; ?>
-            @foreach($statusList as $key=>$value)
-                @if($value)
-                    <?php $selected = Request::get('status') == $key ? 'selected-status' : ''  ?>
-                    <?php $list[] = "<a class=\"{$selected}\" href=\"?status={$key}\">" . ucwords($key) . "({$value})" . "</a>"  ?>
-                @endif
-            @endforeach
-            {!! implode(' | ',$list) !!}
-        </div>
+
+
     </div>
     <br>
     <div class="row">
