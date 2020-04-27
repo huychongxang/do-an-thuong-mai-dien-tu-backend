@@ -1,65 +1,96 @@
 @extends('admin.layouts.master')
+@section('title_page','Trang quản trị')
 @section('content')
     <div class="row">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
 
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.
-                    </p>
-
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                <div class="info-box-content">
+                    <span class="info-box-text">Thống kê đơn hàng</span>
+                    <span class="info-box-number">2</span>
+                    <a href="http://s-cart.personal.local/cms/order" class="small-box-footer">
+                        Nhiều hơn&nbsp;
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
                 </div>
+                <!-- /.info-box-content -->
             </div>
-
-            <div class="card card-primary card-outline">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.
-                    </p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div><!-- /.card -->
+            <!-- /.info-box -->
         </div>
-        <!-- /.col-md-6 -->
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="m-0">Featured</h5>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-title">Special title treatment</h6>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-tags"></i></span>
 
-                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="info-box-content">
+                    <span class="info-box-text">Thống kê sản phẩm</span>
+                    <span class="info-box-number">17</span>
+                    <a href="http://s-cart.personal.local/cms/product" class="small-box-footer">
+                        Nhiều hơn&nbsp;
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+
                 </div>
+                <!-- /.info-box-content -->
             </div>
-
-            <div class="card card-primary card-outline">
-                <div class="card-header">
-                    <h5 class="m-0">Featured</h5>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-title">Special title treatment</h6>
-
-                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+            <!-- /.info-box -->
         </div>
-        <!-- /.col-md-6 -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Thống kê khách hàng</span>
+                    <span class="info-box-number">1</span>
+                    <a href="http://s-cart.personal.local/cms/customer" class="small-box-footer">
+                        Nhiều hơn&nbsp;
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-map-signs"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Thống kê blog</span>
+                    <span class="info-box-number">1</span>
+                    <a href="http://s-cart.personal.local/cms/news" class="small-box-footer">
+                        Nhiều hơn&nbsp;
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+
     </div>
     <!-- /.row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title">Đơn hàng trong 30 ngày</h3>
+                </div>
+                <div class="card-body table-responsive no-padding card-primary">
+                    <div class="card">
+                        <canvas id="chart-days-in-month" width="700" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            var ctx_month = document.getElementById('chart-days-in-month').getContext('2d');
+            
+        });
+    </script>
+
+@endpush

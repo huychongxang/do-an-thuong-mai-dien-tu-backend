@@ -12,6 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Trang quản trị</title>
 
     <link rel="stylesheet" href="{{mix('admin/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/Ionicons/css/ionicons.min.css')}}">
     @stack('styles')
 </head>
 <body class="sidebar-mini wysihtml5-supported skin-black-light sidebar-collapse" data-gr-c-s-loaded="true"

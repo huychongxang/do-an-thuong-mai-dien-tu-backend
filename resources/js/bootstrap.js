@@ -16,6 +16,7 @@ try {
     window.Swal = require('sweetalert2');
     window.select2 = require('select2/dist/js/select2.full.min');
     window.datepicker = require('bootstrap-datepicker');
+    window.Chart = require('chart.js');
 } catch (e) {
 }
 
