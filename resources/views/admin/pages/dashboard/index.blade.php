@@ -84,12 +84,88 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title">Đơn hàng mới</h3>
+                </div>
+                <div class="card-body table-responsive no-padding">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Email</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày tạo</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="">Order#1</a>
+                                    </td>
+                                    <td>
+                                        vuhuydung88@gmail.com
+                                    </td>
+                                    <td>
+                                        <span class="label label-info">Mới</span>
+                                    </td>
+                                    <td>
+                                        2020-03-31 15:39:26
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title">
+                        Khách hàng mới
+                    </h3>
+                </div>
+                <div class="card-body table-responsive no-padding">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Địa chỉ Email</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>Tạo lúc</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="">ID#1</a>
+                                    </td>
+                                    <td>test@test.com</td>
+                                    <td>Huy</td>
+                                    <td>2019-12-05 21:17:55</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('scripts')
     <script>
         $(document).ready(function ($) {
             var ctx_month = document.getElementById('chart-days-in-month').getContext('2d');
-            
+
         });
     </script>
 
