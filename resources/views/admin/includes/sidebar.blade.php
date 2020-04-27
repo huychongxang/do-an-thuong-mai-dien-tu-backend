@@ -41,7 +41,46 @@
                         </p>
                     </a>
                 </li>
-
+                @php
+                    $routeNames = Route::currentRouteName();
+                    $name = explode('.',$routeNames)[1];
+                    $active = in_array($name,[
+                    'roles'
+                    ]) ? 'active': null;
+                        $open = ($active) ? 'menu-open' : null;
+                @endphp
+                <li class="nav-item has-treeview {{$open}}">
+                    <a href="#"
+                       class="nav-link {{$active}}">
+                        <i class="nav-icon fas fa-sitemap"></i>
+                        <p>
+                            Quản lý quản trị viên
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH','cms').'.product-categories.*') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH','cms').'.product-categories.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="fas fa-user-secret nav-icon"></i>
+                                <p>Quản lý quản trị viên</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            @php
+                                $active = Route::is(env('ADMIN_PATH','cms').'.roles.*') ? 'active': null;
+                            @endphp
+                            <a href="{{route(env('ADMIN_PATH','cms').'.roles.index')}}"
+                               class="nav-link {{$active}}">
+                                <i class="fas fa-bars nav-icon"></i>
+                                <p>Quản lý nhóm quyền</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @php
                     $active = Route::is(env('ADMIN_PATH','cms').'.product*') ? 'active': null;
                     $open = ($active) ? 'menu-open' : null;
