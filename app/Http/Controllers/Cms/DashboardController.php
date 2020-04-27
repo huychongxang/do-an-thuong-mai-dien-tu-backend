@@ -60,8 +60,35 @@ class DashboardController extends Controller
         $arrTotalsAmount = '[' . implode(',', $arrTotalsAmount) . ']';
         $arrTotalsOrder = '[' . implode(',', $arrTotalsOrder) . ']';
 
+        //*************************** /
+        //===================12 months  ==============================
+        for ($i = 12; $i >= 0; $i--) {
+            $months1[$i] = date("m/Y", strtotime(date('Y-m-01') . " -$i months"));
+            $months2[$i] = date("Y-m", strtotime(date('Y-m-01') . " -$i months"));
+            $arrTotalsAmount_year[$i] = 0;
+        }
+
+        $totalsMonth = Order::select(
+            DB::raw(
+                'DATE_FORMAT(created_at, "%Y-%m") as ym,
+                        sum(total) as total_amount,
+                        count(id) as total_order'
+            )
+        )
+            ->groupBy('ym')
+            ->having('ym', '>=', $months2[12])
+            ->having('ym', '<=', $months2[0])
+            ->get();
+
+        foreach ($totalsMonth as $key => $value) {
+            $key_month = array_search($value->ym, $months2);
+            $arrTotalsAmount_year[$key_month] = $value->total_amount;
+        }
+        $months1 = '["' . implode('","', $months1) . '"]';
+        $arrTotalsAmount_year = '[' . implode(',', $arrTotalsAmount_year) . ']';
+
         return view('admin.pages.dashboard.index', compact('totalOrders', 'totalProducts', 'totalPosts', 'totalUsers',
-            'arrDays', 'arrTotalsAmount', 'arrTotalsOrder', 'max_order'
+            'arrDays', 'arrTotalsAmount', 'arrTotalsOrder', 'max_order','months1','arrTotalsAmount_year'
         ));
     }
 }
