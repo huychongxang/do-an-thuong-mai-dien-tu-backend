@@ -32,15 +32,6 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
                 @php
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];
@@ -153,7 +144,12 @@
                             <i class="nav-icon fas fa-shopping-cart"></i>
                             <p>
                                 Quản lý đơn hàng
+
+
                                 <i class="right fas fa-angle-left"></i>
+                                @if($newOrders > 0)
+                                    <span class="right badge badge-danger">New</span>
+                                @endif
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
@@ -165,6 +161,7 @@
                                    class="nav-link {{$active}}">
                                     <i class="fas fa-cart-arrow-down nav-icon"></i>
                                     <p>Quản lý đơn hàng</p>
+                                    <span class="right badge badge-danger">{{$newOrders}}</span>
                                 </a>
                             </li>
                             @can(\App\Models\ACL::PERMISSION_VIEW_MENU_ORDER_STATUS)
