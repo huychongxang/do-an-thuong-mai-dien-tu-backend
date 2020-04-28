@@ -51,6 +51,6 @@ Route::group([
     Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
 
-
+    Route::resource('admins', 'AdminController');
     Route::resource('roles', 'RoleController');
 });

@@ -14,11 +14,13 @@ class RoleAndPermissionDefaultSeeder extends Seeder
         $roles = [
             [
                 'name' => 'admin',
-                'label' => 'Admin'
+                'label' => 'Admin',
+                'guard_name' => 'admin'
             ],
             [
                 'name' => 'content collaborator',
-                'label' => 'Cộng tác viên viết bài'
+                'label' => 'Cộng tác viên viết bài',
+                'guard_name' => 'admin'
             ],
         ];
         foreach ($roles as $role) {

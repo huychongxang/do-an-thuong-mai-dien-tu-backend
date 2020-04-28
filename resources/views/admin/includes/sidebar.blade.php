@@ -45,7 +45,7 @@
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];
                     $active = in_array($name,[
-                    'roles'
+                    'roles','admins'
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp
@@ -61,9 +61,9 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.product-categories.*') ? 'active': null;
+                                $active = Route::is(env('ADMIN_PATH','cms').'.admins.*') ? 'active': null;
                             @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.product-categories.index')}}"
+                            <a href="{{route(env('ADMIN_PATH','cms').'.admins.index')}}"
                                class="nav-link {{$active}}">
                                 <i class="fas fa-user-secret nav-icon"></i>
                                 <p>Quản lý quản trị viên</p>
