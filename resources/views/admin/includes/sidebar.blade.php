@@ -142,59 +142,66 @@
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp
-                <li class="nav-item has-treeview {{$open}}">
-                    <a href="#"
-                       class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-shopping-cart"></i>
-                        <p>
-                            Quản lý đơn hàng
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.orders.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.orders.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-cart-arrow-down nav-icon"></i>
-                                <p>Quản lý đơn hàng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.order-status.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.order-status.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-leaf nav-icon"></i>
-                                <p>Trạng thái đơn hàng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.payment-status.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.payment-status.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-recycle nav-icon"></i>
-                                <p>Trạng thái thanh toán</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.shipping-status.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.shipping-status.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-truck nav-icon"></i>
-                                <p>Trạng thái vận chuyển</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
+                @can(\App\Models\ACL::PERMISSION_VIEW_MENU_ORDER)
+                    <li class="nav-item has-treeview {{$open}}">
+                        <a href="#"
+                           class="nav-link {{$active}}">
+                            <i class="nav-icon fas fa-shopping-cart"></i>
+                            <p>
+                                Quản lý đơn hàng
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                @php
+                                    $active = Route::is(env('ADMIN_PATH','cms').'.orders.*') ? 'active': null;
+                                @endphp
+                                <a href="{{route(env('ADMIN_PATH','cms').'.orders.index')}}"
+                                   class="nav-link {{$active}}">
+                                    <i class="fas fa-cart-arrow-down nav-icon"></i>
+                                    <p>Quản lý đơn hàng</p>
+                                </a>
+                            </li>
+                            @can(\App\Models\ACL::PERMISSION_VIEW_MENU_ORDER_STATUS)
+                                <li class="nav-item">
+                                    @php
+                                        $active = Route::is(env('ADMIN_PATH','cms').'.order-status.*') ? 'active': null;
+                                    @endphp
+                                    <a href="{{route(env('ADMIN_PATH','cms').'.order-status.index')}}"
+                                       class="nav-link {{$active}}">
+                                        <i class="fas fa-leaf nav-icon"></i>
+                                        <p>Trạng thái đơn hàng</p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can(\App\Models\ACL::PERMISSION_VIEW_MENU_PAYMENT_STATUS)
+                                <li class="nav-item">
+                                    @php
+                                        $active = Route::is(env('ADMIN_PATH','cms').'.payment-status.*') ? 'active': null;
+                                    @endphp
+                                    <a href="{{route(env('ADMIN_PATH','cms').'.payment-status.index')}}"
+                                       class="nav-link {{$active}}">
+                                        <i class="fas fa-recycle nav-icon"></i>
+                                        <p>Trạng thái thanh toán</p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can(\App\Models\ACL::PERMISSION_VIEW_MENU_SHIPPING_STATUS)
+                                <li class="nav-item">
+                                    @php
+                                        $active = Route::is(env('ADMIN_PATH','cms').'.shipping-status.*') ? 'active': null;
+                                    @endphp
+                                    <a href="{{route(env('ADMIN_PATH','cms').'.shipping-status.index')}}"
+                                       class="nav-link {{$active}}">
+                                        <i class="fas fa-truck nav-icon"></i>
+                                        <p>Trạng thái vận chuyển</p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 @php
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];

@@ -5,9 +5,11 @@
 @endpush
 @section('content')
     <div class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.order-status.create')}}">Thêm mới</a>
-        </div>
+        @can(\App\Models\ACL::PERMISSION_CREATE_ORDER_STATUS)
+            <div class="col-lg-12">
+                <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.order-status.create')}}">Thêm mới</a>
+            </div>
+        @endcan
     </div>
     <br>
     <div class="row">
@@ -37,15 +39,19 @@
                             <td><span class="badge bg-{{$orderStatus->type}}"
                                       style="width: 20px;height: 20px;display: inline-block"></span></td>
                             <td>
-                                <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
-                                    Sửa</a>
-                                <form action='{{$deleteUrl}}' method='post'>
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class='badge bg-danger delete-confirm'><i
-                                                class="fa fa-times"></i> Xóa
-                                    </a>
-                                </form>
+                                @can(\App\Models\ACL::PERMISSION_EDIT_ORDER_STATUS)
+                                    <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
+                                        Sửa</a>
+                                @endcan
+                                @can(\App\Models\ACL::PERMISSION_DELETE_ORDER_STATUS)
+                                    <form action='{{$deleteUrl}}' method='post'>
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class='badge bg-danger delete-confirm'><i
+                                                    class="fa fa-times"></i> Xóa
+                                        </a>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

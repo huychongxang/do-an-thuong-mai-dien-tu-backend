@@ -5,9 +5,11 @@
 @endpush
 @section('content')
     <div class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.orders.create')}}">Thêm mới</a>
-        </div>
+        @can(\App\Models\ACL::PERMISSION_CREATE_ORDER)
+            <div class="col-lg-12">
+                <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.orders.create')}}">Thêm mới</a>
+            </div>
+        @endcan
     </div>
     <br>
     <div class="row">
@@ -48,15 +50,19 @@
                             </td>
                             <td>{{$order->created_at}}</td>
                             <td>
-                                <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
-                                    Sửa</a>
-                                <form action='{{$deleteUrl}}' method='post'>
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class='badge bg-danger delete-confirm'><i
-                                                class="fa fa-times"></i> Xóa
-                                    </a>
-                                </form>
+                                @can(\App\Models\ACL::PERMISSION_EDIT_ORDER)
+                                    <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
+                                        Sửa</a>
+                                @endcan
+                                @can(\App\Models\ACL::PERMISSION_DELETE_ORDER)
+                                    <form action='{{$deleteUrl}}' method='post'>
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class='badge bg-danger delete-confirm'><i
+                                                    class="fa fa-times"></i> Xóa
+                                        </a>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

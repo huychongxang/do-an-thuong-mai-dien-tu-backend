@@ -120,6 +120,71 @@ class RoleAndPermissionDefaultSeeder extends Seeder
                 'group' => 'Đơn hàng',
             ],
         ];
+        $orderStatus = [
+            [
+                'name' => 'view menu quan ly trang thai don hang',
+                'label' => 'Xem menu quản lý trạng thái đơn hàng',
+                'group' => 'Trạng thái đơn hàng',
+            ],
+            [
+                'name' => 'them trang thai don hang',
+                'label' => 'Thêm mới trạng thái đơn hàng',
+                'group' => 'Trạng thái đơn hàng',
+            ],
+            [
+                'name' => 'sua trang thai don hang',
+                'label' => 'Sửa trạng thái đơn hàng',
+                'group' => 'Trạng thái đơn hàng',
+            ],
+            [
+                'name' => 'xoa trang thai don hang',
+                'label' => 'Xóa trạng thái đơn hàng',
+                'group' => 'Trạng thái đơn hàng',
+            ],];
+        $paymentStatus = [
+            [
+                'name' => 'view menu quan ly trang thai thanh toan',
+                'label' => 'Xem menu quản lý trạng thái thanh toán',
+                'group' => 'Trạng thái thanh toán',
+            ],
+            [
+                'name' => 'them trang thai thanh toan',
+                'label' => 'Thêm mới trạng thái thanh toán',
+                'group' => 'Trạng thái thanh toán',
+            ],
+            [
+                'name' => 'sua trang thai thanh toan',
+                'label' => 'Sửa trạng thái thanh toán',
+                'group' => 'Trạng thái thanh toán',
+            ],
+            [
+                'name' => 'xoa trang thai thanh toan',
+                'label' => 'Xóa trạng thái thanh toán',
+                'group' => 'Trạng thái thanh toán',
+            ],
+        ];
+        $shippingStatus = [
+            [
+                'name' => 'view menu quan ly trang thai van chuyen',
+                'label' => 'Xem menu quản lý trạng thái vận chuyển',
+                'group' => 'Trạng thái vận chuyển',
+            ],
+            [
+                'name' => 'them trang thai van chuyen',
+                'label' => 'Thêm mới trạng thái vận chuyển',
+                'group' => 'Trạng thái vận chuyển',
+            ],
+            [
+                'name' => 'sua trang thai van chuyen',
+                'label' => 'Sửa trạng thái vận chuyển',
+                'group' => 'Trạng thái vận chuyển',
+            ],
+            [
+                'name' => 'xoa trang thai van chuyen',
+                'label' => 'Xóa trạng thái vận chuyển',
+                'group' => 'Trạng thái vận chuyển',
+            ],
+        ];
         $user = [
             [
                 'name' => 'view menu quan ly khach hang',
@@ -172,7 +237,7 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             ]
         ];
 
-        $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $user, $post, $code);
+        $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $orderStatus, $paymentStatus, $shippingStatus, $user, $post, $code);
         foreach ($permissions as $permission) {
             $permission['guard_name'] = 'admin';
             \Spatie\Permission\Models\Permission::firstOrCreate([
