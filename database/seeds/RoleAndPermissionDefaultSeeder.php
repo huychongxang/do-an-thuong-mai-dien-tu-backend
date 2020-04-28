@@ -76,6 +76,28 @@ class RoleAndPermissionDefaultSeeder extends Seeder
                 'group' => 'Danh mục Sản phẩm',
             ],
         ];
+        $productAttribute = [
+            [
+                'name' => 'view menu quan ly thuoc tinh san pham',
+                'label' => 'Xem menu quản lý thuộc tính sản phẩm',
+                'group' => 'Thuộc tính sản phẩm',
+            ],
+            [
+                'name' => 'them thuoc tinh san pham',
+                'label' => 'Thêm mới thuộc tính sản phẩm',
+                'group' => 'Thuộc tính sản phẩm',
+            ],
+            [
+                'name' => 'sua thuoc tinh san pham',
+                'label' => 'Sửa thuộc tính sản phẩm',
+                'group' => 'Thuộc tính sản phẩm',
+            ],
+            [
+                'name' => 'xoa thuoc tinh san pham',
+                'label' => 'Xóa thuộc tính sản phẩm',
+                'group' => 'Thuộc tính sản phẩm',
+            ],
+        ];
         $order = [
             [
                 'name' => 'view menu quan ly don hang',
@@ -150,7 +172,7 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             ]
         ];
 
-        $permissions = array_merge($product, $categoryProduct, $order, $user, $post, $code);
+        $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $user, $post, $code);
         foreach ($permissions as $permission) {
             $permission['guard_name'] = 'admin';
             \Spatie\Permission\Models\Permission::firstOrCreate([

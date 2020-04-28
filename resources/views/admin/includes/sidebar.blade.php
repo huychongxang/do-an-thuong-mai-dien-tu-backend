@@ -85,50 +85,55 @@
                     $active = Route::is(env('ADMIN_PATH','cms').'.product*') ? 'active': null;
                     $open = ($active) ? 'menu-open' : null;
                 @endphp
-                <li class="nav-item has-treeview {{$open}}">
-                    <a href="#"
-                       class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-folder-open"></i>
-                        <p>
-                            Quản lý sản phẩm
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.product-categories.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.product-categories.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-folder nav-icon"></i>
-                                <p>Quản lý danh mục</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.product.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.product.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fab fa-product-hunt nav-icon"></i>
-                                <p>Quản lý sản phẩm</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.product-attribute-group.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.product-attribute-group.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-bars nav-icon"></i>
-                                <p>Quản lý thuộc tính</p>
-                            </a>
-                        </li>
+                @can(\App\Models\ACL::PERMISSION_VIEW_MENU_PRODUCT)
+                    <li class="nav-item has-treeview {{$open}}">
+                        <a href="#"
+                           class="nav-link {{$active}}">
+                            <i class="nav-icon fas fa-folder-open"></i>
+                            <p>
+                                Quản lý sản phẩm
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can(\App\Models\ACL::PERMISSION_VIEW_MENU_PRODUCT_CATEGORY)
+                                <li class="nav-item">
+                                    @php
+                                        $active = Route::is(env('ADMIN_PATH','cms').'.product-categories.*') ? 'active': null;
+                                    @endphp
+                                    <a href="{{route(env('ADMIN_PATH','cms').'.product-categories.index')}}"
+                                       class="nav-link {{$active}}">
+                                        <i class="fas fa-folder nav-icon"></i>
+                                        <p>Quản lý danh mục</p>
+                                    </a>
+                                </li>
+                            @endcan
+                            <li class="nav-item">
+                                @php
+                                    $active = Route::is(env('ADMIN_PATH','cms').'.product.*') ? 'active': null;
+                                @endphp
+                                <a href="{{route(env('ADMIN_PATH','cms').'.product.index')}}"
+                                   class="nav-link {{$active}}">
+                                    <i class="fab fa-product-hunt nav-icon"></i>
+                                    <p>Quản lý sản phẩm</p>
+                                </a>
+                            </li>
+                            @can(\App\Models\ACL::PERMISSION_VIEW_MENU_PRODUCT_ATTRIBUTE)
+                                <li class="nav-item">
+                                    @php
+                                        $active = Route::is(env('ADMIN_PATH','cms').'.product-attribute-group.*') ? 'active': null;
+                                    @endphp
+                                    <a href="{{route(env('ADMIN_PATH','cms').'.product-attribute-group.index')}}"
+                                       class="nav-link {{$active}}">
+                                        <i class="fas fa-bars nav-icon"></i>
+                                        <p>Quản lý thuộc tính</p>
+                                    </a>
+                                </li>
+                            @endcan
 
-                    </ul>
-                </li>
-
+                        </ul>
+                    </li>
+                @endcan
                 @php
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];
