@@ -49,38 +49,42 @@
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp
-                <li class="nav-item has-treeview {{$open}}">
-                    <a href="#"
-                       class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-sitemap"></i>
-                        <p>
-                            Quản lý quản trị viên
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.admins.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.admins.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-user-secret nav-icon"></i>
-                                <p>Quản lý quản trị viên</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.roles.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.roles.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-bars nav-icon"></i>
-                                <p>Quản lý nhóm quyền</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @can(\App\Models\ACL::PERMISSION_VIEW_MENU_ADMIN)
+                    <li class="nav-item has-treeview {{$open}}">
+                        <a href="#"
+                           class="nav-link {{$active}}">
+                            <i class="nav-icon fas fa-sitemap"></i>
+                            <p>
+                                Quản lý quản trị viên
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can(\App\Models\ACL::PERMISSION_VIEW_MENU_ROLE)
+                                <li class="nav-item">
+                                    @php
+                                        $active = Route::is(env('ADMIN_PATH','cms').'.admins.*') ? 'active': null;
+                                    @endphp
+                                    <a href="{{route(env('ADMIN_PATH','cms').'.admins.index')}}"
+                                       class="nav-link {{$active}}">
+                                        <i class="fas fa-user-secret nav-icon"></i>
+                                        <p>Quản lý quản trị viên</p>
+                                    </a>
+                                </li>
+                            @endcan
+                            <li class="nav-item">
+                                @php
+                                    $active = Route::is(env('ADMIN_PATH','cms').'.roles.*') ? 'active': null;
+                                @endphp
+                                <a href="{{route(env('ADMIN_PATH','cms').'.roles.index')}}"
+                                   class="nav-link {{$active}}">
+                                    <i class="fas fa-bars nav-icon"></i>
+                                    <p>Quản lý nhóm quyền</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
                 @php
                     $active = Route::is(env('ADMIN_PATH','cms').'.product*') ? 'active': null;
                     $open = ($active) ? 'menu-open' : null;

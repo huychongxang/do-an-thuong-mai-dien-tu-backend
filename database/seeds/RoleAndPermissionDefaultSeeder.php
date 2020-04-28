@@ -259,7 +259,53 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             ]
         ];
 
-        $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $orderStatus, $paymentStatus, $shippingStatus, $user, $post,$postCategory, $code);
+        $admin = [
+            [
+                'name' => 'view menu quan ly quan tri vien',
+                'label' => 'Xem menu quản lý quản trị viên',
+                'group' => 'Quản trị viên',
+            ],
+            [
+                'name' => 'them quan tri vien',
+                'label' => 'Thêm mới quản trị viên',
+                'group' => 'Quản trị viên',
+            ],
+            [
+                'name' => 'sua quan tri vien',
+                'label' => 'Sửa quản trị viên',
+                'group' => 'Quản trị viên',
+            ],
+            [
+                'name' => 'xoa quan tri vien',
+                'label' => 'Xóa quản trị viên',
+                'group' => 'Quản trị viên',
+            ],
+        ];
+        $role = [
+            [
+                'name' => 'view menu quan ly nhom quyen',
+                'label' => 'Xem menu quản lý nhóm quyền',
+                'group' => 'Nhóm quyền',
+            ],
+            [
+                'name' => 'them nhom quyen',
+                'label' => 'Thêm mới nhóm quyền',
+                'group' => 'Nhóm quyền',
+            ],
+            [
+                'name' => 'sua nhom quyen',
+                'label' => 'Sửa nhóm quyền',
+                'group' => 'Nhóm quyền',
+            ],
+            [
+                'name' => 'xoa nhom quyen',
+                'label' => 'Xóa nhóm quyền',
+                'group' => 'Nhóm quyền',
+            ],
+        ];
+
+        $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $orderStatus, $paymentStatus, $shippingStatus, $user, $post, $postCategory,
+            $code, $admin, $role);
         foreach ($permissions as $permission) {
             $permission['guard_name'] = 'admin';
             \Spatie\Permission\Models\Permission::firstOrCreate([

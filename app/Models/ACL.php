@@ -73,4 +73,16 @@ final class ACL
 
     // DEV
     const PERMISSION_VIEW_MENU_DEV = 'view menu quan ly lap trinh';
+
+    // Admin
+    const PERMISSION_VIEW_MENU_ADMIN = 'view menu quan ly quan tri vien';
+    const PERMISSION_CREATE_ADMIN = 'them quan tri vien';
+    const PERMISSION_EDIT_ADMIN = 'sua quan tri vien';
+    const PERMISSION_DELETE_ADMIN = 'xoa quan tri vien';
+
+    // Role
+    const PERMISSION_VIEW_MENU_ROLE = 'view menu quan ly nhom quyen';
+    const PERMISSION_CREATE_ROLE = 'them nhom quyen';
+    const PERMISSION_EDIT_ROLE = 'sua nhom quyen';
+    const PERMISSION_DELETE_ROLE = 'xoa nhom quyen';
 }
