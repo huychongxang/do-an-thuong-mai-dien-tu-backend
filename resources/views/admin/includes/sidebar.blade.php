@@ -286,29 +286,31 @@
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp
-                <li class="nav-item has-treeview {{$open}}">
-                    <a href="#"
-                       class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-cog"></i>
-                        <p>
-                            Cài đặt nâng cao cho lập trình viên
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.log-viewer.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route('log-viewer::dashboard')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Log Viewer
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @can(\App\Models\ACL::PERMISSION_VIEW_MENU_DEV)
+                    <li class="nav-item has-treeview {{$open}}">
+                        <a href="#"
+                           class="nav-link {{$active}}">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>
+                                Cài đặt nâng cao cho lập trình viên
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                @php
+                                    $active = Route::is(env('ADMIN_PATH','cms').'.log-viewer.*') ? 'active': null;
+                                @endphp
+                                <a href="{{route('log-viewer::dashboard')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        Log Viewer
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

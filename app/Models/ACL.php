@@ -70,4 +70,7 @@ final class ACL
     const PERMISSION_CREATE_POST_CATEGORY = 'them danh muc tin tuc';
     const PERMISSION_EDIT_POST_CATEGORY = 'sua danh muc tin tuc';
     const PERMISSION_DELETE_POST_CATEGORY = 'xoa danh muc tin tuc';
+
+    // DEV
+    const PERMISSION_VIEW_MENU_DEV = 'view menu quan ly lap trinh';
 }
