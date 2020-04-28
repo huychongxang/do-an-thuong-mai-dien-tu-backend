@@ -58,4 +58,16 @@ final class ACL
     const PERMISSION_CREATE_USER = 'them khach hang';
     const PERMISSION_EDIT_USER = 'sua khach hang';
     const PERMISSION_DELETE_USER = 'xoa khach hang';
+
+    // Post
+    const PERMISSION_VIEW_MENU_POST = 'view menu quan ly tin tuc';
+    const PERMISSION_CREATE_POST = 'them bai viet';
+    const PERMISSION_EDIT_OTHER_POST = 'sua bai viet nguoi khac';
+    const PERMISSION_DELETE_OTHER_POST = 'xoa bai viet nguoi khac';
+
+    // Post Category
+    const PERMISSION_VIEW_MENU_POST_CATEGORY = 'view menu quan ly danh muc tin tuc';
+    const PERMISSION_CREATE_POST_CATEGORY = 'them danh muc tin tuc';
+    const PERMISSION_EDIT_POST_CATEGORY = 'sua danh muc tin tuc';
+    const PERMISSION_DELETE_POST_CATEGORY = 'xoa danh muc tin tuc';
 }

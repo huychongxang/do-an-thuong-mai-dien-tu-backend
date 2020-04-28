@@ -220,13 +220,35 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             ],
             [
                 'name' => 'sua bai viet nguoi khac',
-                'label' => 'Sửa bài viết nguoi khac',
+                'label' => 'Sửa bài viết người khác',
                 'group' => 'Bài viết',
             ],
             [
                 'name' => 'xoa bai viet nguoi khac',
                 'label' => 'Xóa bài viết người khác',
                 'group' => 'Bài viết',
+            ],
+        ];
+        $postCategory = [
+            [
+                'name' => 'view menu quan ly danh muc tin tuc',
+                'label' => 'Xem menu quản lý danh mục tin tức',
+                'group' => 'Danh mục tin tức',
+            ],
+            [
+                'name' => 'them danh muc tin tuc',
+                'label' => 'Thêm mới danh mục tin tức',
+                'group' => 'Danh mục tin tức',
+            ],
+            [
+                'name' => 'sua danh muc tin tuc',
+                'label' => 'Sửa danh mục tin tức',
+                'group' => 'Danh mục tin tức',
+            ],
+            [
+                'name' => 'xoa danh muc tin tuc',
+                'label' => 'Xóa danh mục tin tức',
+                'group' => 'Danh mục tin tức',
             ],
         ];
         $code = [
@@ -237,7 +259,7 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             ]
         ];
 
-        $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $orderStatus, $paymentStatus, $shippingStatus, $user, $post, $code);
+        $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $orderStatus, $paymentStatus, $shippingStatus, $user, $post,$postCategory, $code);
         foreach ($permissions as $permission) {
             $permission['guard_name'] = 'admin';
             \Spatie\Permission\Models\Permission::firstOrCreate([

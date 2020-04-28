@@ -242,39 +242,42 @@
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp
-                <li class="nav-item has-treeview {{$open}}">
-                    <a href="#"
-                       class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-newspaper"></i>
-                        <p>
-                            Quản lý tin tức
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.posts.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.posts.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-book-open nav-icon"></i>
-                                <p>Quản lý tin tức</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.categories.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.categories.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-book nav-icon"></i>
-                                <p>Quản lý danh mục</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
+                @can(\App\Models\ACL::PERMISSION_VIEW_MENU_POST)
+                    <li class="nav-item has-treeview {{$open}}">
+                        <a href="#"
+                           class="nav-link {{$active}}">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                Quản lý tin tức
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                @php
+                                    $active = Route::is(env('ADMIN_PATH','cms').'.posts.*') ? 'active': null;
+                                @endphp
+                                <a href="{{route(env('ADMIN_PATH','cms').'.posts.index')}}"
+                                   class="nav-link {{$active}}">
+                                    <i class="fas fa-book-open nav-icon"></i>
+                                    <p>Quản lý tin tức</p>
+                                </a>
+                            </li>
+                            @can(\App\Models\ACL::PERMISSION_VIEW_MENU_POST_CATEGORY)
+                                <li class="nav-item">
+                                    @php
+                                        $active = Route::is(env('ADMIN_PATH','cms').'.categories.*') ? 'active': null;
+                                    @endphp
+                                    <a href="{{route(env('ADMIN_PATH','cms').'.categories.index')}}"
+                                       class="nav-link {{$active}}">
+                                        <i class="fas fa-book nav-icon"></i>
+                                        <p>Quản lý danh mục</p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 @php
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];

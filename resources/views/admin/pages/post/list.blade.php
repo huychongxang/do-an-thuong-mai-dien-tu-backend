@@ -6,11 +6,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <div class="float-left">
-                <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.posts.create')}}">Thêm
-                    mới</a>
-            </div>
-
+            @can(\App\Models\ACL::PERMISSION_CREATE_POST)
+                <div class="float-left">
+                    <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.posts.create')}}">Thêm
+                        mới</a>
+                </div>
+            @endcan
             <div class="float-right" style="padding:7px 0">
                 <?php $list = []; ?>
                 @foreach($statusList as $key=>$value)
@@ -54,15 +55,19 @@
                             <td>{{$post->category->name}}</td>
                             <td>{{$post->created_at}}</td>
                             <td>
-                                <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
-                                    Sửa</a>
-                                <form action='{{$deleteUrl}}' method='post'>
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class='badge bg-danger delete-confirm'><i
-                                                class="fa fa-times"></i> Xóa
-                                    </a>
-                                </form>
+                                @if(auth()->user()->can(\App\Models\ACL::PERMISSION_EDIT_OTHER_POST) || $post->isOwned())
+                                    <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
+                                        Sửa</a>
+                                @endif
+                                @if(auth()->user()->can(\App\Models\ACL::PERMISSION_DELETE_OTHER_POST) || $post->isOwned())
+                                    <form action='{{$deleteUrl}}' method='post'>
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class='badge bg-danger delete-confirm'><i
+                                                    class="fa fa-times"></i> Xóa
+                                        </a>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
