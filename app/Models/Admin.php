@@ -73,6 +73,11 @@ class Admin extends Authenticatable
         return $html;
     }
 
+    public function isDefault()
+    {
+        return $this->getOriginal('is_default');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Relationships

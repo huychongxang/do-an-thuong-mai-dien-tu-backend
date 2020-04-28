@@ -34,11 +34,11 @@
                             <td>{{$role->id}}</td>
                             <td>{{$role->label}}</td>
                             <td>
-                                @can(\App\Models\ACL::PERMISSION_EDIT_ROLE)
+                                @if(!$role->is_default && auth()->user()->can(\App\Models\ACL::PERMISSION_EDIT_ROLE))
                                     <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                         Sửa</a>
-                                @endcan
-                                @can(\App\Models\ACL::PERMISSION_DELETE_ROLE)
+                                @endif
+                                @if(!$role->is_default && auth()->user()->can(\App\Models\ACL::PERMISSION_DELETE_ROLE))
                                     <form action='{{$deleteUrl}}' method='post'>
                                         @csrf
                                         @method('DELETE')
@@ -46,7 +46,8 @@
                                                     class="fa fa-times"></i> Xóa
                                         </a>
                                     </form>
-                                @endcan
+                                @endif
+
                             </td>
                         </tr>
                     @endforeach
