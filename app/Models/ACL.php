@@ -52,4 +52,10 @@ final class ACL
     const PERMISSION_CREATE_SHIPPING_STATUS = 'them trang thai van chuyen';
     const PERMISSION_EDIT_SHIPPING_STATUS = 'sua trang thai van chuyen';
     const PERMISSION_DELETE_SHIPPING_STATUS = 'xoa trang thai van chuyen';
+
+    // User
+    const PERMISSION_VIEW_MENU_USER = 'view menu quan ly khach hang';
+    const PERMISSION_CREATE_USER = 'them khach hang';
+    const PERMISSION_EDIT_USER = 'sua khach hang';
+    const PERMISSION_DELETE_USER = 'xoa khach hang';
 }

@@ -210,29 +210,30 @@
                     ]) ? 'active': null;
                         $open = ($active) ? 'menu-open' : null;
                 @endphp
-                <li class="nav-item has-treeview {{$open}}">
-                    <a href="#"
-                       class="nav-link {{$active}}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Quản lý khách hàng
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            @php
-                                $active = Route::is(env('ADMIN_PATH','cms').'.users.*') ? 'active': null;
-                            @endphp
-                            <a href="{{route(env('ADMIN_PATH','cms').'.users.index')}}"
-                               class="nav-link {{$active}}">
-                                <i class="fas fa-user nav-icon"></i>
-                                <p>Quản lý khách hàng</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
+                @can(\App\Models\ACL::PERMISSION_VIEW_MENU_USER)
+                    <li class="nav-item has-treeview {{$open}}">
+                        <a href="#"
+                           class="nav-link {{$active}}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Quản lý khách hàng
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                @php
+                                    $active = Route::is(env('ADMIN_PATH','cms').'.users.*') ? 'active': null;
+                                @endphp
+                                <a href="{{route(env('ADMIN_PATH','cms').'.users.index')}}"
+                                   class="nav-link {{$active}}">
+                                    <i class="fas fa-user nav-icon"></i>
+                                    <p>Quản lý khách hàng</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
                 @php
                     $routeNames = Route::currentRouteName();
                     $name = explode('.',$routeNames)[1];
