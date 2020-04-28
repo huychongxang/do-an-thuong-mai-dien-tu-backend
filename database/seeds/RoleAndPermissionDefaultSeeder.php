@@ -15,7 +15,8 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             [
                 'name' => 'admin',
                 'label' => 'Admin',
-                'guard_name' => 'admin'
+                'guard_name' => 'admin',
+                'is_default' => true
             ],
             [
                 'name' => 'content collaborator',
@@ -313,5 +314,10 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             ], $permission);
         }
 
+        $user = \App\Models\Admin::where('email', 'admin@admin.com')->first();
+        $roleAdmin = \Spatie\Permission\Models\Role::where('name', 'admin')->first();
+        $allPermissions = \Spatie\Permission\Models\Permission::all();
+        $roleAdmin->syncPermissions($allPermissions);
+        $user->assignRole($roleAdmin);
     }
 }
