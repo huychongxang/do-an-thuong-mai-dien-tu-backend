@@ -5,9 +5,12 @@
 @endpush
 @section('content')
     <div class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.shipping-status.create')}}">Thêm mới</a>
-        </div>
+        @can(\App\Models\ACL::PERMISSION_CREATE_SHIPPING_STATUS)
+            <div class="col-lg-12">
+                <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.shipping-status.create')}}">Thêm
+                    mới</a>
+            </div>
+        @endcan
     </div>
     <br>
     <div class="row">
@@ -34,15 +37,19 @@
                             <td>{{$shippingStatus->name}}</td>
                             <td>{{$shippingStatus->label}}</td>
                             <td>
-                                <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
-                                    Sửa</a>
-                                <form action='{{$deleteUrl}}' method='post'>
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class='badge bg-danger delete-confirm'><i
-                                                class="fa fa-times"></i> Xóa
-                                    </a>
-                                </form>
+                                @can(\App\Models\ACL::PERMISSION_EDIT_SHIPPING_STATUS)
+                                    <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
+                                        Sửa</a>
+                                @endcan
+                                @can(\App\Models\ACL::PERMISSION_DELETE_SHIPPING_STATUS)
+                                    <form action='{{$deleteUrl}}' method='post'>
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class='badge bg-danger delete-confirm'><i
+                                                    class="fa fa-times"></i> Xóa
+                                        </a>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

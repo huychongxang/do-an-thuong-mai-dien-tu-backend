@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
-@section('title_page','Danh sách đơn hàng')
+@section('title_page','Danh sách nhóm quyền')
 @push('styles')
 
 @endpush
 @section('content')
     <div class="row">
-        @can(\App\Models\ACL::PERMISSION_CREATE_ORDER)
+        @can(\App\Models\ACL::PERMISSION_CREATE_ROLE)
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.orders.create')}}">Thêm mới</a>
+                <a class="btn btn-success" href="{{route(env('ADMIN_PATH','cms').'.roles.create')}}">Thêm mới</a>
             </div>
         @endcan
     </div>
@@ -19,42 +19,26 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Email</th>
-                        <th>Tiền hàng</th>
-                        <th>Vận chuyển</th>
-                        <th>Giảm giá</th>
-                        <th>Tổng</th>
-                        <th>Hình thức thanh toán</th>
-                        <th>Trạng thái</th>
-                        <th>Tạo lúc</th>
+                        <th>Tên</th>
                         <th>Hành động</th>
                     </tr>
                     </thead>
-                    {{$orders->links()}}
+                    {{$roles->links()}}
                     <tbody>
-                    @foreach($orders as $key=>$order)
+                    @foreach($roles as $key=>$role)
                         @php
-                            $editUrl = route(env('ADMIN_PATH','cms') . '.orders.edit', $order->id);
-                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.orders.destroy', $order->id);
+                            $editUrl = route(env('ADMIN_PATH','cms') . '.roles.edit', $role->id);
+                            $deleteUrl = route(env('ADMIN_PATH','cms') . '.roles.destroy', $role->id);
                         @endphp
                         <tr>
-                            <td>{{$order->id}}</td>
-                            <td>{{$order->email}}</td>
-                            <td>{{$order->subtotal}}</td>
-                            <td>{{$order->shipping}}</td>
-                            <td>{{$order->discount}}</td>
-                            <td>{{$order->total}}</td>
-                            <td>{{$order->payment_method}}</td>
+                            <td>{{$role->id}}</td>
+                            <td>{{$role->label}}</td>
                             <td>
-                                <span class="badge bg-{{$order->orderStatus->type}}">{{$order->orderStatus->label}}</span>
-                            </td>
-                            <td>{{$order->created_at}}</td>
-                            <td>
-                                @can(\App\Models\ACL::PERMISSION_EDIT_ORDER)
+                                @can(\App\Models\ACL::PERMISSION_EDIT_ROLE)
                                     <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                         Sửa</a>
                                 @endcan
-                                @can(\App\Models\ACL::PERMISSION_DELETE_ORDER)
+                                @can(\App\Models\ACL::PERMISSION_DELETE_ROLE)
                                     <form action='{{$deleteUrl}}' method='post'>
                                         @csrf
                                         @method('DELETE')
@@ -69,9 +53,9 @@
                     </tbody>
                 </table>
                 <div>
-                    <small>Showing {{$orders->firstItem()}} to {{$orders->lastItem()}}
-                        of {{$orders->total()}} {{Str::plural('status',$orders->total())}}</small>
-                    {{$orders->appends(request()->input())->links()}}
+                    <small>Showing {{$roles->firstItem()}} to {{$roles->lastItem()}}
+                        of {{$roles->total()}} {{Str::plural('status',$roles->total())}}</small>
+                    {{$roles->appends(request()->input())->links()}}
                 </div>
             </div>
         </div>

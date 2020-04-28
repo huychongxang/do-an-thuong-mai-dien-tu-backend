@@ -32,6 +32,11 @@ class Post extends BaseModel
         ];
     }
 
+    public function isOwned()
+    {
+        return $this->admin_id == auth()->user()->id;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Relationships
