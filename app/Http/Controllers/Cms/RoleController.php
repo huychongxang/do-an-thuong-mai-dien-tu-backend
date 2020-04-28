@@ -116,6 +116,15 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::findOrFail($id);
+        $role->syncPermissions();
+
+        $delete = $role->delete();
+        if ($delete) {
+            alert()->success('Xóa nhóm quyền', 'Thành công');
+        } else {
+            alert()->error('Xóa nhóm quyền', 'Thất bại!');
+        }
+        return redirect()->back();
     }
 }
