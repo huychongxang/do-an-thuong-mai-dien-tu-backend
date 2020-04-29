@@ -3,18 +3,15 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Model;
-use TypiCMS\NestableTrait;
 
 class ProductCategory extends BaseModel
 {
     use Sluggable;
-    use NestableTrait;
 
     protected $table = 'product_categories';
     protected $disk = 'store';
 
-    protected $fillable = ['name', 'slug', 'description', 'featured', 'parent_id', 'status'];
+    protected $fillable = ['name', 'slug', 'description', 'featured', 'status'];
 
     /*
     |--------------------------------------------------------------------------
@@ -29,11 +26,6 @@ class ProductCategory extends BaseModel
                 'onUpdate' => true
             ]
         ];
-    }
-
-    public function isRoot()
-    {
-        return $this->slug == 'root';
     }
 
     public function getStatusHtml()
@@ -52,16 +44,6 @@ class ProductCategory extends BaseModel
     | RELATIONSHIPsS
     |--------------------------------------------------------------------------
     */
-    public function parent()
-    {
-        return $this->belongsTo(ProductCategory::class, 'parent_id');
-    }
-
-    public function children()
-    {
-        return $this->hasMany(ProductCategory::class, 'parent_id');
-    }
-
     /*
     |--------------------------------------------------------------------------
     | ACCESORS

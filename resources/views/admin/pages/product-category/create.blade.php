@@ -21,20 +21,6 @@
                     <label for="">Mô tả</label>
                     <textarea type="text" class="form-control" name="description"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="">Parent</label>
-                    <select id=parent
-                            class="form-control custom-select mt-15 {{ $errors->has('parent_id') ? 'is-invalid' : '' }}"
-                            name="parent_id">
-                        <option value="0">Select a parent category</option>
-                        @foreach($parentCategories as $key => $category)
-                            <option value="{{ $key }}">{{ $category }} </option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('parent_id'))
-                        <span class="error invalid-feedback">{{$errors->first('parent_id')}}</span>
-                    @endif
-                </div>
                 <div class="form-check">
                     <label>Trạng thái</label>
                     <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"

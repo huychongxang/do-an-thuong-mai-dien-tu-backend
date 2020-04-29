@@ -52,10 +52,7 @@
                             multiple="multiple" name="categories[]"
                             style="width: 100%;">
                         @foreach($categories as $key=>$category)
-                            @if($category == 'Root')
-                                @continue
-                            @endif
-                            <option value="{{$key}}">{{ $category }}</option>
+                            <option value="{{$category->id}}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                     @if($errors->has('categories'))

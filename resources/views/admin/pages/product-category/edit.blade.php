@@ -24,24 +24,6 @@
                     <textarea type="text" class="form-control"
                               name="description">{{$productCategory->description}}</textarea>
                 </div>
-                <div class="form-group">
-                    <label for="">Parent</label>
-                    <select id=parent
-                            class="form-control custom-select mt-15 {{ $errors->has('parent_id') ? 'is-invalid' : '' }}"
-                            name="parent_id">
-                        <option value="0">Select a parent category</option>
-                        @foreach($parentCategories as $key => $category)
-                            @if ($productCategory->parent_id == $key)
-                                <option value="{{ $key }}" selected>{{ $category }} </option>
-                            @else
-                                <option value="{{ $key }}">-{{ $category }} </option>
-                            @endif
-                        @endforeach
-                    </select>
-                    @if($errors->has('parent_id'))
-                        <span class="error invalid-feedback">{{$errors->first('parent_id')}}</span>
-                    @endif
-                </div>
                 <div class="form-check">
                     <label>Trạng thái</label>
                     <?php

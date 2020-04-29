@@ -23,7 +23,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = $this->treeList();
+        $categories = ProductCategory::all();
         $attributeGroups = ProductAttributeGroup::getList();
 
         // html select attribute
@@ -33,10 +33,6 @@ class ProductController extends Controller
         return view('admin.pages.product.create', compact('categories', 'attributeGroups', 'htmlProductAtrribute'));
     }
 
-    private function treeList()
-    {
-        return ProductCategory::orderBy('name', 'DESC')->get()->nest()->setIndent('--')->listsFlattened('name');
-    }
 
     public function store(StoreRequest $request)
     {
@@ -71,7 +67,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::whereId($id)->first();
-        $categories = $this->treeList();
+        $categories = ProductCategory::all();
         $attributeGroups = ProductAttributeGroup::getList();
 
         // html select attribute

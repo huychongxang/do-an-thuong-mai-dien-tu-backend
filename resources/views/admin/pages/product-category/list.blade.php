@@ -23,7 +23,6 @@
                         <th>Tên</th>
                         <th>Slug</th>
                         <th>Mô tả</th>
-                        <th>Parent</th>
                         <th>Trạng thái</th>
                         <th>Action</th>
                     </tr>
@@ -40,10 +39,8 @@
                             <td>{{$productCategory->name}}</td>
                             <td>{{$productCategory->slug}}</td>
                             <td width="50px">{{$productCategory->description}}</td>
-                            <td>{{optional($productCategory->parent)->name}}</td>
                             <td>{!! $productCategory->getStatusHtml() !!}</td>
                             <td>
-                                @if(!$productCategory->isRoot())
                                     @can(\App\Models\ACL::PERMISSION_EDIT_PRODUCT_CATEGORY)
                                         <a href="{{$editUrl}}" class="badge bg-primary"><i class="fa fa-pen"></i>
                                             Sửa</a>
@@ -57,7 +54,6 @@
                                             </a>
                                         </form>
                                     @endcan
-                                @endif
                             </td>
                         </tr>
                     @endforeach

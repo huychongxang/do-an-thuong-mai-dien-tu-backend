@@ -19,7 +19,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        $productCategories = ProductCategory::with(['parent'])->paginate(10);
+        $productCategories = ProductCategory::paginate(10);
         return view('admin.pages.product-category.list', compact('productCategories'));
     }
 
@@ -30,19 +30,9 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        $parentCategories = $this->treeList();
-        return view('admin.pages.product-category.create', compact('parentCategories'));
+        return view('admin.pages.product-category.create');
     }
 
-    private function treeList($id = null)
-    {
-        if ($id) {
-            return ProductCategory::where('id', '!=', $id)->orderBy('name', 'DESC')->get()->nest()->setIndent('-')->listsFlattened('name');
-        } else {
-            return ProductCategory::orderBy('name', 'DESC')->get()->nest()->setIndent('-')->listsFlattened('name');
-        }
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -81,8 +71,7 @@ class ProductCategoryController extends Controller
     public function edit($id)
     {
         $productCategory = ProductCategory::whereId($id)->first();
-        $parentCategories = $this->treeList($productCategory->id);
-        return view('admin.pages.product-category.edit', compact('productCategory', 'parentCategories'));
+        return view('admin.pages.product-category.edit', compact('productCategory'));
     }
 
     /**
@@ -114,12 +103,6 @@ class ProductCategoryController extends Controller
         try {
             DB::beginTransaction();
             $productCategory = ProductCategory::find($id);
-            $rootCategory = ProductCategory::where('slug', 'root')->first();
-
-            // Đổi parent của children category về 'Root'
-            ProductCategory::where('parent_id', $productCategory->id)->update([
-                'parent_id' => $rootCategory->id
-            ]);
 
             $delete = $productCategory->delete();
             DB::commit();
