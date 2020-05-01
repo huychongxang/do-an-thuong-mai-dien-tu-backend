@@ -13,8 +13,10 @@
 
 use App\Models\OrderHistory;
 
-Route::get('/', function () {
-    return redirect()->route('cms.dashboard');
+Route::group([
+    'namespace' => 'Web'
+], function () {
+    Route::get('/', 'HomeController@index')->name('home');
 });
 
 Auth::routes();
