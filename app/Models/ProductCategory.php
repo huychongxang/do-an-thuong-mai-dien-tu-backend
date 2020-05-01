@@ -11,7 +11,7 @@ class ProductCategory extends BaseModel
     protected $table = 'product_categories';
     protected $disk = 'store';
 
-    protected $fillable = ['name', 'slug', 'description', 'featured', 'status'];
+    protected $fillable = ['name', 'slug', 'description', 'featured', 'status', 'image'];
 
     /*
     |--------------------------------------------------------------------------
@@ -49,7 +49,15 @@ class ProductCategory extends BaseModel
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+    public function getImageAttribute($value)
+    {
+        if (!$value) {
+            return '';
+        }
+        $destinationPath = "uploads";
 
+        return asset($destinationPath . '/' . $value);
+    }
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
@@ -63,5 +71,10 @@ class ProductCategory extends BaseModel
         } else {
             $this->attributes['status'] = 0;
         }
+    }
+
+    public function setImageAttribute($value)
+    {
+        $this->uploadImageBase64('image', 'store', 'category', $value);
     }
 }
