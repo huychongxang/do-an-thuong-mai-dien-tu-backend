@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Category extends BaseModel
 {
     protected $table = 'categories';
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'slug', 'image'];
 
     use Sluggable;
 
@@ -47,5 +46,25 @@ class Category extends Model
         $value = trim($value);
         $value = ucwords($value);
         $this->attributes['name'] = $value;
+    }
+
+    public function getImageAttribute($value)
+    {
+        if (!$value) {
+            return '';
+        }
+        $destinationPath = "uploads";
+
+        return asset($destinationPath . '/' . $value);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | MUTATORS
+    |--------------------------------------------------------------------------
+    */
+    public function setImageAttribute($value)
+    {
+        $this->uploadImageBase64('image', 'store', 'category', $value);
     }
 }
