@@ -209,7 +209,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web//img/product/cat-7.png')}}">                                                            </span>
+                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product2.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -359,7 +359,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web//img/product/cat-7.png')}}">                                                            </span>
+                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product8.png')}}" alt=" ">
                                                 <div class="product-new">
                                                     <div class="blue-new-tag new-tag">
