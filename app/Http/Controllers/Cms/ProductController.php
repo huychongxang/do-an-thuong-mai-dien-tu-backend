@@ -42,6 +42,11 @@ class ProductController extends Controller
         } else {
             $data['status'] = 0;
         }
+        if (isset($data['featured']) && strtolower($data['featured']) == 'on') {
+            $data['featured'] = 1;
+        } else {
+            $data['featured'] = 0;
+        }
         $newProduct = Product::create($data);
         if (!$newProduct) {
             alert()->error('Tạo sản phẩm', 'Thất bại!');
@@ -85,6 +90,11 @@ class ProductController extends Controller
             $data['status'] = 1;
         } else {
             $data['status'] = 0;
+        }
+        if (isset($data['featured']) && strtolower($data['featured']) == 'on') {
+            $data['featured'] = 1;
+        } else {
+            $data['featured'] = 0;
         }
 
         if (!$product) {
