@@ -183,7 +183,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="">Stock</label>
+                    <label for="">Số lượng</label>
                     <div class="input-group">
                         <input type="number"
                                class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}"
@@ -216,7 +216,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="">Date available</label>
+                    <label for="">Ngày mở bán</label>
                     <div class="input-group">
                         <input type="text"
                                style="width: 200px;"
@@ -232,7 +232,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="">Sort</label>
+                    <label for="">Độ ưu tiên hiển thị</label>
                     <input type="number" class="form-control {{ $errors->has('sort') ? 'is-invalid' : '' }}"
                            name="sort"
                            placeholder="" value="{{$product->sort}}" min="0">
@@ -247,6 +247,17 @@
                             $isChecked = ($product->status) ? 'checked' : null;
                         @endphp
                         <input name="status" type="checkbox" {{$isChecked}} data-toggle="toggle"
+                               data-onstyle="outline-success"
+                               data-offstyle="outline-danger">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <label>Đặc sắc</label>
+                        @php
+                            $isChecked = ($product->featured) ? 'checked' : null;
+                        @endphp
+                        <input name="featured" type="checkbox" {{$isChecked}} data-toggle="toggle"
                                data-onstyle="outline-success"
                                data-offstyle="outline-danger">
                     </div>

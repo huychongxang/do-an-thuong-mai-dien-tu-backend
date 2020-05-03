@@ -152,7 +152,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="">Sort</label>
+                    <label for="">Độ ưu tiên hiển thị</label>
                     <input type="number" class="form-control {{ $errors->has('sort') ? 'is-invalid' : '' }}"
                            name="sort"
                            placeholder="" value="0" min="0">
@@ -164,6 +164,13 @@
                     <div class="form-check">
                         <label>Trạng thái</label>
                         <input name="status" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
+                               data-offstyle="outline-danger">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <label>Đặc sắc</label>
+                        <input name="featured" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
                                data-offstyle="outline-danger">
                     </div>
                 </div>
