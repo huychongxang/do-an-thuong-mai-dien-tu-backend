@@ -41,9 +41,14 @@ class ProductCategory extends BaseModel
 
     /*
     |--------------------------------------------------------------------------
-    | RELATIONSHIPsS
+    | RELATIONSHIPS
     |--------------------------------------------------------------------------
     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'category_product','category_id','product_id','id','id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESORS
@@ -58,6 +63,7 @@ class ProductCategory extends BaseModel
 
         return asset($destinationPath . '/' . $value);
     }
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
@@ -76,5 +82,15 @@ class ProductCategory extends BaseModel
     public function setImageAttribute($value)
     {
         $this->uploadImageBase64('image', 'store', 'category', $value);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Scopes
+    |--------------------------------------------------------------------------
+    */
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
     }
 }

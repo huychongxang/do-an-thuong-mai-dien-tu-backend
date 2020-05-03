@@ -18,7 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group([
-    'namespace' => 'Api'
+    'namespace' => 'Api',
+    'as' => 'api.',
 ], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/products/by-category-id/{id}', 'ProductController@getProductsByCategoryId')->name('by_category_id');
 });

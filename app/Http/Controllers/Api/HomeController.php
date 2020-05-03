@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\ProductCategory\ProductCategoryHomePage;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -26,8 +27,8 @@ class HomeController extends Controller
 
     private function getListProductCategories()
     {
-        $categories = ProductCategory::take(10)->get();
-        return $categories;
+        $categories = ProductCategory::active()->take(10)->get();
+        return ProductCategoryHomePage::collection($categories);
     }
 
     private function getFeaturedProducts()
