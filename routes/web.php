@@ -11,8 +11,6 @@
 |
 */
 
-use App\Models\OrderHistory;
-
 Route::group([
     'namespace' => 'Web'
 ], function () {
