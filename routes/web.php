@@ -18,4 +18,12 @@ Route::group([
     Route::get('/danh-muc-san-pham', 'ProductCategoryController@index');
 });
 
-Auth::routes();
+Route::group([
+    'namespace' => 'Web'
+], function () {
+    Route::post('post-login', 'AuthController@login')->name('login');
+    Route::post('post-registration', 'AuthController@register')->name('register');
+    Route::get('logout', 'AuthController@logout')->name('logout');
+
+});
+

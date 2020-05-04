@@ -13,7 +13,7 @@
 <script src="{{asset('web/assets/plugins/countdown/jquery.plugin.min.js')}}"></script>
 <script src="{{asset('web/assets/plugins/countdown/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('web/assets/js/theme.js')}}"></script>
-
+@stack('scripts')
 </body>
 
 <!-- Mirrored from event-theme.com/themes/baby-store/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Dec 2018 09:26:26 GMT -->
