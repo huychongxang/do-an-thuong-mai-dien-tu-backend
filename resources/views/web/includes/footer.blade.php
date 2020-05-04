@@ -1,4 +1,5 @@
 <!-- JS Global -->
+<script src="{{mix('web/js/app-web.js')}}"></script>
 <script src="{{asset('web/assets/plugins/jquery/jquery-1.11.3.min.js')}}"></script>
 <script src="{{asset('web/assets/plugins/jquery-ui-1.11.4.custom/jquery-ui.min.js')}}"></script>
 <script src="{{asset('web/assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>

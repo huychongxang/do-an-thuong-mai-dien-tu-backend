@@ -11,12 +11,11 @@
 |
 */
 
-use App\Models\OrderHistory;
-
 Route::group([
     'namespace' => 'Web'
 ], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/danh-muc-san-pham', 'ProductCategoryController@index');
 });
 
 Auth::routes();

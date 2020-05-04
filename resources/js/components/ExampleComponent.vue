@@ -1,23 +1,33 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <h1>{{cart.count}}</h1>
+        <button @click="handler">Click here</button>
     </div>
-</template>
-
+</template>x
 <script>
+    import {mapGetters} from 'vuex';
+
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        name: 'ExampleComponent',
+        data() {
+            return {
+            }
+        },
+        methods: {
+            handler() {
+                this.$store.dispatch('cart/increment');
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'cart'
+            ]),
+            count() {
+                return this.$store.cart.count;
+            }
+        },
+        created(){
+          console.log(this.$store.getters['cart/a']);
         }
     }
 </script>
