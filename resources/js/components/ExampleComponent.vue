@@ -1,23 +1,21 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <h1>{{number}} | {{this.$store.state.count}}</h1>
+        <button @click="handler">Click here</button>
     </div>
-</template>
-
+</template>x
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
+export default {
+    name:'ExampleComponent',
+    data() {
+        return {
+            number:0
+        }
+    },
+    methods:{
+        handler(){
+            this.$store.commit('increment');
         }
     }
+}
 </script>
