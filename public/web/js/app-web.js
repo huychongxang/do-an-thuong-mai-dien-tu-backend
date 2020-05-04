@@ -1936,7 +1936,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     count: function count() {
       return this.$store.cart.count;
     }
-  })
+  }),
+  created: function created() {
+    console.log(this.$store.getters['cart/a']);
+  }
 });
 
 /***/ }),
@@ -33166,6 +33169,11 @@ __webpack_require__.r(__webpack_exports__);
 var state = {
   count: 10
 };
+var getters = {
+  a: function a() {
+    return 'haha';
+  }
+};
 var mutations = {
   INCREMENT: function INCREMENT(state) {
     state.count++;
@@ -33180,6 +33188,7 @@ var actions = {
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: state,
+  getters: getters,
   mutations: mutations,
   actions: actions
 });

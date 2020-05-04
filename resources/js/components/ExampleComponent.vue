@@ -25,6 +25,9 @@
             count() {
                 return this.$store.cart.count;
             }
+        },
+        created(){
+          console.log(this.$store.getters['cart/a']);
         }
     }
 </script>

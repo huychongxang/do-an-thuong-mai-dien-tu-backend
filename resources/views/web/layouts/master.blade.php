@@ -7,7 +7,6 @@
 
 
 <main class="wrapper" id="app">
-    <example-component></example-component>
     <!-- Header -->
 @include('web.includes.header-navbar')
 <!-- /Header -->

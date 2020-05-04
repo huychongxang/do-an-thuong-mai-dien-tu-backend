@@ -1,6 +1,11 @@
 const state = {
     count: 10,
 }
+const getters = {
+    a(){
+        return 'haha'
+    }
+}
 
 const mutations = {
     INCREMENT: (state) => {
@@ -17,6 +22,7 @@ const actions = {
 export default {
     namespaced: true,
     state,
+    getters,
     mutations,
     actions
 };
