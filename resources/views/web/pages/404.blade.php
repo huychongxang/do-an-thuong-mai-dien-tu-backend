@@ -1,24 +1,13 @@
 @extends('web.layouts.master')
 @section('content')
     <!-- Breadcrumbs Start -->
-    <section class="breadcrumb-bg">
-        <span class="gray-color-mask color-mask"></span>
-        <div class="theme-container container">
-            <div class="site-breadcrumb relative-block space-75">
-                <h2 class="section-title">
-                            <span>
-                                <span class="funky-font blue-tag">Error</span>
-                                <span class="italic-font">404 Page</span>
-                            </span>
-                </h2>
-                <h3 class="sub-title">Page not Found </h3>
-                <hr class="dash-divider">
-                <ol class="breadcrumb breadcrumb-menubar">
-                    <li><a href="{{route('home')}}">Home</a> > <span class="blue-color">404 Error Page</span></li>
-                </ol>
-            </div>
-        </div>
-    </section>
+    @include('web.includes.breadcrumbs',[
+'title1'=>'Error',
+'title2'=>'404',
+'title3'=>'Không tìm thấy',
+'parent'=>[],
+'current'=>'404 ERROR PAGE'
+])
     <!-- / Breadcrumbs Ends -->
 
     <!-- 404 Error  Start -->
