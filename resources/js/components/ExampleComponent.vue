@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{number}} | {{this.$store.state.count}}</h1>
+        <h1>{{this.$store.state.cart.count}}</h1>
         <button @click="handler">Click here</button>
     </div>
 </template>x
@@ -14,7 +14,12 @@ export default {
     },
     methods:{
         handler(){
-            this.$store.commit('increment');
+            // this.$store.commit('cart/INCREMENT');
+        }
+    },
+    computed:{
+        count(){
+            return this.$store.cart.count;
         }
     }
 }

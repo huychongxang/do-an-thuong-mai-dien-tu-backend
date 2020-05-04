@@ -11,7 +11,6 @@
     <!-- Header -->
 @include('web.includes.header-navbar')
 <!-- /Header -->
-
     <!-- CONTENT AREA -->
     @yield('content')
 
