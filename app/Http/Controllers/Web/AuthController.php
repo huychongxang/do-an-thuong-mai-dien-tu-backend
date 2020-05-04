@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Session;
 
 class AuthController extends Controller
@@ -23,34 +24,30 @@ class AuthController extends Controller
             return redirect()->route('home');
         }
         return redirect()->back()->withErrors(
-            ['email'=>'Email hoặc mật khẩu không chính xác']
-        );
+            ['email' => 'Email hoặc mật khẩu không chính xác']
+        )->withInput($request->only('email', 'remember'));;
     }
 
     public function register(Request $request)
     {
+
         request()->validate([
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
 
-        $data = $request->all();
+        $data = $request->only('email', 'password');
 
-        $check = $this->create($data);
+        $check = User::create([
+            'email' => $data['email'],
+            'password' => $data['password']
+        ]);
         if ($check) {
             Auth::attempt($data);
             return redirect()->route('home');
         }
         return redirect()->back()->withErrors([
-            'email'=>'Tạo tài khoản thất bại'
-        ]);
-    }
-
-    private function create(array $data)
-    {
-        return User::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password'])
+            'email' => 'Tạo tài khoản thất bại'
         ]);
     }
 
