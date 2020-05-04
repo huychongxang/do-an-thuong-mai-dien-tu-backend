@@ -6,9 +6,6 @@
  * Time: 2:21 PM
  */
 
-use App\Models\ProductCategory;
-use Yajra\DataTables\Facades\DataTables;
-
 Route::group([
     'prefix' => env('ADMIN_PATH', 'cms'),
     'as' => env('ADMIN_PATH', 'cms') . '.',

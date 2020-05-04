@@ -97,7 +97,7 @@
                     <article class="header-middle">
                         <!-- Logo -->
                         <div class="logo hidden-xs col-md-3  col-sm-3">
-                            <a href="index-2.html"><img src="{{asset('web/assets/img/logo/logo.png')}}" alt=" "/></a>
+                            <a href="{{route('home')}}"><img src="{{asset('web/assets/img/logo/logo.png')}}" alt=" "/></a>
                         </div>
                         <!-- /Logo -->
 
