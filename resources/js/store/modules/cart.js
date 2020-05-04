@@ -8,7 +8,15 @@ const mutations = {
     }
 }
 
+const actions = {
+    increment({commit}){
+        commit('INCREMENT');
+    }
+}
+
 export default {
     namespaced: true,
     state,
+    mutations,
+    actions
 };
