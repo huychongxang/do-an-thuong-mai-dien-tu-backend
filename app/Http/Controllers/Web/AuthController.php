@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 use Session;
 
 class AuthController extends Controller
@@ -56,5 +57,31 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
         return redirect()->route('home');
+    }
+
+    public function redirect($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function callback($provider)
+    {
+        $getInfo = Socialite::driver($provider)->user();
+        $user = $this->createUser($getInfo, $provider);
+        auth()->login($user);
+        return redirect()->route('home');
+    }
+
+    function createUser($getInfo, $provider)
+    {
+        $user = User::where('provider_id', $getInfo->id)->first();
+        if (!$user) {
+            $user = User::create([
+                'email' => $getInfo->email,
+                'provider' => $provider,
+                'provider_id' => $getInfo->id
+            ]);
+        }
+        return $user;
     }
 }
