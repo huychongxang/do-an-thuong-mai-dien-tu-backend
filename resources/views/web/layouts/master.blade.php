@@ -11,10 +11,10 @@
 @include('web.includes.header-navbar')
 <!-- /Header -->
     <!-- CONTENT AREA -->
-    @yield('content')
+@yield('content')
 
 
-    <!-- / CONTENT AREA -->
+<!-- / CONTENT AREA -->
 
     <!-- FOOTER -->
 @include('web.includes.footer-block')
@@ -32,7 +32,9 @@
 <!-- / Preview Popup -->
 
     <!-- Popup: Login Register -->
-@include('web.includes.popup-login-register')
+@guest
+    @include('web.includes.popup-login-register')
+@endguest
 <!-- /Popup: Login Register -->
 
 </main>

@@ -13,74 +13,32 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="visible-xs logo" href="#"> <img src="{{asset('web/assets/img/logo/logo.png')}}" alt=" "/> </a>
+                        <a class="visible-xs logo" href="#"> <img src="{{asset('web/assets/img/logo/logo.png')}}"
+                                                                  alt=" "/> </a>
                     </div>
                     <div class="collapse navbar-collapse no-padding" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#"> <span class="fa fa-heart"></span> Wishlist</a></li>
-                            <li><a href="#"> <span class="fa fa-random"></span> Compare</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true">English <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">Dutch</a></li>
-                                    <li><a href="#">French</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true">USD <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">POUND</a></li>
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">EURO</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-
                         <ul class="nav navbar-nav pull-right">
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true">Home <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index-2.html">Homepage 1</a></li>
-                                    <li><a href="index-2-box-version.html">Homepage 2</a></li>
-                                    <li><a href="index-3.html">Homepage 3</a></li>
-                                    <li><a href="index-4.html">Homepage 4</a></li>
-                                    <li><a href="index-5.html">Homepage 5</a></li>
-                                    <li><a href="index-6.html">Homepage 6</a></li>
-                                    <li><a href="index-7.html">Homepage 7</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true">Blog <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                    <li><a href="single-post-right-sidebar.html">Single Post Right Sidebar</a></li>
-                                    <li><a href="single-post-left-sidebar.html">Single Post Left Sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Track Order</a></li>
-                            <li><a href="#login-register" data-toggle="modal">Register/Login</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true">My Account <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="my-account.html">My Account</a></li>
-                                    <li><a href="account-info.html"> Account Information </a></li>
-                                    <li><a href="cng-pw.html">Change Password</a></li>
-                                    <li><a href="address-book.html">Address Books</a></li>
-                                    <li><a href="order-history.html">Order History</a></li>
-                                    <li><a href="review-rating.html">Reviews and Ratings</a></li>
-                                    <li><a href="return.html">Returns Requests</a></li>
-                                    <li><a href="newsletter.html">Newsletter</a></li>
-                                    <li><a href="myaccount-leftsidebar.html">Left Sidebar</a></li>
-                                </ul>
-                            </li>
+                            @guest
+                                <li><a href="#login-register" data-toggle="modal">Đăng ký/Đăng nhập</a></li>
+                            @endguest
+                            @auth
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true">Tài khoản <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="my-account.html">My Account</a></li>
+                                        <li><a href="account-info.html"> Account Information </a></li>
+                                        <li><a href="cng-pw.html">Change Password</a></li>
+                                        <li><a href="address-book.html">Address Books</a></li>
+                                        <li><a href="order-history.html">Order History</a></li>
+                                        <li><a href="review-rating.html">Reviews and Ratings</a></li>
+                                        <li><a href="return.html">Returns Requests</a></li>
+                                        <li><a href="newsletter.html">Newsletter</a></li>
+                                        <li><a href="myaccount-leftsidebar.html">Left Sidebar</a></li>
+                                        <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                            @endauth
                         </ul>
                     </div>
                 </nav>
@@ -97,7 +55,8 @@
                     <article class="header-middle">
                         <!-- Logo -->
                         <div class="logo hidden-xs col-md-3  col-sm-3">
-                            <a href="{{route('home')}}"><img src="{{asset('web/assets/img/logo/logo.png')}}" alt=" "/></a>
+                            <a href="{{route('home')}}"><img src="{{asset('web/assets/img/logo/logo.png')}}"
+                                                             alt=" "/></a>
                         </div>
                         <!-- /Logo -->
 
@@ -145,7 +104,8 @@
                                         <tr>
                                             <td>
                                                 <div class="product-media">
-                                                    <a href="#"> <img src="{{asset('web/assets/img/cart/small-1.png')}}" alt=" "></a>
+                                                    <a href="#"> <img src="{{asset('web/assets/img/cart/small-1.png')}}"
+                                                                      alt=" "></a>
                                                 </div>
                                             </td>
                                             <td>
@@ -164,7 +124,8 @@
                                         <tr>
                                             <td>
                                                 <div class="product-media">
-                                                    <a href="#"> <img src="{{asset('web/assets/img/cart/small-2.png')}}" alt=" "></a>
+                                                    <a href="#"> <img src="{{asset('web/assets/img/cart/small-2.png')}}"
+                                                                      alt=" "></a>
                                                 </div>
                                             </td>
                                             <td>
@@ -224,13 +185,15 @@
                                                 <ul class="nav nav-tabs" role="tablist">
                                                     <li><a href="#all" role="tab" data-toggle="tab">All</a></li>
                                                     <li><a href="#girls" role="tab" data-toggle="tab">Girl</a></li>
-                                                    <li class="active"><a href="#boys" role="tab" data-toggle="tab">Boy</a>
+                                                    <li class="active"><a href="#boys" role="tab"
+                                                                          data-toggle="tab">Boy</a>
                                                     </li>
                                                     <li><a href="#new-arrivals" role="tab" data-toggle="tab">New
                                                             Arrivals</a></li>
                                                     <li><a href="#fashion" role="tab" data-toggle="tab">Fashion</a>
                                                     </li>
-                                                    <li><a href="#accessories" role="tab" data-toggle="tab">Accessories</a>
+                                                    <li><a href="#accessories" role="tab"
+                                                           data-toggle="tab">Accessories</a>
                                                     </li>
                                                     <li><a href="#specials" role="tab"
                                                            data-toggle="tab">Specials</a></li>

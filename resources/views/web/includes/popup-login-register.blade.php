@@ -12,49 +12,108 @@
                                         <span class="italic-font">to the Baby & kids Store</span>
                                     </span>
                     </h2>
-                    <h3 class="sub-title">Sign in Or Register</h3>
+                    <h3 class="sub-title">Đăng nhập hoặc đăng ký</h3>
                     <hr class="dash-divider-small">
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at purus eu eros maximus
-                    elementum sed eget erat.
-                    esent in varius diam, sit amet ultricies nisi. Maecenas urna odio.</p>
             </div>
+
             <div class="col-sm-6 col-md-5">
                 <div class="login-wrap">
-                    <h2 class="title-2 sub-title-small">Sign In</h2>
-                    <form>
+                    <h2 class="title-2 sub-title-small">Đăng nhập</h2>
+                    <form action="{{route('login')}}" method="post">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" placeholder="Username or email" class="form-control" required/>
+                            <input type="email" name="email" placeholder="Email"
+                                   class="form-control {{ $errors->has('email') ? 'has-error has-danger' : '' }}"
+                                   required/>
                             <i class="blue-color fa fa-user"></i>
+                            @if($errors->has('email'))
+                                <div class="help-block with-errors">
+                                    <ul class="list-unstyled" style="color: red">
+                                        <li>{{$errors->first('email')}}</li>
+                                    </ul>
+                                </div>
+
+                            @endif
                         </div>
                         <div class="form-group">
-                            <input type="password" placeholder="Password" class="form-control" required/>
+                            <input type="password" name="password" placeholder="Mật khẩu"
+                                   class="form-control {{ $errors->has('password') ? 'has-error has-danger' : '' }}"
+                                   required/>
                             <i class="pink-color fa  fa-unlock-alt"></i>
+                            @if($errors->has('password'))
+                                <span class="error invalid-feedback">{{$errors->first('password')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
-                            <label class="chk-box"><input type="checkbox" name="optradio">Keep me logged In</label>
+                            <label class="chk-box"><input type="checkbox" name="remember">Ghi nhớ tôi</label>
                             <label class="forgot-pwd">
-                                <a href="#" class="blue-color title-link">Forgot Password?</a>
+                                <a href="#" class="blue-color title-link">Quên mật khẩu?</a>
                             </label>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="blue-btn btn">Login</button>
+                            <button type="submit" class="blue-btn btn">Đăng nhập</button>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{route('login_third','facebook')}}" class="btn btn-primary"><i
+                                            class="fa fa-facebook"></i> Facebook</a>
+                            </div>
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{route('login_third','google')}}" class="btn btn-danger"><i class="fa fa-google"></i> Google</a>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-sm-6 col-md-5">
                 <div class="register-wrap">
-                    <h2 class="title-2 sub-title-small">New User Here?</h2>
-                    <p class="italic-font">Registration is free and easy!</p>
+                    <h2 class="title-2 sub-title-small">Người dùng mới?</h2>
+                    <p class="italic-font">Đăng ký miễn phí và nhanh gọn</p>
                     <ul>
-                        <li>Faster checkout</li>
-                        <li>Save multiple shipping addresses</li>
-                        <li>View and track orders and more</li>
+                        <li>Thanh toán tiện hơn</li>
+                        <li>Xem và quản lý lịch sử đơn hàng</li>
                     </ul>
-                    <a href="#" class="pink-btn btn"> Create An Account </a>
+                    <form action="{{route('register')}}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email"
+                                   class="form-control {{ $errors->has('email') ? 'has-error has-danger' : '' }}"
+                                   required/>
+                            @if($errors->has('email'))
+                                <div class="help-block with-errors">
+                                    <ul class="list-unstyled" style="color: red">
+                                        <li>{{$errors->first('email')}}</li>
+                                    </ul>
+                                </div>
+
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Mật khẩu"
+                                   class="form-control {{ $errors->has('password') ? 'has-error has-danger' : '' }}"
+                                   required/>
+                            @if($errors->has('password'))
+                                <span class="error invalid-feedback">{{$errors->first('password')}}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="pink-btn btn">Tạo tài khoản</button>
+                        </div>
+                    </form>
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        $(window).on('load', function () {
+            @if($errors->any())
+            $('#login-register').modal('show');
+            @endif
+        });
+    </script>
+@endpush
