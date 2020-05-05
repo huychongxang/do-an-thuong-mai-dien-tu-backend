@@ -55,9 +55,12 @@
                             <button type="submit" class="blue-btn btn">Đăng nhập</button>
                         </div>
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-6 offset-md-4">
                                 <a href="{{route('login_third','facebook')}}" class="btn btn-primary"><i
                                             class="fa fa-facebook"></i> Facebook</a>
+                            </div>
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{route('login_third','google')}}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
                             </div>
                         </div>
                     </form>
