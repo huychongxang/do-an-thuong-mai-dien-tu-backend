@@ -25,5 +25,7 @@ Route::group([
     Route::post('post-registration', 'AuthController@register')->name('register');
     Route::get('logout', 'AuthController@logout')->name('logout');
 
+    Route::get('/auth/redirect/{provider}', 'AuthController@redirect')->name('login_third');
+    Route::get('/callback/{provider}', 'AuthController@callback');
 });
 
