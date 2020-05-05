@@ -60,7 +60,7 @@
                                             class="fa fa-facebook"></i> Facebook</a>
                             </div>
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{route('login_third','google')}}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
+                                <a href="{{route('login_third','google')}}" class="btn btn-danger"><i class="fa fa-google"></i> Google</a>
                             </div>
                         </div>
                     </form>
