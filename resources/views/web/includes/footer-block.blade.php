@@ -80,27 +80,4 @@
             </div>
         </div>
     </div>
-    <div class="bg2-with-mask space-20 footer-meta">
-        <span class="black-mask color-mask"></span>
-        <div class="container theme-container">
-            <div class="row">
-                <aside class="col-md-6 col-sm-6 copy-rights">
-                    <P> © Copyright 2015 by <a href="#" class="blue-color"> baby&amp;kidsstore.com </a> - Made with
-                        <span class="green-color"> jThemes Studio. </span></P>
-                </aside>
-                <aside class="col-md-6 col-sm-6 payment-options">
-                    <ul>
-                        <li><a href="#"> <i class="fa fa-cc "></i> </a></li>
-                        <li><a href="#"> <i class="fa fa-cc-visa"></i> </a></li>
-                        <li><a href="#"> <i class="fa fa-cc-mastercard"></i> </a></li>
-                        <li><a href="#"> <i class="fa fa-cc-paypal"></i> </a></li>
-                        <li><a href="#"> <i class="fa fa-cc-stripe"></i> </a></li>
-                        <li><a href="#"> <i class="fa fa-cc-amex"></i> </a></li>
-                        <li><a href="#"> <i class="fa fa-cc-discover"></i> </a></li>
-                    </ul>
-                </aside>
-            </div>
-        </div>
-    </div>
-
 </footer>

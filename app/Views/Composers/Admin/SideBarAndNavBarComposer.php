@@ -6,7 +6,7 @@
  * Time: 4:42 PM
  */
 
-namespace App\Views;
+namespace App\Views\Composers\Admin;
 
 
 use App\Models\Order;

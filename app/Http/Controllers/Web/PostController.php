@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+
+    }
+
+    public function show(Request $request, $slug)
+    {
 
     }
 }
