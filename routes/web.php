@@ -15,7 +15,9 @@ Route::group([
     'namespace' => 'Web'
 ], function () {
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/danh-muc-san-pham', 'ProductCategoryController@index');
+    Route::get('/danh-muc-san-pham', 'ProductCategoryController@index')->name('page.list-product-category');
+    Route::get('/tin-tuc', 'PostController@index')->name('page.posts');
+    Route::get('/san-pham', 'ProductController@index')->name('page.products');
 });
 
 Route::group([

@@ -5,11 +5,9 @@
                 <div class="title-wrap with-border">
                     <h2 class="section-title with-border">
                                     <span class="light-bg">
-                                        <span class="funky-font blue-tag">News</span>
-                                        <span class="italic-font">From Blogs</span>
+                                        <span class="italic-font">Tin tức</span>
                                     </span>
                     </h2>
-                    <h3 class="sub-title">Latest News About Store</h3>
                     <hr class="dash-divider">
                 </div>
                 <div class="row">

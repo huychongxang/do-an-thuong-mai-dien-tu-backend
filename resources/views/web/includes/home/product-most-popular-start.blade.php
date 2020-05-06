@@ -7,18 +7,19 @@
                     <ul role="tablist" class="nav nav-tabs navtab-horizontal">
                         <li role="presentation" class="active">
                             <a class="green-background" data-toggle="tab" role="tab" href="#most-popular"
-                               aria-expanded="true">Most Popular</a>
+                               aria-expanded="true">Xem nhiều</a>
                         </li>
                         <li class="" role="presentation">
                             <a class="pink-background" data-toggle="tab" role="tab" href="#best-sellers"
-                               aria-expanded="false">Best Sellers</a>
+                               aria-expanded="false">Bán chạy</a>
                         </li>
                         <li role="presentation" class="">
                             <a data-toggle="tab" class="blue-background" role="tab" href="#latest-items"
-                               aria-expanded="false">Latest Items</a>
+                               aria-expanded="false">Mới nhất</a>
                         </li>
                         <li class="float-right" role="presentation">
-                            <a class="title-link" href="#"> See More <i class="fa fa-caret-right"></i> </a>
+                            <a class="title-link" href="{{route('page.products')}}"> Xem thêm <i
+                                    class="fa fa-caret-right"></i> </a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
@@ -29,15 +30,14 @@
                                 <div class="title-wrap">
                                     <h2 class="section-title">
                                                     <span>
-                                                        <span class="funky-font blue-tag">Most</span>
-                                                        <span class="italic-font">Popular</span>
+                                                        <span class="funky-font blue-tag">Xem nhiều</span>
                                                     </span>
                                     </h2>
                                     <div class="poroduct-pagination">
                                             <span class="product-slide blue-background next"> <i
-                                                        class="fa fa-chevron-left"></i> </span>
+                                                    class="fa fa-chevron-left"></i> </span>
                                         <span class="product-slide blue-background prev"> <i
-                                                    class="fa fa-chevron-right"></i> </span>
+                                                class="fa fa-chevron-right"></i> </span>
                                     </div>
                                 </div>
                                 <div class="product-slider owl-carousel owl-theme">
@@ -45,7 +45,8 @@
                                         <div class="product-details">
                                             <div class="product-media">
                                                             <span class="hover-image white-bg">
-                                                                <img alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">
+                                                                <img alt=""
+                                                                     src="{{asset('web/assets/img/product/cat-7.png')}}">
                                                             </span>
                                                 <img src="{{asset('web/assets/img/product/product1.png')}}" alt=" ">
                                                 <div class="product-new">
@@ -82,7 +83,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product2.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -113,7 +114,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product3.png')}}" alt=" ">
                                                 <div class="product-new">
                                                     <div class="blue-new-tag new-tag">
@@ -149,7 +150,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product4.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -180,7 +181,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product1.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -211,7 +212,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product2.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -248,22 +249,21 @@
                                 <div class="title-wrap">
                                     <h2 class="section-title">
                                                     <span>
-                                                        <span class="funky-font blue-tag">Best</span>
-                                                        <span class="italic-font">Sellers</span>
+                                                        <span class="funky-font blue-tag">Bán chạy</span>
                                                     </span>
                                     </h2>
                                     <div class="poroduct-pagination">
                                             <span class="product-slide blue-background next"> <i
-                                                        class="fa fa-chevron-left"></i> </span>
+                                                    class="fa fa-chevron-left"></i> </span>
                                         <span class="product-slide blue-background prev"> <i
-                                                    class="fa fa-chevron-right"></i> </span>
+                                                class="fa fa-chevron-right"></i> </span>
                                     </div>
                                 </div>
                                 <div class="product-slider owl-carousel owl-theme">
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product5.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -294,7 +294,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product6.png')}}" alt=" ">
                                                 <div class="product-new">
                                                     <div class="golden-new-tag new-tag">
@@ -330,7 +330,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product7.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -361,7 +361,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product8.png')}}" alt=" ">
                                                 <div class="product-new">
                                                     <div class="blue-new-tag new-tag">
@@ -397,7 +397,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product5.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -428,7 +428,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product6.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -465,22 +465,21 @@
                                 <div class="title-wrap">
                                     <h2 class="section-title">
                                                     <span>
-                                                        <span class="funky-font blue-tag">Latest</span>
-                                                        <span class="italic-font">Items</span>
+                                                        <span class="funky-font blue-tag">Mới nhất</span>
                                                     </span>
                                     </h2>
                                     <div class="poroduct-pagination">
                                             <span class="product-slide blue-background next"> <i
-                                                        class="fa fa-chevron-left"></i> </span>
+                                                    class="fa fa-chevron-left"></i> </span>
                                         <span class="product-slide blue-background prev"> <i
-                                                    class="fa fa-chevron-right"></i> </span>
+                                                class="fa fa-chevron-right"></i> </span>
                                     </div>
                                 </div>
                                 <div class="product-slider owl-carousel owl-theme">
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product9.png')}}" alt=" ">
                                                 <div class="product-new">
                                                     <div class="golden-new-tag new-tag">
@@ -516,7 +515,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product10.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -547,7 +546,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product11.png')}}" alt=" ">
                                                 <div class="product-new">
                                                     <div class="blue-new-tag new-tag">
@@ -583,7 +582,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product12.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -614,7 +613,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product9.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"
@@ -645,7 +644,7 @@
                                     <div class="item">
                                         <div class="product-details">
                                             <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                            alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
+                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
                                                 <img src="{{asset('web/assets/img/product/product10.png')}}" alt=" ">
                                                 <div class="product-overlay">
                                                     <a class="addcart blue-background fa fa-shopping-cart"

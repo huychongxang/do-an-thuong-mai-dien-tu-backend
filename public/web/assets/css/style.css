@@ -3,11 +3,11 @@
  *
  * file           : style.css
  * Desc           : BABY STORE Template - Stylesheet
- * Version        : 
- * Date           : 
+ * Version        :
+ * Date           :
  * Author         : jThemes Studio
- * Author URI     : 
- * Email          : 
+ * Author URI     :
+ * Email          :
  *
  * jThemes Studio. Copyright 2014. All Rights Reserved.
  * -------------------------------------------------------------------------- */
@@ -19,8 +19,8 @@
     1.2 - Global properties (body, common classes, structure etc)
     1.3 - Page section block
     1.4 - Typography (section title, links, page dividers)
-    1.5 - Buttons 
-    1.6 - Form / Input / Textarea  
+    1.5 - Buttons
+    1.6 - Form / Input / Textarea
     1.7 - Theme Colors
     1.8 - Theme Fonts
     1.9 - Newsletter Popup
@@ -32,16 +32,16 @@
     2.3 - Header Navigation
     2.4 - Header Style
 
-  3 - Home 
+  3 - Home
     3.1  - Personalize Results:
-    3.2  - Category 
-    3.3  - Filter & All Fashion 1   
+    3.2  - Category
+    3.3  - Filter & All Fashion 1
     3.4  - Special Offers
     3.5  - Filter & All Fashion 2
     3.6  - Newsletter
-    3.7  - Products 
+    3.7  - Products
     3.8  - Blog
-    3.9  - Popup: Login Register 
+    3.9  - Popup: Login Register
     3.10  - Home Style 2
     3.11  - Home Style 3
     3.12  - Home Style 4
@@ -55,11 +55,11 @@
 
   5 - Components / Shortcodes / Widget
     5.1 - Breadcrumbs
-    5.2 - Pagination   
-    5.3 - Rating stars    
+    5.2 - Pagination
+    5.3 - Rating stars
     5.4 - Blog post
     5.5 - Single Blog post
-    5.6 - Comments  
+    5.6 - Comments
     5.7 - Widgets
     5.8 - Contacts form
     5.9 - Google map
@@ -69,25 +69,25 @@
   6 - Shopping Cart
 
   7 - Checkout
-    
+
   8 - Pages
     8.1 - About Us
-    8.2 - Coming Soon   
-    8.3 - Error Page    
+    8.2 - Coming Soon
+    8.3 - Error Page
     8.4 - My Account
     8.5 - Product Category
-    
+
   9 - Footer
     6.1 - Footer widgets
     6.2 - Footer meta
 
 
  * -------------------------------------------------------------------------- */
-@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
-@import url(http://fonts.googleapis.com/css?family=Arizonia);
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Arizonia');
 
-/******************************* 
-    1 - GENERAL CSS STARTS 
+/*******************************
+    1 - GENERAL CSS STARTS
 ********************************/
 /*----------------------------------------------------
         1.1 Preloader Starts
@@ -294,13 +294,13 @@ body .baby.down .head .horn {
 ----------------------------------------------------------------------------*/
 
 body {
-    font-family: 'Lato', sans-serif;  
+    font-family: 'Lato', sans-serif;
     font-weight: normal;
     background: #ffffff;
     color: #666666;
     -webkit-font-kerning: auto;
     -webkit-font-smoothing: antialiased;
-    -webkit-backface-visibility: visible !important;  
+    -webkit-backface-visibility: visible !important;
     overflow-x: hidden;
 }
 .theme-container{
@@ -362,7 +362,7 @@ img{
     vertical-align: middle;
     width: 100%;
 }
-.color-mask { 
+.color-mask {
     bottom: 0;
     left: 0;
     position: absolute;
@@ -370,7 +370,7 @@ img{
     top: 0;
     z-index: 0;
 }
-.color-mask-radius { 
+.color-mask-radius {
     border-radius: 5px;
     bottom: 0;
     left: 0;
@@ -422,7 +422,7 @@ blockquote {
 }
 .space-20{
     padding-bottom: 20px;
-    padding-top: 20px; 
+    padding-top: 20px;
 }
 .space-bottom-20{
     padding-bottom: 20px;
@@ -488,9 +488,9 @@ blockquote {
 /*--------------------------------------------------------------------
         1.4 Typography (section title, links, page dividers) Starts
 ---------------------------------------------------------------------- */
-a:hover 
+a:hover
 a:active,
-a:focus {  
+a:focus {
     text-decoration: none;
     outline: 0;
 }
@@ -561,9 +561,9 @@ ol.list-check li + li {
     width: 100%;
 }
 .section-title {
-    font-size: 16px;   
+    font-size: 16px;
     font-weight: normal;
-    margin: 0;  
+    margin: 0;
     text-transform: capitalize;
     z-index: 1;
 }
@@ -575,8 +575,8 @@ ol.list-check li + li {
 }
 
 .section-title.with-divider{
-    border-bottom: 1px dashed #e4e4e4;  
-    padding-bottom: 20px;  
+    border-bottom: 1px dashed #e4e4e4;
+    padding-bottom: 20px;
 }
 
 .title-wrap.with-border {
@@ -602,7 +602,7 @@ ol.list-check li + li {
     width: auto;
 }
 .funky-font {
-    color: #333;   
+    color: #333;
     font-size: 30px;
     position: relative;
     padding-bottom: 6px;
@@ -643,19 +643,19 @@ ol.list-check li + li {
     outline: 0;
 }
 .default-btn:active{
-    box-shadow: none;   
+    box-shadow: none;
 }
 .blue-btn:active, .pink-btn:active, .green-btn:active  {
-    box-shadow: none;   
+    box-shadow: none;
 }
 .btn:hover::after, .btn:focus::after, .btn:active::after{
     width: 100%;
-    -webkit-transition: all 0.3s ease 0s; 
+    -webkit-transition: all 0.3s ease 0s;
 }
 .btn:after{
     position: absolute;
-    transition: all 0.3s ease 0s; 
-    -webkit-transition: all 0.3s ease 0s; 
+    transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
     content: "";
     z-index: -1;
     background-color: #ffffff ;
@@ -677,7 +677,7 @@ label.btn  input{
 }
 .default-btn{
     background-color: #f8f8f8;
-    border-radius: 20px;    
+    border-radius: 20px;
     z-index: 1;
     color: #000000;
     font-size: 12px;
@@ -689,59 +689,59 @@ label.btn  input{
     -moz-box-shadow: 0px 2px 1px 0px rgba(204,204,204,1);
 }
 
-.blue-btn{   
-    border-radius: 20px;    
+.blue-btn{
+    border-radius: 20px;
     color: #fff;
     font-size: 12px;
     padding: 7px 20px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
-.blue-btn-small{   
-    border-radius: 20px;    
+.blue-btn-small{
+    border-radius: 20px;
     color: #fff;
     font-size: 12px;
     padding: 3px 20px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
 
 .pink-btn{
-    border-radius: 20px;    
+    border-radius: 20px;
     color: #fff;
     font-size: 12px;
     padding: 7px 20px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
 .pink-btn-small{
-    border-radius: 20px;    
+    border-radius: 20px;
     color: #fff;
     font-size: 12px;
     padding: 3px 20px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
 
 .green-btn{
-    border-radius: 20px;    
+    border-radius: 20px;
     color: #fff;
     font-size: 12px;
     padding: 7px 20px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
 .green-btn-small{
-    border-radius: 20px;    
+    border-radius: 20px;
     color: #fff;
     font-size: 12px;
     padding: 3px 20px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
@@ -927,8 +927,8 @@ textarea:focus:-ms-input-placeholder {
 .blog-sidebar-widget ul li.accout-item a:before{
     color: #77d0e4;
 }
-.blue-btn:hover, .blue-btn:focus, .blue-btn:active,.tags b,.tags a, 
-.blue-btn:hover .fa, .blue-btn:focus .fa, .blue-btn:active .fa, 
+.blue-btn:hover, .blue-btn:focus, .blue-btn:active,.tags b,.tags a,
+.blue-btn:hover .fa, .blue-btn:focus .fa, .blue-btn:active .fa,
 .blue-btn-small:hover, .blue-btn-small:focus, .blue-btn-small:active,
 .breadcrumb-menubar li a:hover,.breadcrumb-menubar li a:focus{
     color: #77d0e4;
@@ -982,7 +982,7 @@ textarea:focus:-ms-input-placeholder {
     background-position: right bottom;
     background-repeat: no-repeat;
 }
-.header-search .search-form, .header-search .search-form .search-field,.search-selectpicker .bootstrap-select > .dropdown-toggle, 
+.header-search .search-form, .header-search .search-form .search-field,.search-selectpicker .bootstrap-select > .dropdown-toggle,
 .slider-thumbnails li:hover,.slider-thumbnails li.active {
     border-color: #f37d8a;
 }
@@ -1020,7 +1020,7 @@ textarea:focus:-ms-input-placeholder {
     border-radius: 4px;
 }
 .green-color-mask,.navbar-nav > li > .dropdown-menu li a,.green-bg:before,
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, 
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus{
     background: rgba(111, 193, 145, 0.96) none repeat scroll 0 0;
 }
@@ -1148,7 +1148,7 @@ textarea:focus:-ms-input-placeholder {
 .italic-font {
     font-style: italic;
 }
-.funky-font, .countdown-amount {   
+.funky-font, .countdown-amount {
     font-family: "Arizonia",cursive;
 }
 .bootstrap-select .btn{
@@ -1182,7 +1182,7 @@ textarea:focus:-ms-input-placeholder {
     font-size: 14px;
 }
 .subscribe-me{
-    width: 1000px !important;    
+    width: 1000px !important;
     border-radius: 5px;
 }
 .sb-close-btn {
@@ -1199,7 +1199,7 @@ textarea:focus:-ms-input-placeholder {
     right: -8px !important;
     text-align: center;
     top: -8px !important;
-    width: 30px;    
+    width: 30px;
 }
 /*--------------------------------------------------------------------
         1.9 Newsletter Popup Ends
@@ -1215,12 +1215,12 @@ textarea:focus:-ms-input-placeholder {
         1.10 - Product Preview Popup Ends
 ---------------------------------------------------------------------- */
 
-/******************************* 
-    1 - GENERAL CSS ENDS 
+/*******************************
+    1 - GENERAL CSS ENDS
 ********************************/
 
-/******************************* 
-    2 - HEADER CSS STARTS 
+/*******************************
+    2 - HEADER CSS STARTS
 ********************************/
 /*--------------------------------------------------------------------
         2.1 Header Top Bar Starts
@@ -1278,8 +1278,8 @@ textarea:focus:-ms-input-placeholder {
     transition: all 0.4s ease;
     -webkit-transition: all 0.4s ease;
 }
-.header-wrapper{  
-    border-radius: 5px;   
+.header-wrapper{
+    border-radius: 5px;
     margin-bottom: 2px;
     box-shadow: 0px 2px 0px 0px rgba(204,204,204,1);
     -webkit-box-shadow: 0px 2px 0px 0px rgba(204,204,204,1);
@@ -1330,7 +1330,7 @@ textarea:focus:-ms-input-placeholder {
     position: relative;
     margin: 0
 }
-.header-search .search-form label:before { 
+.header-search .search-form label:before {
     content: "\f002";
     font-family: FontAwesome;
     font-size: 13px;
@@ -1362,7 +1362,7 @@ textarea:focus:-ms-input-placeholder {
     display: none;
     z-index: 2;
 }
-.cart-dropdown::before {   
+.cart-dropdown::before {
     border-left: 10px solid rgba(0, 0, 0, 0);
     border-right: 10px solid rgba(0, 0, 0, 0);
     content: "";
@@ -1375,9 +1375,9 @@ textarea:focus:-ms-input-placeholder {
 .pos-relative{
     position: relative;
 }
-.cart-table .product-media {  
+.cart-table .product-media {
     height: 65px;
-    padding: 8px 5px; 
+    padding: 8px 5px;
     width: 65px;
 }
 .cart-table td{
@@ -1395,13 +1395,13 @@ textarea:focus:-ms-input-placeholder {
 .cart-table .product-content{
     padding: 0;
 }
-.cart-table tbody tr {  
+.cart-table tbody tr {
     border-bottom: 1px dashed #60bfd5;
     display: inline-block;
     margin-bottom: 12px;
     width: 100%;
 }
-.cart-table tbody tr:last-child {  
+.cart-table tbody tr:last-child {
     border-bottom: none;
     margin-bottom: 0;
 }
@@ -1437,7 +1437,7 @@ table{
     height: auto;
     overflow: auto;
 }
-table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, 
+table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th,
 table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     padding: 5px;
     vertical-align: middle;
@@ -1483,7 +1483,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 }
 .navbar-nav > li > .dropdown-menu{
     background-image: url(../img/background/bg-2.png);
-    background-size: cover;    
+    background-size: cover;
 }
 .navbar-nav > li > .dropdown-menu:before{
     border-left: 10px solid rgba(0, 0, 0, 0);
@@ -1495,23 +1495,23 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     top: -9px;
     width: 0;
 }
-.navbar-nav > li > .dropdown-menu {   
-    border: medium none;   
-    padding: 0;  
+.navbar-nav > li > .dropdown-menu {
+    border: medium none;
+    padding: 0;
     background-color: transparent;
     border-top-left-radius: 4px;
-    border-top-right-radius: 4px; 
+    border-top-right-radius: 4px;
 }
 .product-menu .navbar-nav > li > .mega-dropdown-menu{
     padding-top: 10px;
 }
 .navbar-nav > li > .dropdown-menu li:first-child a{
     border-top-left-radius: 3px;
-    border-top-right-radius: 3px; 
+    border-top-right-radius: 3px;
 }
 .navbar-nav > li > .dropdown-menu li:last-child a{
     border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;  
+    border-bottom-right-radius: 4px;
 }
 .navbar-nav > li >.dropdown-menu > li > a{
     color: #fff;
@@ -1520,7 +1520,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 }
 .navbar-nav > li > .dropdown-menu > li{
     position:relative;
-    -webkit-user-select: none; /* Chrome/Safari */        
+    -webkit-user-select: none; /* Chrome/Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
     /* Rules below not implemented in browsers yet */
@@ -1598,7 +1598,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     margin: 0;
 }
 .dropdown.open .dropdown-menu.mega-dropdown-menu{
-    display: block; 
+    display: block;
 }
 .mega-dropdown-menu .nav-tabs li.active{
     background-color: rgba(77, 165, 189, 0.5) !important;
@@ -1619,12 +1619,12 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     background-position: right;
     background-repeat: no-repeat;
 }
-.mega-dropdown-menu .block-bg {   
+.mega-dropdown-menu .block-bg {
     display: inline-block;
     width: 100%;
     padding: 0 15px;
     background-position: right bottom;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
 }
 
 .menu-block {
@@ -1647,7 +1647,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     float: left;
     line-height: 1.5;
 }
-.menu-block:nth-child(n+2) {   
+.menu-block:nth-child(n+2) {
     border-left: 1px dashed #e4e4e4;
 }
 .menu-block.menu-block-img{
@@ -1708,18 +1708,18 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 /*--------------------------------------------------------------------
         2.4 - Header Style Ends
 ---------------------------------------------------------------------- */
-/******************************* 
-    2 - HEADER CSS ENDS 
+/*******************************
+    2 - HEADER CSS ENDS
 ********************************/
 
-/******************************* 
-    3 - HOME CSS STARTS 
+/*******************************
+    3 - HOME CSS STARTS
 ********************************/
 /*--------------------------------------------------------------------
         3.1 Personalize Results Starts
 ---------------------------------------------------------------------- */
 .result-wrap{
-    border-radius: 5px;  
+    border-radius: 5px;
     margin-top: -28px;
     padding: 15px 0;
 }
@@ -1737,7 +1737,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     background-color: rgba(0, 0, 0, 0);
     border-color: #ffffff;
     border-radius: 20px;
-    float: right; 
+    float: right;
     padding: 5px 15px;
     text-transform: uppercase;
 }
@@ -1755,7 +1755,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     display: block;
     margin: -17px auto auto;
 }
-.personalize > span {    
+.personalize > span {
     margin-top: 5px;
     vertical-align: middle;
 }
@@ -1763,12 +1763,12 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     padding-left: 0;
 }
 .personalize-form [type="radio"] {
-    border: 0; 
-    clip: rect(0 0 0 0); 
-    height: 1px; margin: -1px; 
-    overflow: hidden; 
-    padding: 0; 
-    position: absolute; 
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px; margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
     width: 1px;
 }
 .personalize-form .radio-btn-inline {
@@ -1776,8 +1776,8 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     padding-left: 15px;
 
 }
-.personalize-form [type="radio"] + span {  
-    cursor: pointer;   
+.personalize-form [type="radio"] + span {
+    cursor: pointer;
 }
 .personalize-form [type="radio"] + span:before {
     content: '';
@@ -1785,7 +1785,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     width: 10px;
     height: 10px;
     border-radius: 1em;
-    border: 1px solid #fff;   
+    border: 1px solid #fff;
     margin-right: 0.75em;
     transition: all ease 0.5s;
 }
@@ -1825,14 +1825,14 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 .category-wrap .dash-divider {
     margin: 12px 0 10px;
 }
-.category-shop {  
+.category-shop {
     display: table;
     float: right;
     margin: 15px 20px -18px auto;
     padding: 5px;
     text-align: right;
 }
-.category-wrap .light-bg{   
+.category-wrap .light-bg{
     background-position: left top;
     background-repeat: no-repeat;
 }
@@ -1866,7 +1866,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 .filter-wrap {
     padding: 0 15px;
 }
-.filter-title{    
+.filter-title{
     display: table;
     font-size: 16px;
     margin: -2px auto 30px;
@@ -1925,7 +1925,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     padding: 35px 0;
 }
 .fashion-wrap  .italic-font {
-    display: inline-block;   
+    display: inline-block;
     margin-top: 10px;
 }
 .fashion-bg  .title-link{
@@ -1946,34 +1946,34 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     position: absolute;
     z-index: -1;
 }
-.fashion-bg:nth-child(n) .fashion-wrap{       
-    background-position: right bottom; 
+.fashion-bg:nth-child(n) .fashion-wrap{
+    background-position: right bottom;
     background-repeat: no-repeat;
 }
 /*.fashion-bg:nth-child(2) .fashion-wrap{
-    background-image: url(../img/fashion/fashion-1.png); 
+    background-image: url(../img/fashion/fashion-1.png);
 }*/
 /*.fashion-bg:nth-child(3) .fashion-wrap{
-    background-image: url(../img/fashion/fashion-2.png); 
+    background-image: url(../img/fashion/fashion-2.png);
 }*/
 /*.fashion-bg:nth-child(4) .fashion-wrap{
-    background-image: url(../img/fashion/fashion-3.png); 
+    background-image: url(../img/fashion/fashion-3.png);
 }
 .fashion-bg:nth-child(5) .fashion-wrap{
-    background-image: url(../img/fashion/fashion-4.png); 
+    background-image: url(../img/fashion/fashion-4.png);
 }*/
 
 .icon-bg{
-    background-image: url(../img/fashion/icon-1.png); 
+    background-image: url(../img/fashion/icon-1.png);
     background-position: left bottom; background-repeat: no-repeat;
 }
 .icon-bg-1{
-    background-image: url(../img/fashion/icon-2.png); 
+    background-image: url(../img/fashion/icon-2.png);
     background-position: left bottom; background-repeat: no-repeat;
 }
 .icon-bg-2{
-    background-image: url(../img/fashion/icon-3.png); 
-    background-position: left bottom; 
+    background-image: url(../img/fashion/icon-3.png);
+    background-position: left bottom;
     background-repeat: no-repeat;
 }
 .first-smile {
@@ -1987,11 +1987,11 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     right: 0;
     width: auto;
 }
-.new-tag,  .countdown-amount {    
+.new-tag,  .countdown-amount {
     border: medium none;
     bottom: auto;
     border-radius: 3px;
-    box-sizing: content-box;  
+    box-sizing: content-box;
     height: 40px;
     left: auto;
     letter-spacing: 0;
@@ -2008,12 +2008,12 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     word-spacing: 0;
     z-index: 1;
 }
-.new-tag::before,  .countdown-amount::before {   
+.new-tag::before,  .countdown-amount::before {
     border: medium none;
     bottom: auto;
     border-radius: 3px;
-    box-sizing: content-box;   
-    content: "";   
+    box-sizing: content-box;
+    content: "";
     height: 40px;
     left: 0;
     letter-spacing: 0;
@@ -2033,12 +2033,12 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     word-spacing: 0;
     z-index: -1;
 }
-.new-tag::after,  .countdown-amount::after {  
+.new-tag::after,  .countdown-amount::after {
     border: medium none;
     bottom: auto;
     border-radius: 3px;
-    box-sizing: content-box;  
-    content: "";  
+    box-sizing: content-box;
+    content: "";
     height: 40px;
     left: 0;
     letter-spacing: 0;
@@ -2100,7 +2100,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 .special-offers-bg{
     background-image: url("../img/fashion/counter-bg.png");
     background-position: center bottom;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
 }
 .special-offers-wrap{
     position: relative;
@@ -2119,8 +2119,8 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 .countdown-wrapper {
     margin: 35px 0 25px 0;
 }
-.countdown-section {   
-    display: inline-block;   
+.countdown-section {
+    display: inline-block;
     margin: 15px 23px;
     text-align: center;
 }
@@ -2173,7 +2173,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 }
 .circle-box .title-wrap {
     display: inline-block;
-    float: right;   
+    float: right;
     width: 90%;
     padding: 35px 0;
 }
@@ -2183,7 +2183,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     margin-top: 15px;
     width: 90%;
 }
-.banner-img {   
+.banner-img {
     position: absolute;
     top: 16%;
 }
@@ -2295,8 +2295,8 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
     color: #fff;
 }
 .post-title{
-    display: block;    
-    font-size: 16px;    
+    display: block;
+    font-size: 16px;
     text-transform: uppercase;
     position: relative;
     padding-bottom: 15px;
@@ -2305,7 +2305,7 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 .post-content .post-title:before{
     background-color: #fff;
 }
-.post-title:before{  
+.post-title:before{
     border-radius: 4px;
     content: "";
     height: 3px;
@@ -2323,8 +2323,8 @@ table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
 .post-content .post-meta a {
     color: #ffffff;
 }
-.post-meta a {    
-    font-size: 12px;   
+.post-meta a {
+    font-size: 12px;
     padding-left: 5px;
     text-transform: uppercase;
     vertical-align: middle;
@@ -2389,7 +2389,7 @@ label{
     top: 10px;
     right: 16px;
 }
-.register-wrap {   
+.register-wrap {
     padding-left: 50px;
     margin-top: 20px;
 }
@@ -2402,7 +2402,7 @@ label{
     padding-right: 10px;
     font-size: 10px;
 }
-button.close-btn {    
+button.close-btn {
     border-radius: 50%;
     color: #ffffff;
     height: 30px;
@@ -2415,7 +2415,7 @@ button.close-btn {
     width: 30px;
     z-index: 10;
 }
-button.close-btn:hover,button.close-btn:focus {   
+button.close-btn:hover,button.close-btn:focus {
     color: #fff;
     opacity: 1;
 }
@@ -2427,7 +2427,7 @@ button.close-btn:hover,button.close-btn:focus {
         3.10 Home Style 2 Starts
 ---------------------------------------------------------------------- */
 
-.boxed .wrapper {   
+.boxed .wrapper {
     margin: 0 auto;
     max-width: 1280px;
     background-color: #fff;
@@ -2518,10 +2518,10 @@ button.close-btn:hover,button.close-btn:focus {
     margin: 10px 0 0;
 }
 .main-slider .style-3.caption-text {
-    left: auto;  
+    left: auto;
     /*    right: 0;*/
     text-align: left;
-    top: 10%; 
+    top: 10%;
 }
 .main-slider.style-3 .dash-divider-small{
     margin-top: 18px;
@@ -2611,13 +2611,13 @@ button.close-btn:hover,button.close-btn:focus {
         3.12 Home Style 4 Ends
 ---------------------------------------------------------------------- */
 
-/******************************* 
-        3 - HOME CSS ENDS 
+/*******************************
+        3 - HOME CSS ENDS
 ********************************/
 
-/*********************************** 
-    4 - OwlCarousel Sliders STARTS 
-************************************/                
+/***********************************
+    4 - OwlCarousel Sliders STARTS
+************************************/
 /*--------------------------------------------------------------------
         4.1 Home Main slider Starts
 ---------------------------------------------------------------------- */
@@ -2759,7 +2759,7 @@ button.close-btn:hover,button.close-btn:focus {
     font-size: 10px;
     margin: 0 2px;
     padding: 5px 7px;
-    width: auto;   
+    width: auto;
 }
 .product-slider .product-name > a {
     margin-bottom: 0;
@@ -2818,7 +2818,7 @@ button.close-btn:hover,button.close-btn:focus {
     margin: 5px;
 }
 .product-price ins {
-    color: #000000;  
+    color: #000000;
     text-decoration: none;
 }
 .product-details:hover .product-overlay, .category-details:hover .product-overlay{
@@ -2838,7 +2838,7 @@ button.close-btn:hover,button.close-btn:focus {
     opacity: 0;
     visibility: hidden;
 }
-.product-overlay a {  
+.product-overlay a {
     border-radius: 20px 0 0 20px;
     color: #ffffff;
     display: block;
@@ -2871,7 +2871,7 @@ button.close-btn:hover,button.close-btn:focus {
     transition: all 0.3s ease 0s;
     visibility: hidden;
     width: 100%;
-    padding: 30px; 
+    padding: 30px;
 }
 
 /*--------------------------------------------------------------------
@@ -2903,15 +2903,15 @@ button.close-btn:hover,button.close-btn:focus {
     border: 5px solid #ffffff;
     text-align: center;
     font-size: 22px;
-    border-radius: 50%;  
+    border-radius: 50%;
     color: #fff;
     font-weight: normal;
-    height: 38px; 
-    line-height: normal;   
+    height: 38px;
+    line-height: normal;
     opacity: 1;
     position: absolute;
     top: 40%;
-    text-shadow: none;  
+    text-shadow: none;
     vertical-align: middle;
     width: 38px;
     cursor: pointer;
@@ -2970,11 +2970,11 @@ button.close-btn:hover,button.close-btn:focus {
 /*--------------------------------------------------------------------
         4.4 Testimonials Slider Ends
 ---------------------------------------------------------------------- */
-/************************************** 
-    4 - OwlCarousel Sliders ENDS 
+/**************************************
+    4 - OwlCarousel Sliders ENDS
 ***************************************/
 
-/****************************************************** 
+/******************************************************
     5 - Components / Shortcodes / Widget STARTS
 *******************************************************/
 /*--------------------------------------------------------------------
@@ -3067,7 +3067,7 @@ button.close-btn:hover,button.close-btn:focus {
 ---------------------------------------------------------------------- */
 
 .rating .star {
-    cursor: pointer;     
+    cursor: pointer;
 }
 .rating span.star::before{
     color: #ffd33b;
@@ -3171,15 +3171,15 @@ button.close-btn:hover,button.close-btn:focus {
         5.5 - Single Blog Post Starts
 ---------------------------------------------------------------------- */
 
-.product-thumbnails  {  
-    text-align: center;    
+.product-thumbnails  {
+    text-align: center;
 }
 .product-thumbnails > li {
     background-color: #f9f9f9;
     border: medium none;
     display: inline-block;
     height: 75px;
-    margin: 15px auto;   
+    margin: 15px auto;
     text-align: center;
     width: 75px;
 }
@@ -3244,7 +3244,7 @@ button.close-btn:hover,button.close-btn:focus {
     text-align: center;
 }
 .stock-detail{
-    margin: 0;    
+    margin: 0;
 }
 .stock-detail > li {
     display: inline-block;
@@ -3287,7 +3287,7 @@ button.close-btn:hover,button.close-btn:focus {
     margin-top: 20px;
     padding-right: 80px;
 }
-.circle-list-box .box-right{   
+.circle-list-box .box-right{
     padding-left: 50px;
     margin-top: 20px;
 }
@@ -3311,7 +3311,7 @@ button.close-btn:hover,button.close-btn:focus {
         5.6 - Comments Starts
 ---------------------------------------------------------------------- */
 
-.comments-article{ 
+.comments-article{
     overflow: hidden;
 }
 .article-title > h2, .comment-reply-title {
@@ -3330,7 +3330,7 @@ button.close-btn:hover,button.close-btn:focus {
 .comments-box li{
     list-style: none;
     display: inline-block;
-    width: 100%; 
+    width: 100%;
 }
 .comments-box > li {
     border-bottom: 1px dashed #e4e4e4;
@@ -3384,7 +3384,7 @@ button.close-btn:hover,button.close-btn:focus {
     font-weight: bold;
     margin-bottom: 8px;
     padding-left: 10px;
-    text-transform: uppercase;  
+    text-transform: uppercase;
     width: auto;
 }
 .comment-metadata:before{
@@ -3397,7 +3397,7 @@ button.close-btn:hover,button.close-btn:focus {
     right: 0;
     top: 0;
 }
-.comment-author .fn {   
+.comment-author .fn {
     color: #000000;
     font-size: 16px;
     font-weight: normal;
@@ -3447,7 +3447,7 @@ button.close-btn:hover,button.close-btn:focus {
 .comment-form .comment-form-comment > textarea {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: 1px solid #e4e4e4;
-    font-size: 12px;  
+    font-size: 12px;
     outline: 0 none;
     padding: 7px 10px;
     text-transform: capitalize;
@@ -3491,7 +3491,7 @@ button.close-btn:hover,button.close-btn:focus {
     position: relative;
     margin: 0
 }
-.blog-sidebar-widget .search-form label:before { 
+.blog-sidebar-widget .search-form label:before {
     content: "\f002";
     font-family: FontAwesome;
     font-size: 13px;
@@ -3534,11 +3534,11 @@ button.close-btn:hover,button.close-btn:focus {
 }
 .blog-sidebar-widget ul li.cat-item a:before, .blog-sidebar-widget ul li.arch-item a:before, .blog-sidebar-widget ul li.accout-item a:before{
     content: "\f105";
-    font-family: FontAwesome;   
+    font-family: FontAwesome;
     vertical-align: middle;
     font-style: normal;
     font-weight: normal;
-    line-height: normal;  
+    line-height: normal;
     position: absolute;
     top: 0;
     left: 0;
@@ -3565,7 +3565,7 @@ button.close-btn:hover,button.close-btn:focus {
     margin-right: 10px;
     vertical-align: middle;
 }
-.post-info p{   
+.post-info p{
     margin-bottom: 15px;
 }
 .widget-latest-post .post-img {
@@ -3585,7 +3585,7 @@ button.close-btn:hover,button.close-btn:focus {
     vertical-align: middle;
     width: 100%;
 }
-.tagcloud > a{   
+.tagcloud > a{
     border-radius: 5px;
     border: 1px solid #e4e4e4;
     display: inline-block;
@@ -3605,7 +3605,7 @@ button.close-btn:hover,button.close-btn:focus {
 }
 .widget-title{
     font-size: 16px;
-    margin: 0;    
+    margin: 0;
     text-transform: uppercase;
     color: #fff;
 }
@@ -3630,7 +3630,7 @@ button.close-btn:hover,button.close-btn:focus {
 .slimScrollDiv{
     z-index: 1;
 }
-.sidebar-widget ul{   
+.sidebar-widget ul{
     margin: 0;
     overflow: hidden;
     position: relative;
@@ -3692,7 +3692,7 @@ button.close-btn:hover,button.close-btn:focus {
 .widget-colors [type="checkbox"] + span, .sidebar-widget [type="checkbox"] + span {
     cursor: pointer;
 }
-.sidebar-widget [type="checkbox"] + span::before{   
+.sidebar-widget [type="checkbox"] + span::before{
     color: #e4e4e4;
     content: "\f096";
     font-family: FontAwesome;
@@ -3700,7 +3700,7 @@ button.close-btn:hover,button.close-btn:focus {
     margin-right: 10px;
     vertical-align: middle;
 }
-.sidebar-widget [type="checkbox"]:checked + span:before {  
+.sidebar-widget [type="checkbox"]:checked + span:before {
     content: "\f046";
     font-family: FontAwesome;
 }
@@ -3713,7 +3713,7 @@ button.close-btn:hover,button.close-btn:focus {
     /*    box-shadow: 0 0 1px #e4e4e4;*/
 }
 
-.widget-colors [type="checkbox"]:checked + span::before{    
+.widget-colors [type="checkbox"]:checked + span::before{
     content: "\f058";
     font-family: FontAwesome;
 }
@@ -3856,19 +3856,19 @@ button.close-btn:hover,button.close-btn:focus {
 /*--------------------------------------------------------------------
         5.11 - Shortcodes Ends
 ---------------------------------------------------------------------- */
-/*********************************************** 
-5 - Components / Shortcodes / Widget ENDS 
+/***********************************************
+5 - Components / Shortcodes / Widget ENDS
 ************************************************/
 
-/******************************* 
-    6 - Shopping Cart STARTS 
+/*******************************
+    6 - Shopping Cart STARTS
 ********************************/
 .product-table thead{
     position: relative;
 }
 .product-table thead tr{
     position: relative;
-    text-transform: uppercase;    
+    text-transform: uppercase;
 }
 .product-table tbody tr:nth-child(2n) {
     background-color: #f3f3f3;
@@ -3923,7 +3923,7 @@ button.close-btn:hover,button.close-btn:focus {
 }
 .buttons-add-minus .minus, .buttons-add-minus .plus {
     background-color: #cccccc;
-    color: #ffffff;   
+    color: #ffffff;
     font-weight: bold;
     height: 30px;
     line-height: 18px;
@@ -3936,7 +3936,7 @@ button.close-btn:hover,button.close-btn:focus {
     border-radius: 5px 0 0 5px;
 }
 .buttons-add-minus .plus{
-    font-size: 18px; 
+    font-size: 18px;
     border-radius: 0px 5px 5px 0px;
 }
 .description > p {
@@ -3987,7 +3987,7 @@ button.close-btn:hover,button.close-btn:focus {
     padding: 25px;
 }
 .cart_totals {
-    font-size: 16px;   
+    font-size: 16px;
 }
 .cart_totals th{
     font-weight: normal;
@@ -4019,12 +4019,12 @@ button.close-btn:hover,button.close-btn:focus {
 .cart-newslatter .newsletter-form p {
     margin: 0;
 }
-/******************************* 
-    6 - Shopping Cart ENDS 
+/*******************************
+    6 - Shopping Cart ENDS
 ********************************/
 
-/******************************* 
-    7 - Checkout STARTS 
+/*******************************
+    7 - Checkout STARTS
 ********************************/
 .checkout-wrap .register-wrap,.checkout-wrap .login-wrap{
     margin: 0;
@@ -4056,12 +4056,12 @@ button.close-btn:hover,button.close-btn:focus {
 .payments-options li label{
     cursor: pointer;
 }
-/******************************* 
-    7 - Checkout ENDS 
+/*******************************
+    7 - Checkout ENDS
 ********************************/
 
-/******************************* 
-    8 - Pages STARTS 
+/*******************************
+    8 - Pages STARTS
 ********************************/
 
 /*--------------------------------------------------------------------
@@ -4118,7 +4118,7 @@ button.close-btn:hover,button.close-btn:focus {
     overflow: hidden;
 }
 .we-are .light-bg {
-    border-radius: 5px 0 0 5px;   
+    border-radius: 5px 0 0 5px;
     font-size: 16px;
     padding: 11px 25px 12px;
     text-transform: capitalize;
@@ -4143,7 +4143,7 @@ button.close-btn:hover,button.close-btn:focus {
 
 .error-wrap{
     background-image: url('../img/background/404.png');
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-position: left top;
 }
 .error-info {
@@ -4167,7 +4167,7 @@ button.close-btn:hover,button.close-btn:focus {
 
 .coming-soon {
     background-image: url('../img/background/coming-soon.jpg');
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-position: center;
 }
 .coming-social .social-icon a {
@@ -4228,7 +4228,7 @@ button.close-btn:hover,button.close-btn:focus {
     vertical-align: middle;
 }
 .status{
-    text-transform: uppercase;   
+    text-transform: uppercase;
 }
 /*--------------------------------------------------------------------
         8.4 - My Account Ends
@@ -4284,7 +4284,7 @@ button.close-btn:hover,button.close-btn:focus {
     border: none;
     background: transparent;
 }
-.sorter .tabination li a{   
+.sorter .tabination li a{
     font-size: 16px;
     margin-right: 10px;
 }
@@ -4318,7 +4318,7 @@ button.close-btn:hover,button.close-btn:focus {
 }
 .product-review li {
     display: inline-block;
-    font-size: 12px; 
+    font-size: 12px;
     padding-right: 5px;
 }
 .product-review a {
@@ -4333,7 +4333,7 @@ button.close-btn:hover,button.close-btn:focus {
 }
 .list-category-details .product-price h4 {
     display: inline-block;
-    font-size: 16px;   
+    font-size: 16px;
     line-height: normal;
     margin: 25px 15px 25px 0;
     padding: 5px 15px 7px;
@@ -4356,12 +4356,12 @@ button.close-btn:hover,button.close-btn:focus {
 /*--------------------------------------------------------------------
         8.5 - Product category Ends
 ----------------------------------------------------------------------*/
-/******************************* 
-    8 - Pages ENDS 
+/*******************************
+    8 - Pages ENDS
 ********************************/
 
-/******************************* 
-    9 - FOOTER STARTS 
+/*******************************
+    9 - FOOTER STARTS
 ********************************/
 /*--------------------------------------------------------------------
         9.1 Footer widgets Starts
@@ -4417,7 +4417,7 @@ button.close-btn:hover,button.close-btn:focus {
     width: 10px;
 }
 .address span{
-    float: left;   
+    float: left;
     text-transform: none;
     width: calc(100% - 25px) !important;
 }
@@ -4454,8 +4454,8 @@ button.close-btn:hover,button.close-btn:focus {
 /*--------------------------------------------------------------------
         9.2 Footer Meta Ends
 ---------------------------------------------------------------------- */
-/******************************* 
-    9 - FOOTER ENDS 
+/*******************************
+    9 - FOOTER ENDS
 ********************************/
 
 
