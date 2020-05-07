@@ -79,8 +79,13 @@
                                                         </p>
                                                     </div>
                                                     <div class="product-price">
-                                                        <h4 class="pink-btn-small price-line"> $50.00 </h4>
-                                                        <h4 class="blue-btn-small"> $45.00 </h4>
+                                                        @if(!$product->processPromotionPrice())
+                                                            <h4 class="pink-btn-small"> {{$product->getFinalPriceHtml()}} </h4>
+                                                        @else
+                                                            <h4 class="pink-btn-small price-line"> {{$product->getPriceHtml()}} </h4>
+                                                            <h4 class="blue-btn-small"> {{$product->getFinalPriceHtml()}} </h4>
+                                                        @endif
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -106,202 +111,56 @@
                                     </div>
                                 </div>
                                 <div class="product-slider owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product5.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
+                                    @foreach($mostSellingProducts as $product)
+                                        <div class="item">
+                                            <div class="product-details">
+                                                <div class="product-media">
+                                                            <span class="hover-image white-bg">
+                                                                <img alt=""
+                                                                     src="{{$product->getFirstSubImage()}}">
+                                                            </span>
+                                                    <img src="{{$product->image}}" alt=" ">
+                                                    @if($product->getType() == 'New')
+                                                        <div class="product-new">
+                                                            <div class="golden-new-tag new-tag">
+                                                                <a class="funky-font">New</a>
+                                                            </div>
+                                                        </div>
+                                                    @endif
 
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product6.png')}}" alt=" ">
-                                                <div class="product-new">
-                                                    <div class="golden-new-tag new-tag">
-                                                        <a class="funky-font" href="#">New</a>
+                                                    @if($product->getType() == 'Hot')
+                                                        <div class="product-new">
+                                                            <div class="blue-new-tag new-tag">
+                                                                <a class="funky-font">Hot</a>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    <div class="product-overlay">
+                                                        <a class="addcart blue-background fa fa-shopping-cart"
+                                                           href="#"></a>
+                                                        <a class="preview pink-background fa fa-eye"
+                                                           href="#product-preview" data-toggle="modal"></a>
                                                     </div>
                                                 </div>
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
+                                                <div class="product-content">
+                                                    <div class="product-name">
+                                                        <p>
+                                                            <a href="{{route('page.product',$product->sku)}}">{{$product->name}}</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        @if(!$product->processPromotionPrice())
+                                                            <h4 class="pink-btn-small"> {{$product->getFinalPriceHtml()}} </h4>
+                                                        @else
+                                                            <h4 class="pink-btn-small price-line"> {{$product->getPriceHtml()}} </h4>
+                                                            <h4 class="blue-btn-small"> {{$product->getFinalPriceHtml()}} </h4>
+                                                        @endif
 
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product7.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product8.png')}}" alt=" ">
-                                                <div class="product-new">
-                                                    <div class="blue-new-tag new-tag">
-                                                        <a class="funky-font" href="#">New</a>
                                                     </div>
                                                 </div>
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product5.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product6.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -322,202 +181,56 @@
                                     </div>
                                 </div>
                                 <div class="product-slider owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product9.png')}}" alt=" ">
-                                                <div class="product-new">
-                                                    <div class="golden-new-tag new-tag">
-                                                        <a class="funky-font" href="#">New</a>
+                                    @foreach($mostLatestProducts as $product)
+                                        <div class="item">
+                                            <div class="product-details">
+                                                <div class="product-media">
+                                                            <span class="hover-image white-bg">
+                                                                <img alt=""
+                                                                     src="{{$product->getFirstSubImage()}}">
+                                                            </span>
+                                                    <img src="{{$product->image}}" alt=" ">
+                                                    @if($product->getType() == 'New')
+                                                        <div class="product-new">
+                                                            <div class="golden-new-tag new-tag">
+                                                                <a class="funky-font">New</a>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+
+                                                    @if($product->getType() == 'Hot')
+                                                        <div class="product-new">
+                                                            <div class="blue-new-tag new-tag">
+                                                                <a class="funky-font">Hot</a>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    <div class="product-overlay">
+                                                        <a class="addcart blue-background fa fa-shopping-cart"
+                                                           href="#"></a>
+                                                        <a class="preview pink-background fa fa-eye"
+                                                           href="#product-preview" data-toggle="modal"></a>
                                                     </div>
                                                 </div>
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
+                                                <div class="product-content">
+                                                    <div class="product-name">
+                                                        <p>
+                                                            <a href="{{route('page.product',$product->sku)}}">{{$product->name}}</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        @if(!$product->processPromotionPrice())
+                                                            <h4 class="pink-btn-small"> {{$product->getFinalPriceHtml()}} </h4>
+                                                        @else
+                                                            <h4 class="pink-btn-small price-line"> {{$product->getPriceHtml()}} </h4>
+                                                            <h4 class="blue-btn-small"> {{$product->getFinalPriceHtml()}} </h4>
+                                                        @endif
 
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product10.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product11.png')}}" alt=" ">
-                                                <div class="product-new">
-                                                    <div class="blue-new-tag new-tag">
-                                                        <a class="funky-font" href="#">New</a>
                                                     </div>
                                                 </div>
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product12.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product9.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <div class="product-media"><span class="hover-image white-bg">                                                                <img
-                                                        alt="" src="{{asset('web/assets/img/product/cat-7.png')}}">                                                            </span>
-                                                <img src="{{asset('web/assets/img/product/product10.png')}}" alt=" ">
-                                                <div class="product-overlay">
-                                                    <a class="addcart blue-background fa fa-shopping-cart"
-                                                       href="#"></a>
-                                                    <a class="likeitem green-background fa fa-heart" href="#"></a>
-                                                    <a class="preview pink-background fa fa-eye"
-                                                       href="#product-preview" data-toggle="modal"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star half"></span>
-                                                    <span class="star"></span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p><a href="#">Babyhug Frock Style Top And Leggings</a></p>
-
-                                                </div>
-                                                <div class="product-price">
-                                                    <h4 class="pink-btn-small"> $50.00 </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

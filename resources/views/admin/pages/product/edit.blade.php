@@ -341,7 +341,6 @@
         });
         var option = {
             showClear: true,
-            defaultDate: new Date(),
             format: 'Y-MM-DD HH:mm:ss'
         };
         $('.date_time').datetimepicker(option);

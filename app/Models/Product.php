@@ -95,13 +95,13 @@ class Product extends BaseModel
     public function getCostHtml()
     {
         $value = $this->getOriginal('cost');
-        return number_format($value) . ' đ';
+        return number_format($value) . ' VNĐ';
     }
 
     public function getPriceHtml()
     {
         $value = $this->getOriginal('price');
-        return number_format($value) . ' đ';
+        return number_format($value) . ' VNĐ';
     }
 
     public function getFinalPrice()
@@ -114,7 +114,17 @@ class Product extends BaseModel
         }
     }
 
-    private function processPromotionPrice()
+    public function getFinalPriceHtml()
+    {
+        $promotion = $this->processPromotionPrice();
+        if ($promotion) {
+            return number_format($promotion) . ' VNĐ';
+        } else {
+            return number_format($this->price) . 'VNĐ';
+        }
+    }
+
+    public function processPromotionPrice()
     {
         $promotion = $this->promotionPrice;
         if ($promotion) {
@@ -188,5 +198,9 @@ class Product extends BaseModel
     public function scopeMostView($query)
     {
         return $query->orderBy('view', 'DESC');
+    }
+    public function scopeMostSelling($query)
+    {
+        return $query->orderBy('sold', 'DESC');
     }
 }
