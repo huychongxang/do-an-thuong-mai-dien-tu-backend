@@ -25,3 +25,16 @@
     @include('web.includes.home.brands-slider')
     <!-- / Brands Slider Ends -->
 @endsection
+@push('scripts')
+    <script>
+        $(function () {
+            $("body").on("click", '.addcart', function (event) {
+                event.preventDefault();
+                @guest
+                $('#login-register').modal('show');
+                return false;
+                @endguest
+            });
+        });
+    </script>
+@endpush
