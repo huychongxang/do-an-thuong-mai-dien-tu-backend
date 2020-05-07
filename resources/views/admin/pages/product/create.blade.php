@@ -1,6 +1,9 @@
 @extends('admin.layouts.master')
 @section('title_page','Thêm mới sản phẩm')
 @push('styles')
+    <link rel="stylesheet"
+          href="{{asset('admin/Date-Time-Picker-Bootstrap-4/build/css/bootstrap-datetimepicker.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('admin/css/upload-image.css')}}">
 @endpush
 @section('content')
@@ -170,7 +173,8 @@
                 <div class="form-group">
                     <div class="form-check">
                         <label>Đặc sắc</label>
-                        <input name="featured" type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success"
+                        <input name="featured" type="checkbox" checked data-toggle="toggle"
+                               data-onstyle="outline-success"
                                data-offstyle="outline-danger">
                     </div>
                 </div>
@@ -227,15 +231,19 @@
     <!-- /.row -->
 @endsection
 @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
+    <script src="{{asset('admin/Date-Time-Picker-Bootstrap-4/build/js/bootstrap-datetimepicker.min.js')}}"></script>
     <script src="{{asset('admin/tinymce/js/tinymce/tinymce.min.js')}}"></script>
     <script>
         $('.select2').select2({
             theme: "classic",
         });
-        $('.date_time').datepicker({
-            autoclose: true,
-            format: 'yyyy-mm-dd'
-        })
+        var option = {
+            showClear: true,
+            defaultDate: new Date(),
+            format: 'Y-MM-DD HH:mm:ss'
+        };
+        $('.date_time').datetimepicker(option);
 
         tinymce.init({
 

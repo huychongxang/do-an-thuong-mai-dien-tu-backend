@@ -3,10 +3,12 @@
 namespace App\Models;
 
 
+use Carbon\Carbon;
+
 class Product extends BaseModel
 {
     protected $table = 'products';
-    protected $fillable = ['sku', 'name', 'description', 'content', 'image', 'price', 'cost', 'sold', 'stock', 'kind', 'virtual', 'status', 'sort', 'date_lastview', 'date_available', 'featured'];
+    protected $fillable = ['sku', 'name', 'description', 'content', 'image', 'price', 'cost', 'sold', 'stock', 'kind', 'type', 'virtual', 'status', 'sort', 'date_lastview', 'date_available', 'featured'];
 
     /*
     |--------------------------------------------------------------------------
@@ -136,6 +138,11 @@ class Product extends BaseModel
         }
     }
 
+    public function getFirstSubImage()
+    {
+        return optional($this->images->first())->image;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESORS
@@ -170,11 +177,16 @@ class Product extends BaseModel
 
     public function scopeActive($query)
     {
-        return $query->where('status', true);
+        return $query->where('status', true)->where('date_available', '<=', Carbon::now());
     }
 
     public function scopeFeatured($query)
     {
         return $query->where('featured', true);
+    }
+
+    public function scopeMostView($query)
+    {
+        return $query->orderBy('view', 'DESC');
     }
 }
