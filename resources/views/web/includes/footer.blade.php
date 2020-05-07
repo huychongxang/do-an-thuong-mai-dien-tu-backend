@@ -13,6 +13,17 @@
 <script src="{{asset('web/assets/plugins/countdown/jquery.plugin.min.js')}}"></script>
 <script src="{{asset('web/assets/plugins/countdown/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('web/assets/js/theme.js')}}"></script>
+<script>
+    $(function () {
+        $("body").on("click", '.addcart', function (event) {
+            event.preventDefault();
+            @guest
+            $('#login-register').modal('show');
+            return false;
+            @endguest
+        });
+    });
+</script>
 @stack('scripts')
 </body>
 
