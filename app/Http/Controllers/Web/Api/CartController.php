@@ -35,6 +35,39 @@ class CartController extends Controller
 
     }
 
+    public function remove(Request $request)
+    {
+        try {
+            $rowId = $request->row;
+            $id = $request->id;
+            $product = Product::find($id);
+            $currentItem = Cart::get($rowId);
+            if ($currentItem) {
+                if ($currentItem->qty > 1) {
+                    Cart::update($rowId, [
+                        'id' => $product->id,
+                        'name' => $product->name,
+                        'qty' => $currentItem->qty - 1,
+                        'price' => $product->getFinalPrice()
+                    ])->associate(Product::class);
+                } else {
+                    Cart::remove($rowId);
+                }
+
+            }
+            Cart::store(auth()->user()->id);
+            return ApiHelper::api_status_handle(200, [
+                'count' => Cart::count(),
+                'content' => $this->renderHtml(Cart::content()),
+                'subtotal' => Cart::subtotal()
+            ], true);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, [
+                'message' => $e->getMessage()
+            ], false);
+        }
+    }
+
     private function renderHtml($content)
     {
         $html = '';

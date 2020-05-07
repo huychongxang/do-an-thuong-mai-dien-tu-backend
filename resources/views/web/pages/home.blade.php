@@ -45,7 +45,8 @@
                 return false;
                     @endguest
                 var id = $(this).data('id');
-                add(id);
+                var rowId = $(this).data('row');
+                remove(rowId, id);
             });
 
         });
@@ -56,6 +57,36 @@
                 type: 'post',
                 data: {
                     "_token": "{{ csrf_token() }}",
+                    id: id
+                }
+            });
+
+            request.done(function (response, textStatus, jqXHR) {
+                if (response.code == 200) {
+                    var data = response.data;
+                    document.getElementById('header-cart-total').innerHTML = "<strong> (" + data.count + ")</strong>";
+                    document.getElementById('header-cart-subtotal').innerHTML = "<b> " + data.subtotal + " </b>";
+                    var contents = data.content;
+                    document.getElementById('header-cart-body').innerHTML = contents;
+                }
+            });
+
+            request.fail(function (jqXHR, textStatus, errorThrown) {
+                // Log the error to the console
+                console.error(
+                    "The following error occurred: " +
+                    textStatus, errorThrown
+                );
+            });
+        }
+
+        function remove(rowId, id) {
+            request = $.ajax({
+                url: '{{route('api-web.remove-item')}}',
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    row: rowId,
                     id: id
                 }
             });
