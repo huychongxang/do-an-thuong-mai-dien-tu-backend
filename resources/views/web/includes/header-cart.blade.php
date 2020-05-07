@@ -3,7 +3,7 @@
         <a href="javascript:void(0)" class="btn cart-btn default-btn">
             <i class="fa fa-shopping-cart blue-color"></i>
             <span><b> Giỏ hàng: </b></span> <span id="header-cart-total"
-                class="blue-color"> <strong> ({{$cart::count()}}) </strong> </span>
+                                                  class="blue-color"> <strong> ({{$cart::count()}}) </strong> </span>
             <span class="fa fa-caret-down"></span>
         </a>
     </div>
@@ -27,7 +27,8 @@
                                 </div>
                                 <div class="product-price">
                                     <h5 class="price"><b> {{$row->model->getFinalPriceHtml()}} * {{$row->qty}} </b></h5>
-                                    <a href="#" class="delete fa fa-close"> </a>
+                                    <a data-row="{{$row->rowId}}" data-id="{{$row->id}}"
+                                       class="delete delete-row-item fa fa-close"> </a>
                                 </div>
                             </div>
                         </td>

@@ -55,7 +55,7 @@ class CartController extends Controller
             $html .= '</div>';
             $html .= '<div class="product-price">';
             $html .= "<h5 class='price'><b>  {$row->model->getFinalPriceHtml()} * $row->qty  </b></h5>";
-            $html .= "<a hred='#' class='delete fa fa-close'></a>";
+            $html .= "<a data-row='" . $row->rowId . "' data-id='" . $row->id . "' class='delete delete-row-item fa fa-close'></a>";
             $html .= '</div>';
             $html .= '</div>';
             $html .= '</td>';

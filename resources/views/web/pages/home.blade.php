@@ -37,6 +37,17 @@
                 var id = $(this).data('id');
                 add(id);
             });
+
+            $("body").on("click", '.delete-row-item', function (event) {
+                event.preventDefault();
+                @guest
+                $('#login-register').modal('show');
+                return false;
+                    @endguest
+                var id = $(this).data('id');
+                add(id);
+            });
+
         });
 
         function add(id) {

@@ -29,6 +29,7 @@ class CheckCart
                         'price' => $product->getFinalPrice(),
                     ]);
                 }
+                Cart::store(\auth()->user()->id);
             }
         }
         return $next($request);
