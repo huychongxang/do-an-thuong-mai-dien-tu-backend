@@ -39,10 +39,11 @@ class CartController extends Controller
     {
         $html = '';
         foreach ($content as $row) {
+            $link = route('page.product', $row->model->sku);
             $html .= '<tr>';
             $html .= '<td>';
             $html .= '<div class="product-media">';
-            $html .= '<a href="#">';
+            $html .= '<a href="' . $link . '">';
             $html .= '<img src="' . $row->model->image . '">';
             $html .= '</a>';
             $html .= '</div>';
@@ -50,7 +51,7 @@ class CartController extends Controller
             $html .= '<td>';
             $html .= '<div class="product-content">';
             $html .= '<div class="product-name">';
-            $html .= "<a href=\"\">{$row->model->name}</a>";
+            $html .= "<a href='" . $link . "'>{$row->model->name}</a>";
             $html .= '</div>';
             $html .= '<div class="product-price">';
             $html .= "<h5 class='price'><b>  {$row->model->getFinalPriceHtml()} * $row->qty  </b></h5>";
