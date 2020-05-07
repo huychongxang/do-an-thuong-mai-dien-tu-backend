@@ -66,10 +66,8 @@
                                                         </div>
                                                     @endif
                                                     <div class="product-overlay">
-                                                        <a class="addcart blue-background fa fa-shopping-cart"
+                                                        <a data-id="{{$product->id}}" class="addcart blue-background fa fa-shopping-cart"
                                                            href="#"></a>
-                                                        <a class="preview pink-background fa fa-eye"
-                                                           href="#product-preview" data-toggle="modal"></a>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
@@ -136,10 +134,8 @@
                                                         </div>
                                                     @endif
                                                     <div class="product-overlay">
-                                                        <a class="addcart blue-background fa fa-shopping-cart"
+                                                        <a data-id="{{$product->id}}" class="addcart blue-background fa fa-shopping-cart"
                                                            href="#"></a>
-                                                        <a class="preview pink-background fa fa-eye"
-                                                           href="#product-preview" data-toggle="modal"></a>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
@@ -206,10 +202,8 @@
                                                         </div>
                                                     @endif
                                                     <div class="product-overlay">
-                                                        <a class="addcart blue-background fa fa-shopping-cart"
+                                                        <a data-id="{{$product->id}}" class="addcart blue-background fa fa-shopping-cart"
                                                            href="#"></a>
-                                                        <a class="preview pink-background fa fa-eye"
-                                                           href="#product-preview" data-toggle="modal"></a>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">

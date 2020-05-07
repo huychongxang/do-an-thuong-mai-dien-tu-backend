@@ -1,8 +1,8 @@
-<div class="header-cart col-md-3  col-sm-4">
+<div id="header-cart" class="header-cart col-md-3  col-sm-4">
     <div class="cart-wrapper">
         <a href="javascript:void(0)" class="btn cart-btn default-btn">
             <i class="fa fa-shopping-cart blue-color"></i>
-            <span><b> Giỏ hàng: </b></span> <span
+            <span><b> Giỏ hàng: </b></span> <span id="header-cart-total"
                 class="blue-color"> <strong> ({{$cart::count()}}) </strong> </span>
             <span class="fa fa-caret-down"></span>
         </a>
@@ -11,7 +11,7 @@
         <span class="blue-color-mask blue-box-shadow color-mask-radius"></span>
         <div class="pos-relative">
             <table class="cart-table">
-                <tbody>
+                <tbody id="header-cart-body">
                 @foreach($cart::content() as $row)
                     <tr>
                         <td>
@@ -40,7 +40,7 @@
                     <td>
                         <div class="sub-total">
                             <span class="title">Tổng:</span>
-                            <span class="amount"> <b> {{$cart::subtotal()}} </b> </span>
+                            <span class="amount" id="header-cart-subtotal"> <b> {{$cart::subtotal()}} </b> </span>
                         </div>
                     </td>
                 </tr>
