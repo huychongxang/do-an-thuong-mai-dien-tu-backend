@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('sort')->default(0);
             $table->integer('view')->default(0);
             $table->dateTime('date_lastview')->nullable();
-            $table->date('date_available')->nullable();
+            $table->timestamp('date_available')->nullable();
             $table->timestamps();
         });
     }

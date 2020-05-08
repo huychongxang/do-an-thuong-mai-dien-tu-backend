@@ -3,10 +3,12 @@
 namespace App\Models;
 
 
+use Carbon\Carbon;
+
 class Product extends BaseModel
 {
     protected $table = 'products';
-    protected $fillable = ['sku', 'name', 'description', 'content', 'image', 'price', 'cost', 'sold', 'stock', 'kind', 'virtual', 'status', 'sort', 'date_lastview', 'date_available', 'featured'];
+    protected $fillable = ['sku', 'name', 'description', 'content', 'image', 'price', 'cost', 'sold', 'stock', 'kind', 'type', 'virtual', 'status', 'sort', 'date_lastview', 'date_available', 'featured'];
 
     /*
     |--------------------------------------------------------------------------
@@ -93,13 +95,13 @@ class Product extends BaseModel
     public function getCostHtml()
     {
         $value = $this->getOriginal('cost');
-        return number_format($value) . ' đ';
+        return number_format($value) . ' VNĐ';
     }
 
     public function getPriceHtml()
     {
         $value = $this->getOriginal('price');
-        return number_format($value) . ' đ';
+        return number_format($value) . ' VNĐ';
     }
 
     public function getFinalPrice()
@@ -112,7 +114,17 @@ class Product extends BaseModel
         }
     }
 
-    private function processPromotionPrice()
+    public function getFinalPriceHtml()
+    {
+        $promotion = $this->processPromotionPrice();
+        if ($promotion) {
+            return number_format($promotion) . ' VNĐ';
+        } else {
+            return number_format($this->price) . 'VNĐ';
+        }
+    }
+
+    public function processPromotionPrice()
     {
         $promotion = $this->promotionPrice;
         if ($promotion) {
@@ -134,6 +146,11 @@ class Product extends BaseModel
             $item->sold = $item->sold + $qty_change;
             $item->save();
         }
+    }
+
+    public function getFirstSubImage()
+    {
+        return optional($this->images->first())->image;
     }
 
     /*
@@ -170,11 +187,20 @@ class Product extends BaseModel
 
     public function scopeActive($query)
     {
-        return $query->where('status', true);
+        return $query->where('status', true)->where('date_available', '<=', Carbon::now());
     }
 
     public function scopeFeatured($query)
     {
         return $query->where('featured', true);
+    }
+
+    public function scopeMostView($query)
+    {
+        return $query->orderBy('view', 'DESC');
+    }
+    public function scopeMostSelling($query)
+    {
+        return $query->orderBy('sold', 'DESC');
     }
 }

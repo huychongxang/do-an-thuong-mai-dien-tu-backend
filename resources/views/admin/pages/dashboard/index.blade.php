@@ -120,7 +120,7 @@
                                     <tr>
                                         <td>
                                             <a target="_blank"
-                                               href="{{route(env('ADMIN_PATH','cmms').'.orders.edit',$order->id)}}">Order#{{$order->id}}</a>
+                                               href="{{route(env('ADMIN_PATH','cms').'.orders.edit',$order->id)}}">Order#{{$order->id}}</a>
                                         </td>
                                         <td>
                                             {{$order->email}}
