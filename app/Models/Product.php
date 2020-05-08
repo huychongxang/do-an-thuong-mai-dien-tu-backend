@@ -4,8 +4,9 @@ namespace App\Models;
 
 
 use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Contracts\Buyable;
 
-class Product extends BaseModel
+class Product extends BaseModel implements Buyable
 {
     protected $table = 'products';
     protected $fillable = ['sku', 'name', 'description', 'content', 'image', 'price', 'cost', 'sold', 'stock', 'kind', 'type', 'virtual', 'status', 'sort', 'date_lastview', 'date_available', 'featured'];
@@ -169,6 +170,21 @@ class Product extends BaseModel
         return asset($destinationPath . '/' . $value);
     }
 
+    public function getBuyableIdentifier($options = null)
+    {
+        return $this->id;
+    }
+
+    public function getBuyableDescription($options = null)
+    {
+        return $this->name;
+    }
+
+    public function getBuyablePrice($options = null)
+    {
+        return $this->price;
+    }
+
     /*
    |--------------------------------------------------------------------------
    | MUTATORS
@@ -199,6 +215,7 @@ class Product extends BaseModel
     {
         return $query->orderBy('view', 'DESC');
     }
+
     public function scopeMostSelling($query)
     {
         return $query->orderBy('sold', 'DESC');

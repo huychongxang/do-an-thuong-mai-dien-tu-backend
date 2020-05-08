@@ -12,7 +12,7 @@
 */
 
 Route::group([
-    'namespace' => 'Web'
+    'namespace' => 'Web',
 ], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/danh-muc-san-pham', 'ProductCategoryController@index')->name('page.list-product-category');
@@ -23,7 +23,7 @@ Route::group([
 });
 
 Route::group([
-    'namespace' => 'Web'
+    'namespace' => 'Web',
 ], function () {
     Route::post('post-login', 'AuthController@login')->name('login');
     Route::post('post-registration', 'AuthController@register')->name('register');

@@ -77,7 +77,9 @@
                         <!-- /Header search -->
 
                         <!-- Header shopping cart -->
-                    @include('web.includes.header-cart')
+                    @auth
+                        @include('web.includes.header-cart')
+                    @endauth
                     <!-- Header shopping cart -->
                     </article>
 
