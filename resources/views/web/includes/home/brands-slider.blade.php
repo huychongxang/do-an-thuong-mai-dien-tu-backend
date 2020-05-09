@@ -3,11 +3,9 @@
         <div class="title-wrap with-border">
             <h2 class="section-title with-border">
                             <span class="white-bg">
-                                <span class="funky-font blue-tag">Top</span>
-                                <span class="italic-font">Brands</span>
+                                <span class="italic-font">Thương hiệu hàng đầu</span>
                             </span>
             </h2>
-            <h3 class="sub-title">search By Brand & affiliates</h3>
             <hr class="dash-divider">
         </div>
         <div class="brands-slider light-bg default-box-shadow">

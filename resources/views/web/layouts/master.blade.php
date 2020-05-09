@@ -22,15 +22,6 @@
 
     <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
 
-
-    <!-- Newsletter Popup-->
-
-    <!-- / Newsletter -->
-
-    <!-- Preview Popup -->
-@include('web.includes.modal-preview-product')
-<!-- / Preview Popup -->
-
     <!-- Popup: Login Register -->
 @guest
     @include('web.includes.popup-login-register')

@@ -12,14 +12,18 @@
 */
 
 Route::group([
-    'namespace' => 'Web'
+    'namespace' => 'Web',
 ], function () {
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/danh-muc-san-pham', 'ProductCategoryController@index');
+    Route::get('/danh-muc-san-pham', 'ProductCategoryController@index')->name('page.list-product-category');
+    Route::get('/tin-tuc', 'PostController@index')->name('page.posts');
+    Route::get('/tin-tuc/{slug}', 'PostController@show')->name('page.post');
+    Route::get('/san-pham', 'ProductController@index')->name('page.products');
+    Route::get('/san-pham/{sku}', 'ProductController@show')->name('page.product');
 });
 
 Route::group([
-    'namespace' => 'Web'
+    'namespace' => 'Web',
 ], function () {
     Route::post('post-login', 'AuthController@login')->name('login');
     Route::post('post-registration', 'AuthController@register')->name('register');

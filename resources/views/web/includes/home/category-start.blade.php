@@ -7,16 +7,15 @@
                         <div class="title-wrap">
                             <h2 class="section-title">
                                             <span>
-                                                <span class="funky-font pink-tag">Chlid </span>
+                                                <span class="funky-font pink-tag">Child </span>
                                                 <span class="italic-font">Collections</span>
                                             </span>
                             </h2>
-                            <h3 class="sub-title-small">Up to 80% Off</h3>
+                            <h3 class="sub-title-small pink-color">Giảm tới 50%</h3>
                         </div>
                         <hr class="dash-divider">
-                        <h4 class="baby-years pink-color">0 - 5 Years</h4>
                         <div class="category-shop">
-                            <a href="#" class="pink-btn-small btn"> Shop </a>
+                            <a href="{{route('page.products')}}" class="pink-btn-small btn"> Mua ngay </a>
                         </div>
                     </div>
                 </div>
@@ -36,12 +35,11 @@
                                                 <span class="italic-font">Collections</span>
                                             </span>
                             </h2>
-                            <h3 class="sub-title-small">Up to 20% Off</h3>
+                            <h3 class="sub-title-small green-color">Giảm tới 20%</h3>
                         </div>
                         <hr class="dash-divider">
-                        <h4 class="baby-years green-color">0 - 5 Years</h4>
                         <div class="category-shop">
-                            <a href="#" class="green-btn-small btn"> Shop </a>
+                            <a href="{{route('page.products')}}" class="green-btn-small btn"> Mua ngay </a>
                         </div>
                     </div>
                 </div>
@@ -56,12 +54,11 @@
                                                 <span class="italic-font">& Maternity</span>
                                             </span>
                             </h2>
-                            <h3 class="sub-title-small">Up to 40% Off</h3>
+                            <h3 class="sub-title-small blue-color">Giảm giới 40%</h3>
                         </div>
                         <hr class="dash-divider">
-                        <h4 class="baby-years blue-color">0 - 5 Years</h4>
                         <div class="category-shop">
-                            <a href="#" class="blue-btn-small btn"> Shop </a>
+                            <a href="{{route('page.products')}}" class="blue-btn-small btn"> Mua ngay </a>
                         </div>
                     </div>
                 </div>

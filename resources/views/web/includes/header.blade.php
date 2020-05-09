@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Baby Store</title>
-    {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('web/assets/ico/favicon.ico')}}">
@@ -23,7 +23,7 @@
     <link href="{{asset('web/assets/plugins/jquery-ui-1.11.4.custom/jquery-ui.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('web/assets/css/subscribe-better.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('web/assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="{{asset('web/assets/css/mystyle.css')}}">
 
     <!--[if lt IE 9]>
     <script src="{{asset('web/assets/plugins/iesupport/html5shiv.js')}}"></script>
