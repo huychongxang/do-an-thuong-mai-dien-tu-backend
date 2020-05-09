@@ -22,7 +22,7 @@ class SingleProduct extends JsonResource
             'content' => $this->content,
             'image' => $this->image,
             'sub_images' => $this->images,
-            'attributes' => $this->attributes,
+            'attribute_groups' => ProductAttributeGroup::collection($this->attributeGroups->unique()),
             'price' => $this->price,
             'promotion_price' => ($this->processPromotionPrice()) ?? null,
             'type' => $this->getType(),

@@ -31,7 +31,9 @@ class ProductController extends Controller
     public function getById(Request $request, $id)
     {
         try {
-            $product = Product::where('id', $id)->first();
+            $product = Product::with(['attributeGroups.attributeDetails' => function ($q) use ($id) {
+                $q->where('product_id',$id);
+            }])->where('id', $id)->first();
             $resource = SingleProduct::make($product);
             return ApiHelper::api_resource_handle($resource, 200, [
                 'success' => true

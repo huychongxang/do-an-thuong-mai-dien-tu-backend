@@ -31,6 +31,11 @@ class Product extends BaseModel implements Buyable
         return $this->hasMany(ProductAttribute::class, 'product_id', 'id');
     }
 
+    public function attributeGroups()
+    {
+        return $this->belongsToMany(ProductAttributeGroup::class, 'product_attribute', 'product_id', 'attribute_group_id');
+    }
+
     public function promotionPrice()
     {
         return $this->hasOne(ProductPromotion::class, 'product_id', 'id');
