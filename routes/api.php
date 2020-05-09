@@ -24,4 +24,7 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('login/facebook', 'AuthController@loginFacebook');
     Route::post('login/google', 'AuthController@loginGoogle');
+
+    // Product
+    Route::get('products/{id}', 'ProductController@getById');
 });
