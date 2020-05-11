@@ -44,5 +44,13 @@ Route::group([
         Route::post('/update', 'ProfileController@update');
     });
 
+    //Cart
+    Route::group([
+        'prefix' => 'cart',
+        'middleware' => ['auth:api']
+    ], function () {
+        Route::get('/', 'CartController@index');
+    });
+
 
 });
