@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Resources\Api\Category;
+namespace App\Http\Resources\Api\Post;
 
+use App\Http\Resources\Api\Category\CategoriesResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostsResource extends JsonResource
@@ -16,6 +17,7 @@ class PostsResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'link' => route('api.post_detail', $this->id),
             'author' => $this->author,
             'title' => $this->title,
             'slug' => $this->slug,

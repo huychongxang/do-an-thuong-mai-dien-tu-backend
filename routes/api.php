@@ -30,7 +30,9 @@ Route::group([
 
     // Category
     Route::get('categories', 'CategoryController@index');
-    Route::get('/posts/by-category-id/{id}', 'PostController@getPostsByCategoryId')->name('posts_by_category_id');
+
     //Post
+    Route::get('/posts/by-category-id/{id}', 'PostController@getPostsByCategoryId')->name('posts_by_category_id');
+    Route::get('posts/{id}', 'PostController@show')->name('post_detail');
 
 });
