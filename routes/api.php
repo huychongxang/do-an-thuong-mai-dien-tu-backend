@@ -35,4 +35,13 @@ Route::group([
     Route::get('/posts/by-category-id/{id}', 'PostController@getPostsByCategoryId')->name('posts_by_category_id');
     Route::get('posts/{id}', 'PostController@show')->name('post_detail');
 
+    //Profile
+    Route::group([
+        'prefix' => 'profile',
+        'middleware' => ['auth:api']
+    ], function () {
+        Route::get('/', 'ProfileController@index');
+    });
+
+
 });
