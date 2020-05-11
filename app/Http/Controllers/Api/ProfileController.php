@@ -21,4 +21,18 @@ class ProfileController extends Controller
             return ApiHelper::api_status_handle(500, [], false);
         }
     }
+
+    public function update(Request $request)
+    {
+        try {
+            $user = auth('api')->user();
+            $user->update($request->only(['first_name', 'last_name', 'phone', 'address1', 'address2']));
+            $resource = ProfileResource::make($user);
+            return ApiHelper::api_resource_handle($resource, 200, [
+                'success' => true
+            ]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, [], false);
+        }
+    }
 }
