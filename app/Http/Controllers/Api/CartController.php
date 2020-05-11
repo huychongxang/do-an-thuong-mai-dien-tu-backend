@@ -40,10 +40,23 @@ class CartController extends Controller
     {
         try {
             $cart = Cart::class;
+            $content = [];
+            foreach ($cart::content() as $row) {
+                $content[] = [
+                    'row_id' => $row->rowId,
+                    'product_id' => $row->id,
+                    'name' => $row->name,
+                    'qty' => $row->qty,
+                    'price' => $row->price,
+                    'options' => $row->options,
+                    'sub_total' => $row->qty * $row->price,
+                    'image' => $row->model->image
+                ];
+            }
             return ApiHelper::api_status_handle(200, [
                 'sub_total' => $cart::subtotal(),
                 'count' => $cart::count(),
-                'content' => CartContentResource::collection(array_values($cart::content()->toArray()))
+                'content' => $content
             ]);
         } catch (\Exception $e) {
             return ApiHelper::api_status_handle(500, [
