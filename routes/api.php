@@ -17,7 +17,6 @@ Route::group([
     'as' => 'api.',
 ], function () {
     Route::get('/home', 'HomeController@index');
-    Route::get('/products/by-category-id/{id}', 'ProductController@getProductsByCategoryId')->name('by_category_id');
 
     // Login and Register
     Route::post('register', 'AuthController@register');
@@ -27,4 +26,11 @@ Route::group([
 
     // Product
     Route::get('products/{id}', 'ProductController@getById');
+    Route::get('/products/by-category-id/{id}', 'ProductController@getProductsByCategoryId')->name('by_category_id');
+
+    // Category
+    Route::get('categories', 'CategoryController@index');
+    Route::get('/posts/by-category-id/{id}', 'PostController@getPostsByCategoryId')->name('posts_by_category_id');
+    //Post
+
 });
