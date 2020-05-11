@@ -19,6 +19,7 @@ class CheckCart
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
+            request()->session()->forget('cart');
             Cart::restore(\auth()->user()->id);
             if (Cart::count() > 0) {
                 foreach (Cart::content() as $rowId => $row) {
