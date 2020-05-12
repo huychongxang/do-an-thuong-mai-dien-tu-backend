@@ -23,32 +23,25 @@
                                         <ul class="product-thumbnails">
                                             <li data-slide-to="0" data-target="#main-slider">
                                                 <a href="#"><img class="img-responsive" alt="img"
-                                                                 src="assets/img/product/single-thumb1.png"></a></li>
-                                            <li class="active" data-slide-to="1" data-target="#main-slider">
-                                                <a href="#"><img class="img-responsive" alt="img"
-                                                                 src="assets/img/product/single-thumb2.png"></a></li>
-                                            <li data-slide-to="2" data-target="#main-slider">
-                                                <a href="#"><img class="img-responsive" alt="img"
-                                                                 src="assets/img/product/single-thumb3.png"></a></li>
-                                            <li data-slide-to="3" data-target="#main-slider">
-                                                <a href="#"><img class="img-responsive" alt="img"
-                                                                 src="assets/img/product/single-thumb4.png"></a></li>
+                                                                 src="{{$product->image}}"></a></li>
+                                            @foreach($product->images as $key=>$image)
+                                                <li data-slide-to="{{$key+1}}" data-target="#main-slider">
+                                                    <a href="#"><img class="img-responsive" alt="img"
+                                                                     src="{{$image->image}}"></a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                     <div class="col-md-10 col-sm-9  col-xs-9">
                                         <div class="carousel-inner product-fullwidth light-bg slider">
-                                            <div class="item">
-                                                <img src="assets/img/product/single-prod1.png" alt="...">
-                                            </div>
                                             <div class="item active">
-                                                <img src="assets/img/product/single-prod1.png" alt="...">
+                                                <img src="{{$product->image}}" alt="...">
                                             </div>
-                                            <div class="item">
-                                                <img src="assets/img/product/single-prod1.png" alt="...">
-                                            </div>
-                                            <div class="item">
-                                                <img src="assets/img/product/single-prod1.png" alt="...">
-                                            </div>
+                                            @foreach($product->images as $image)
+                                                <div class="item">
+                                                    <img src="{{$image->image}}" alt="...">
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -74,7 +67,7 @@
                                         <li>Available:<strong class="green-color"> <i class="fa fa-check-circle"></i> In
                                                 Stock </strong> |
                                         </li>
-                                        <li>Mã sản phẩm:<strong> #201546 </strong></li>
+                                        <li>Mã sản phẩm:<strong> {{$product->sku}} </strong></li>
                                     </ul>
                                     <hr class="fullwidth-divider">
                                 </div>
@@ -97,10 +90,11 @@
                                                 <select title="Looking to Buy" data-toggle="tooltip" data-width="100%"
                                                         data-live-search="true"
                                                         class="selectpicker input-price bs-select-hidden">
-                                                    <option class="bs-title-option" value="">02</option>
-                                                    <option>03</option>
-                                                    <option>04</option>
-                                                    <option>05</option>
+                                                    <option class="bs-title-option" value="1">1</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -127,16 +121,11 @@
                                     <hr class="fullwidth-divider">
                                 </div>
                                 <div class="product-discription">
-                                    <p>Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat.
-                                        Vestibulum euismd rutrum tincidunt sollicitudin. Maecenas odio ex, congue id
-                                        hendrerit et, sagittis vel arcu. Phasellus nec felis a dolor suscipit
-                                        rhoncus.</p>
+                                    <p>{!! $product->description !!}</p>
                                 </div>
                                 <div class="add-to-cart">
                                     <a class="blue-btn btn" href="#"> <i class="fa fa-shopping-cart white-color"></i>
-                                        Add to Cart</a>
-                                    <a class="btn default-btn" href="#"> <i class="fa fa-heart"></i> </a>
-                                    <a class="btn default-btn" href="#"> <i class="fa fa-eye"></i> </a>
+                                        Thêm vào giỏ hàng</a>
                                 </div>
                             </div>
                         </div>
@@ -158,19 +147,7 @@
                                     <ul role="tablist" class="nav nav-tabs navtab-horizontal">
                                         <li role="presentation" class="active">
                                             <a class="green-background" data-toggle="tab" role="tab" href="#description"
-                                               aria-expanded="true">Description</a>
-                                        </li>
-                                        <li role="presentation">
-                                            <a class="pink-background" data-toggle="tab" role="tab" href="#brand-info"
-                                               aria-expanded="false">Brand Info</a>
-                                        </li>
-                                        <li role="presentation" class="">
-                                            <a data-toggle="tab" class="blue-background" role="tab" href="#faq"
-                                               aria-expanded="false">FAQ</a>
-                                        </li>
-                                        <li role="presentation" class="">
-                                            <a data-toggle="tab" class="golden-background" role="tab" href="#reviews"
-                                               aria-expanded="false">Reviews</a>
+                                               aria-expanded="true">Nội dung</a>
                                         </li>
                                     </ul>
                                     <!-- Tab panes -->
@@ -181,51 +158,12 @@
                                                 <div class="title-wrap">
                                                     <h2 class="section-title">
                                                                 <span>
-                                                                    <span class="funky-font blue-tag">Product</span>
-                                                                    <span class="italic-font">Description</span>
+                                                                    <span class="italic-font">Giới thiệu sản phẩm</span>
                                                                 </span>
                                                     </h2>
                                                 </div>
                                                 <div class="product-disc space-bottom-35">
-                                                    <p>
-                                                        Quisque placerat egestas tempus. Aliquam scelerisque pharetra
-                                                        est, pulvinar scelerisque
-                                                        tortor ullamcorper in. Seuere porta accumsan. Ut elementum
-                                                        libero orci, a tincidunt justo
-                                                        interdum ut. Donec dignissim mollis tellus at tristique. orbi
-                                                        eget urna a purus tristique
-                                                        consequat. Fusce porta malesuada ipsum a condimentum. Vestibulum
-                                                        dapibus, neque inan
-                                                        onsectetur bibendum, erat lectus ullamcorper arcu, vitae
-                                                        venenatis turpis neque sit amet
-                                                        sapien. Ut vel auet diam, et commodo augue. Nam ac orci ornare,
-                                                        imperdiet nibh et,
-                                                        pulvinar dolor. Duis iaculis enim non odio efficitur, tincidunt
-                                                        tristique orci ultricies.
-                                                        Morbi eget velit sed ipsum fermentum mattis venenatis id nibh.
-                                                        Sed a pulvinar Vivamus ac
-                                                        suscipit urna, quis imperdiet nisl.
-                                                    </p>
-                                                    <div class="row circle-list-box">
-                                                        <div class="box-left col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">Key Features</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Made from soft fabric</li>
-                                                                <li>Charming prints and colors</li>
-                                                                <li>Short elasticated sleeves</li>
-                                                                <li>Zip closure give a nice fitting</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="box-right col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">specification</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Brand - Babyhug</li>
-                                                                <li>Type - Frock</li>
-                                                                <li>Sleeves - Short Sleeves</li>
-                                                                <li>Neck - Round</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                                    {!! $product->body !!}
                                                 </div>
                                             </div>
                                         </div>
