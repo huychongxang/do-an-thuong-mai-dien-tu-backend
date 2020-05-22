@@ -89,12 +89,12 @@ class Order extends Model
         return $this->hasMany(OrderDetail::class);
     }
 
-    public function paymentMethods()
+    public function paymentMethod()
     {
         return $this->belongsTo(PaymentMethod::class, 'payment_method');
     }
 
-    public function shippingMethods()
+    public function shippingMethod()
     {
         return $this->belongsTo(ShippingMethod::class, 'shipping_method');
     }
