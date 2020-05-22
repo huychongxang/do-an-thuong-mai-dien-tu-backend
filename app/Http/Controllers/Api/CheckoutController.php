@@ -26,7 +26,7 @@ class CheckoutController extends Controller
         try {
             // Get data
             $user = auth()->user();
-            $payment_method = $request->payment_method ?? 'Trả tiền khi nhận hàng';
+            $payment_method = $request->payment_method;
             $address1 = $request->address1 ?? $user->address1;
             $address2 = $request->address2 ?? $user->address2;
             $phone = $request->phone ?? $user->phone;

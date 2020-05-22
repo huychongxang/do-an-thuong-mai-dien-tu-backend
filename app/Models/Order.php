@@ -88,6 +88,16 @@ class Order extends Model
     {
         return $this->hasMany(OrderDetail::class);
     }
+
+    public function paymentMethods()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'payment_method');
+    }
+
+    public function shippingMethods()
+    {
+        return $this->belongsTo(ShippingMethod::class, 'shipping_method');
+    }
     /*
     |--------------------------------------------------------------------------
     | Mutators
