@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Cart\AddCartRequest;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -91,7 +92,7 @@ class CartController extends Controller
         }
     }
 
-    public function add(Request $request)
+    public function add(AddCartRequest $request)
     {
         try {
             $id = $request->product_id;
