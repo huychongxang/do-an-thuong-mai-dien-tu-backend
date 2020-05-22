@@ -54,5 +54,13 @@ Route::group([
         Route::post('/update', 'CartController@update');
     });
 
+    //Checkout
+    Route::group([
+        'prefix' => 'checkout',
+        'middleware' => ['auth:api']
+    ], function () {
+        Route::post('/', 'CheckoutController@checkout');
+    });
+
 
 });

@@ -19,6 +19,11 @@ class CartController extends Controller
         $this->cart = Cart::class;
     }
 
+    public function getCart()
+    {
+        return $this->cart;
+    }
+
     private function initialCart()
     {
         Cart::restore(auth('api')->user()->id);
