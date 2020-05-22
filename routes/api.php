@@ -62,5 +62,18 @@ Route::group([
         Route::post('/', 'CheckoutController@checkout');
     });
 
+    //Payment Method
+    Route::group([
+        'prefix' => 'payment-methods',
+    ], function () {
+        Route::get('/', 'PaymentMethodController@list');
+    });
+    //Shipping Method
+    Route::group([
+        'prefix' => 'shipping-methods',
+    ], function () {
+        Route::get('/', 'ShippingMethodController@list');
+    });
+
 
 });
