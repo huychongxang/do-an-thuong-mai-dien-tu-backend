@@ -90,4 +90,19 @@ class CartController extends Controller
             ], false);
         }
     }
+
+    public function add(Request $request)
+    {
+        try {
+            $id = $request->product_id;
+            $product = Product::find($id);
+
+            return ApiHelper::api_status_handle(200, [
+            ]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, [
+                'message' => $e->getMessage()
+            ], false);
+        }
+    }
 }

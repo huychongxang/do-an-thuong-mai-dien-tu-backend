@@ -50,6 +50,7 @@ Route::group([
         'middleware' => ['auth:api']
     ], function () {
         Route::get('/', 'CartController@index');
+        Route::post('/add', 'CartController@add');
         Route::post('/update', 'CartController@update');
     });
 
