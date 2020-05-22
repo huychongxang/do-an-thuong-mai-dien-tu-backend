@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Checkout\CheckoutRequest;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\OrderStatus;
@@ -21,12 +22,13 @@ class CheckoutController extends Controller
         $this->cart = (new CartController())->getCart();
     }
 
-    public function checkout(Request $request)
+    public function checkout(CheckoutRequest $request)
     {
         try {
             // Get data
             $user = auth()->user();
             $payment_method = $request->payment_method;
+            $shipping_method = $request->shipping_method;
             $address1 = $request->address1 ?? $user->address1;
             $address2 = $request->address2 ?? $user->address2;
             $phone = $request->phone ?? $user->phone;
@@ -53,7 +55,7 @@ class CheckoutController extends Controller
             $order->email = $email;
             $order->comment = $comment;
             $order->payment_method = $payment_method;
-            $order->shipping_method = 'Giao hàng tiêu chuẩn';
+            $order->shipping_method = $shipping_method;
             $order->balance = $order->total;
             $order->save();
 
