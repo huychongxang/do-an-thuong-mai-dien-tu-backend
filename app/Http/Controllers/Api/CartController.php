@@ -95,7 +95,18 @@ class CartController extends Controller
     {
         try {
             $id = $request->product_id;
+            $qty = $request->qty ?: 1;
             $product = Product::find($id);
+            $options = $request->options;
+
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
+                'qty' => $qty,
+                'price' => $product->getFinalPrice(),
+                'options' => $options,
+            ])->associate(Product::class);
+            Cart::store(auth()->user()->id);
 
             return ApiHelper::api_status_handle(200, [
             ]);
