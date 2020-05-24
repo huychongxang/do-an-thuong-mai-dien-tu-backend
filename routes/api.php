@@ -74,6 +74,13 @@ Route::group([
     ], function () {
         Route::get('/', 'ShippingMethodController@list');
     });
+    //Orders
+    Route::group([
+        'prefix' => 'orders',
+        'middleware' => ['auth:api']
+    ], function () {
+        Route::get('/', 'OrderController@list');
+    });
 
 
 });
