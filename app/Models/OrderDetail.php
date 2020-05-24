@@ -25,4 +25,23 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Functions
+    |--------------------------------------------------------------------------
+    */
+
+    public function getAttributeFormat()
+    {
+        $attribute = $this->getOriginal('attribute');
+        $attribute = json_decode($attribute);
+        if (gettype($attribute) == 'array') return null;
+        $newOptions = [];
+        foreach ($attribute as $idGroupAttribute => $value) {
+            $code = ProductAttributeGroup::where('id', $idGroupAttribute)->first()->code;
+            $newOptions[$code] = $value;
+        }
+        return $newOptions;
+    }
 }

@@ -80,6 +80,7 @@ Route::group([
         'middleware' => ['auth:api']
     ], function () {
         Route::get('/', 'OrderController@list');
+        Route::get('/{id}', 'OrderController@detail');
     });
 
 
