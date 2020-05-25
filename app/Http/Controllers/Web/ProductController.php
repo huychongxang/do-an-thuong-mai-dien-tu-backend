@@ -21,9 +21,15 @@ class ProductController extends Controller
         $product->load(['attributeGroups.attributeDetails' => function ($q) use ($product) {
             $q->where('product_id', $product->id);
         }]);
-        $resource = SingleProduct::make($product);
-        return $resource;
-        return view('web.pages.product.single-product', compact('product'));
+
+        $categoryIds = $product->categories->map(function ($object) {
+            return $object->pivot->category_id;
+        })->toArray();
+
+        $relatedProducts = Product::whereHas('categories', function ($q) use ($categoryIds) {
+            $q->whereIn('category_id', $categoryIds);
+        })->with('categories')->where('id','!=',$product->id)->get();
+        return view('web.pages.product.single-product', compact('product', 'relatedProducts'));
     }
 
     public function addToCart(Request $request)
