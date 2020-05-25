@@ -21,6 +21,8 @@ class ProductController extends Controller
         $product->load(['attributeGroups.attributeDetails' => function ($q) use ($product) {
             $q->where('product_id', $product->id);
         }]);
+        $resource = SingleProduct::make($product);
+        return $resource;
         return view('web.pages.product.single-product', compact('product'));
     }
 
