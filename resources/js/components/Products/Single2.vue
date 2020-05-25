@@ -45,13 +45,7 @@
                     </div>
                     <div class="product-discription">
                         <p>
-                            Vivamus porttitor elit vitae sapien auctor, id
-                            elementum felis volutpat. Vestibulum euismd rutrum
-                            tincidunt sollicitudin. Maecenas odio ex, congue id
-                            hendrerit et, sagittis vel arcu. Phasellus nec felis
-                            a dolor suscipit rhoncus. Vivamus porttitor elit
-                            vitae sapien auctor, id elementum felis volutpat.
-                            Vestibulum euismod.
+                            {{product.description}}
                         </p>
                     </div>
                     <div class="add-to-cart">

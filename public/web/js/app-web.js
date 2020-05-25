@@ -3091,12 +3091,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     product: Object
@@ -21405,27 +21399,23 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "product-discription" }, [
+            _c("p", [
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.product.description) +
+                  "\n                    "
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-discription" }, [
-      _c("p", [
-        _vm._v(
-          "\n                        Vivamus porttitor elit vitae sapien auctor, id\n                        elementum felis volutpat. Vestibulum euismd rutrum\n                        tincidunt sollicitudin. Maecenas odio ex, congue id\n                        hendrerit et, sagittis vel arcu. Phasellus nec felis\n                        a dolor suscipit rhoncus. Vivamus porttitor elit\n                        vitae sapien auctor, id elementum felis volutpat.\n                        Vestibulum euismod.\n                    "
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

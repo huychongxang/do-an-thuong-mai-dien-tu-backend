@@ -23,7 +23,8 @@ class ListProduct extends JsonResource
             'price_format'=>number_format($this->price) .' VNĐ',
             'promotion_price' => $this->promotionPrice->price_promotion ?? null,
             'promotion_price_format' => ($this->promotionPrice) ? number_format($this->promotionPrice->price_promotion) . ' VNĐ': null,
-            'type'=>$this->getType()
+            'type'=>$this->getType(),
+            'description'=>$this->description,
         ];
     }
 }
