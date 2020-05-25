@@ -64,9 +64,13 @@
                                 </div>
                                 <div class="product-availability">
                                     <ul class="stock-detail">
-                                        <li>Available:<strong class="green-color"> <i class="fa fa-check-circle"></i> In
-                                                Stock </strong> |
-                                        </li>
+                                        @if($product->isInStock())
+                                            <li>Available:<strong class="green-color"> <i
+                                                        class="fa fa-check-circle"></i> In
+                                                    Stock </strong> |
+                                            </li>
+                                        @endif
+
                                         <li>Mã sản phẩm:<strong> {{$product->sku}} </strong></li>
                                     </ul>
                                     <hr class="fullwidth-divider">
@@ -123,10 +127,13 @@
                                 <div class="product-discription">
                                     <p>{!! $product->description !!}</p>
                                 </div>
-                                <div class="add-to-cart">
-                                    <a class="blue-btn btn" href="#"> <i class="fa fa-shopping-cart white-color"></i>
-                                        Thêm vào giỏ hàng</a>
-                                </div>
+                                @if($product->isInStock())
+                                    <div class="add-to-cart">
+                                        <a class="blue-btn btn" href="#"> <i
+                                                class="fa fa-shopping-cart white-color"></i>
+                                            Thêm vào giỏ hàng</a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -164,168 +171,6 @@
                                                 </div>
                                                 <div class="product-disc space-bottom-35">
                                                     {!! $product->body !!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- ====================== Brand Info ======================== -->
-                                        <div id="brand-info" class="tab-pane fade" role="tabpanel">
-                                            <div class="col-md-12 product-wrap">
-                                                <div class="title-wrap">
-                                                    <h2 class="section-title">
-                                                                <span>
-                                                                    <span class="funky-font blue-tag">Product</span>
-                                                                    <span class="italic-font">Brand</span>
-                                                                </span>
-                                                    </h2>
-                                                </div>
-                                                <div class="product-disc space-bottom-35">
-                                                    <p>
-                                                        Quisque placerat egestas tempus. Aliquam scelerisque pharetra
-                                                        est, pulvinar scelerisque
-                                                        tortor ullamcorper in. Seuere porta accumsan. Ut elementum
-                                                        libero orci, a tincidunt justo
-                                                        interdum ut. Donec dignissim mollis tellus at tristique. orbi
-                                                        eget urna a purus tristique
-                                                        consequat. Fusce porta malesuada ipsum a condimentum. Vestibulum
-                                                        dapibus, neque inan
-                                                        onsectetur bibendum, erat lectus ullamcorper arcu, vitae
-                                                        venenatis turpis neque sit amet
-                                                        sapien. Ut vel auet diam, et commodo augue. Nam ac orci ornare,
-                                                        imperdiet nibh et,
-                                                        pulvinar dolor. Duis iaculis enim non odio efficitur, tincidunt
-                                                        tristique orci ultricies.
-                                                        Morbi eget velit sed ipsum fermentum mattis venenatis id nibh.
-                                                        Sed a pulvinar Vivamus ac
-                                                        suscipit urna, quis imperdiet nisl.
-                                                    </p>
-                                                    <div class="row circle-list-box">
-                                                        <div class="box-left col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">Key Features</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Made from soft fabric</li>
-                                                                <li>Charming prints and colors</li>
-                                                                <li>Short elasticated sleeves</li>
-                                                                <li>Zip closure give a nice fitting</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="box-right col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">specification</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Brand - Babyhug</li>
-                                                                <li>Type - Frock</li>
-                                                                <li>Sleeves - Short Sleeves</li>
-                                                                <li>Neck - Round</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- ====================== FAQ ======================== -->
-                                        <div id="faq" class="tab-pane fade" role="tabpanel">
-                                            <div class="col-md-12 product-wrap">
-                                                <div class="title-wrap">
-                                                    <h2 class="section-title">
-                                                                <span>
-                                                                    <span class="funky-font blue-tag">Product</span>
-                                                                    <span class="italic-font">FAQ</span>
-                                                                </span>
-                                                    </h2>
-                                                </div>
-                                                <div class="product-disc space-bottom-35">
-                                                    <p>
-                                                        Quisque placerat egestas tempus. Aliquam scelerisque pharetra
-                                                        est, pulvinar scelerisque
-                                                        tortor ullamcorper in. Seuere porta accumsan. Ut elementum
-                                                        libero orci, a tincidunt justo
-                                                        interdum ut. Donec dignissim mollis tellus at tristique. orbi
-                                                        eget urna a purus tristique
-                                                        consequat. Fusce porta malesuada ipsum a condimentum. Vestibulum
-                                                        dapibus, neque inan
-                                                        onsectetur bibendum, erat lectus ullamcorper arcu, vitae
-                                                        venenatis turpis neque sit amet
-                                                        sapien. Ut vel auet diam, et commodo augue. Nam ac orci ornare,
-                                                        imperdiet nibh et,
-                                                        pulvinar dolor. Duis iaculis enim non odio efficitur, tincidunt
-                                                        tristique orci ultricies.
-                                                        Morbi eget velit sed ipsum fermentum mattis venenatis id nibh.
-                                                        Sed a pulvinar Vivamus ac
-                                                        suscipit urna, quis imperdiet nisl.
-                                                    </p>
-                                                    <div class="row circle-list-box">
-                                                        <div class="box-left col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">Key Features</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Made from soft fabric</li>
-                                                                <li>Charming prints and colors</li>
-                                                                <li>Short elasticated sleeves</li>
-                                                                <li>Zip closure give a nice fitting</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="box-right col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">specification</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Brand - Babyhug</li>
-                                                                <li>Type - Frock</li>
-                                                                <li>Sleeves - Short Sleeves</li>
-                                                                <li>Neck - Round</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- ====================== Reviews ======================== -->
-                                        <div id="reviews" class="tab-pane fade" role="tabpanel">
-                                            <div class="col-md-12 product-wrap">
-                                                <div class="title-wrap">
-                                                    <h2 class="section-title">
-                                                                <span>
-                                                                    <span class="funky-font blue-tag">Product</span>
-                                                                    <span class="italic-font">Reviews</span>
-                                                                </span>
-                                                    </h2>
-                                                </div>
-                                                <div class="product-disc space-bottom-35">
-                                                    <p>
-                                                        Quisque placerat egestas tempus. Aliquam scelerisque pharetra
-                                                        est, pulvinar scelerisque
-                                                        tortor ullamcorper in. Seuere porta accumsan. Ut elementum
-                                                        libero orci, a tincidunt justo
-                                                        interdum ut. Donec dignissim mollis tellus at tristique. orbi
-                                                        eget urna a purus tristique
-                                                        consequat. Fusce porta malesuada ipsum a condimentum. Vestibulum
-                                                        dapibus, neque inan
-                                                        onsectetur bibendum, erat lectus ullamcorper arcu, vitae
-                                                        venenatis turpis neque sit amet
-                                                        sapien. Ut vel auet diam, et commodo augue. Nam ac orci ornare,
-                                                        imperdiet nibh et,
-                                                        pulvinar dolor. Duis iaculis enim non odio efficitur, tincidunt
-                                                        tristique orci ultricies.
-                                                        Morbi eget velit sed ipsum fermentum mattis venenatis id nibh.
-                                                        Sed a pulvinar Vivamus ac
-                                                        suscipit urna, quis imperdiet nisl.
-                                                    </p>
-                                                    <div class="row circle-list-box">
-                                                        <div class="box-left col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">Key Features</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Made from soft fabric</li>
-                                                                <li>Charming prints and colors</li>
-                                                                <li>Short elasticated sleeves</li>
-                                                                <li>Zip closure give a nice fitting</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="box-right col-md-6 col-sm-6">
-                                                            <h2 class="title-2 sub-title-small">specification</h2>
-                                                            <ul class="circle-list">
-                                                                <li> Brand - Babyhug</li>
-                                                                <li>Type - Frock</li>
-                                                                <li>Sleeves - Short Sleeves</li>
-                                                                <li>Neck - Round</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

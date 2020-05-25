@@ -15,7 +15,8 @@ class ProductController extends Controller
 
     public function show($sku)
     {
-        $product = Product::where('sku', $sku)->first();
+        $product = Product::where('sku', $sku)->with(['attributes'])->first();
+        return $product;
         return view('web.pages.product.single-product', compact('product'));
     }
 }

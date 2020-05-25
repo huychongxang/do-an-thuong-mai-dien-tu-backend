@@ -154,6 +154,10 @@ class Product extends BaseModel implements Buyable
         return optional($this->images->first())->image;
     }
 
+    public function isInStock(){
+        return $this->stock > 0;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACCESORS
