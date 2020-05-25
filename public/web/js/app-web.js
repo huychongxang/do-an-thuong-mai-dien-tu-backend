@@ -2930,6 +2930,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      currentLimit: 10
+    };
+  },
   components: {
     Single1: _components_Products_Single1__WEBPACK_IMPORTED_MODULE_0__["default"],
     Single2: _components_Products_Single2__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2950,9 +2955,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     lastPage: function lastPage() {
       return this.$store.state.product.paginate.last_page;
-    },
-    currentLimit: function currentLimit() {
-      return this.$store.state.product.limit;
     }
   },
   methods: {

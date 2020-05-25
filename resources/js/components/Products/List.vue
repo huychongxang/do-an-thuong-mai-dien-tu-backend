@@ -174,6 +174,11 @@ import Single1 from "@/components/Products/Single1";
 import Single2 from "@/components/Products/Single2";
 import FooterPaginate from "@/components/Products/Paginate/FooterPaginate";
 export default {
+    data() {
+        return {
+            currentLimit: 10
+        };
+    },
     components: {
         Single1,
         Single2,
@@ -194,9 +199,6 @@ export default {
         },
         lastPage() {
             return this.$store.state.product.paginate.last_page;
-        },
-        currentLimit() {
-            return this.$store.state.product.limit;
         }
     },
     methods: {
