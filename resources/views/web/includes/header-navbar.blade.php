@@ -98,7 +98,7 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="{{route('home')}}">Trang chủ</a></li>
                                     <li><a href="{{route('page.list-product-category')}}">Danh mục sản phẩm</a></li>
-                                    <li><a href="{{route('page.list-product-category')}}">Sản phẩm</a></li>
+                                    <li><a href="{{route('page.products')}}">Sản phẩm</a></li>
                                     <li><a href="{{route('page.list-product-category')}}">Tin tức</a></li>
                                     <li><a href="{{route('page.list-product-category')}}">Về chúng tôi</a></li>
                                 </ul>

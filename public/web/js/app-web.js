@@ -1899,46 +1899,847 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ConditionComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Products/ConditionComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+/***/ }),
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/List.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Products/List.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ProductsComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Products/ProductsComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Products_ConditionComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/Products/ConditionComponent */ "./resources/js/components/Products/ConditionComponent.vue");
+/* harmony import */ var _components_Products_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Products/List */ "./resources/js/components/Products/List.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'ExampleComponent',
-  data: function data() {
-    return {};
-  },
-  methods: {
-    handler: function handler() {
-      this.$store.dispatch('cart/increment');
-    }
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['cart']), {
-    count: function count() {
-      return this.$store.cart.count;
-    }
-  }),
-  created: function created() {
-    console.log(this.$store.getters['cart/a']);
+  name: "ProductsComponent",
+  components: {
+    Condition: _components_Products_ConditionComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ListProduct: _components_Products_List__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -19617,10 +20418,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ConditionComponent.vue?vue&type=template&id=00c4eb32&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Products/ConditionComponent.vue?vue&type=template&id=00c4eb32& ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19632,10 +20433,1993 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v(_vm._s(_vm.cart.count))]),
-    _vm._v(" "),
-    _c("button", { on: { click: _vm.handler } }, [_vm._v("Click here")])
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("aside", { staticClass: "col-md-3 col-sm-4" }, [
+      _c("div", { staticClass: "sidebar-widget light-bg default-box-shadow" }, [
+        _c("h4", { staticClass: "widget-title green-bg" }, [
+          _c("span", [_vm._v(" CATEGORIES ")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "widget-content" }, [
+          _c("ul", { attrs: { id: "green-scroll" } }, [
+            _c("li", [
+              _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", { attrs: { type: "checkbox", value: "" } }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Ethnic Wear")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("(496)")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", {
+                  attrs: { type: "checkbox", value: "", checked: "" }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Sets & Suits ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("(1740)")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", { attrs: { type: "checkbox", value: "" } }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Socks & Tights ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(" (589) ")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", {
+                  attrs: { type: "checkbox", value: "", checked: "" }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Party Wear ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(" (841) ")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", { attrs: { type: "checkbox", value: "" } }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Rainwear ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(" (118) ")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", { attrs: { type: "checkbox", value: "" } }),
+                _vm._v(" "),
+                _c("span", [_vm._v(" Nightwear  ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("(1389)")])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sidebar-widget light-bg default-box-shadow" }, [
+        _c("h4", { staticClass: "widget-title blue-bg" }, [
+          _c("span", [_vm._v(" By Price")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "widget-content" }, [
+          _c("div", {
+            staticClass: "slider-range",
+            attrs: { id: "slider-range" }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "amount" } }, [_vm._v("Price")]),
+          _vm._v(" "),
+          _c("input", { attrs: { type: "text", id: "amount", readonly: "" } })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/List.vue?vue&type=template&id=c8ecdca4&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Products/List.vue?vue&type=template&id=c8ecdca4& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("aside", { staticClass: "col-md-9 col-sm-8" }, [
+      _c(
+        "section",
+        { staticClass: "space-bottom-45", attrs: { id: "product-category" } },
+        [
+          _c("div", { staticClass: "light-bg margin-30 sorter" }, [
+            _c("div", { staticClass: "col-md-6 col-sm-12" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "view-as col-md-5 col-sm-4" }, [
+                  _c("span", [_vm._v("View as:")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "inline-block" }, [
+                    _c("ul", { staticClass: "nav-tabs tabination" }, [
+                      _c("li", [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              "data-toggle": "tab",
+                              href: "#grid-view",
+                              "aria-expanded": "true"
+                            }
+                          },
+                          [_c("i", { staticClass: "fa fa-th-large" })]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "active" }, [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              "data-toggle": "tab",
+                              href: "#list-view",
+                              "aria-expanded": "false"
+                            }
+                          },
+                          [_c("i", { staticClass: "fa fa-th-list" })]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "sort-by col-md-7 col-sm-8 no-padding" },
+                  [
+                    _c("span", [_vm._v("Sort By:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "inline-block" }, [
+                      _c("form", { staticClass: "filter-form" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group selectpicker-wrapper" },
+                          [
+                            _c(
+                              "select",
+                              {
+                                staticClass: "selectpicker input-price",
+                                attrs: {
+                                  "data-live-search": "true",
+                                  "data-width": "100%",
+                                  "data-toggle": "tooltip",
+                                  title: "Best Sellers"
+                                }
+                              },
+                              [
+                                _c("option", [_vm._v("Most Popular")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("Latest Items")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("Best Sellers")])
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6 col-sm-12" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "show-as col-md-4 col-sm-4 no-padding text-right"
+                  },
+                  [
+                    _c("span", [_vm._v("Show:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "inline-block" }, [
+                      _c("form", { staticClass: "filter-form" }, [
+                        _c(
+                          "div",
+                          { staticClass: "form-group selectpicker-wrapper" },
+                          [
+                            _c(
+                              "select",
+                              {
+                                staticClass: "selectpicker input-price",
+                                attrs: {
+                                  "data-live-search": "true",
+                                  "data-width": "100%",
+                                  "data-toggle": "tooltip",
+                                  title: "16"
+                                }
+                              },
+                              [
+                                _c("option", [_vm._v("20")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("24")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("All")])
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "page-by col-md-8 col-sm-8 text-right" },
+                  [
+                    _c("span", [_vm._v("Page:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "inline-block" }, [
+                      _c("div", { staticClass: "pagination-wrapper" }, [
+                        _c("ul", { staticClass: "pagination-list" }, [
+                          _c("li", [
+                            _c("a", { attrs: { href: "#" } }, [_vm._v(" 1 ")])
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("a", { attrs: { href: "#" } }, [_vm._v(" 2 ")])
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "active" }, [_vm._v(" 3 ")]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("a", { attrs: { href: "#" } }, [_vm._v(" 4 ")])
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("a", { attrs: { href: "#" } }, [_vm._v(" 5 ")])
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "nxt" }, [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c("i", { staticClass: "fa fa-angle-right" })
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tab-content" }, [
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade",
+                attrs: { id: "grid-view", role: "tabpanel" }
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-1.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-new" }, [
+                          _c("div", { staticClass: "blue-new-tag new-tag" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "funky-font",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("New")]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Noddy Hooded Sweatshirt Full Sleeves")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-2.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Babyhug Layer Pattern Skirt")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-3.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Peppermint Layered Party Wear Frock")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-4.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Little Darling Multi Layer Party Frock")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-5.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-new" }, [
+                          _c("div", { staticClass: "blue-new-tag new-tag" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "funky-font",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("New")]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Babyhug Sleeveless Party Dress Pearl")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-6.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Noddy Hooded Sweatshirt Full Sleeves")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-7.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Babyhug Singlet Party Frock Flower")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-8.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Babyhug Frock Style Top And Leggings")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-9.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-new" }, [
+                          _c("div", { staticClass: "blue-new-tag new-tag" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "funky-font",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("New")]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Little Kangaroos Full Sleeves Sweatshirt")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-10.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Noddy Hooded Shirt - Dark Navy Blue")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-11.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Best SellerNoddy Full Sleeves")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4  col-sm-6 clear-box" }, [
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            alt: "product-img",
+                            src: "assets/img/product/cat-12.png"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-overlay" }, [
+                          _c("a", {
+                            staticClass:
+                              "addcart blue-background fa fa-shopping-cart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass:
+                              "likeitem green-background fa fa-heart",
+                            attrs: { href: "#" }
+                          }),
+                          _vm._v(" "),
+                          _c("a", {
+                            staticClass: "preview pink-background fa fa-eye",
+                            attrs: {
+                              href: "#product-preview",
+                              "data-toggle": "modal"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("p", [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Babyhug Singlet Frock Rose")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade  active in",
+                attrs: { id: "list-view", role: "tabpanel" }
+              },
+              [
+                _c("div", { staticClass: "list-category-details" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: "assets/img/product/cat-1.png",
+                            alt: "product-img"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-new" }, [
+                          _c("div", { staticClass: "blue-new-tag new-tag" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "funky-font",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("New")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "product-review" }, [
+                            _c("ul", [
+                              _c("li", [_vm._v("03 Review ")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(" | "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v(" Add Your Review ")
+                                ])
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Noddy Hooded Sweatshirt Full Sleeves")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-discription" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismd  rutrum tincidunt sollicitudin. Maecenas odio ex, congue id hendrerit et, sagittis vel arcu. Phasellus nec felis a dolor suscipit rhoncus. Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismod."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "add-to-cart" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "blue-btn btn",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-shopping-cart white-color"
+                              }),
+                              _vm._v(" Add to Cart")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-heart" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-eye" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "list-category-details" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: "assets/img/product/cat-2.png",
+                            alt: "product-img"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "product-review" }, [
+                            _c("ul", [
+                              _c("li", [_vm._v("03 Review ")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(" | "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v(" Add Your Review ")
+                                ])
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Babyhug Layer Pattern Skirt")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-discription" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismd  rutrum tincidunt sollicitudin. Maecenas odio ex, congue id hendrerit et, sagittis vel arcu. Phasellus nec felis a dolor suscipit rhoncus. Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismod."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "add-to-cart" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "blue-btn btn",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-shopping-cart white-color"
+                              }),
+                              _vm._v(" Add to Cart")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-heart" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-eye" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "list-category-details" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: "assets/img/product/cat-3.png",
+                            alt: "product-img"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-new" }, [
+                          _c("div", { staticClass: "blue-new-tag new-tag" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "funky-font",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("New")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "product-review" }, [
+                            _c("ul", [
+                              _c("li", [_vm._v("03 Review ")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(" | "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v(" Add Your Review ")
+                                ])
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Peppermint Layered Party Wear Frock")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-discription" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismd  rutrum tincidunt sollicitudin. Maecenas odio ex, congue id hendrerit et, sagittis vel arcu. Phasellus nec felis a dolor suscipit rhoncus. Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismod."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "add-to-cart" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "blue-btn btn",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-shopping-cart white-color"
+                              }),
+                              _vm._v(" Add to Cart")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-heart" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-eye" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "list-category-details" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: "assets/img/product/cat-4.png",
+                            alt: "product-img"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "product-review" }, [
+                            _c("ul", [
+                              _c("li", [_vm._v("03 Review ")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(" | "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v(" Add Your Review ")
+                                ])
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Little Darling Multi Layer Party Frock")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-discription" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismd  rutrum tincidunt sollicitudin. Maecenas odio ex, congue id hendrerit et, sagittis vel arcu. Phasellus nec felis a dolor suscipit rhoncus. Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismod."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "add-to-cart" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "blue-btn btn",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-shopping-cart white-color"
+                              }),
+                              _vm._v(" Add to Cart")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-heart" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-eye" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "list-category-details" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: "assets/img/product/cat-5.png",
+                            alt: "product-img"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "product-review" }, [
+                            _c("ul", [
+                              _c("li", [_vm._v("03 Review ")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(" | "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v(" Add Your Review ")
+                                ])
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Babyhug Sleeveless Party Dress Pearl")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-discription" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismd  rutrum tincidunt sollicitudin. Maecenas odio ex, congue id hendrerit et, sagittis vel arcu. Phasellus nec felis a dolor suscipit rhoncus. Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismod."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "add-to-cart" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "blue-btn btn",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-shopping-cart white-color"
+                              }),
+                              _vm._v(" Add to Cart")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-heart" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-eye" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "list-category-details" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("div", { staticClass: "product-media light-bg" }, [
+                        _c("span", { staticClass: "hover-image light-bg" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/img/product/cat-7.png",
+                              alt: ""
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: "assets/img/product/cat-6.png",
+                            alt: "product-img"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-new" }, [
+                          _c("div", { staticClass: "blue-new-tag new-tag" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "funky-font",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("New")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "product-content" }, [
+                        _c("div", { staticClass: "rating" }, [
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star active" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star half" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "star" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "product-review" }, [
+                            _c("ul", [
+                              _c("li", [_vm._v("03 Review ")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(" | "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v(" Add Your Review ")
+                                ])
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-name" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Noddy Hooded Sweatshirt Full Sleeves")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-price" }, [
+                          _c("h4", { staticClass: "pink-btn-small" }, [
+                            _vm._v(" $50.00 ")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product-discription" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismd  rutrum tincidunt sollicitudin. Maecenas odio ex, congue id hendrerit et, sagittis vel arcu. Phasellus nec felis a dolor suscipit rhoncus. Vivamus porttitor elit vitae sapien auctor, id elementum felis volutpat. Vestibulum euismod."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "add-to-cart" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "blue-btn btn",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-shopping-cart white-color"
+                              }),
+                              _vm._v(" Add to Cart")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-heart" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default-btn",
+                              attrs: { href: "#" }
+                            },
+                            [_c("i", { staticClass: "fa fa-eye" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "light-bg sorter" }, [
+            _c("div", { staticClass: "col-md-6 col-sm-12 show-items" }, [
+              _c("span", [_vm._v("Showing Items : 12 to 24 total 152")])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-md-6 col-sm-12 bottom-pagination text-right"
+              },
+              [
+                _c("div", { staticClass: "inline-block" }, [
+                  _c("div", { staticClass: "pagination-wrapper" }, [
+                    _c("ul", { staticClass: "pagination-list" }, [
+                      _c("li", { staticClass: "prev" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "fa fa-angle-left" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v(" 1 ")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v(" 2 ")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "active" }, [_vm._v(" 3 ")]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v(" 4 ")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v(" 5 ")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nxt" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "fa fa-angle-right" })
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Products/ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("article", { staticClass: "container theme-container" }, [
+    _c("section", { staticClass: "product-category" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [_c("Condition"), _vm._v(" "), _c("ListProduct")],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -32901,39 +35685,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js sync recursive \\.vue$/":
-/*!***********************************!*\
-  !*** ./resources/js sync \.vue$/ ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/js sync recursive \\.vue$/";
-
-/***/ }),
-
 /***/ "./resources/js/app-web.js":
 /*!*********************************!*\
   !*** ./resources/js/app-web.js ***!
@@ -32947,13 +35698,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap-web */ "./resources/js/bootstrap-web.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+ // const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-
-var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
-
-files.keys().map(function (key) {
-  return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
-});
+Vue.component('products-component', __webpack_require__(/*! @/components/Products/ProductsComponent */ "./resources/js/components/Products/ProductsComponent.vue")["default"]);
 var app = new Vue({
   el: '#app',
   store: _store_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -33000,18 +35748,18 @@ window.axios.defaults.withCredentials = true;
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue ***!
-  \******************************************************/
+/***/ "./resources/js/components/Products/ConditionComponent.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/Products/ConditionComponent.vue ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-/* harmony import */ var _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ConditionComponent_vue_vue_type_template_id_00c4eb32___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConditionComponent.vue?vue&type=template&id=00c4eb32& */ "./resources/js/components/Products/ConditionComponent.vue?vue&type=template&id=00c4eb32&");
+/* harmony import */ var _ConditionComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConditionComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Products/ConditionComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -33020,9 +35768,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ConditionComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConditionComponent_vue_vue_type_template_id_00c4eb32___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConditionComponent_vue_vue_type_template_id_00c4eb32___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -33032,38 +35780,176 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/ExampleComponent.vue"
+component.options.__file = "resources/js/components/Products/ConditionComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/Products/ConditionComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Products/ConditionComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConditionComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConditionComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ConditionComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConditionComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/Products/ConditionComponent.vue?vue&type=template&id=00c4eb32&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/Products/ConditionComponent.vue?vue&type=template&id=00c4eb32& ***!
+  \************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConditionComponent_vue_vue_type_template_id_00c4eb32___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConditionComponent.vue?vue&type=template&id=00c4eb32& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ConditionComponent.vue?vue&type=template&id=00c4eb32&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConditionComponent_vue_vue_type_template_id_00c4eb32___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConditionComponent_vue_vue_type_template_id_00c4eb32___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Products/List.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Products/List.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _List_vue_vue_type_template_id_c8ecdca4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List.vue?vue&type=template&id=c8ecdca4& */ "./resources/js/components/Products/List.vue?vue&type=template&id=c8ecdca4&");
+/* harmony import */ var _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./List.vue?vue&type=script&lang=js& */ "./resources/js/components/Products/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _List_vue_vue_type_template_id_c8ecdca4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _List_vue_vue_type_template_id_c8ecdca4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Products/List.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Products/List.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/Products/List.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Products/List.vue?vue&type=template&id=c8ecdca4&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Products/List.vue?vue&type=template&id=c8ecdca4& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_c8ecdca4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=template&id=c8ecdca4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/List.vue?vue&type=template&id=c8ecdca4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_c8ecdca4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_c8ecdca4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Products/ProductsComponent.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/Products/ProductsComponent.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ProductsComponent_vue_vue_type_template_id_5d28bf99_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true& */ "./resources/js/components/Products/ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true&");
+/* harmony import */ var _ProductsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Products/ProductsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProductsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProductsComponent_vue_vue_type_template_id_5d28bf99_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProductsComponent_vue_vue_type_template_id_5d28bf99_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5d28bf99",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Products/ProductsComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Products/ProductsComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/Products/ProductsComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ProductsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Products/ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/Products/ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true& ***!
+  \***********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductsComponent_vue_vue_type_template_id_5d28bf99_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Products/ProductsComponent.vue?vue&type=template&id=5d28bf99&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductsComponent_vue_vue_type_template_id_5d28bf99_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductsComponent_vue_vue_type_template_id_5d28bf99_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -33203,7 +36089,7 @@ var actions = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\laragon\www\doan.personal\resources\js\app-web.js */"./resources/js/app-web.js");
+module.exports = __webpack_require__(/*! E:\laragon\www\doan.personal\resources\js\app-web.js */"./resources/js/app-web.js");
 
 
 /***/ })
