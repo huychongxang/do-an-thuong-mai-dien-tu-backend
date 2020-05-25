@@ -78,20 +78,28 @@
                                 <div class="product-size">
                                     <form class="product-form">
                                         <div class="row">
-                                            <div class="form-group selectpicker-wrapper">
-                                                <label>SIZE</label>
-                                                <select title="Looking to Buy" data-toggle="tooltip" data-width="100%"
-                                                        data-live-search="true"
-                                                        class="selectpicker input-price bs-select-hidden">
-                                                    <option class="bs-title-option" value="">2 - 4 Years</option>
-                                                    <option>4 - 6 Years</option>
-                                                    <option>6 - 8 Years</option>
-                                                    <option>8 - 10 Years</option>
-                                                </select>
-                                            </div>
+                                            @foreach($product->attributeGroups->unique() as $index=>$attribute)
+                                                <div class="form-group selectpicker-wrapper">
+                                                    <label>{{$attribute->name}}</label>
+                                                    <select title="Looking to Buy" data-toggle="tooltip"
+                                                            data-width="100%"
+                                                            data-live-search="true"
+                                                            class="selectpicker input-price bs-select-hidden">
+                                                        @foreach($attribute->attributeDetails as $key=>$detail)
+                                                            @if($key == 0)
+                                                                <option class="bs-title-option" value="{{$detail->value}}">{{$detail->value}}</option>
+                                                            @endif
+                                                            <option
+                                                                value="{{$detail->value}}">{{$detail->value}}</option>
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                            @endforeach
                                             <div class="form-group selectpicker-wrapper">
                                                 <label>QTY</label>
-                                                <select title="Looking to Buy" data-toggle="tooltip" data-width="100%"
+                                                <select name="qty" title="Looking to Buy" data-toggle="tooltip"
+                                                        data-width="100%"
                                                         data-live-search="true"
                                                         class="selectpicker input-price bs-select-hidden">
                                                     <option class="bs-title-option" value="1">1</option>
@@ -103,25 +111,6 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <div class="widget-colors">
-                                        <span>Colors:</span>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="brown">
-                                            <span></span></label>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="light">
-                                            <span></span></label>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="dark">
-                                            <span></span></label>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="orange">
-                                            <span></span></label>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="blue">
-                                            <span></span></label>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="yellow">
-                                            <span></span></label>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="green">
-                                            <span></span></label>
-                                        <label class="rcheckbox-inline"><input type="checkbox" value="" id="white">
-                                            <span></span></label>
-                                    </div>
                                     <hr class="fullwidth-divider">
                                 </div>
                                 <div class="product-discription">
