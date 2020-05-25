@@ -96,11 +96,11 @@
                                     </tr>
                                     <tr>
                                         <td>Vận chuyển:</td>
-                                        <td>{{$order->shipping_method}}</td>
+                                        <td>{{$order->shippingMethod->label}}</td>
                                     </tr>
                                     <tr>
                                         <td>Thanh toán:</td>
-                                        <td>{{$order->payment_method}}</td>
+                                        <td>{{$order->paymentMethod->label}}</td>
                                     </tr>
                                 </table>
                             </div>

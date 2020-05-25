@@ -25,6 +25,7 @@
                         <th>Giảm giá</th>
                         <th>Tổng</th>
                         <th>Hình thức thanh toán</th>
+                        <th>Hình thức ship</th>
                         <th>Trạng thái</th>
                         <th>Tạo lúc</th>
                         <th>Hành động</th>
@@ -44,9 +45,11 @@
                             <td>{{$order->shipping}}</td>
                             <td>{{$order->discount}}</td>
                             <td>{{$order->total}}</td>
-                            <td>{{$order->payment_method}}</td>
+                            <td>{{$order->paymentMethod->label}}</td>
+                            <td>{{$order->shippingMethod->label}}</td>
                             <td>
-                                <span class="badge bg-{{$order->orderStatus->type}}">{{$order->orderStatus->label}}</span>
+                                <span
+                                    class="badge bg-{{$order->orderStatus->type}}">{{$order->orderStatus->label}}</span>
                             </td>
                             <td>{{$order->created_at}}</td>
                             <td>
@@ -59,7 +62,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <a class='badge bg-danger delete-confirm'><i
-                                                    class="fa fa-times"></i> Xóa
+                                                class="fa fa-times"></i> Xóa
                                         </a>
                                     </form>
                                 @endcan
