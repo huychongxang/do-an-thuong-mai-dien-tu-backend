@@ -70,11 +70,13 @@
                                             data-live-search="true"
                                             data-width="100%"
                                             data-toggle="tooltip"
-                                            title="16"
+                                            @change="selectedLimit($event)"
+                                            v-model="currentLimit"
                                         >
-                                            <option>20</option>
-                                            <option>24</option>
-                                            <option>All</option>
+                                            <option value="1">1</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
                                         </select>
                                     </div>
                                 </form>
@@ -85,18 +87,53 @@
                             <div class="inline-block">
                                 <div class="pagination-wrapper">
                                     <ul class="pagination-list">
-                                        <li><a href="#"> 1 </a></li>
-                                        <li><a href="#"> 2 </a></li>
-                                        <li class="active">3</li>
-                                        <li><a href="#"> 4 </a></li>
-                                        <li><a href="#"> 5 </a></li>
-                                        <li class="nxt">
-                                            <a href="#">
+                                        <template v-if="isFirstPage">
+                                            <li class="prev">
+                                                <i class="fa fa-angle-left"></i>
+                                            </li>
+                                        </template>
+                                        <template v-else>
+                                            <li class="prev">
+                                                <a @click="previousPage">
+                                                    <i
+                                                        class="fa fa-angle-left"
+                                                    ></i>
+                                                </a>
+                                            </li>
+                                        </template>
+
+                                        <li
+                                            v-for="n in lastPage"
+                                            :key="n"
+                                            :class="{ active: isCurrent(n) }"
+                                        >
+                                            <template v-if="isCurrent(n)">
+                                                {{ n }}
+                                            </template>
+
+                                            <template v-else>
+                                                <a @click="changePage(n)">
+                                                    {{ n }}
+                                                </a>
+                                            </template>
+                                        </li>
+
+                                        <template v-if="hasMoreLinks">
+                                            <li class="nxt">
+                                                <a @click="nextPage">
+                                                    <i
+                                                        class="fa fa-angle-right"
+                                                    ></i>
+                                                </a>
+                                            </li>
+                                        </template>
+                                        <template v-else>
+                                            <li class="nxt">
                                                 <i
                                                     class="fa fa-angle-right"
                                                 ></i>
-                                            </a>
-                                        </li>
+                                            </li>
+                                        </template>
                                     </ul>
                                 </div>
                             </div>
@@ -107,7 +144,11 @@
             <div class="tab-content">
                 <div id="grid-view" class="tab-pane fade" role="tabpanel">
                     <div class="row">
-                        <Single1 v-for="product in products" :key="product.id" :product="product"></Single1>
+                        <Single1
+                            v-for="product in products"
+                            :key="product.id"
+                            :product="product"
+                        ></Single1>
                     </div>
                 </div>
                 <div
@@ -115,52 +156,69 @@
                     class="tab-pane fade  active in"
                     role="tabpanel"
                 >
-                    <Single2 v-for="product in products" :key="product.id" :product="product"></Single2>
+                    <Single2
+                        v-for="product in products"
+                        :key="product.id"
+                        :product="product"
+                    ></Single2>
                 </div>
             </div>
-            <div class="light-bg sorter">
-                <div class="col-md-6 col-sm-12 show-items">
-                    <span>Showing Items : 12 to 24 total 152</span>
-                </div>
-                <div class="col-md-6 col-sm-12 bottom-pagination text-right">
-                    <div class="inline-block">
-                        <div class="pagination-wrapper">
-                            <ul class="pagination-list">
-                                <li class="prev">
-                                    <a href="#">
-                                        <i class="fa fa-angle-left"></i>
-                                    </a>
-                                </li>
-                                <li><a href="#"> 1 </a></li>
-                                <li><a href="#"> 2 </a></li>
-                                <li class="active">3</li>
-                                <li><a href="#"> 4 </a></li>
-                                <li><a href="#"> 5 </a></li>
-                                <li class="nxt">
-                                    <a href="#">
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <FooterPaginate></FooterPaginate>
         </section>
         <!-- / Product Category Ends -->
     </aside>
 </template>
 
 <script>
-import Single1 from '@/components/Products/Single1';
-import Single2 from '@/components/Products/Single2';
+import Single1 from "@/components/Products/Single1";
+import Single2 from "@/components/Products/Single2";
+import FooterPaginate from "@/components/Products/Paginate/FooterPaginate";
 export default {
-    props: {
-        products: Array
-    },
-    components:{
+    components: {
         Single1,
         Single2,
+        FooterPaginate
+    },
+    computed: {
+        products() {
+            return this.$store.state.product.products;
+        },
+        paginate() {
+            return this.$store.state.product.paginate;
+        },
+        isFirstPage() {
+            return this.$store.state.product.paginate.current_page === 1;
+        },
+        hasMoreLinks() {
+            return this.$store.state.product.links.next != null;
+        },
+        lastPage() {
+            return this.$store.state.product.paginate.last_page;
+        },
+        currentLimit() {
+            return this.$store.state.product.limit;
+        }
+    },
+    methods: {
+        previousPage() {
+            const page = this.$store.state.product.paginate.current_page - 1;
+            this.$store.dispatch("product/fetchProducts", page);
+        },
+        nextPage() {
+            const page = this.$store.state.product.paginate.current_page + 1;
+            this.$store.dispatch("product/fetchProducts", page);
+        },
+        isCurrent(number) {
+            return number === this.$store.state.product.paginate.current_page;
+        },
+        changePage(page) {
+            this.$store.dispatch("product/fetchProducts", page);
+        },
+        selectedLimit(event) {
+            const limit = event.target.value;
+            this.$store.dispatch("product/setLimit", limit);
+            this.$store.dispatch("product/fetchProducts");
+        }
     }
 };
 </script>

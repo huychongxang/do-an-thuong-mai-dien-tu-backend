@@ -5,7 +5,7 @@
                         <!-- Sidebar Start -->
                         <Condition ></Condition>
                         <!-- / Sidebar Ends -->
-                        <ListProduct :products="products"></ListProduct>
+                        <ListProduct ></ListProduct>
                     </div>
                 </section>
             </article>
@@ -23,15 +23,16 @@ import {getList} from '@/api/product.js';
         },
         data(){
             return {
-                products:[],
+
             }
         },
         methods:{
             async fetch(){
                 const response = await getList();
                 const object = response.data;
-                this.products = object.data;
+                this.$store.dispatch('product/setProducts',object.data);
                 this.$store.dispatch('product/setPaginate',object.meta);
+                this.$store.dispatch('product/setLinks',object.links);
             }
         },
         created(){
