@@ -14,27 +14,33 @@ class OrderStatusTableSeeder extends Seeder
         $statuses = [
             [
                 'name' => 'new',
-                'label' => 'Mới'
+                'label' => 'Mới',
+                'type'=>'primary'
             ],
             [
                 'name' => 'processing',
-                'label' => 'Đang xử lý'
+                'label' => 'Đang xử lý',
+                'type'=>'secondary'
             ],
             [
                 'name' => 'hold',
-                'label' => 'Tạm giữ'
+                'label' => 'Tạm giữ',
+                'type'=>'warning'
             ],
             [
                 'name' => 'canceled',
-                'label' => 'Hủy bỏ'
+                'label' => 'Hủy bỏ',
+                'type'=>'danger'
             ],
             [
                 'name' => 'done',
-                'label' => 'Hoàn thành'
+                'label' => 'Hoàn thành',
+                'type'=>'success'
             ],
             [
                 'name' => 'failed',
-                'label' => 'Thất bại'
+                'label' => 'Thất bại',
+                'type'=>'dark'
             ],
         ];
 
