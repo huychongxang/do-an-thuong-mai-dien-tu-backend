@@ -13,7 +13,8 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         try {
-            $products = Product::all();
+            $limit = $request->limit ?? 10;
+            $products = Product::paginate($limit);
 
             $resource = ListProduct::collection($products);
             return ApiHelper::api_resource_handle($resource, 200, [

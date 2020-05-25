@@ -2932,7 +2932,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 object = response.data;
                 _this.products = object.data;
 
-              case 5:
+                _this.$store.dispatch('product/setPaginate', object.meta);
+
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -35184,7 +35186,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./cart.js": "./resources/js/store/modules/cart.js"
+	"./product.js": "./resources/js/store/modules/product.js"
 };
 
 
@@ -35209,32 +35211,36 @@ webpackContext.id = "./resources/js/store/modules sync \\.js$";
 
 /***/ }),
 
-/***/ "./resources/js/store/modules/cart.js":
-/*!********************************************!*\
-  !*** ./resources/js/store/modules/cart.js ***!
-  \********************************************/
+/***/ "./resources/js/store/modules/product.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/product.js ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  count: 10
+  limit: 10,
+  paginate: {}
 };
-var getters = {
-  a: function a() {
-    return 'haha';
-  }
-};
+var getters = {};
 var mutations = {
-  INCREMENT: function INCREMENT(state) {
-    state.count++;
+  SET_LIMIT: function SET_LIMIT(state, limit) {
+    state.limit = limit;
+  },
+  SET_PAGINATE: function SET_PAGINATE(state, paginate) {
+    state.paginate = paginate;
   }
 };
 var actions = {
-  increment: function increment(_ref) {
+  setLimit: function setLimit(_ref, limit) {
     var commit = _ref.commit;
-    commit('INCREMENT');
+    commit('SET_LIMIT', limit);
+  },
+  setPaginate: function setPaginate(_ref2, paginate) {
+    var commit = _ref2.commit;
+    commit('SET_PAGINATE', paginate);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({

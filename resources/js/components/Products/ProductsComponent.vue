@@ -23,7 +23,7 @@ import {getList} from '@/api/product.js';
         },
         data(){
             return {
-                products:[]
+                products:[],
             }
         },
         methods:{
@@ -31,6 +31,7 @@ import {getList} from '@/api/product.js';
                 const response = await getList();
                 const object = response.data;
                 this.products = object.data;
+                this.$store.dispatch('product/setPaginate',object.meta);
             }
         },
         created(){
