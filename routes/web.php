@@ -20,6 +20,7 @@ Route::group([
     Route::get('/tin-tuc/{slug}', 'PostController@show')->name('page.post');
     Route::get('/san-pham', 'ProductController@index')->name('page.products');
     Route::get('/san-pham/{sku}', 'ProductController@show')->name('page.product');
+    Route::post('/san-pham/add', 'ProductController@addToCart')->name('page.product.add');
 });
 
 Route::group([

@@ -24,6 +24,13 @@
                             <div class="product-content">
                                 <div class="product-name">
                                     <a href="#">{{$row->model->name}}</a>
+                                    @foreach($row->options as $key=>$value)
+                                        @php
+                                        $name = \App\Models\ProductAttributeGroup::where('code',$key)->first()->name;
+                                        @endphp
+                                        <p>{{$name}} : {{$value}}</p>
+                                    @endforeach
+
                                 </div>
                                 <div class="product-price">
                                     <h5 class="price"><b> {{$row->model->getFinalPriceHtml()}} * {{$row->qty}} </b></h5>

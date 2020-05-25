@@ -30,5 +30,5 @@
 
 </main>
 <!-- /WRAPPER -->
-
+@include('web.includes.script-cart')
 @include('web.includes.footer')

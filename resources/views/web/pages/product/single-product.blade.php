@@ -1,5 +1,4 @@
 @extends('web.layouts.master')
-
 @section('content')
     @include('web.includes.breadcrumbs',[
    'title1'=>null,
@@ -76,18 +75,23 @@
                                     <hr class="fullwidth-divider">
                                 </div>
                                 <div class="product-size">
-                                    <form class="product-form">
+                                    <form id="main-form" class="product-form" method="post"
+                                          action="{{route('page.product.add')}}">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{$product->id}}">
                                         <div class="row">
                                             @foreach($product->attributeGroups->unique() as $index=>$attribute)
                                                 <div class="form-group selectpicker-wrapper">
                                                     <label>{{$attribute->name}}</label>
-                                                    <select title="Looking to Buy" data-toggle="tooltip"
+                                                    <select name="options[{{$attribute->code}}]"
+                                                            data-toggle="tooltip"
                                                             data-width="100%"
                                                             data-live-search="true"
                                                             class="selectpicker input-price bs-select-hidden">
                                                         @foreach($attribute->attributeDetails as $key=>$detail)
                                                             @if($key == 0)
-                                                                <option class="bs-title-option" value="{{$detail->value}}">{{$detail->value}}</option>
+                                                                <option class="bs-title-option"
+                                                                        value="{{$detail->value}}">{{$detail->value}}</option>
                                                             @endif
                                                             <option
                                                                 value="{{$detail->value}}">{{$detail->value}}</option>
@@ -118,7 +122,7 @@
                                 </div>
                                 @if($product->isInStock())
                                     <div class="add-to-cart">
-                                        <a class="blue-btn btn" href="#"> <i
+                                        <a class="blue-btn btn"> <i
                                                 class="fa fa-shopping-cart white-color"></i>
                                             Thêm vào giỏ hàng</a>
                                     </div>
@@ -887,3 +891,19 @@
         <!-- / Related Products Ends -->
     </article>
 @endsection
+@push('scripts')
+    <script>
+        $(function () {
+            $("body").on("click", '.add-to-cart', function (event) {
+                event.preventDefault();
+                console.log('ha');
+                @guest
+                $('#login-register').modal('show');
+                return false;
+                @endguest
+                $('#main-form').submit();
+            });
+        });
+    </script>
+
+@endpush
