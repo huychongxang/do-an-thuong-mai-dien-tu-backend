@@ -2660,6 +2660,15 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_product_category_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/api/product-category.js */ "./resources/js/api/product-category.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2685,7 +2694,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      categories: [],
+      checked: []
+    };
+  },
+  methods: {
+    fetch: function fetch() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response, object;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return Object(_api_product_category_js__WEBPACK_IMPORTED_MODULE_1__["getList"])();
+
+              case 2:
+                response = _context.sent;
+                object = response.data;
+                _this.categories = object.data;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  created: function created() {
+    this.fetch();
+  },
+  watch: {
+    checked: function checked(newValue, oldValue) {
+      this.$store.dispatch('product/setCategories', newValue);
+      this.$store.dispatch('product/fetchProducts');
+    }
+  }
+});
 
 /***/ }),
 
@@ -20951,89 +21005,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("aside", { staticClass: "col-md-3 col-sm-4" }, [
+    _c("div", { staticClass: "sidebar-widget light-bg default-box-shadow" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "widget-content" }, [
+        _c(
+          "ul",
+          { attrs: { id: "green-scroll" } },
+          _vm._l(_vm.categories, function(category) {
+            return _c("li", { key: category.id }, [
+              _c("label", { staticClass: "checkbox-inline" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checked,
+                      expression: "checked"
+                    }
+                  ],
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    value: category.id,
+                    checked: Array.isArray(_vm.checked)
+                      ? _vm._i(_vm.checked, category.id) > -1
+                      : _vm.checked
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.checked,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = category.id,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.checked = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.checked = $$c
+                      }
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(category.name))]),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v("(" + _vm._s(category.products_count) + ")")
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("aside", { staticClass: "col-md-3 col-sm-4" }, [
-      _c("div", { staticClass: "sidebar-widget light-bg default-box-shadow" }, [
-        _c("h4", { staticClass: "widget-title green-bg" }, [
-          _c("span", [_vm._v(" CATEGORIES ")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "widget-content" }, [
-          _c("ul", { attrs: { id: "green-scroll" } }, [
-            _c("li", [
-              _c("label", { staticClass: "checkbox-inline" }, [
-                _c("input", { attrs: { type: "checkbox", value: "" } }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Ethnic Wear")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("(496)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("label", { staticClass: "checkbox-inline" }, [
-                _c("input", {
-                  attrs: { type: "checkbox", value: "", checked: "" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Sets & Suits ")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("(1740)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("label", { staticClass: "checkbox-inline" }, [
-                _c("input", { attrs: { type: "checkbox", value: "" } }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Socks & Tights ")]),
-                _vm._v(" "),
-                _c("span", [_vm._v(" (589) ")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("label", { staticClass: "checkbox-inline" }, [
-                _c("input", {
-                  attrs: { type: "checkbox", value: "", checked: "" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Party Wear ")]),
-                _vm._v(" "),
-                _c("span", [_vm._v(" (841) ")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("label", { staticClass: "checkbox-inline" }, [
-                _c("input", { attrs: { type: "checkbox", value: "" } }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Rainwear ")]),
-                _vm._v(" "),
-                _c("span", [_vm._v(" (118) ")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("label", { staticClass: "checkbox-inline" }, [
-                _c("input", { attrs: { type: "checkbox", value: "" } }),
-                _vm._v(" "),
-                _c("span", [_vm._v(" Nightwear  ")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("(1389)")])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sidebar-widget light-bg default-box-shadow" }, [
+    return _c("h4", { staticClass: "widget-title green-bg" }, [
+      _c("span", [_vm._v(" CATEGORIES ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "sidebar-widget light-bg default-box-shadow" },
+      [
         _c("h4", { staticClass: "widget-title blue-bg" }, [
           _c("span", [_vm._v(" By Price")])
         ]),
@@ -21048,8 +21102,8 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("input", { attrs: { type: "text", id: "amount", readonly: "" } })
         ])
-      ])
-    ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -35029,6 +35083,28 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/api/product-category.js":
+/*!**********************************************!*\
+  !*** ./resources/js/api/product-category.js ***!
+  \**********************************************/
+/*! exports provided: getList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getList", function() { return getList; });
+/* harmony import */ var _utils_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/utils/request */ "./resources/js/utils/request.js");
+
+function getList(query) {
+  return Object(_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: '/product-categories',
+    method: 'get',
+    params: query
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/api/product.js":
 /*!*************************************!*\
   !*** ./resources/js/api/product.js ***!
@@ -35644,7 +35720,8 @@ var state = {
   limit: 10,
   paginate: {},
   links: {},
-  products: []
+  products: [],
+  checkedCategories: []
 };
 var getters = {};
 var mutations = {
@@ -35659,6 +35736,9 @@ var mutations = {
   },
   SET_PRODUCTS: function SET_PRODUCTS(state, products) {
     state.products = products;
+  },
+  SET_CATEGORIES: function SET_CATEGORIES(state, categories) {
+    state.checkedCategories = categories;
   }
 };
 var actions = {
@@ -35679,7 +35759,11 @@ var actions = {
     var commit = _ref4.commit;
     commit("SET_PRODUCTS", products);
   },
-  fetchProducts: function fetchProducts(_ref5) {
+  setCategories: function setCategories(_ref5, categories) {
+    var commit = _ref5.commit;
+    commit("SET_CATEGORIES", categories);
+  },
+  fetchProducts: function fetchProducts(_ref6) {
     var _arguments = arguments;
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       var commit, state, page, response, object;
@@ -35687,13 +35771,14 @@ var actions = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              commit = _ref5.commit, state = _ref5.state;
+              commit = _ref6.commit, state = _ref6.state;
               page = _arguments.length > 1 && _arguments[1] !== undefined ? _arguments[1] : 1;
               _context.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api-web/products", {
                 params: {
                   limit: state.limit,
-                  page: page
+                  page: page,
+                  categories: state.checkedCategories
                 }
               });
 

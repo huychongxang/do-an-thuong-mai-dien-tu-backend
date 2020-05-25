@@ -13,8 +13,11 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         try {
+            $categories = $request->categories;
             $limit = $request->limit ?? 10;
-            $products = Product::paginate($limit);
+            $products = Product::whereHas('categories', function ($q) use ($categories) {
+                $q->whereIn('category_id', $categories);
+            })->paginate($limit);
 
             $resource = ListProduct::collection($products);
             return ApiHelper::api_resource_handle($resource, 200, [

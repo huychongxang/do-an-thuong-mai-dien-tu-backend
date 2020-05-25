@@ -3,7 +3,8 @@ const state = {
     limit: 10,
     paginate: {},
     links: {},
-    products: []
+    products: [],
+    checkedCategories:[]
 };
 const getters = {};
 
@@ -19,7 +20,10 @@ const mutations = {
     },
     SET_PRODUCTS: (state, products) => {
         state.products = products;
-    }
+    },
+    SET_CATEGORIES: (state, categories) => {
+        state.checkedCategories = categories;
+    },
 };
 
 const actions = {
@@ -35,11 +39,15 @@ const actions = {
     setProducts({ commit }, products) {
         commit("SET_PRODUCTS", products);
     },
+    setCategories({ commit }, categories) {
+        commit("SET_CATEGORIES", categories);
+    },
     async fetchProducts({ commit, state }, page = 1) {
         const response = await axios.get("/api-web/products", {
             params: {
                 limit: state.limit,
-                page: page
+                page: page,
+                categories:state.checkedCategories
             }
         });
         const object = response.data;

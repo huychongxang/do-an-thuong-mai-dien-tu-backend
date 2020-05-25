@@ -7,4 +7,5 @@ Route::group([
     Route::post('/remove-item', 'CartController@remove')->name('remove-item');
 
     Route::get('products', 'ProductController@index');
+    Route::get('product-categories', 'ProductCategoryController@index');
 });
