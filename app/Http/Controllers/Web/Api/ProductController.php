@@ -21,7 +21,7 @@ class ProductController extends Controller
                 $query->whereHas('categories', function ($q) use ($categories) {
                     $q->whereIn('category_id', $categories);
                 });
-            })->paginate($limit);
+            })->with(['promotionPrice','images'])->paginate($limit);
 
             $resource = ListProduct::collection($products);
             return ApiHelper::api_resource_handle($resource, 200, [
