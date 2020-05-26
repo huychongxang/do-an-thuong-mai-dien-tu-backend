@@ -57,7 +57,8 @@ class CartController extends Controller
                 'shipping_cost_format' => number_format(20000) . ' VNĐ',
                 'total' => $cart::subtotal() + 20000,
                 'total_format' => number_format($cart::subtotal() + 20000) . ' VNĐ',
-                'link_keep_shopping'=>route('page.products')
+                'link_keep_shopping'=>route('page.products'),
+                'link_checkout'=>route('page.checkout')
             ]);
         } catch (\Exception $e) {
             return ApiHelper::api_status_handle(500, [

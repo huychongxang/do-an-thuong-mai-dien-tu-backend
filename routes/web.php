@@ -23,6 +23,7 @@ Route::group([
     Route::post('/san-pham/add', 'ProductController@addToCart')->name('page.product.add');
 
     Route::get('/gio-hang', 'ShoppingCartController@index')->name('page.cart');
+    Route::get('/thanh-toan', 'CheckoutController@index')->name('page.checkout')->middleware('auth');
 });
 
 Route::group([

@@ -67,7 +67,7 @@
                                 </table>
 
                                 <div class="chk-out">
-                                    <a href="#" class="pink-btn btn"
+                                    <a :href="link_checkout" class="pink-btn btn"
                                         >Thanh toán</a
                                     >
                                 </div>
@@ -106,6 +106,9 @@ export default {
         },
         link_keep_shopping(){
             return this.$store.state.cart.link_keep_shopping;
+        },
+        link_checkout(){
+            return this.$store.state.cart.link_checkout;
         }
     },
     created() {
