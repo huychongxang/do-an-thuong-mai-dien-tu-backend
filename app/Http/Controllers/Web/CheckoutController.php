@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Web;
 
-use App\Helpers\ApiHelper;
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Checkout\CheckoutRequest;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\OrderStatus;
+use App\Models\PaymentMethod;
 use App\Models\PaymentStatus;
 use App\Models\ProductAttributeGroup;
+use App\Models\ShippingMethod;
 use App\Models\ShippingStatus;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 
 class CheckoutController extends Controller
 {
@@ -20,16 +23,23 @@ class CheckoutController extends Controller
 
     public function __construct()
     {
-        $this->cart = (new CartController())->getCart();
+        $this->cart = Cart::class;
     }
 
-    public function checkout(CheckoutRequest $request)
+    public function index()
     {
-        DB::beginTransaction();
+        $user = auth()->user();
+        $shippingCost = number_format(20000) . ' VNĐ';
+        $total_format = number_format(Cart::total() + 20000) . ' VNĐ';
+        $paymentMethods = PaymentMethod::all();
+        $shippingMethods = ShippingMethod::all();
+        return view('web.pages.checkout.index', compact('user', 'shippingCost', 'total_format', 'paymentMethods', 'shippingMethods'));
+    }
+
+    public function store(Request $request)
+    {
         try {
-            if($this->cart::count() == 0){
-                throw new \Exception('Cart is Empty');
-        }
+            DB::beginTransaction();
             // Get data
             $user = auth()->user();
             $payment_method = $request->payment_method;
@@ -71,14 +81,20 @@ class CheckoutController extends Controller
             $this->cart::destroy();
             $this->cart::store($user->id);
             DB::commit();
-            return ApiHelper::api_status_handle(200, []);
-        } catch (\Exception $e) {
+            $url = URL::temporarySignedRoute(
+                'page.success', now()->addSecond(1)
+            );
+            return redirect($url);
+        } catch (\Exception $exception) {
             DB::rollBack();
-            return ApiHelper::api_status_handle(500, [
-                'message' => $e->getMessage()
-            ], false);
+            return redirect()->back();
         }
 
+    }
+
+    public function hienTrangThanhCong()
+    {
+        return view('web.pages.checkout.success');
     }
 
     private function saveOrderDetail(Order $order)

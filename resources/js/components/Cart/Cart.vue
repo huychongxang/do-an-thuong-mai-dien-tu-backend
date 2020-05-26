@@ -50,24 +50,18 @@
                                             <strong>{{ sub_total_format }}</strong>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th>Phí ship :</th>
-                                        <td>
-                                            <strong>{{ shipping_cost_format }}</strong>
-                                        </td>
-                                    </tr>
                                     <tr class="grand-total">
                                         <th>Tổng tiền :</th>
                                         <td>
                                             <strong class="pink-color">{{
-                                                total_format
+                                                sub_total_format
                                             }}</strong>
                                         </td>
                                     </tr>
                                 </table>
 
                                 <div class="chk-out">
-                                    <a href="#" class="pink-btn btn"
+                                    <a :href="link_checkout" class="pink-btn btn"
                                         >Thanh toán</a
                                     >
                                 </div>
@@ -106,6 +100,9 @@ export default {
         },
         link_keep_shopping(){
             return this.$store.state.cart.link_keep_shopping;
+        },
+        link_checkout(){
+            return this.$store.state.cart.link_checkout;
         }
     },
     created() {
