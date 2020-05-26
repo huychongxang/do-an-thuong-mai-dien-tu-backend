@@ -35586,7 +35586,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./product.js": "./resources/js/store/modules/product.js"
+	"./cart.js": "./resources/js/store/modules/cart.js"
 };
 
 
@@ -35611,115 +35611,14 @@ webpackContext.id = "./resources/js/store/modules sync \\.js$";
 
 /***/ }),
 
-/***/ "./resources/js/store/modules/product.js":
-/*!***********************************************!*\
-  !*** ./resources/js/store/modules/product.js ***!
-  \***********************************************/
+/***/ "./resources/js/store/modules/cart.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/cart.js ***!
+  \********************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-var state = {
-  limit: 10,
-  paginate: {},
-  links: {},
-  products: [],
-  checkedCategories: []
-};
-var getters = {};
-var mutations = {
-  SET_LIMIT: function SET_LIMIT(state, limit) {
-    state.limit = limit;
-  },
-  SET_PAGINATE: function SET_PAGINATE(state, paginate) {
-    state.paginate = paginate;
-  },
-  SET_LINKS: function SET_LINKS(state, links) {
-    state.links = links;
-  },
-  SET_PRODUCTS: function SET_PRODUCTS(state, products) {
-    state.products = products;
-  },
-  SET_CATEGORIES: function SET_CATEGORIES(state, categories) {
-    state.checkedCategories = categories;
-  }
-};
-var actions = {
-  setLimit: function setLimit(_ref, limit) {
-    var commit = _ref.commit,
-        dispatch = _ref.dispatch;
-    commit("SET_LIMIT", limit);
-  },
-  setPaginate: function setPaginate(_ref2, paginate) {
-    var commit = _ref2.commit;
-    commit("SET_PAGINATE", paginate);
-  },
-  setLinks: function setLinks(_ref3, links) {
-    var commit = _ref3.commit;
-    commit("SET_LINKS", links);
-  },
-  setProducts: function setProducts(_ref4, products) {
-    var commit = _ref4.commit;
-    commit("SET_PRODUCTS", products);
-  },
-  setCategories: function setCategories(_ref5, categories) {
-    var commit = _ref5.commit;
-    commit("SET_CATEGORIES", categories);
-  },
-  fetchProducts: function fetchProducts(_ref6) {
-    var _arguments = arguments;
-    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var commit, state, page, response, object;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              commit = _ref6.commit, state = _ref6.state;
-              page = _arguments.length > 1 && _arguments[1] !== undefined ? _arguments[1] : 1;
-              _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api-web/products", {
-                params: {
-                  limit: state.limit,
-                  page: page,
-                  categories: state.checkedCategories
-                }
-              });
-
-            case 4:
-              response = _context.sent;
-              object = response.data;
-              commit("SET_PRODUCTS", object.data);
-              commit("SET_PAGINATE", object.meta);
-              commit("SET_LINKS", object.links);
-
-            case 9:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }))();
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = ({
-  namespaced: true,
-  state: state,
-  getters: getters,
-  mutations: mutations,
-  actions: actions
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'E:\\laragon\\www\\doan.personal\\resources\\js\\store\\modules\\cart.js'");
 
 /***/ }),
 
