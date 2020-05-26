@@ -25,6 +25,7 @@ class ListProduct extends JsonResource
             'promotion_price_format' => ($this->promotionPrice) ? number_format($this->promotionPrice->price_promotion) . ' VNĐ': null,
             'type'=>$this->getType(),
             'description'=>$this->description,
+            'link'=>route('page.product',$this->sku)
         ];
     }
 }

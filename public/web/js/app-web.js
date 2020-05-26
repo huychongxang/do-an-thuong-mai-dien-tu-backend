@@ -3196,12 +3196,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     product: Object
@@ -21548,15 +21542,13 @@ var render = function() {
                 ])
               ])
             : _vm._e()
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "product-content" }, [
         _c("div", { staticClass: "product-name" }, [
           _c("p", [
-            _c("a", { attrs: { href: "#" } }, [
+            _c("a", { attrs: { href: _vm.product.link } }, [
               _vm._v(_vm._s(_vm.product.name))
             ])
           ])
@@ -21600,19 +21592,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-overlay" }, [
-      _c("a", {
-        staticClass: "addcart blue-background fa fa-shopping-cart",
-        attrs: { href: "#" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -21717,25 +21697,25 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "add-to-cart" }, [
+            _c(
+              "a",
+              {
+                staticClass: "blue-btn btn",
+                attrs: { href: _vm.product.link }
+              },
+              [
+                _c("i", { staticClass: "fa fa-shopping-cart white-color" }),
+                _vm._v("\n                        Xem sản phẩm")
+              ]
+            )
+          ])
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "add-to-cart" }, [
-      _c("a", { staticClass: "blue-btn btn", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-shopping-cart white-color" }),
-        _vm._v("\n                        Add to Cart")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
