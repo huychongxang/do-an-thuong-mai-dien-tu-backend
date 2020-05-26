@@ -30,28 +30,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="sort-by col-md-7 col-sm-8 no-padding">
-                            <span>Sort By:</span>
-                            <div class="inline-block">
-                                <form class="filter-form">
-                                    <div
-                                        class="form-group selectpicker-wrapper"
-                                    >
-                                        <select
-                                            class="selectpicker input-price"
-                                            data-live-search="true"
-                                            data-width="100%"
-                                            data-toggle="tooltip"
-                                            title="Best Sellers"
-                                        >
-                                            <option>Most Popular</option>
-                                            <option>Latest Items</option>
-                                            <option>Best Sellers</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">

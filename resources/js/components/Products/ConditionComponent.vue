@@ -13,14 +13,6 @@
                 </ul>
             </div>
         </div>
-        <div class="sidebar-widget light-bg default-box-shadow">
-            <h4 class="widget-title blue-bg"><span> By Price</span></h4>
-            <div class="widget-content">
-                <div id="slider-range" class="slider-range"></div>
-                <label for="amount">Price</label>
-                <input type="text" id="amount" readonly />
-            </div>
-        </div>
     </aside>
 </template>
 

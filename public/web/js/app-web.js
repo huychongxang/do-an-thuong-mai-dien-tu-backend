@@ -2687,14 +2687,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2755,28 +2747,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Products_Single1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/Products/Single1 */ "./resources/js/components/Products/Single1.vue");
 /* harmony import */ var _components_Products_Single2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Products/Single2 */ "./resources/js/components/Products/Single2.vue");
 /* harmony import */ var _components_Products_Paginate_FooterPaginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Products/Paginate/FooterPaginate */ "./resources/js/components/Products/Paginate/FooterPaginate.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -21068,9 +21038,7 @@ var render = function() {
           0
         )
       ])
-    ]),
-    _vm._v(" "),
-    _vm._m(1)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -21081,31 +21049,6 @@ var staticRenderFns = [
     return _c("h4", { staticClass: "widget-title green-bg" }, [
       _c("span", [_vm._v(" CATEGORIES ")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "sidebar-widget light-bg default-box-shadow" },
-      [
-        _c("h4", { staticClass: "widget-title blue-bg" }, [
-          _c("span", [_vm._v(" By Price")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "widget-content" }, [
-          _c("div", {
-            staticClass: "slider-range",
-            attrs: { id: "slider-range" }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "amount" } }, [_vm._v("Price")]),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "text", id: "amount", readonly: "" } })
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -21379,36 +21322,6 @@ var staticRenderFns = [
                     }
                   },
                   [_c("i", { staticClass: "fa fa-th-list" })]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "sort-by col-md-7 col-sm-8 no-padding" }, [
-          _c("span", [_vm._v("Sort By:")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "inline-block" }, [
-            _c("form", { staticClass: "filter-form" }, [
-              _c("div", { staticClass: "form-group selectpicker-wrapper" }, [
-                _c(
-                  "select",
-                  {
-                    staticClass: "selectpicker input-price",
-                    attrs: {
-                      "data-live-search": "true",
-                      "data-width": "100%",
-                      "data-toggle": "tooltip",
-                      title: "Best Sellers"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("Most Popular")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Latest Items")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Best Sellers")])
-                  ]
                 )
               ])
             ])

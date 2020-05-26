@@ -8,4 +8,5 @@ Route::group([
 
     Route::get('products', 'ProductController@index');
     Route::get('product-categories', 'ProductCategoryController@index');
+    Route::get('prices', 'PriceController@getRange');
 });
