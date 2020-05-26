@@ -3650,7 +3650,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.image[data-v-b7c0f73a] {\n    max-width: 100px;\n}\n", ""]);
+exports.push([module.i, "\n.image[data-v-b7c0f73a] {\r\n    max-width: 100px;\n}\r\n", ""]);
 
 // exports
 
