@@ -10,6 +10,25 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        $this->initialCart();
+    }
+
+    private function initialCart()
+    {
+        if (Cart::count() > 0) {
+            foreach (Cart::content() as $rowId => $row) {
+                $product = Product::find($row->id);
+                Cart::update($rowId, [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'price' => $product->getFinalPrice(),
+                ]);
+            }
+            Cart::store(\auth()->user()->id);
+        }
+    }
     public function index()
     {
         try {
@@ -37,7 +56,8 @@ class CartController extends Controller
                 'shipping_cost' => 20000,
                 'shipping_cost_format' => number_format(20000) . ' VNĐ',
                 'total' => $cart::subtotal() + 20000,
-                'total_format' => number_format($cart::subtotal() + 20000) . ' VNĐ'
+                'total_format' => number_format($cart::subtotal() + 20000) . ' VNĐ',
+                'link_keep_shopping'=>route('page.products')
             ]);
         } catch (\Exception $e) {
             return ApiHelper::api_status_handle(500, [
@@ -49,6 +69,7 @@ class CartController extends Controller
     public function update(Request $request)
     {
         try {
+            $this->initialCart();
             $rowId = $request->row_id;
             $new_qty = $request->new_qty;
             $currentRow = Cart::get($rowId);

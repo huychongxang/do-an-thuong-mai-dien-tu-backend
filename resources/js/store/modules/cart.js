@@ -6,7 +6,8 @@ const state = {
     shipping_cost: 0,
     shipping_cost_format:null,
     total: 0,
-    total_format:null
+    total_format:null,
+    link_keep_shopping:null
 };
 const getters = {};
 
@@ -31,7 +32,10 @@ const mutations = {
     },
     SET_TOTAL_FORMAT: (state, total) => {
         state.total_format = total;
-    }
+    },
+    SET_LINK_KEEP_SHOPPING: (state, link) => {
+        state.link_keep_shopping = link;
+    },
 };
 
 const actions = {
@@ -42,6 +46,7 @@ const actions = {
         commit("SET_SUB_TOTAL", object.sub_total);
         commit("SET_SHIPPING_COST", object.shipping_cost);
         commit("SET_TOTAL", object.total);
+        commit("SET_LINK_KEEP_SHOPPING", object.link_keep_shopping);
         commit("SET_SUB_TOTAL_FORMAT", object.sub_total_format);
         commit("SET_SHIPPING_COST_FORMAT", object.shipping_cost_format);
         commit("SET_TOTAL_FORMAT", object.total_format);

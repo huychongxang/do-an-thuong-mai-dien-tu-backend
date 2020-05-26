@@ -23,7 +23,7 @@
                     </table>
                     <div class="continue-shopping">
                         <div class="shp-btn">
-                            <a class="blue-btn btn" href="#"
+                            <a class="blue-btn btn" :href="link_keep_shopping"
                                 >Tiếp túc mua hàng<i
                                     class="fa fa-caret-right"
                                 ></i
@@ -38,7 +38,7 @@
             </div>
             <div class="cart-collaterals space-80">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6" v-if="products.length > 0">
                         <div
                             class="light-bg default-box-shadow cart_totals_wrap"
                         >
@@ -103,6 +103,9 @@ export default {
         },
         total_format() {
             return this.$store.state.cart.total_format;
+        },
+        link_keep_shopping(){
+            return this.$store.state.cart.link_keep_shopping;
         }
     },
     created() {

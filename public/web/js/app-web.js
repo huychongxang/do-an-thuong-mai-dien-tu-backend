@@ -2766,6 +2766,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     total_format: function total_format() {
       return this.$store.state.cart.total_format;
+    },
+    link_keep_shopping: function link_keep_shopping() {
+      return this.$store.state.cart.link_keep_shopping;
     }
   },
   created: function created() {
@@ -2831,8 +2834,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2843,16 +2844,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var newQty;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this.product.qty -= 1;
-                Object(_api_cart_js__WEBPACK_IMPORTED_MODULE_1__["updateQty"])(_this.product.row_id, _this.product.qty);
-
-                _this.$store.dispatch("cart/fetchCart");
+                newQty = parseInt(_this.product.qty) - 1;
+                _context.next = 3;
+                return Object(_api_cart_js__WEBPACK_IMPORTED_MODULE_1__["updateQty"])(_this.product.row_id, newQty);
 
               case 3:
+                _this.$store.dispatch("cart/fetchCart");
+
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2861,9 +2865,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     plus: function plus() {
-      this.product.qty += 1;
-      Object(_api_cart_js__WEBPACK_IMPORTED_MODULE_1__["updateQty"])(this.product.row_id, this.product.qty);
-      this.$store.dispatch("cart/fetchCart");
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var newQty;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                newQty = parseInt(_this2.product.qty) + 1;
+                _context2.next = 3;
+                return Object(_api_cart_js__WEBPACK_IMPORTED_MODULE_1__["updateQty"])(_this2.product.row_id, newQty);
+
+              case 3:
+                _this2.$store.dispatch("cart/fetchCart");
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    onChange: function onChange(event) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var newQty;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                newQty = event.target.value;
+                _context3.next = 3;
+                return Object(_api_cart_js__WEBPACK_IMPORTED_MODULE_1__["updateQty"])(_this3.product.row_id, newQty);
+
+              case 3:
+                _this3.$store.dispatch("cart/fetchCart");
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
     }
   }
 });
@@ -21858,7 +21905,19 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "continue-shopping" }, [
-              _vm._m(1),
+              _c("div", { staticClass: "shp-btn" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "blue-btn btn",
+                    attrs: { href: _vm.link_keep_shopping }
+                  },
+                  [
+                    _vm._v("Tiếp túc mua hàng"),
+                    _c("i", { staticClass: "fa fa-caret-right" })
+                  ]
+                )
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "cart-sub-total" }, [
                 _c("span", [_vm._v("Tổng tiền:")]),
@@ -21873,47 +21932,54 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "cart-collaterals space-80" }, [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-4 col-sm-6" }, [
-              _c(
-                "div",
-                { staticClass: "light-bg default-box-shadow cart_totals_wrap" },
-                [
-                  _c("div", { staticClass: "cart_totals_box" }, [
-                    _c("table", { staticClass: "cart_totals" }, [
-                      _c("tr", [
-                        _c("th", [_vm._v("Tổng giá:")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("strong", [_vm._v(_vm._s(_vm.sub_total_format))])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("th", [_vm._v("Phí ship :")]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("strong", [
-                            _vm._v(_vm._s(_vm.shipping_cost_format))
+            _vm.products.length > 0
+              ? _c("div", { staticClass: "col-md-4 col-sm-6" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "light-bg default-box-shadow cart_totals_wrap"
+                    },
+                    [
+                      _c("div", { staticClass: "cart_totals_box" }, [
+                        _c("table", { staticClass: "cart_totals" }, [
+                          _c("tr", [
+                            _c("th", [_vm._v("Tổng giá:")]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("strong", [
+                                _vm._v(_vm._s(_vm.sub_total_format))
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c("th", [_vm._v("Phí ship :")]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("strong", [
+                                _vm._v(_vm._s(_vm.shipping_cost_format))
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", { staticClass: "grand-total" }, [
+                            _c("th", [_vm._v("Tổng tiền :")]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("strong", { staticClass: "pink-color" }, [
+                                _vm._v(_vm._s(_vm.total_format))
+                              ])
+                            ])
                           ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", { staticClass: "grand-total" }, [
-                        _c("th", [_vm._v("Tổng tiền :")]),
+                        ]),
                         _vm._v(" "),
-                        _c("td", [
-                          _c("strong", { staticClass: "pink-color" }, [
-                            _vm._v(_vm._s(_vm.total_format))
-                          ])
-                        ])
+                        _vm._m(1)
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ])
-                ]
-              )
-            ])
+                    ]
+                  )
+                ])
+              : _vm._e()
           ])
         ])
       ])
@@ -21936,17 +22002,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Đơn giá")]),
         _vm._v(" "),
         _c("th", [_vm._v("Tổng giá")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "shp-btn" }, [
-      _c("a", { staticClass: "blue-btn btn", attrs: { href: "#" } }, [
-        _vm._v("Tiếp túc mua hàng"),
-        _c("i", { staticClass: "fa fa-caret-right" })
       ])
     ])
   },
@@ -22001,9 +22056,7 @@ var render = function() {
           return _c("p", { key: name }, [
             _vm._v("\n            " + _vm._s(value) + "\n        ")
           ])
-        }),
-        _vm._v(" "),
-        _vm._m(0)
+        })
       ],
       2
     ),
@@ -22019,7 +22072,8 @@ var render = function() {
         _c("input", {
           staticClass: "input-text qty text",
           attrs: { type: "text", title: "Qty", name: "cart" },
-          domProps: { value: _vm.product.qty }
+          domProps: { value: _vm.product.qty },
+          on: { change: _vm.onChange }
         }),
         _vm._v(" "),
         _c("input", {
@@ -22039,17 +22093,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "remove pink-color", attrs: { href: "#" } }, [
-      _c("i", { staticClass: "fa fa-times" }),
-      _vm._v(" Remove\n        ")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -36909,7 +36953,8 @@ var state = {
   shipping_cost: 0,
   shipping_cost_format: null,
   total: 0,
-  total_format: null
+  total_format: null,
+  link_keep_shopping: null
 };
 var getters = {};
 var mutations = {
@@ -36933,6 +36978,9 @@ var mutations = {
   },
   SET_TOTAL_FORMAT: function SET_TOTAL_FORMAT(state, total) {
     state.total_format = total;
+  },
+  SET_LINK_KEEP_SHOPPING: function SET_LINK_KEEP_SHOPPING(state, link) {
+    state.link_keep_shopping = link;
   }
 };
 var actions = {
@@ -36956,11 +37004,12 @@ var actions = {
               commit("SET_SUB_TOTAL", object.sub_total);
               commit("SET_SHIPPING_COST", object.shipping_cost);
               commit("SET_TOTAL", object.total);
+              commit("SET_LINK_KEEP_SHOPPING", object.link_keep_shopping);
               commit("SET_SUB_TOTAL_FORMAT", object.sub_total_format);
               commit("SET_SHIPPING_COST_FORMAT", object.shipping_cost_format);
               commit("SET_TOTAL_FORMAT", object.total_format);
 
-            case 13:
+            case 14:
             case "end":
               return _context.stop();
           }

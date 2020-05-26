@@ -12,9 +12,6 @@
             <p v-for="(value, name) in product.options" :key="name">
                 {{ value }}
             </p>
-            <a href="#" class="remove pink-color"
-                ><i class="fa fa-times"></i> Remove
-            </a>
         </td>
         <td class="quantity">
             <div class="quantity buttons-add-minus">
@@ -25,6 +22,7 @@
                     title="Qty"
                     :value="product.qty"
                     name="cart"
+                    @change="onChange"
                 />
                 <input type="button" class="plus" value="+" @click="plus" />
             </div>
@@ -46,13 +44,18 @@ export default {
     },
     methods: {
         async minus() {
-            this.product.qty -= 1;
-            updateQty(this.product.row_id, this.product.qty);
+            const newQty = parseInt(this.product.qty) - 1;
+            await updateQty(this.product.row_id, newQty);
             this.$store.dispatch("cart/fetchCart");
         },
-        plus() {
-            this.product.qty += 1;
-            updateQty(this.product.row_id, this.product.qty);
+        async plus() {
+            const newQty = parseInt(this.product.qty) + 1;
+            await updateQty(this.product.row_id, newQty);
+            this.$store.dispatch("cart/fetchCart");
+        },
+        async onChange(event){
+            const newQty = event.target.value;
+            await updateQty(this.product.row_id, newQty);
             this.$store.dispatch("cart/fetchCart");
         }
     }
