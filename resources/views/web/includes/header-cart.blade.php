@@ -55,7 +55,7 @@
                 </tfoot>
             </table>
             <div class="chk-out">
-                <a href="check-out.html" class="btn default-btn">Thanh toán</a>
+                <a href="{{route('page.checkout')}}" class="btn default-btn">Thanh toán</a>
             </div>
         </div>
     </div>
