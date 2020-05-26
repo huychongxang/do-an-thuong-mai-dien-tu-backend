@@ -12,6 +12,7 @@ use App\Models\PaymentStatus;
 use App\Models\ProductAttributeGroup;
 use App\Models\ShippingStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -24,6 +25,7 @@ class CheckoutController extends Controller
 
     public function checkout(CheckoutRequest $request)
     {
+        DB::beginTransaction();
         try {
             // Get data
             $user = auth()->user();
@@ -65,9 +67,10 @@ class CheckoutController extends Controller
             //Remove cart
             $this->cart::destroy();
             $this->cart::store($user->id);
-
+            DB::commit();
             return ApiHelper::api_status_handle(200, []);
         } catch (\Exception $e) {
+            DB::rollBack();
             return ApiHelper::api_status_handle(500, [
                 'message' => $e->getMessage()
             ], false);
