@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-
+        return view('web.pages.product.list');
     }
 
     public function show($sku)

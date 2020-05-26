@@ -13,5 +13,8 @@ yarn-error.log
 .idea/
 public/uploads/
 public/frontend/js/app-frontend.js
+public/mix-manifest.json
+public/css/app.css
+public/admin/css/app.css
 public/web/js/app-web.js
 xcxc

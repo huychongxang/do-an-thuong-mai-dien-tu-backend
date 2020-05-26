@@ -3,9 +3,10 @@
     @include('web.includes.breadcrumbs',[
    'title1'=>null,
    'title2'=>null,
-   'title3'=>'Sản phẩm',
+   'title3'=>'Giỏ hàng',
    'parent'=>[],
-   'current'=>'Danh sách sản phẩm'
+   'current'=>'Giỏ hàng'
    ])
-    <products-component></products-component>
+
+    <cart-component></cart-component>
 @endsection
