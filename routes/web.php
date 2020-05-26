@@ -21,6 +21,8 @@ Route::group([
     Route::get('/san-pham', 'ProductController@index')->name('page.products');
     Route::get('/san-pham/{sku}', 'ProductController@show')->name('page.product');
     Route::post('/san-pham/add', 'ProductController@addToCart')->name('page.product.add');
+
+    Route::get('/gio-hang', 'ShoppingCartController@index')->name('page.cart');
 });
 
 Route::group([

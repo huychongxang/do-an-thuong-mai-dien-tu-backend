@@ -49,9 +49,9 @@
                         </p>
                     </div>
                     <div class="add-to-cart">
-                        <a class="blue-btn btn" href="#">
+                        <a class="blue-btn btn" :href="product.link" >
                             <i class="fa fa-shopping-cart white-color"></i>
-                            Add to Cart</a
+                            Xem sản phẩm</a
                         >
                     </div>
                 </div>

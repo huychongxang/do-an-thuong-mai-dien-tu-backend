@@ -20,17 +20,11 @@
                         <a class="funky-font" href="#">Hot</a>
                     </div>
                 </div>
-                <div class="product-overlay">
-                    <a
-                        href="#"
-                        class="addcart blue-background fa fa-shopping-cart"
-                    ></a>
-                </div>
             </div>
             <div class="product-content">
                 <div class="product-name">
                     <p>
-                        <a href="#">{{ product.name }}</a>
+                        <a :href="product.link">{{ product.name }}</a>
                     </p>
                 </div>
                 <div class="product-price">
