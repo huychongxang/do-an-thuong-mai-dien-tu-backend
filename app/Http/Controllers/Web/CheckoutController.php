@@ -15,6 +15,7 @@ use App\Models\ShippingStatus;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 
 class CheckoutController extends Controller
 {
@@ -80,12 +81,20 @@ class CheckoutController extends Controller
             $this->cart::destroy();
             $this->cart::store($user->id);
             DB::commit();
-            return view('web.pages.checkout.success');
+            $url = URL::temporarySignedRoute(
+                'page.success', now()->addSecond(1)
+            );
+            return redirect($url);
         } catch (\Exception $exception) {
             DB::rollBack();
             return redirect()->back();
         }
 
+    }
+
+    public function hienTrangThanhCong()
+    {
+        return view('web.pages.checkout.success');
     }
 
     private function saveOrderDetail(Order $order)
