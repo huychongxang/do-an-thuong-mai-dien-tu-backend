@@ -8,4 +8,5 @@
    'current'=>'Giỏ hàng'
    ])
 
+    <cart-component></cart-component>
 @endsection

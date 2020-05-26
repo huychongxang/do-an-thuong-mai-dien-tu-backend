@@ -10,6 +10,70 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function index()
+    {
+        try {
+            $cart = Cart::class;
+            $content = [];
+            foreach ($cart::content() as $row) {
+                $content[] = [
+                    'row_id' => $row->rowId,
+                    'product_id' => $row->id,
+                    'name' => $row->name,
+                    'qty' => $row->qty,
+                    'price' => $row->price,
+                    'price_format' => number_format($row->price) . ' VNĐ',
+                    'options' => $row->options,
+                    'sub_total' => $row->qty * $row->price,
+                    'sub_total_format' => number_format($row->qty * $row->price) . ' VNĐ',
+                    'image' => $row->model->image
+                ];
+            }
+            return ApiHelper::api_status_handle(200, [
+                'sub_total' => $cart::subtotal(),
+                'sub_total_format' => number_format($cart::subtotal()) . ' VNĐ',
+                'count' => $cart::count(),
+                'content' => $content,
+                'shipping_cost' => 20000,
+                'shipping_cost_format' => number_format(20000) . ' VNĐ',
+                'total' => $cart::subtotal() + 20000,
+                'total_format' => number_format($cart::subtotal() + 20000) . ' VNĐ'
+            ]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, [
+                'message' => $e->getMessage()
+            ], false);
+        }
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $rowId = $request->row_id;
+            $new_qty = $request->new_qty;
+            $currentRow = Cart::get($rowId);
+            if ($currentRow) {
+                $product = Product::find($currentRow->id);
+                if ($new_qty > 0) {
+                    Cart::update($rowId, [
+                        'name' => $product->name,
+                        'qty' => $new_qty,
+                        'price' => $product->getFinalPrice()
+                    ])->associate(Product::class);
+                } else {
+                    Cart::remove($rowId);
+                }
+            }
+            Cart::store(auth()->user()->id);
+            return ApiHelper::api_status_handle(200, [
+            ]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, [
+                'message' => $e->getMessage()
+            ], false);
+        }
+    }
+
     public function add(Request $request)
     {
         try {
