@@ -50,17 +50,11 @@
                                             <strong>{{ sub_total_format }}</strong>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th>Phí ship :</th>
-                                        <td>
-                                            <strong>{{ shipping_cost_format }}</strong>
-                                        </td>
-                                    </tr>
                                     <tr class="grand-total">
                                         <th>Tổng tiền :</th>
                                         <td>
                                             <strong class="pink-color">{{
-                                                total_format
+                                                sub_total_format
                                             }}</strong>
                                         </td>
                                     </tr>
