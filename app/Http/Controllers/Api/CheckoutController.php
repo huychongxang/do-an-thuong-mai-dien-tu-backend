@@ -27,6 +27,9 @@ class CheckoutController extends Controller
     {
         DB::beginTransaction();
         try {
+            if($this->cart::count() == 0){
+                throw new \Exception('Cart is Empty');
+        }
             // Get data
             $user = auth()->user();
             $payment_method = $request->payment_method;
