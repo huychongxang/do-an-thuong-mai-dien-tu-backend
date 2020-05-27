@@ -14,6 +14,8 @@ yarn-error.log
 public/uploads/
 public/frontend/js/app-frontend.js
 public/mix-manifest.json
+public/admin/js/app.js
+public/admin/js/app.js.LICENSE.txt
 public/css/app.css
 public/admin/css/app.css
 public/web/js/app-web.js
