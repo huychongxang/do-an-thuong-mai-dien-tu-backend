@@ -26,7 +26,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                        aria-haspopup="true">Tài khoản <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="my-account.html">My Account</a></li>
+                                        <li><a href="{{route('page.my-account')}}">Tài khoản của tôi</a></li>
                                         <li><a href="account-info.html"> Account Information </a></li>
                                         <li><a href="cng-pw.html">Change Password</a></li>
                                         <li><a href="address-book.html">Address Books</a></li>

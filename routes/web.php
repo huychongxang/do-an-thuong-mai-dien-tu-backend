@@ -26,6 +26,14 @@ Route::group([
     Route::get('/thanh-toan', 'CheckoutController@index')->name('page.checkout')->middleware('auth');
     Route::post('/tao-don-hang', 'CheckoutController@store')->name('page.checkout.store')->middleware(['auth', 'cart_not_null']);
     Route::get('/thanh-cong', 'CheckoutController@hienTrangThanhCong')->name('page.success')->middleware('signed');
+
+    //My Account
+    Route::group([
+        'middleware' => ['auth']
+    ], function () {
+        Route::get('/tai-khoan', 'MyAccountController@index')->name('page.my-account');
+    });
+
 });
 
 Route::group([
