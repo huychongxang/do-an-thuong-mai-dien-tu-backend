@@ -10,6 +10,12 @@ class AccountInfoController extends Controller
     public function edit()
     {
         $user = auth()->user();
-        return view('web.pages.my-account.account-info.edit',compact('user'));
+        return view('web.pages.my-account.account-info.edit', compact('user'));
+    }
+
+    public function update(Request $request)
+    {
+        $user = auth()->user()->update($request->all());
+        return redirect()->back();
     }
 }

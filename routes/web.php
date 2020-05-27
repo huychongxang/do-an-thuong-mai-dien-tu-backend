@@ -34,6 +34,7 @@ Route::group([
     ], function () {
         Route::get('/tai-khoan', 'MyAccountController@index')->name('page.my-account');
         Route::get('/thong-tin-tai-khoan', 'AccountInfoController@edit')->name('page.account-info.edit');
+        Route::put('/thong-tin-tai-khoan', 'AccountInfoController@update')->name('page.account-info.update');
     });
 
 });

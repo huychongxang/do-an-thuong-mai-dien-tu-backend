@@ -25,24 +25,30 @@
                 </div>
                 <div class="account-details-wrap">
                     <div class="account-box  light-bg default-box-shadow">
-                        <form action="#" class="form-delivery">
+                        <form method="post" action="{{route('page.account-info.update')}}" class="form-delivery">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group"><input type="text" class="form-control"
                                                                    placeholder="Tên" required=""
+                                                                   name="first_name"
                                                                    value="{{$user->first_name}}"></div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group"><input type="text" class="form-control"
                                                                    value="{{$user->last_name}}"
+                                                                   name="last_name"
                                                                    placeholder="Họ Đệm" required=""></div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="form-group"><input value="{{$user->email}}" type="email" class="form-control" placeholder="Email"
+                                    <div class="form-group"><input value="{{$user->email}}" name="email" type="email"
+                                                                   class="form-control" placeholder="Email"
                                                                    required=""></div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="form-group"><input value="{{$user->phone}}" type="text" class="form-control"
+                                    <div class="form-group"><input name="phone" value="{{$user->phone}}" type="text"
+                                                                   class="form-control"
                                                                    placeholder="SĐT" required=""></div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
