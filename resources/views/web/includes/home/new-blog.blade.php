@@ -33,7 +33,7 @@
                                                 <p>{{$post->excerpt}}</p>
                                             </div>
                                             <div class="read-more">
-                                                <a class="title-link" href="{{route('page.post',$post->slug)}}"> Xem
+                                                <a class="title-link" href="{{route('page.post.show',$post->slug)}}"> Xem
                                                     thêm <i
                                                         class="fa fa-caret-right"></i>
                                                 </a>
@@ -62,7 +62,7 @@
                                                 <p>{{$post->excerpt}}</p>
                                             </div>
                                             <div class="read-more">
-                                                <a class="title-link" href="{{route('page.post',$post->slug)}}"> Xem thêm <i
+                                                <a class="title-link" href="{{route('page.post.show',$post->slug)}}"> Xem thêm <i
                                                         class="fa fa-caret-right"></i>
                                                 </a>
                                             </div>
@@ -90,7 +90,7 @@
                                                 <p>{{$post->excerpt}}</p>
                                             </div>
                                             <div class="read-more">
-                                                <a class="title-link" href="{{route('page.post',$post->slug)}}"> Xem thêm <i
+                                                <a class="title-link" href="{{route('page.post.show',$post->slug)}}"> Xem thêm <i
                                                         class="fa fa-caret-right"></i>
                                                 </a>
                                             </div>
