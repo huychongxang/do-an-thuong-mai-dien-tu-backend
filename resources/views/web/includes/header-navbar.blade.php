@@ -95,7 +95,6 @@
                                     <li><a href="{{route('page.products')}}">Sản phẩm</a></li>
                                     <li><a href="{{route('page.post.index')}}">Tin tức</a></li>
                                     <li><a href="{{route('page.cart')}}">Giỏ hàng</a></li>
-                                    <li><a href="">Về chúng tôi</a></li>
                                 </ul>
                             </div>
                         </nav>
