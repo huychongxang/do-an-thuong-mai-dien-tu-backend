@@ -16,12 +16,15 @@ class ProductController extends Controller
         try {
             $categories = $request->categories ?? [];
             $limit = $request->limit ?? 10;
+            $search = $request->search;
 
-            $products = Product::when($categories,function($query) use ($categories){
+            $products = Product::when($categories, function ($query) use ($categories) {
                 $query->whereHas('categories', function ($q) use ($categories) {
                     $q->whereIn('category_id', $categories);
                 });
-            })->with(['promotionPrice','images'])->paginate($limit);
+            })->when($search, function ($q) use ($search) {
+                $q->where('name', 'LIKE', "%$search%")->orWhere('sku', 'LIKE', "%$search%");
+            })->with(['promotionPrice', 'images'])->paginate($limit);
 
             $resource = ListProduct::collection($products);
             return ApiHelper::api_resource_handle($resource, 200, [

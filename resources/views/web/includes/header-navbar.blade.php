@@ -54,12 +54,11 @@
 
                         <!-- Header search -->
                         <div class="header-search col-md-6  col-sm-5">
-                            <form action="#" class="search-form">
+                            <form action="{{route('page.products')}}" method="get" class="search-form">
                                 <div class="no-padding col-sm-12 search-cat">
                                     <label>
                                         <span class="screen-reader-text">Search for:</span>
-                                        <input type="search" title="Search for:" name="s" value=""
-                                               placeholder="Search for a Category, Brand or Product"
+                                        <input type="search" title="Search for:" name="search" value=""
                                                class="search-field">
                                     </label>
                                     <input type="submit" value="Search" class="search-submit">

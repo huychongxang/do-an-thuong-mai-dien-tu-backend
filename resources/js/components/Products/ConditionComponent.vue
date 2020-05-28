@@ -6,8 +6,13 @@
                 <ul id="green-scroll">
                     <li v-for="category in categories" :key="category.id">
                         <label class="checkbox-inline"
-                            ><input type="checkbox" :value="category.id" v-model="checked" />
-                            <span>{{category.name}}</span> <span>({{category.products_count}})</span></label
+                            ><input
+                                type="checkbox"
+                                :value="category.id"
+                                v-model="checked"
+                            />
+                            <span>{{ category.name }}</span>
+                            <span>({{ category.products_count }})</span></label
                         >
                     </li>
                 </ul>
@@ -22,23 +27,27 @@ export default {
     data() {
         return {
             categories: [],
-            checked:[],
+            checked: []
         };
     },
     methods: {
         async fetch() {
-            const response = await getList();
-            const object = response.data;
-            this.categories = object.data;
+            try {
+                const response = await getList();
+                const object = response.data;
+                this.categories = object.data;
+            } catch (e) {
+                this.fetch();
+            }
         }
     },
     created() {
         this.fetch();
     },
-    watch:{
-        checked(newValue, oldValue){
-            this.$store.dispatch('product/setCategories',newValue);
-            this.$store.dispatch('product/fetchProducts');
+    watch: {
+        checked(newValue, oldValue) {
+            this.$store.dispatch("product/setCategories", newValue);
+            this.$store.dispatch("product/fetchProducts");
         }
     }
 };
