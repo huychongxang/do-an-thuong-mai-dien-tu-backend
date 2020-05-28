@@ -26,15 +26,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                        aria-haspopup="true">Tài khoản <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="my-account.html">My Account</a></li>
-                                        <li><a href="account-info.html"> Account Information </a></li>
-                                        <li><a href="cng-pw.html">Change Password</a></li>
-                                        <li><a href="address-book.html">Address Books</a></li>
-                                        <li><a href="order-history.html">Order History</a></li>
-                                        <li><a href="review-rating.html">Reviews and Ratings</a></li>
-                                        <li><a href="return.html">Returns Requests</a></li>
-                                        <li><a href="newsletter.html">Newsletter</a></li>
-                                        <li><a href="myaccount-leftsidebar.html">Left Sidebar</a></li>
+                                        <li><a href="{{route('page.my-account')}}">Tài khoản của tôi</a></li>
                                         <li><a href="{{route('logout')}}">Đăng xuất</a></li>
                                     </ul>
                                 </li>
@@ -62,12 +54,11 @@
 
                         <!-- Header search -->
                         <div class="header-search col-md-6  col-sm-5">
-                            <form action="#" class="search-form">
+                            <form action="{{route('page.products')}}" method="get" class="search-form">
                                 <div class="no-padding col-sm-12 search-cat">
                                     <label>
                                         <span class="screen-reader-text">Search for:</span>
-                                        <input type="search" title="Search for:" name="s" value=""
-                                               placeholder="Search for a Category, Brand or Product"
+                                        <input type="search" title="Search for:" name="search" value=""
                                                class="search-field">
                                     </label>
                                     <input type="submit" value="Search" class="search-submit">
@@ -100,11 +91,9 @@
                             <div class="collapse navbar-collapse no-padding" id="product-menu">
                                 <ul class="nav navbar-nav">
                                     <li><a href="{{route('home')}}">Trang chủ</a></li>
-                                    <li><a href="{{route('page.list-product-category')}}">Danh mục sản phẩm</a></li>
                                     <li><a href="{{route('page.products')}}">Sản phẩm</a></li>
-                                    <li><a href="{{route('page.list-product-category')}}">Tin tức</a></li>
+                                    <li><a href="{{route('page.post.index')}}">Tin tức</a></li>
                                     <li><a href="{{route('page.cart')}}">Giỏ hàng</a></li>
-                                    <li><a href="{{route('page.list-product-category')}}">Về chúng tôi</a></li>
                                 </ul>
                             </div>
                         </nav>

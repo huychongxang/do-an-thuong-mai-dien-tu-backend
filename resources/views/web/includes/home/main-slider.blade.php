@@ -23,7 +23,8 @@
                         <hr class="dash-divider">
                     </div>
                     <div class="slider-link">
-                        <a class="blue-btn btn" href="{{route('page.posts')}}"> <i class="fa  fa-th-large"></i> Khám phá
+                        <a class="blue-btn btn" href="{{route('page.post.index')}}"> <i class="fa  fa-th-large"></i>
+                            Khám phá
                             ngay </a>
                         <a class="pink-btn btn" href="{{route('page.products')}}"> Shop Now! <i
                                 class="fa fa-caret-right"></i> </a>

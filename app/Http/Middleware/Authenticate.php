@@ -20,7 +20,7 @@ class Authenticate extends Middleware
             if (Route::is(env('ADMIN_PATH','cms') . '.*') || \Request::is(env('ADMIN_PATH','cms') . '/*')) {
                 return route(env('ADMIN_PATH','cms') . '.login');
             }
-            return route('login');
+            return route('home');
         }
     }
 }

@@ -3,7 +3,7 @@
         <span class="black-mask color-mask"></span>
         <div class="container theme-container">
             <div class="row space-top-35">
-                <aside class="col-md-3 col-sm-6">
+                <aside class="col-md-6 col-sm-6">
                     <div class="footer-widget space-bottom-35">
                         <h3 class="footer-widget-title"><i class="fa fa-phone-square blue-color"></i> Contact Us
                         </h3>
@@ -18,17 +18,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="social-icon">
-                            <ul>
-                                <li><a href="#"> <i class="fa fa-facebook-square"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-twitter-square"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-pinterest-square"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-google-plus-square"></i> </a></li>
-                            </ul>
-                        </div>
                     </div>
                 </aside>
-                <aside class="col-md-3 col-sm-6">
+                <aside class="col-md-6 col-sm-6">
                     <div class="footer-widget space-bottom-35">
                         <h3 class="footer-widget-title"><i class="fa fa-user pink-color"></i> My Account </h3>
                         <ul>
@@ -40,41 +32,6 @@
                             <li><a href="#"> <i class="fa fa-angle-right pink-color"></i> Order History</a></li>
                             <li><a href="#"> <i class="fa fa-angle-right pink-color"></i> My Credit Slip </a></li>
                         </ul>
-                    </div>
-                </aside>
-                <aside class="col-md-3 col-sm-6">
-                    <div class="footer-widget space-bottom-35">
-                        <h3 class="footer-widget-title"><i class="fa fa-cog green-color"></i> Our Services </h3>
-                        <ul>
-                            <li><a href="#"> <i class="fa fa-angle-right green-color"></i> Shipping & Return</a>
-                            </li>
-                            <li><a href="#"> <i class="fa fa-angle-right green-color"></i> International Shipping
-                                </a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right green-color"></i> Secure Shopping </a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right green-color"></i> Affiliates </a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right green-color"></i> Careers </a></li>
-                            <li><a href="#"> <i class="fa fa-angle-right green-color"></i> FAQ </a></li>
-                        </ul>
-                    </div>
-                </aside>
-                <aside class="col-md-3 col-sm-6">
-                    <div class="footer-widget space-bottom-35">
-                        <h3 class="footer-widget-title"><i class="fa fa-info-circle golden-color"></i> Information
-                        </h3>
-                        <div class="recent-post">
-                            <ul>
-                                <li><a href="#"> <i class="fa fa-angle-right golden-color"></i> About Us</a></li>
-                                <li><a href="#"> <i class="fa fa-angle-right golden-color"></i> Delivery Information
-                                    </a></li>
-                                <li><a href="#"> <i class="fa fa-angle-right golden-color"></i> Privacy & Policy
-                                    </a></li>
-                                <li><a href="#"> <i class="fa fa-angle-right golden-color"></i> Terms & Conditions
-                                    </a></li>
-                                <li><a href="#"> <i class="fa fa-angle-right golden-color"></i> Manufactures </a>
-                                </li>
-                                <li><a href="#"> <i class="fa fa-angle-right golden-color"></i> Suppliers </a></li>
-                            </ul>
-                        </div>
                     </div>
                 </aside>
             </div>
