@@ -128,9 +128,10 @@
                                     </td>
                                     <td>{{$row->sku}}</td>
                                     <td class="description">
-                                        <a href="#">{{$order->name}}</a>
-                                        <p>Color : Black</p>
-                                        <p>Size : 2-4 Year</p>
+                                        <a href="#">{{$row->name}}</a>
+                                        @foreach(json_decode($row->attribute) as $value)
+                                            <p>{{$value}}</p>
+                                        @endforeach
                                     </td>
                                     <td class="quantity">
                                         x{{$row->quantity}}
