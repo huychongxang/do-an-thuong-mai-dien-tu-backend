@@ -31,9 +31,11 @@
                             <li>
                                 <a href="{{route('page.account-info.edit')}}">Sửa thông tin tài khoản</a>
                             </li>
-                            <li>
-                                <a href="cng-pw.html">Đổi mật khẩu</a>
-                            </li>
+                            @if(auth()->user()->isNormailAccount())
+                                <li>
+                                    <a href="{{route('page.password.edit')}}">Đổi mật khẩu</a>
+                                </li>
+                            @endif
                             <li>
                                 <a href="address-book.html">Đổi địa chỉ</a>
                             </li>

@@ -59,6 +59,11 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    public function isNormailAccount()
+    {
+        return !$this->getOriginal('provider');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Relationships

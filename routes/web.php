@@ -35,6 +35,9 @@ Route::group([
         Route::get('/tai-khoan', 'MyAccountController@index')->name('page.my-account');
         Route::get('/thong-tin-tai-khoan', 'AccountInfoController@edit')->name('page.account-info.edit');
         Route::put('/thong-tin-tai-khoan', 'AccountInfoController@update')->name('page.account-info.update');
+
+        Route::get('/doi-mat-khau', 'PasswordController@edit')->name('page.password.edit');
+        Route::put('/doi-mat-khau', 'PasswordController@update')->name('page.password.update');
     });
 
 });
