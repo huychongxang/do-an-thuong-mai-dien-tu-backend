@@ -8,7 +8,7 @@
                     <li class="accout-item"><a href="{{route('page.password.edit')}}">Đổi mật khẩu</a></li>
                 @endif
                 <li class="accout-item"><a href="{{route('page.address.edit')}}">Địa chỉ</a></li>
-                <li class="accout-item"><a href="order-history.html">Lịch sử đơn hàng</a></li>
+                <li class="accout-item"><a href="{{route('page.orders-history.index')}}">Lịch sử đơn hàng</a></li>
                 <li class="accout-item"><a href="return.html">Trạng thái hoàn trả</a></li>
             </ul>
         </div>

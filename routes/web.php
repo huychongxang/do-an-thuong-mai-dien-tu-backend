@@ -42,6 +42,9 @@ Route::group([
 
         Route::get('/dia-chi', 'AddressController@edit')->name('page.address.edit');
         Route::put('/dia-chi', 'AddressController@update')->name('page.address.update');
+
+        Route::get('/lich-su-don-hang', 'OrderHistoryController@index')->name('page.orders-history.index');
+        Route::get('/lich-su-don-hang/{id}', 'OrderHistoryController@show')->name('page.orders-history.show');
     });
 
 });

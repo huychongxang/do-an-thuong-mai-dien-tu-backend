@@ -46,7 +46,7 @@
                     <div class="account-box  light-bg default-box-shadow">
                         <ul>
                             <li>
-                                <a href="order-history.html">Xem lịch sử đơn hàng</a>
+                                <a href="{{route('page.orders-history.index')}}">Xem lịch sử đơn hàng</a>
                             </li>
                             <li>
                                 <a href="return.html">Xem trạng thái hoàn trả</a>
