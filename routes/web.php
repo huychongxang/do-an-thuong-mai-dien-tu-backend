@@ -30,14 +30,18 @@ Route::group([
     //My Account
     Route::group([
         'middleware' => ['auth'],
-        'namespace' => 'MyAccount'
+        'namespace' => 'MyAccount',
+        'prefix' => 'tai-khoan'
     ], function () {
-        Route::get('/tai-khoan', 'MyAccountController@index')->name('page.my-account');
+        Route::get('/', 'MyAccountController@index')->name('page.my-account');
         Route::get('/thong-tin-tai-khoan', 'AccountInfoController@edit')->name('page.account-info.edit');
         Route::put('/thong-tin-tai-khoan', 'AccountInfoController@update')->name('page.account-info.update');
 
         Route::get('/doi-mat-khau', 'PasswordController@edit')->name('page.password.edit');
         Route::put('/doi-mat-khau', 'PasswordController@update')->name('page.password.update');
+
+        Route::get('/dia-chi', 'AddressController@edit')->name('page.address.edit');
+        Route::put('/dia-chi', 'AddressController@update')->name('page.address.update');
     });
 
 });

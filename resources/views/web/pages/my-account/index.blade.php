@@ -37,7 +37,7 @@
                                 </li>
                             @endif
                             <li>
-                                <a href="address-book.html">Đổi địa chỉ</a>
+                                <a href="{{route('page.address.edit')}}">Đổi địa chỉ</a>
                             </li>
                         </ul>
                     </div>
