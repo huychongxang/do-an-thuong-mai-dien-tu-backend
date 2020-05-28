@@ -49,15 +49,7 @@
                             <div class="col-md-6 col-sm-12 bottom-pagination text-right">
                                 <div class="inline-block">
                                     <div class="pagination-wrapper">
-                                        <ul class="pagination-list">
-                                            <li class="prev"><a href="#"> <i class="fa fa-angle-left"></i> </a></li>
-                                            <li><a href="#"> 1 </a></li>
-                                            <li><a href="#"> 2 </a></li>
-                                            <li class="active"> 3</li>
-                                            <li><a href="#"> 4 </a></li>
-                                            <li><a href="#"> 5 </a></li>
-                                            <li class="nxt"><a href="#"> <i class="fa fa-angle-right"></i> </a></li>
-                                        </ul>
+                                        {{$posts->appends(request()->only(['term','month','year']))->links('web.layouts.paginate')}}
                                     </div>
                                 </div>
                             </div>
