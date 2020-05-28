@@ -1,16 +1,14 @@
 <!-- Sidebar Start -->
 <aside class="col-md-4 col-sm-4">
     <div class="blog-sidebar-widget light-bg default-box-shadow">
-        <h4 class="widget-title pink-bg"><span>  CATEGORIES  </span></h4>
+        <h4 class="widget-title pink-bg"><span>  Danh mục  </span></h4>
         <div class="blog-widget-content">
             <ul>
-                <li class="cat-item"><a href="#">Baby Clothes</a></li>
-                <li class="cat-item"><a href="#">Kids Clothes</a></li>
-                <li class="cat-item"><a href="#">Footwear</a></li>
-                <li class="cat-item"><a href="#">Toys &amp; Books</a></li>
-                <li class="cat-item"><a href="#">Care &amp; Feeding</a></li>
-                <li class="cat-item"><a href="#">Baby Gear &amp; Nursery</a></li>
-                <li class="cat-item"><a href="#">Moms &amp; Maternity</a></li>
+                @foreach($categories as $category)
+                    <li class="cat-item"><a
+                            href="{{route('page.post.index',['category_id'=>$category->id])}}">{{$category->name}}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>
@@ -18,12 +16,11 @@
         <h4 class="widget-title golden-bg"><span> Archives </span></h4>
         <div class="blog-widget-content">
             <ul>
-                <li class="arch-item"><a href="#">June 2015 </a></li>
-                <li class="arch-item"><a href="#"> May 2015 </a></li>
-                <li class="arch-item"><a href="#"> April 2015 </a></li>
-                <li class="arch-item"><a href="#"> March 2015 </a></li>
-                <li class="arch-item"><a href="#"> February 2015 </a></li>
-                <li class="arch-item"><a href="#"> January 2015 </a></li>
+                @foreach($archives as $archive)
+                    <li class="arch-item"><a
+                            href="{{route('page.post.index',['month'=>$archive->month,'year'=>$archive->year])}}">{{$archive->month}} {{$archive->year}} </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>

@@ -37,6 +37,11 @@ class Post extends BaseModel
         return $this->admin_id == auth()->user()->id;
     }
 
+    public static function archives()
+    {
+        return static::selectRaw('count(id) post_count, YEAR(published_at) year, MONTHNAME(published_at) month')->published()->groupBy('year', 'month')->orderBy('published_at', 'desc')->get();
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Relationships
@@ -84,6 +89,9 @@ class Post extends BaseModel
         }
         if (isset($filter['year']) && $year = $filter['year']) {
             $query->whereYear('published_at', $year);
+        }
+        if (isset($filter['category_id']) && $category_id = $filter['category_id']) {
+            $query->where('category_id', $category_id);
         }
 
         if (isset($filter['term']) && $term = $filter['term']) {

@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    protected $limit = 10;
+    protected $limit = 1;
 
     public function index()
     {
         $posts = Post::with('author', 'category')
             ->published()
-            ->filter(request()->only(['term', 'month', 'year']))
+            ->filter(request()->only(['term', 'month', 'year','category_id']))
             ->paginate($this->limit);
         return view('web.pages.posts.index', compact('posts'));
     }
