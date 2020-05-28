@@ -16,6 +16,11 @@ class AccountInfoController extends Controller
     public function update(Request $request)
     {
         $user = auth()->user()->update($request->all());
+        if ($user) {
+            alert()->success('Cập nhật', 'Thành công');
+        } else {
+            alert()->error('Cập nhật', 'Thất bại!');
+        }
         return redirect()->back();
     }
 }

@@ -21,4 +21,5 @@ mix.webpackConfig({
 mix.js(['resources/js/app.js'], 'public/admin/js')
     .sass('resources/sass/app.scss', 'public/admin/css')
     .js(['resources/js/app-web.js'], 'public/web/js')
+    .sass('resources/sass/app-web.scss', 'public/web/css')
 ;

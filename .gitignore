@@ -17,3 +17,5 @@ public/mix-manifest.json
 public/css/app.css
 public/admin/css/app.css
 public/web/js/app-web.js
+public/admin/js/app.js
+public/web/css/app-web.css

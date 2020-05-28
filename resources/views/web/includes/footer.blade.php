@@ -13,6 +13,7 @@
 <script src="{{asset('web/assets/plugins/countdown/jquery.plugin.min.js')}}"></script>
 <script src="{{asset('web/assets/plugins/countdown/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('web/assets/js/theme.js')}}"></script>
+@include('sweetalert::alert')
 @stack('scripts')
 </body>
 

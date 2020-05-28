@@ -16,6 +16,11 @@ class PasswordController extends Controller
     public function update(UpdatePasswordRequest $request)
     {
         $user = auth()->user()->update($request->only('password'));
+        if ($user) {
+            alert()->success('Đổi mật khẩu', 'Thành công');
+        } else {
+            alert()->error('Đổi mật khẩu', 'Thất bại!');
+        }
         return redirect()->back();
     }
 }
