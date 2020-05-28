@@ -27,14 +27,6 @@
                                        aria-haspopup="true">Tài khoản <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{route('page.my-account')}}">Tài khoản của tôi</a></li>
-                                        <li><a href="account-info.html"> Account Information </a></li>
-                                        <li><a href="cng-pw.html">Change Password</a></li>
-                                        <li><a href="address-book.html">Address Books</a></li>
-                                        <li><a href="order-history.html">Order History</a></li>
-                                        <li><a href="review-rating.html">Reviews and Ratings</a></li>
-                                        <li><a href="return.html">Returns Requests</a></li>
-                                        <li><a href="newsletter.html">Newsletter</a></li>
-                                        <li><a href="myaccount-leftsidebar.html">Left Sidebar</a></li>
                                         <li><a href="{{route('logout')}}">Đăng xuất</a></li>
                                     </ul>
                                 </li>

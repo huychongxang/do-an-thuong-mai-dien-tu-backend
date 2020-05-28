@@ -9,7 +9,6 @@
                 @endif
                 <li class="accout-item"><a href="{{route('page.address.edit')}}">Địa chỉ</a></li>
                 <li class="accout-item"><a href="{{route('page.orders-history.index')}}">Lịch sử đơn hàng</a></li>
-                <li class="accout-item"><a href="return.html">Trạng thái hoàn trả</a></li>
             </ul>
         </div>
     </div>

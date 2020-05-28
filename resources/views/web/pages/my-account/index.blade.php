@@ -48,9 +48,6 @@
                             <li>
                                 <a href="{{route('page.orders-history.index')}}">Xem lịch sử đơn hàng</a>
                             </li>
-                            <li>
-                                <a href="return.html">Xem trạng thái hoàn trả</a>
-                            </li>
                         </ul>
                     </div>
 
