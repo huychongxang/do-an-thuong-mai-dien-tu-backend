@@ -92,11 +92,10 @@
                             <div class="collapse navbar-collapse no-padding" id="product-menu">
                                 <ul class="nav navbar-nav">
                                     <li><a href="{{route('home')}}">Trang chủ</a></li>
-                                    <li><a href="{{route('page.list-product-category')}}">Danh mục sản phẩm</a></li>
                                     <li><a href="{{route('page.products')}}">Sản phẩm</a></li>
-                                    <li><a href="{{route('page.list-product-category')}}">Tin tức</a></li>
+                                    <li><a href="">Tin tức</a></li>
                                     <li><a href="{{route('page.cart')}}">Giỏ hàng</a></li>
-                                    <li><a href="{{route('page.list-product-category')}}">Về chúng tôi</a></li>
+                                    <li><a href="">Về chúng tôi</a></li>
                                 </ul>
                             </div>
                         </nav>
