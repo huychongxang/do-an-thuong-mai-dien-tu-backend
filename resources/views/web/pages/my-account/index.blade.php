@@ -29,7 +29,7 @@
                     <div class="account-box  light-bg default-box-shadow">
                         <ul>
                             <li>
-                                <a href="account-info.html">Sửa thông tin tài khoản</a>
+                                <a href="{{route('page.account-info.edit')}}">Sửa thông tin tài khoản</a>
                             </li>
                             <li>
                                 <a href="cng-pw.html">Đổi mật khẩu</a>
