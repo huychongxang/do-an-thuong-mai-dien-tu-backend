@@ -22,7 +22,8 @@
                                     <img src="{{$post->image}}" alt="...">
                                 </div>
                                 <div class="blog-content">
-                                    <a class="post-title" href="blog-single.html">{{$post->title}}</a>
+                                    <a class="post-title"
+                                       href="{{route('page.post.show',$post->slug)}}">{{$post->title}}</a>
                                     <ul class="post-meta">
                                         <li><span class="fa fa-user green-color"></span> <a
                                                 href="#">{{$post->author->name}}</a></li>
@@ -35,7 +36,7 @@
                                         <p>{{$post->excerpt}}</p>
                                     </div>
                                     <div class="read-more">
-                                        <a href="#" class="blue-btn btn"> Xem thêm <i class="fa fa-caret-right"></i>
+                                        <a href="{{route('page.post.show',$post->slug)}}" class="blue-btn btn"> Xem thêm <i class="fa fa-caret-right"></i>
                                         </a>
                                     </div>
                                 </div>

@@ -14,13 +14,14 @@ class PostController extends Controller
     {
         $posts = Post::with('author', 'category')
             ->published()
-            ->filter(request()->only(['term', 'month', 'year','category_id']))
+            ->filter(request()->only(['term', 'month', 'year', 'category_id']))
             ->paginate($this->limit);
         return view('web.pages.posts.index', compact('posts'));
     }
 
     public function show(Request $request, $slug)
     {
-
+        $post = Post::where('slug', $slug)->first();
+        return view('web.pages.posts.show', compact('post'));
     }
 }

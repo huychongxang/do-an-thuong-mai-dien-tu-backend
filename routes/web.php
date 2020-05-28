@@ -50,6 +50,7 @@ Route::group([
         'prefix' => 'tin-tuc'
     ], function () {
         Route::get('/', 'PostController@index')->name('page.post.index');
+        Route::get('/{slug}', 'PostController@show')->name('page.post.show');
     });
 
 });
