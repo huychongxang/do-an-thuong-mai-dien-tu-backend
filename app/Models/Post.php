@@ -77,6 +77,29 @@ class Post extends BaseModel
         return $query->whereNull("published_at");
     }
 
+    public function scopeFilter($query, $filter)
+    {
+        if (isset($filter['month']) && $month = $filter['month']) {
+            $query->whereMonth('published_at', Carbon::parse($month)->month);
+        }
+        if (isset($filter['year']) && $year = $filter['year']) {
+            $query->whereYear('published_at', $year);
+        }
+
+        if (isset($filter['term']) && $term = $filter['term']) {
+            $query->where(function ($q) use ($term) {
+                $q->whereHas('author', function ($qr) use ($term) {
+                    $qr->where('name', 'LIKE', "%{$term}%");
+                });
+                $q->orWhereHas('category', function ($qr) use ($term) {
+                    $qr->where('title', 'LIKE', "%{$term}%");
+                });
+                $q->orWhere('title', 'LIKE', "%{$term}%");
+                $q->orWhere('excerpt', 'LIKE', "%{$term}%");
+            });
+        }
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Accessor

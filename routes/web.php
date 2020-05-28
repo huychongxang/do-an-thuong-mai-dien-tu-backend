@@ -46,6 +46,12 @@ Route::group([
         Route::get('/lich-su-don-hang/{id}', 'OrderHistoryController@show')->name('page.orders-history.show');
     });
 
+    Route::group([
+        'prefix' => 'tin-tuc'
+    ], function () {
+        Route::get('/', 'PostController@index')->name('page.post.index');
+    });
+
 });
 
 Route::group([
