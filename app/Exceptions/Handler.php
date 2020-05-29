@@ -54,6 +54,16 @@ class Handler extends ExceptionHandler
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
             return response()->view('web.pages.404');
         }
+
+        if ($request->acceptsJson() && $exception instanceof \Illuminate\Validation\ValidationException) {
+            return response()->json([
+                'code' => 422,
+                'success' => false,
+                'status' => "Fail",
+                'message' => array_values($exception->errors())[0],
+                'data' => $exception->errors()
+            ], 422);
+        }
         return parent::render($request, $exception);
     }
 }
