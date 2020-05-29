@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
             return response()->view('web.pages.404');
         }
 
-        if ($request->acceptsJson() && $exception instanceof \Illuminate\Validation\ValidationException) {
+        if ($request->wantsJson() && $exception instanceof \Illuminate\Validation\ValidationException) {
             return response()->json([
                 'code' => 422,
                 'success' => false,
