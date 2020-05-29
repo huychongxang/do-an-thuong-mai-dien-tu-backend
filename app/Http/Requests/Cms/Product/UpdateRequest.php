@@ -24,8 +24,8 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:products,name,' . $this->route('product'),
-            'sku' => 'required|unique:products,sku,' . $this->route('product'),
+            'name' => 'required',
+            'sku' => 'required | unique:products,sku,' . $this->route('product'),
         ];
     }
 }
