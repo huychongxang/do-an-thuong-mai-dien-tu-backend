@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    protected $limit = 1;
+    protected $limit = 10;
 
     public function index()
     {
