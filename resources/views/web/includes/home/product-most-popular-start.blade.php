@@ -65,10 +65,6 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <div class="product-overlay">
-                                                        <a data-id="{{$product->id}}" class="addcart blue-background fa fa-shopping-cart"
-                                                           href="#"></a>
-                                                    </div>
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="product-name">
@@ -133,10 +129,6 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <div class="product-overlay">
-                                                        <a data-id="{{$product->id}}" class="addcart blue-background fa fa-shopping-cart"
-                                                           href="#"></a>
-                                                    </div>
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="product-name">
@@ -201,10 +193,6 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <div class="product-overlay">
-                                                        <a data-id="{{$product->id}}" class="addcart blue-background fa fa-shopping-cart"
-                                                           href="#"></a>
-                                                    </div>
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="product-name">
