@@ -28,23 +28,29 @@ class ProductController extends Controller
 
         $relatedProducts = Product::whereHas('categories', function ($q) use ($categoryIds) {
             $q->whereIn('category_id', $categoryIds);
-        })->with('categories')->where('id','!=',$product->id)->get();
+        })->with('categories')->where('id', '!=', $product->id)->get();
         return view('web.pages.product.single-product', compact('product', 'relatedProducts'));
     }
 
     public function addToCart(Request $request)
     {
-        $product = Product::find($request->product_id);
-        $qty = $request->qty;
-        $options = $request->options;
-        Cart::add([
-            'id' => $product->id,
-            'name' => $product->name,
-            'qty' => $qty,
-            'price' => $product->getFinalPrice(),
-            'options' => $options,
-        ])->associate(Product::class);
-        Cart::store(auth()->user()->id);
-        return redirect()->back();
+        try {
+            $product = Product::find($request->product_id);
+            $qty = $request->qty;
+            $options = $request->options;
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
+                'qty' => $qty,
+                'price' => $product->getFinalPrice(),
+                'options' => $options,
+            ])->associate(Product::class);
+            Cart::store(auth()->user()->id);
+            alert()->success('Thêm giỏ hàng', 'Thành công');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            alert()->error('Thêm giỏ hàng', 'Thất bại!');
+            return redirect()->back();
+        }
     }
 }
