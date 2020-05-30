@@ -79,9 +79,19 @@ class AuthController extends Controller
             $user = User::create([
                 'email' => $getInfo->email,
                 'provider' => $provider,
-                'provider_id' => $getInfo->id
+                'provider_id' => $getInfo->id,
+                'first_name' => $getInfo->getName(),
+                'last_name' => $getInfo->getNickname(),
+                'image' => $getInfo->getAvatar()
+            ]);
+        } else {
+            $user->update([
+                'image' => $getInfo->getAvatar(),
+                'first_name' => $getInfo->getName(),
+                'last_name' => $getInfo->getNickname(),
             ]);
         }
+
         return $user;
     }
 }
