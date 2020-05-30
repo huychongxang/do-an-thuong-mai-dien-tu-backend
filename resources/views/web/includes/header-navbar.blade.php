@@ -24,7 +24,14 @@
                             @auth
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-haspopup="true">Tài khoản <span class="caret"></span></a>
+                                       aria-haspopup="true">
+                                        @if(auth()->user()->image)
+                                            <img style="max-width: 50px" src="{{auth()->user()->image}}"/>
+                                        @else
+                                            {{auth()->user()->email}}
+                                        @endif
+                                        <span
+                                            class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{route('page.my-account')}}">Tài khoản của tôi</a></li>
                                         <li><a href="{{route('logout')}}">Đăng xuất</a></li>
