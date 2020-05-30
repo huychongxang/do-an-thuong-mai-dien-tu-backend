@@ -15,7 +15,7 @@ class AccountInfoController extends Controller
 
     public function update(Request $request)
     {
-        $user = auth()->user()->update($request->all());
+        $user = auth()->user()->update($request->except(['email']));
         if ($user) {
             alert()->success('Cập nhật', 'Thành công');
         } else {

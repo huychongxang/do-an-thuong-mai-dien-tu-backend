@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group"><input value="{{$user->email}}" name="email" type="email"
-                                                                   class="form-control" placeholder="Email"
+                                                                   class="form-control" placeholder="Email" readonly
                                                                    required=""></div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
