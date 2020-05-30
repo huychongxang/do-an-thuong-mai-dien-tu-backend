@@ -163,7 +163,7 @@
                                                     </h2>
                                                 </div>
                                                 <div class="product-disc space-bottom-35">
-                                                    {!! $product->body !!}
+                                                    {!! $product->content !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -237,7 +237,8 @@
                                                                 </div>
                                                             @endif
                                                             <div class="product-overlay">
-                                                                <a data-id="{{$product->id}}" class="addcart blue-background fa fa-shopping-cart"
+                                                                <a data-id="{{$product->id}}"
+                                                                   class="addcart blue-background fa fa-shopping-cart"
                                                                    href="#"></a>
                                                             </div>
                                                         </div>
