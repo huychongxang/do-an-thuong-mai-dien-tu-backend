@@ -67,14 +67,8 @@ class AuthController extends Controller
     public function callback($provider)
     {
         $getInfo = Socialite::driver($provider)->user();
-        $user = $this->createUser($getInfo, $provider);
-        auth()->login($user);
-        return redirect()->route('home');
-    }
-
-    function createUser($getInfo, $provider)
-    {
-        $user = User::where('provider_id', $getInfo->id)->first();
+        $email = $getInfo->getEmail();
+        $user = User::where('email', $email)->first();
         if (!$user) {
             $user = User::create([
                 'email' => $getInfo->email,
@@ -85,13 +79,20 @@ class AuthController extends Controller
                 'image' => $getInfo->getAvatar()
             ]);
         } else {
-            $user->update([
-                'image' => $getInfo->getAvatar(),
-                'first_name' => $getInfo->getName(),
-                'last_name' => $getInfo->getNickname(),
-            ]);
+            if ($user->provider_id == $getInfo->id) {
+                $user->update([
+                    'image' => $getInfo->getAvatar(),
+                    'first_name' => $getInfo->getName(),
+                    'last_name' => $getInfo->getNickname(),
+                ]);
+            } else {
+                return redirect()->route('home')->withErrors([
+                    'email' => 'Email đã tồn tại, tạo tài khoản thất bại'
+                ]);
+            }
         }
 
-        return $user;
+        auth()->login($user);
+        return redirect()->route('home');
     }
 }
