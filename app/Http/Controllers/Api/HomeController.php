@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\Product\ListProduct;
 use App\Http\Resources\Api\ProductCategory\ProductCategoryHomePage;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -34,12 +35,14 @@ class HomeController extends Controller
     private function getFeaturedProducts()
     {
         $products = Product::active()->featured()->take(10)->get();
-        return $products;
+        $resource= ListProduct::collection($products);
+        return $resource;
     }
 
     private function getSellingProducts()
     {
         $products = Product::active()->orderBy('sold', 'DESC')->take(10)->get();
-        return $products;
+        $resource= ListProduct::collection($products);
+        return $resource;
     }
 }
