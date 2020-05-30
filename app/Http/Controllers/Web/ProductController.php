@@ -18,6 +18,7 @@ class ProductController extends Controller
     public function show($sku)
     {
         $product = Product::where('sku', $sku)->first();
+        $product->increment('view');
         $product->load(['attributeGroups.attributeDetails' => function ($q) use ($product) {
             $q->where('product_id', $product->id);
         }]);

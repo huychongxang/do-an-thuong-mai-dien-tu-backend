@@ -34,6 +34,7 @@ class ProductController extends Controller
             $product = Product::with(['attributeGroups.attributeDetails' => function ($q) use ($id) {
                 $q->where('product_id',$id);
             }])->where('id', $id)->first();
+            $product->increment('view');
             $resource = SingleProduct::make($product);
             return ApiHelper::api_resource_handle($resource, 200, [
                 'success' => true
