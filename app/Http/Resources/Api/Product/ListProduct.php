@@ -9,17 +9,20 @@ class ListProduct extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function toArray($request)
     {
         return [
-            'id'=>$this->id,
+            'id' => $this->id,
             'name' => $this->name,
+            'sku' => $this->sku,
+            'sort' => $this->sort,
+            'type' => $this->getType(),
             'image' => $this->image,
             'price' => $this->price,
-            'promotion_price' => $this->promotionPrice->price_promotion ?? null
+            'promotion_price' => $this->promotionPrice->price_promotion ?? null,
         ];
     }
 }
