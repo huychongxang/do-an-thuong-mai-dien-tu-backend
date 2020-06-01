@@ -1,7 +1,7 @@
 <div class="modal fade login-register" id="login-register" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span
-                    aria-hidden="true">&times;</span></button>
+                aria-hidden="true">&times;</span></button>
 
         <div class="modal-content light-bg">
             <div class="col-sm-8">
@@ -47,9 +47,9 @@
                         </div>
                         <div class="form-group">
                             <label class="chk-box"><input type="checkbox" name="remember">Ghi nhớ tôi</label>
-                            <label class="forgot-pwd">
-                                <a href="#" class="blue-color title-link">Quên mật khẩu?</a>
-                            </label>
+                            {{--                            <label class="forgot-pwd">--}}
+                            {{--                                <a href="#" class="blue-color title-link">Quên mật khẩu?</a>--}}
+                            {{--                            </label>--}}
                         </div>
                         <div class="form-group">
                             <button type="submit" class="blue-btn btn">Đăng nhập</button>
@@ -57,10 +57,11 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <a href="{{route('login_third','facebook')}}" class="btn btn-primary"><i
-                                            class="fa fa-facebook"></i> Facebook</a>
+                                        class="fa fa-facebook"></i> Facebook</a>
                             </div>
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{route('login_third','google')}}" class="btn btn-danger"><i class="fa fa-google"></i> Google</a>
+                                <a href="{{route('login_third','google')}}" class="btn btn-danger"><i
+                                        class="fa fa-google"></i> Google</a>
                             </div>
                         </div>
                     </form>
