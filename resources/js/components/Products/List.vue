@@ -3,36 +3,7 @@
         <!-- Product Category Start -->
         <section id="product-category" class="space-bottom-45">
             <div class="light-bg margin-30 sorter">
-                <div class="col-md-6 col-sm-12">
-                    <div class="row">
-                        <div class="view-as col-md-5 col-sm-4">
-                            <span>View as:</span>
-                            <div class="inline-block">
-                                <ul class="nav-tabs tabination">
-                                    <li>
-                                        <a
-                                            data-toggle="tab"
-                                            href="#grid-view"
-                                            aria-expanded="true"
-                                        >
-                                            <i class="fa fa-th-large"></i>
-                                        </a>
-                                    </li>
-                                    <li class="active">
-                                        <a
-                                            data-toggle="tab"
-                                            href="#list-view"
-                                            aria-expanded="false"
-                                        >
-                                            <i class="fa fa-th-list"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-12 col-sm-12">
                     <div class="row">
                         <div
                             class="show-as col-md-4 col-sm-4 no-padding text-right"
@@ -120,15 +91,6 @@
                 </div>
             </div>
             <div class="tab-content">
-                <div id="grid-view" class="tab-pane fade" role="tabpanel">
-                    <div class="row">
-                        <Single1
-                            v-for="product in products"
-                            :key="product.id"
-                            :product="product"
-                        ></Single1>
-                    </div>
-                </div>
                 <div
                     id="list-view"
                     class="tab-pane fade  active in"
@@ -158,7 +120,6 @@ export default {
         };
     },
     components: {
-        Single1,
         Single2,
         FooterPaginate
     },

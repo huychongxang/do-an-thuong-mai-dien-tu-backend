@@ -26,7 +26,7 @@
             <div class="col-md-8">
                 <div class="product-content">
                     <div class="product-name">
-                        <a href="#">{{ product.name }}</a>
+                        <a :href="product.link">{{ product.name }}</a>
                     </div>
                     <div class="product-price">
                         <template v-if="product.promotion_price">
