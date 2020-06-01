@@ -11,11 +11,7 @@
     <!-- Product Most Popular Start -->
     @include('web.includes.home.product-most-popular-start')
     <!-- / Product Most Popular Ends -->
-
-    <!-- Newsletter Start -->
-    @include('web.includes.home.newsletter-form')
-    <!-- / Newsletter Ends -->
-
+    
     <!-- Blog Start -->
     @include('web.includes.home.new-blog')
     <!-- / Blog Ends -->
