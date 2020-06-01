@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Views\Composers\Admin\SideBarAndNavBarComposer;
 use App\Views\Composers\Web\CartHeaderComposer;
+use App\Views\Composers\Web\FooterComposer;
 use App\Views\Composers\Web\NewBlogComposer;
 use App\Views\Composers\Web\PostsSideBarComposer;
 use App\Views\Composers\Web\ProductsComposer;
@@ -34,5 +35,6 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer(['web.includes.header-cart'], CartHeaderComposer::class);
 
         view()->composer(['web.pages.posts.sidebar'], PostsSideBarComposer::class);
+        view()->composer(['web.includes.footer-block'], FooterComposer::class);
     }
 }

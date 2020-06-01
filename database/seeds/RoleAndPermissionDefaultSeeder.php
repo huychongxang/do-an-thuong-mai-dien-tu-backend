@@ -305,8 +305,21 @@ class RoleAndPermissionDefaultSeeder extends Seeder
             ],
         ];
 
+        $setting = [
+            [
+                'name' => 'view menu setting',
+                'label' => 'Xem menu setting',
+                'group' => 'Setting',
+            ],
+            [
+                'name' => 'sua setting',
+                'label' => 'Sửa setting',
+                'group' => 'Setting',
+            ],
+        ];
+
         $permissions = array_merge($product, $categoryProduct, $productAttribute, $order, $orderStatus, $paymentStatus, $shippingStatus, $user, $post, $postCategory,
-            $code, $admin, $role);
+            $code, $admin, $role, $setting);
         foreach ($permissions as $permission) {
             $permission['guard_name'] = 'admin';
             \Spatie\Permission\Models\Permission::firstOrCreate([

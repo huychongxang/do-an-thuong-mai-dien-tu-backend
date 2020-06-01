@@ -85,4 +85,8 @@ final class ACL
     const PERMISSION_CREATE_ROLE = 'them nhom quyen';
     const PERMISSION_EDIT_ROLE = 'sua nhom quyen';
     const PERMISSION_DELETE_ROLE = 'xoa nhom quyen';
+
+    //Setting
+    const PERMISSION_VIEW_MENU_SETTING = 'view menu setting';
+    const PERMISSION_EDIT_SETTING = 'sua setting';
 }

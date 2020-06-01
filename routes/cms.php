@@ -51,4 +51,6 @@ Route::group([
 
     Route::resource('admins', 'AdminController');
     Route::resource('roles', 'RoleController');
+
+    Route::resource('settings', 'SettingController');
 });
