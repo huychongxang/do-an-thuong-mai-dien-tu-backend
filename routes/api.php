@@ -25,8 +25,10 @@ Route::group([
     Route::post('login/google', 'AuthController@loginGoogle');
 
     // Product
+    Route::get('products/search', 'ProductController@search');
     Route::get('products/{id}', 'ProductController@getById');
     Route::get('/products/by-category-id/{id}', 'ProductController@getProductsByCategoryId')->name('by_category_id');
+
 
     // Category
     Route::get('categories', 'CategoryController@index');

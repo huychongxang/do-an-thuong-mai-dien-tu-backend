@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Product\SearchProductRequest;
 use App\Http\Resources\Api\Product\ListProduct;
 use App\Http\Resources\Api\Product\SingleProduct;
 use App\Models\Product;
@@ -43,5 +44,21 @@ class ProductController extends Controller
             return ApiHelper::api_status_handle(500, ['message' => $e->getMessage()], false);
         }
 
+    }
+
+    public function search(SearchProductRequest $request)
+    {
+        try {
+            $search = $request->search;
+            $products = Product::when($search, function ($q) use ($search) {
+                $q->where('name', 'LIKE', "%$search%")->orWhere('sku', 'LIKE', "%$search%");
+            })->with(['promotionPrice'])->paginate($this->limit);
+            $resource = ListProduct::collection($products);
+            return ApiHelper::api_resource_handle($resource, 200, [
+                'success' => true
+            ]);
+        } catch (\Exception $e) {
+            return ApiHelper::api_status_handle(500, [], false);
+        }
     }
 }
