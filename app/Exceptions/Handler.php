@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class Handler extends ExceptionHandler
@@ -56,6 +57,8 @@ class Handler extends ExceptionHandler
         }
 
         if ($request->wantsJson() && $exception instanceof \Illuminate\Validation\ValidationException) {
+            Log::info($request->all());
+            Log::error($exception->getMessage());
             return response()->json([
                 'code' => 422,
                 'success' => false,
