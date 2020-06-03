@@ -100,6 +100,7 @@ class CartController extends Controller
 
     public function add(AddCartRequest $request)
     {
+        return $request->all();
         try {
             $id = $request->product_id;
             $qty = $request->qty ?: 1;
