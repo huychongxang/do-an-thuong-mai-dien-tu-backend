@@ -8,6 +8,7 @@ use App\Http\Requests\Api\Cart\AddCartRequest;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {
@@ -117,6 +118,7 @@ class CartController extends Controller
             return ApiHelper::api_status_handle(200, [
             ]);
         } catch (\Exception $e) {
+            Log::error($e->getMessage());
             return ApiHelper::api_status_handle(500, [
                 'message' => $e->getMessage()
             ], false);
