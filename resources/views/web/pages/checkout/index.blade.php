@@ -106,41 +106,71 @@
                         <form action="#" class="form-delivery">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group"><input name="first_name" class="form-control" type="text"
-                                                                   placeholder="Tên" value="{{$user->first_name}}">
+                                    <div class="form-group {{ $errors->has('first_name') ? 'has-error' : '' }}"><input
+                                            name="first_name" class="form-control" type="text"
+                                            placeholder="Tên" value="{{$user->first_name}}">
+                                        @if($errors->has('first_name'))
+                                            <span class="help-block">{{$errors->first('first_name')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group"><input name="last_name" class="form-control" type="text" placeholder="Họ đệm"
-                                                                   value="{{$user->last_name}}">
+                                    <div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}"><input
+                                            name="last_name" class="form-control" type="text"
+                                            placeholder="Họ đệm"
+                                            value="{{$user->last_name}}">
+                                        @if($errors->has('last_name'))
+                                            <span class="help-block">{{$errors->first('last_name')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group"><input name="address1" class="form-control" type="text"
-                                                                   placeholder="Tỉnh/Thành"
-                                                                   value="{{$user->address1}}">
+                                    <div class="form-group {{ $errors->has('address1') ? 'has-error' : '' }}"><input
+                                            name="address1" class="form-control" type="text"
+                                            placeholder="Tỉnh/Thành"
+                                            value="{{$user->address1}}">
+                                        @if($errors->has('address1'))
+                                            <span class="help-block">{{$errors->first('address1')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group"><input name="address2" class="form-control" type="text"
-                                                                   placeholder="Quận/Huyện"
-                                                                   value="{{$user->address2}}">
+                                    <div class="form-group {{ $errors->has('address2') ? 'has-error' : '' }}"><input
+                                            name="address2" class="form-control" type="text"
+                                            placeholder="Quận/Huyện"
+                                            value="{{$user->address2}}">
+                                        @if($errors->has('address2'))
+                                            <span class="help-block">{{$errors->first('address2')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group"><input name="email" class="form-control" type="email" placeholder="Email"
-                                                                   value="{{$user->email}}">
+                                    <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}"><input
+                                            name="email" class="form-control" type="email"
+                                            placeholder="Email"
+                                            value="{{$user->email}}">
+                                        @if($errors->has('email'))
+                                            <span class="help-block">{{$errors->first('email')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group"><input name="phone" class="form-control" type="text"
-                                                                   placeholder="Điện thoại" value="{{$user->phone}}">
+                                    <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}"><input
+                                            name="phone" class="form-control" type="text"
+                                            placeholder="Điện thoại" value="{{$user->phone}}">
+                                        @if($errors->has('phone'))
+                                            <span class="help-block">{{$errors->first('phone')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-group"><textarea class="form-control"
-                                                                      placeholder="Ghi chú" name="comment"
-                                                                      cols="30" rows="10"></textarea></div>
+                                    <div class="form-group {{ $errors->has('comment') ? 'has-error' : '' }}"><textarea
+                                            class="form-control"
+                                            placeholder="Ghi chú" name="comment"
+                                            cols="30" rows="10"></textarea></div>
+                                    @if($errors->has('comment'))
+                                        <span class="help-block">{{$errors->first('comment')}}</span>
+                                    @endif
                                 </div>
                             </div>
                         </form>

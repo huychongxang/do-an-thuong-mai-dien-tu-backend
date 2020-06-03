@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Web\Checkout\CheckoutRequest;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\OrderStatus;
@@ -36,7 +37,7 @@ class CheckoutController extends Controller
         return view('web.pages.checkout.index', compact('user', 'shippingCost', 'total_format', 'paymentMethods', 'shippingMethods'));
     }
 
-    public function store(Request $request)
+    public function store(CheckoutRequest $request)
     {
         try {
             DB::beginTransaction();
