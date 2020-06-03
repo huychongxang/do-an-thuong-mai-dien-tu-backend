@@ -104,7 +104,7 @@ class CartController extends Controller
             $id = $request->product_id;
             $qty = $request->qty ?: 1;
             $product = Product::find($id);
-            $options = json_decode($request->options);
+            $options = json_decode($request->options, true);
 
             Cart::add([
                 'id' => $product->id,
