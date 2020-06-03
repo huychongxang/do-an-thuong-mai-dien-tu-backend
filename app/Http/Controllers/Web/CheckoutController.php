@@ -87,6 +87,7 @@ class CheckoutController extends Controller
             return redirect($url);
         } catch (\Exception $exception) {
             DB::rollBack();
+            alert()->error($exception->getMessage(), 'Thất bại');
             return redirect()->back();
         }
 
