@@ -64,6 +64,6 @@ export default {
 
 <style scoped>
 img {
-    max-width: 60px;
+    max-width: 60px !important;
 }
 </style>
