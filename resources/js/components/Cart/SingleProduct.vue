@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-.image {
-    max-width: 100px;
+img {
+    max-width: 60px;
 }
 </style>
