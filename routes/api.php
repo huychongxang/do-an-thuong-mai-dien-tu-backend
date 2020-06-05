@@ -29,6 +29,8 @@ Route::group([
     Route::get('products/{id}', 'ProductController@getById');
     Route::get('/products/by-category-id/{id}', 'ProductController@getProductsByCategoryId')->name('by_category_id');
 
+    // Product Category
+    Route::get('product-categories', 'ProductCategoryController@index');
 
     // Category
     Route::get('categories', 'CategoryController@index');
