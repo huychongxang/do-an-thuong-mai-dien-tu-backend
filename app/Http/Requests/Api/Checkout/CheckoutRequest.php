@@ -26,6 +26,9 @@ class CheckoutRequest extends FormRequest
         return [
             'payment_method' => 'required|exists:payment_methods|numeric',
             'shipping_method' => 'required|exists:shipping_methods|numeric',
+            'address1'=>'required',
+            'address2'=>'required',
+            'phone'=>'required',
         ];
     }
 }
