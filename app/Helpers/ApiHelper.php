@@ -12,12 +12,15 @@ class ApiHelper
 {
     public static function api_status_handle($code, $data, $success = true)
     {
+        $message = (isset($data['message'])) ?? null;
         $data = [
             'code' => $code,
             'success' => $success,
             'status' => static::status_code($code),
+            'message' => $message,
             'data' => $data
         ];
+
 
         return response()->json($data, $code);
     }
