@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function list(Request $request)
     {
         try {
-            $user = auth()->user();
+            $user = auth('api')->user();
             $orders = $user->orders;
             $resource = OrdersResource::collection($orders);
             return ApiHelper::api_resource_handle($resource, 200, [
