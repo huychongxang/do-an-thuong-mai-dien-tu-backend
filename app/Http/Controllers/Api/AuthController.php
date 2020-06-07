@@ -81,8 +81,6 @@ class AuthController extends Controller
             } else {
                 $user->update([
                     'email' => $email,
-                    'first_name' => $first_name,
-                    'last_name' => $last_name
                 ]);
             }
 

@@ -87,8 +87,6 @@ class AuthController extends Controller
             $user->update([
                 'email' => $getInfo->getEmail(),
                 'image' => $getInfo->getAvatar(),
-                'first_name' => $getInfo->getName(),
-                'last_name' => $getInfo->getNickname(),
             ]);
         }
 
