@@ -24,8 +24,8 @@ class CheckoutRequest extends FormRequest
     public function rules()
     {
         return [
-            'payment_method' => 'required|exists:payment_methods|numeric',
-            'shipping_method' => 'required|exists:shipping_methods|numeric',
+            'first_name'=>'required',
+            'last_name'=>'required',
             'address1'=>'required',
             'address2'=>'required',
             'phone'=>'required',

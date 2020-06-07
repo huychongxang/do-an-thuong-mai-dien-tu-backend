@@ -8,8 +8,10 @@ use App\Http\Requests\Api\Checkout\CheckoutRequest;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\OrderStatus;
+use App\Models\PaymentMethod;
 use App\Models\PaymentStatus;
 use App\Models\ProductAttributeGroup;
+use App\Models\ShippingMethod;
 use App\Models\ShippingStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,13 +29,13 @@ class CheckoutController extends Controller
     {
         DB::beginTransaction();
         try {
-            if($this->cart::count() == 0){
+            if ($this->cart::count() == 0) {
                 throw new \Exception('Cart is Empty');
-        }
+            }
             // Get data
             $user = auth()->user();
-            $payment_method = $request->payment_method;
-            $shipping_method = $request->shipping_method;
+            $payment_method = $request->payment_method ?? $this->getIdCodPaymentMethod();
+            $shipping_method = $request->shipping_method ?? $this->getIdStandardShippingMethod();
             $address1 = $request->address1 ?? $user->address1;
             $address2 = $request->address2 ?? $user->address2;
             $phone = $request->phone ?? $user->phone;
@@ -117,5 +119,16 @@ class CheckoutController extends Controller
     private function getIdNewOrderStatus()
     {
         return OrderStatus::where('name', 'new')->select('id')->first()->id;
+    }
+
+
+    private function getIdCodPaymentMethod()
+    {
+        return PaymentMethod::where('name', 'cod')->select('id')->first()->id;
+    }
+
+    private function getIdStandardShippingMethod()
+    {
+        return ShippingMethod::where('name', 'standard')->select('id')->first()->id;
     }
 }
