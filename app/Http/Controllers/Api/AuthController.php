@@ -65,9 +65,9 @@ class AuthController extends Controller
             $first_name = $request->first_name;
             $last_name = $request->last_name;
 
-            $user = User::where('provider_id', $facebook_id)->where('provider', 'facebook')->first();
+            $user = User::where('provider_id', $facebook_id)->first();
             if (!$user) {
-                $existEmail = User::where('email', $email);
+                $existEmail = User::where('email', $email)->first();
                 if ($existEmail) {
                     throw new \Exception('Email exist');
                 }
@@ -78,11 +78,13 @@ class AuthController extends Controller
                     'first_name' => $first_name,
                     'last_name' => $last_name,
                 ]);
+            } else {
+                $user->update([
+                    'email' => $email,
+                    'first_name' => $first_name,
+                    'last_name' => $last_name
+                ]);
             }
-            $user->update([
-                'first_name' => $first_name,
-                'last_name' => $last_name,
-            ]);
 
 
             $token = JWTAuth::fromUser($user);
@@ -91,7 +93,7 @@ class AuthController extends Controller
                 'token' => $token
             ]);
         } catch (\Exception $e) {
-            return ApiHelper::api_status_handle($e->getCode(), [
+            return ApiHelper::api_status_handle(500, [
                 'message' => $e->getMessage()
             ], false);
         }
@@ -104,10 +106,9 @@ class AuthController extends Controller
             $email = $request->email;
             $first_name = $request->first_name;
             $last_name = $request->last_name;
-
-            $user = User::where('provider_id', $google_id)->where('provider', 'google')->first();
+            $user = User::where('provider_id', $google_id)->first();
             if (!$user) {
-                $existEmail = User::where('email', $email);
+                $existEmail = User::where('email', $email)->first();
                 if ($existEmail) {
                     throw new \Exception('Email exist');
                 }
@@ -118,13 +119,13 @@ class AuthController extends Controller
                     'first_name' => $first_name,
                     'last_name' => $last_name,
                 ]);
+            } else {
+                $user->update([
+                    'email' => $email,
+                    'first_name' => $first_name,
+                    'last_name' => $last_name
+                ]);
             }
-            $user->update([
-                'first_name' => $first_name,
-                'last_name' => $last_name,
-            ]);
-
-
             $token = JWTAuth::fromUser($user);
 
             return ApiHelper::api_status_handle(200, [
