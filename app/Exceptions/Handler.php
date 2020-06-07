@@ -56,15 +56,28 @@ class Handler extends ExceptionHandler
             return response()->view('web.pages.404');
         }
 
-        if ($request->wantsJson() && $exception instanceof \Illuminate\Validation\ValidationException) {
+        if ($request->wantsJson()) {
             Log::info($request->all());
             Log::error($exception->getMessage());
+
+            if ($exception instanceof \Illuminate\Validation\ValidationException) {
+                $message = array_values($exception->errors())[0];
+                if(gettype($message) == 'array'){
+                    $message = $message[0];
+                }
+                return response()->json([
+                    'code' => 422,
+                    'success' => false,
+                    'status' => "Fail",
+                    'message' => $message,
+                    'data' => $exception->errors()
+                ], 422);
+            }
             return response()->json([
                 'code' => 422,
                 'success' => false,
                 'status' => "Fail",
-                'message' => array_values($exception->errors())[0],
-                'data' => $exception->errors()
+                'message' => $exception->getMessage(),
             ], 422);
         }
         return parent::render($request, $exception);

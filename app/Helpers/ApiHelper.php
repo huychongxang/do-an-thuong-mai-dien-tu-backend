@@ -12,7 +12,7 @@ class ApiHelper
 {
     public static function api_status_handle($code, $data, $success = true)
     {
-        $message = (isset($data['message'])) ?? null;
+        $message = ($data['message']) ?? null;
         $data = [
             'code' => $code,
             'success' => $success,
