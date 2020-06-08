@@ -15,6 +15,7 @@ class PostController extends Controller
         $posts = Post::with('author', 'category')
             ->published()
             ->filter(request()->only(['term', 'month', 'year', 'category_id']))
+            ->latest()
             ->paginate($this->limit);
         return view('web.pages.posts.index', compact('posts'));
     }
