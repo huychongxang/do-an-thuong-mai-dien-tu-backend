@@ -118,6 +118,8 @@ class CheckoutController extends Controller
                 'attribute' => json_encode($newOptions)
             ]);
 
+            //UpdateStock
+            $row->model->updateStock($row->id, $row->qty);
         }
         $order->details()->saveMany($orderDetails);
     }

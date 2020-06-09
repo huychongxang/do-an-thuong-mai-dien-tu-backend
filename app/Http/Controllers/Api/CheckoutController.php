@@ -101,6 +101,8 @@ class CheckoutController extends Controller
                 'total_price' => $row->qty * $row->price,
                 'attribute' => json_encode($newOptions)
             ]);
+            //UpdateStock
+            $row->model->updateStock($row->id, $row->qty);
 
         }
         $order->details()->saveMany($orderDetails);
