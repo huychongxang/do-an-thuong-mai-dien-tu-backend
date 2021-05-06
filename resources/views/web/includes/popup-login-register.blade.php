@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <button type="submit" class="blue-btn btn">Đăng nhập</button>
                         </div>
-                        <div class="form-group row mb-0">
+                        {{-- <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <a href="{{route('login_third','facebook')}}" class="btn btn-primary"><i
                                         class="fa fa-facebook"></i> Facebook</a>
@@ -63,7 +63,7 @@
                                 <a href="{{route('login_third','google')}}" class="btn btn-danger"><i
                                         class="fa fa-google"></i> Google</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
             </div>
